@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="../../../resources/css/payment.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="../../../resources/js/jquery-3.6.0.min.js"></script>
+        
+
+    <section id="tSection">
+        <div id="title">영화예매</div><br>
+        <span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
+            <div id="info"><img src="../../../resources/image/tagbox.png" id="tagbox">
+                <span id="step"> 영화 &gt; 좌석 &gt; 결제 3단계로 이루어져 있습니다.</span>
+            </div>
+            <hr id="hr">
+                <div id="tagtitle1"><img src="../../../resources/image/tag_gray.png" id="tag"> 영화예매</div>
+                <div id="tagtitle2"><img src="../../../resources/image/tag_gray.png" id="tag"> 좌석선택</div>
+                <div id="tagtitle3"><img src="../../../resources/image/tag.png" id="tag"> 결제</div>
+                    <div id="bottom">
+                        <div id="tagdiv1"></div>
+                        <div id="tagdiv2"></div>
+                        <div id="tagdiv3"></div>
+                    </div>
+
+                <div id="subtitle"><img src="../../../resources/image/tag.png" id="tag"> 할인 정보</div>
+            <br>
+                <span id="infospan"><img src="../../../resources/image/mark.png" id="mark"> 포인트 사용시 결제금액에서 할인 됩니다.</span>
+            <br>
+            <hr id="hr">
+
+
+            <!-- JavaScript 사용할 것 !!!@@@@@@@@-->
+
+        <div id="saletag">
+            <table class="tbl_edit01">
+                    <colgroup>
+                        <col width="90px"/>
+                        <col width="*"   />
+                    </colgroup>
+                <tbody>
+                    <tr>
+                        <th> 포인트 </th>
+                            <td>
+                                사용가능 포인트 : <span name="left_pnt"></span>10000 p <span> <input type="checkbox" id="chk_use" onclick="chkPoint(65000,7210,5000,100)"> 포인트 전부 사용</span>
+                            </td>
+                    </tr>
+                <tr>
+                    <td></td>
+                        <td>
+                            <span>
+                                <input type="image" src="../../../resources/image/sigma_ico.png" 
+                                align="absmiddle" id="sigma"><input type="number" name="use_pnt" id="" min="<%=min%>" max="<%=amt%>" onchange="changePoint()"></span> p 
+                            <span id="left_pnt"> ( 남은포인트 : </span><span name="left_pnt" id=""></span>p )
+                        </td>
+                </tr>
+                </tbody>
+            </table>
+
+                <div id="subtitle"><img src="../../../resources/image/tag.png" id="tag"> 결제 금액</div>
+            </div>
+
+            <hr id="hr">
+
+        <div id="paymenttag">    
+            <div>티켓 수량 : <span id="ticket"> 11 </span></div>
+            <div>할인 가격 : <span> </span></div>
+            <div>최종 결제 금액 : <span id="payment"> &#8361; 500,000</span></div>
+        </div>
+
+
+        <div id="btn">
+            <button type="submit" class="btn1" onclick="">결제완료</button>
+            <button type="submit" class="btn2" onclick="">취소</button>
+        </div>
+    </section>
+</body>
+</html>
