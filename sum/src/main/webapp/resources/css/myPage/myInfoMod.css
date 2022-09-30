@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/* ============= 본문 =============*/
+
+div.section {
+    padding: 200px;
+    padding-top: 0px;
+    padding-bottom: 150px;
+}
+
+.hr1 {
+    margin-bottom: 50px;
+}
+
+/* 네비바 */
+
+.nav_ul {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    float: left;
+}
+
+.nav_ul li {
+    width: 13%;
+    float: left;
+    list-style: none;
+    margin-left: 3.75%;
+    text-align: center;  
+}
+
+.nav_ul :nth-child(1)  {
+    margin-left: 0px;
+}
+
+.nav_ul li a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.nav_ul li a:hover {
+    background-color: #EAEAEA;
+}
+
+/* 내용 */
+.content{
+    margin-top: 80px;
+    text-align: center;
+}
+
+.pwd{
+    width: 250px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+
+button{
+    background:#000000;
+    color:#F1DB61;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size: 18px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+button:hover{
+    background: #000000;
+    color:#F1DB61;
+}
+
+button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:3px;
+    width:0;
+    background: #F1DB61;
+    transition:400ms ease all;
+}
+
+button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+
+button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+
+/* 페이지바 */
+
+
+.page_wrap {
+	text-align:center;
+	font-size:0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.page_nation {
+	display:inline-block;
+}
+.page_nation .none {
+	display:none;
+}
+.page_nation a {
+	display:block;
+	margin:0 3px;
+	float:left;
+	border:1px solid #e6e6e6;
+	width:28px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	background-color:#fff;
+	font-size:13px;
+	color:#999999;
+	text-decoration:none;
+}
+.page_nation .arrow {
+	border:1px solid #ccc;
+}
+.page_nation .pprev {
+	background:#f8f8f8 url('img/page_pprev.png') no-repeat center center;
+	margin-left:0;
+}
+.page_nation .prev {
+	background:#f8f8f8 url('img/page_prev.png') no-repeat center center;
+	margin-right:7px;
+}
+.page_nation .next {
+	background:#f8f8f8 url('img/page_next.png') no-repeat center center;
+	margin-left:7px;
+}
+.page_nation .nnext {
+	background:#f8f8f8 url('img/page_nnext.png') no-repeat center center;
+	margin-right:0;
+}
+.page_nation a.active {
+	background-color:#42454c;
+	color:#fff;
+	border:1px solid #42454c;
+}
