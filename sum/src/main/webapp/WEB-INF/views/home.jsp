@@ -83,7 +83,7 @@
                                     <div class="rank">1</div>
                                 </div>
                                 <div class="infor">
-                                    <h3><span class="icon all ir_pm">전체</span> <strong>공조</strong></h3>
+                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
                                     <div class="movie_info">
                                         <span>예매율 0.0%</span>
                                         <span>관람평점 0.0</span>
@@ -98,7 +98,7 @@
                                     <div class="rank">2</div>
                                 </div>
                                 <div class="infor">
-                                    <h3><span class="icon a12 ir_pm">12세</span> <strong>공조</strong></h3>
+                                    <h3><span class="icon gr_12">12</span> <strong>공조</strong></h3>
                                     <div class="movie_info">
                                         <span>예매율 0.0%</span>
                                         <span>관람평점 0.0</span>
@@ -113,7 +113,7 @@
                                     <div class="rank">3</div>
                                 </div>
                                 <div class="infor">
-                                    <h3><span class="icon a15 ir_pm">15세</span> <strong>공조</strong></h3>
+                                    <h3><span class="icon gr_15">15</span> <strong>공조</strong></h3>
                                     <div class="movie_info">
                                         <span>예매율 0.0%</span>
                                         <span>관람평점 0.0</span>
@@ -128,7 +128,7 @@
                                     <div class="rank">4</div>
                                 </div>
                                 <div class="infor">
-                                    <h3><span class="icon a19 ir_pm">19세</span> <strong>공조</strong></h3>
+                                    <h3><span class="icon gr_18">청불</span> <strong>공조</strong></h3>
                                     <div class="movie_info">
                                         <span>예매율 0.0%</span>
                                         <span>관람평점 0.0</span>
