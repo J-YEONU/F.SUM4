@@ -151,14 +151,27 @@ div.section {
 .movie_chart > div > div .poster .rank {position: absolute; top: 17px; left: 0; width: 50px; height: 50px; line-height: 50px; text-align: center; font-size: 70px; color: #fff;}
 .movie_chart > div > div .infor {background: #fff; padding: 17px; border: 1px solid #d9d9d9;}
 .movie_chart > div > div .infor h3 {color: #333; font-size: 30px; font-weight: 700; margin-bottom: 20px;}
-.movie_chart > div > div .infor h3 span {width: 29px; height: 29px; display: inline-block; margin-top: 9px; vertical-align: -2px;}
-.movie_chart > div > div .infor h3 span.all {background-position: -87px -125px;}
-.movie_chart > div > div .infor h3 span.a12 {background-position: -58px -125px;}
-.movie_chart > div > div .infor h3 span.a15 {background-position: 0px -125px;}
-.movie_chart > div > div .infor h3 span.a19 {background-position: -29px -125px;}
-.movie {
-    padding-bottom: 0;
-}
+.movie {padding-bottom: 0;}
+
+/* 영화등급 ========== */
+/* icon */
+.icon {display:inline-block; width:29px;height:29px;line-height:25px; font-size:0;text-align:center;vertical-align:middle; margin-top: -9px;}
+.icon:before {margin-left:-1px; font-size:13px; font-weight:bold; color:#FFF; white-space:nowrap;}
+.icon.gr_non	 {background-color:#777777;}
+.icon.gr_all	 {background-color:#5BC77E;}
+.icon.gr_12		 {background-color:#4DD6FF;}
+.icon.gr_15		 {background-color:#FFC134;}
+.icon.gr_18		 {background-color:#ED4C6B;}
+.icon.gr_all_eng	 {background-color:#5BC77E;}
+.icon.gr_18_eng		 {background-color:#ED4C6B;}
+.icon.gr_non:before	 {content:"미정"; font-size:11px;}
+.icon.gr_all:before	 {content:"전체"; font-size:11px;}
+.icon.gr_12:before	 {content:"12"; font-family:"Roboto";}
+.icon.gr_15:before	 {content:"15"; font-family:"Roboto";}
+.icon.gr_18:before	 {content:"청불"; font-size:11px;}
+.icon.gr_all_eng:before	 {content:"ALL"; font-size:11px;}
+.icon.gr_18_eng:before	 {content:"19";}
+
 
 /* 이벤트 */
 .event {overflow: hidden; padding: 100px 0;}
