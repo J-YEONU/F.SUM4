@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
 #tSection {width: 1200px; margin: auto;}
-#title {font-weight:bold;font-size:32px;}
+#title {font-weight:bold;font-size:32px; margin-top: 50px;}
 #infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold;}
 #info {font-size: 16px; text-align: right; font-weight: bold;}
 #step {text-align: right; color: rgb(127, 127, 127);}
@@ -76,7 +76,7 @@ nav {
 .movie_chart {height: 550px; text-align: center; margin-top: 20px;}
 .movie_chart > div > div > div{float: left; width: 270px; height: 550px; margin-right: 18px;}
 .movie_chart > div > div > div .poster {position: relative;}
-.movie_chart > div > div > div .poster img {display: block; width: 270px; height: 385px;}
+.movie_chart > div > div > div .poster img {width: 270px; height: 385px;}
 
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
 #calendar {width: 20px;}
