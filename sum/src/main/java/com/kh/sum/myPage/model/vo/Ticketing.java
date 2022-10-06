@@ -9,20 +9,23 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MyQnA {
+public class Ticketing {
 	private int no;
 	
-	private String title;
+	private String movieTitle;
 	
-	private String content;
+	private String cinemaName;
 	
+	private Date showDate;
+
+	private Date ticketDate;
+
+	private int memberNo;
+
+	private int showNo;
+		
 	private char status;
 	
-	private int memberNo;
-	
-	private char answerStatus;
-	
-	private Date createDate;
 	
 
 }
