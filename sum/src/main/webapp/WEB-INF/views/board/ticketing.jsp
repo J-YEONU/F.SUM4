@@ -8,12 +8,12 @@
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="${ path }/resources/css/ticketing.css">
+<link rel="stylesheet" href="${ path }/resources/css/ticketing/ticketing.css">
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 <section id="tSection">
-	<div id="title">영화예매</div><br>
+	<div id="title">영화예매</div>
         <span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
             <div id="info"><img src="${ path }/resources/image/tagbox.png" id="tagbox">
                 <span id="step"> 영화 &gt; 좌석 &gt; 결제 3단계로 이루어져 있습니다.</span>
@@ -27,52 +27,17 @@
                     </div>
             
 	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화선택</div>
+	
+	<!-- 영화 목록 css 수정 예정 -->
 		<div class="movie_chart">
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="poster">
-							<img src="${ path }/resources/post/9_10/Collaboration 2_ International.jpg" alt="공조 2 : 인터내셔날">
-						</div>
-							<div class="infor">
-								<h3>공조2 : 인터내셔날</h3>
-							</div>
-					</div>
-					<div class="swiper-slide">
-					    <div class="poster">
-				            <img src="${ path }/resources/post/9_10/Honest Candidate 2.jpg" alt="정직한 후보 2">
-					    </div>
-							<div class="infor">
-							    <h3>정직한 후보2</h3>
-							</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="poster">
-					        <img src="${ path }/resources/post/9_10/bullet train.jpg" alt="불릿 트레인">
-						</div>
-							<div class="infor">
-							    <h3>불릿 트레인</h3>
-							</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="poster">
-							<img src="${ path }/resources/post/9_10/645.jpg" alt="육사오">
-						</div>
-							<div class="infor">
-					   			 <h3>육사오</h3>
-							</div>
-					</div>
-    			 </div>
-    		</div>
+
 		</div>
             
 	<div id="choice"><p>선택하신 영화 : </p></div>
             
 <!-- cinema choice -->
 	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화관 선택</div>
-	<br>
-	<span id="infospan"><img src="${ path }/resources/image/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span>
-	<br><br>
+	<div id="infospan"><span><img src="${ path }/resources/image/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
     
     <nav>
 		<ul id="navi">
@@ -110,7 +75,7 @@
 		</ul>
 	</nav>
             
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 상영날짜</div><br>
+	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 상영날짜</div>
 		<span id="infospan"><img src="${ path }/resources/image/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
 			<div id="date"><img src="${ path }/resources/image/calendar_icon.png" id="calendar"> DATE
 				<form style="display: inline-block;">
@@ -118,20 +83,22 @@
 				</form>
 			</div>
 	
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 시간 선택</div><br>
-		<span id="infospan"><img src="${ path }/resources/image/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span>
-	<br><br><br>
+	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 시간 선택</div>
+		<div id="infospan"><span><img src="${ path }/resources/image/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
+	
     
 <!-- <div id="choicetz">
     <span>영화관명</span>
 </div> -->
             
 	<div id="choice"><p>선택하신 시간 : </p></div>
-		<button type="submit" id="btn" onclick="location.href='${ path }/board/seat'">
-			<p id="p1">NEXT STEP</p>
-			<p id="p2">-------------------------------<span id="p3">> </span></p>
-			<em id="p4">chosee a seat</em>
-		</button>
+		<div id="btn">
+			<button type="submit" class="btn" onclick="location.href='${ path }/board/seat'">
+				<p id="p1">NEXT STEP</p>
+				<p id="p2">-------------------------------<span id="p3">> </span></p>
+				<em id="p2">chosee a seat</em>
+			</button>
+		</div>
 </section>
 
 	<!-- 달력에 현재 일자 스크립트 -->

@@ -8,12 +8,12 @@
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="${ path }/resources/css/payment.css">
+<link rel="stylesheet" href="${ path }/resources/css/ticketing/payment.css">
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 <section id="tSection">
-	<div id="title">영화예매</div><br>
+	<div id="title">영화예매</div>
 		<span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
 			<div id="info"><img src="${ path }/resources/image/tagbox.png" id="tagbox">
 				<span id="step"> 영화 &gt; 좌석 &gt; 결제 3단계로 이루어져 있습니다.</span>
@@ -29,9 +29,7 @@
 		</div>
 
 	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 할인 정보</div>
-	<br>
 	<span id="infospan"><img src="${ path }/resources/image/mark.png" id="mark"> 포인트 사용시 결제금액에서 할인 됩니다.</span>
-	<br>
 	<hr id="hr">
 
 	<!-- JavaScript 사용할 것 !!!@@@@@@@@-->
@@ -47,15 +45,15 @@
 				<td>
 					사용가능 포인트 :
 					<span name="left_pnt"></span>10000 p <span>
-						<input type="checkbox" id="chk_use" onclick="chkPoint(65000,7210,5000,100)"> 포인트 전부 사용</span>
+						<input type="checkbox" id="chk_use" onclick=""> 포인트 전부 사용</span>
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
 					<span>
-						<input type="image" src="../../../resources/image/sigma_ico.png" 
-							align="absmiddle" id="sigma"><input type="number" name="use_pnt" id="" min="<%=min%>" max="<%=amt%>" onchange="changePoint()"></span> p 
+						<input type="image" src="${ path }/resources/image/sigma_ico.png" 
+							align="absmiddle" id="sigma"><input type="number" name="use_pnt" id="" min="" max="" onchange="changePoint()"></span> p 
 						<span id="left_pnt"> ( 남은포인트 : </span><span name="left_pnt" id=""></span>p )
 				</td>
 			</tr>
@@ -74,9 +72,19 @@
 	</div>
 
 	<div id="btn">
-		<button type="submit" class="btn1" onclick="">결제완료</button>
-		<button type="submit" class="btn2" onclick="">취소</button>
+		<button type="submit" class="btn1" onclick="">결제</button>
+		<button type="submit" class="btn2">취소</button>
 	</div>
 </section>
+
+<script>
+	$(document).ready(() => {
+		$(".btn2").on("click", () => {
+			if(confirm("이전 단계로 돌아가시겠습니까?")) {
+				location.replace("${ path }/board/seat");
+			}
+		});
+	});
+</script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
