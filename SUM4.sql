@@ -33,6 +33,7 @@ DROP SEQUENCE SEQ_TICKETING_NO;
 --------------------------------------------------
 ----------------- MEMBER 테이블 ------------------
 -- 20220906. ROLL 컬럼 추가, 몇몇 컬럼 NOT NULL 삭제 // MEMBER_DATE 컬럼(생년월일?) 필요한지 확인 부탁드려요.
+-- 영화 예매 연령제한이 있으니까 필요하지 않을까요?
 
 CREATE TABLE MEMBER (
 	MEMBER_NO NUMBER NOT NULL,
