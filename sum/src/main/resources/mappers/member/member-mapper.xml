@@ -2,7 +2,91 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.kh.sum.member.model.mapper.MemberMapper">
+	<sql id="selectMemberSql">
+		SELECT
+			MEMBER_NO,
+			MEMBER_ID,
+			MEMBER_PWD,
+			ROLE,
+			MEMBER_NAME,
+			MEMBER_EMAIL,
+			MEMBER_PHONE,
+			MEMBER_GENRE,
+			MEMBER_POINT,
+			ENROLL_DATE,
+			STATUS 
+		FROM MEMBER
+	</sql>
+	<resultMap type="Member" id="memberResultMap">
+		<id property="no" column="MEMBER_NO" />
+		<result property="id" column="MEMBER_ID"/>
+		<result property="password" column="MEMBER_PWD"/>
+		<result property="role" column="ROLE"/>
+		<result property="name" column="MEMBER_NAME"/>
+		<result property="email" column="MEMBER_EMAIL"/>
+		<result property="phone" column="MEMBER_PHONE"/>
+		<result property="genre" column="MEMBER_GENRE"/>
+		<result property="point" column="MEMBER_POINT"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+	
 	<select id="selectCount" resultType="_int">
-		SELECT COUNT(*) FROM MEMBER
+		SELECT COUNT (*) FROM MEMBER
 	</select>
+	
+	<select id="selectAll" resultMap="memberResultMap">	
+		<include refid="selectMemberSql"/>
+		WHERE STATUS='Y'
+	</select>
+
+	<select id="selectMemberById" parameterType="string" resultMap="memberResultMap">
+		<include refid="selectMemberSql"/> 
+		WHERE MEMBER_ID = #{id} AND STATUS='Y'
+	</select>
+	
+		<insert id="insertMember" parameterType="Member"
+			useGeneratedKeys="true" keyColumn="MEMBER_NO" keyProperty="no">
+		INSERT INTO MEMBER (
+			MEMBER_NO,
+			MEMBER_ID,
+			MEMBER_PWD,
+			ROLE,
+			MEMBER_NAME,
+			MEMBER_EMAIL,
+			MEMBER_PHONE,
+			MEMBER_GENRE,
+			MEMBER_POINT,
+			ENROLL_DATE,
+			STATUS 	
+		) VALUES (
+			SEQ_MEMBER_NO.NEXTVAL,
+			#{id},
+			#{password},
+			DEFAULT,
+			#{name},
+			#{email},
+			#{phone},
+			#{genre},
+			DEFAULT,
+			DEFAULT,
+			DEFAULT
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+	UPDATE MEMBER
+	SET
+		MEMBER_NAME = #{name},
+		MEMBER_PHONE = #{phone},
+		MEMBER_EMAIL = #{email},
+		MEMBER_PHONE = #{phone},
+		MEMBER_GENRE = #{genre} 
+	WHERE MEMBER_NO = #{no}
+	</update>
+	
+	<delete id="deleteMember" parameterType="_int">
+		DELETE FROM MEMBER WHERE MEMBER_NO = #{no}
+	</delete>
+	
 </mapper>

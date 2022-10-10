@@ -18,7 +18,7 @@
     <header>
         <div class="header_div">
             <div class="logo_div">
-                <a class="logo" href="#">
+                <a class="logo" href="${ path }/">
                     <img src="${ path }/resources/image/sum_logo.png" height="50px" alt="SUM 로고">
                 </a>
             </div>
@@ -34,8 +34,8 @@
             </ul>
 
             <ul class="ul2">
-                <li><a href="#">LOGIN</a></li>
-                <li><a href="#">JOING</a></li>
+                <li><a href="${ path }/member/login">LOGIN</a></li>
+                <li><a href="${ path }/member/enroll">JOIN</a></li>
             </ul>
         </div>
     </header>

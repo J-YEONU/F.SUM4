@@ -9,14 +9,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="${ path }/resources/css/member/enroll.css">
 <meta charset="UTF-8">
 <title>SUM 회원가입</title>
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<div class="ci">
-		<a href="https://www.naver.com/">
-			<img width="200px" src="../파이널/이미지/the-sum-of.png">
+		<a href="${ path }/">
+			<img width="200px" src="${ path }/resources/image/member/the-sum-of11.png">
 		</a>
 	</div>
 	<h1>회원 가입</h1>
@@ -82,7 +83,7 @@
                 <tr>
 					<th>생년월일</th>
 					<td>
-						<input type="date" name="birth" id="userbirth" required>				
+						<input type="date" name="birth" id="userbirth">				
 					</td> 			
                 </tr>
 				<tr>
@@ -115,7 +116,7 @@
                 </tr>
                 <tr>
 					<td colspan="2">
-						<table id="favorite" >
+						<table id="favorite">
 							<tr>
 								<th colspan="4">좋아하는 장르를 선택해 주세요.</th>
 							</tr>

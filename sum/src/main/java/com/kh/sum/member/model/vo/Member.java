@@ -20,8 +20,6 @@ public class Member {
 	
 	private String name;
 	
-	private Date birthDay;
-	
 	private String email;
 	
 	private String phone;
