@@ -33,16 +33,15 @@ DROP SEQUENCE SEQ_TICKETING_NO;
 --------------------------------------------------
 ----------------- MEMBER 테이블 ------------------
 -- 20220906. ROLL 컬럼 추가, 몇몇 컬럼 NOT NULL 삭제 // MEMBER_DATE 컬럼(생년월일?) 필요한지 확인 부탁드려요.
--- 영화 예매 연령제한이 있으니까 필요하지 않을까요?
--- 20221011_정연우 생일(타입, 조건),포인트(디폴트 값) 수정
+-- 영화 예매 연령제한이 있으니까 필요하지 않을까요? 라고 생각했는데 생년월일이 이상하게 넘어와서 일단 뺍니다.
+-- 20221011_정연우 생일(타입, 조건) 수정,포인트(디폴트 값) 수정, 생년월일 삭제
 
 CREATE TABLE MEMBER (
 	MEMBER_NO NUMBER NOT NULL,
 	MEMBER_ID VARCHAR2(20) NOT NULL UNIQUE,
 	MEMBER_PWD VARCHAR2(24) NOT NULL,
-    ROLE VARCHAR2(10) DEFAULT 'ROLE_USER',
+    	ROLE VARCHAR2(10) DEFAULT 'ROLE_USER',
 	MEMBER_NAME VARCHAR2(20) NOT NULL,
-	MEMBER_DATE DATE NOT NULL,
 	MEMBER_EMAIL VARCHAR2(50) UNIQUE,
 	MEMBER_PHONE VARCHAR2(13) UNIQUE,
 	MEMBER_GENRE VARCHAR2(50),
@@ -56,7 +55,6 @@ COMMENT ON COLUMN MEMBER.MEMBER_ID IS '회원아이디';
 COMMENT ON COLUMN MEMBER.MEMBER_PWD IS '회원비밀번호';
 COMMENT ON COLUMN MEMBER.ROLE IS '회원타입';
 COMMENT ON COLUMN MEMBER.MEMBER_NAME IS '회원이름';
-COMMENT ON COLUMN MEMBER.MEMBER_DATE IS '회원생년월일';
 COMMENT ON COLUMN MEMBER.MEMBER_EMAIL IS '이메일';
 COMMENT ON COLUMN MEMBER.MEMBER_PHONE IS '전화번호';
 COMMENT ON COLUMN MEMBER.MEMBER_GENRE IS '선호장르(추천)';
@@ -74,7 +72,6 @@ INSERT INTO MEMBER (
     MEMBER_PWD, 
     ROLE,
     MEMBER_NAME,
-    MEMBER_DATE,
     MEMBER_EMAIL,
     MEMBER_PHONE, 
     MEMBER_GENRE, 
@@ -87,7 +84,6 @@ INSERT INTO MEMBER (
     '123', 
     'ROLE_ADMIN', 
     '관리자', 
-    NULL,
     'admin@4sum.or.kr', 
     '010-1234-5678', 
     NULL,
