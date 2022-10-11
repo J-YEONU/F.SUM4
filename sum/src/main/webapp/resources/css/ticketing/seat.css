@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+#tSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#title {font-weight:bold;font-size:32px; margin-bottom: 15px;}
+#infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold;}
+#info {font-size: 16px; text-align: right; font-weight: bold;}
+#step {text-align: right; color: rgb(127, 127, 127);}
+#tagbox {height: 10px;}
+#mark {width: 15px;}
+#hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
+
+#tag {height: 15px;}
+#tagtitle1 {display: inline-block; font-weight:bold;font-size:18px; margin-top: 50px; color: rgb(224, 224, 224);}
+#tagtitle2 {display: inline-block; font-weight:bold;font-size:18px; margin-top: 50px; margin-left: 285px;}
+#tagdiv1 {display: inline-block; width: 396px; height: 5px; background-color: rgb(224, 224, 224);}
+#tagdiv2 {display: inline-block; width: 396px; height: 5px; background-color: rgb(244, 217, 91);}
+#tagdiv3 {display: inline-block; width: 396px; height: 5px; background-color: rgb(224, 224, 224);}
+
+
+#subtitle {font-weight: bold; font-size: 24px;margin-top: 70px;}
+#bottom {margin-bottom: 90px; line-height: 1px}
+
+#seatinfo {text-align: center;}
+#seatinfo>div {display: inline-block; margin: auto; font-size: 18px; margin-left: 15px;}
+#seatinfo>div>img {height: 17px; margin-right: 5px;}
+
+
+#btn {width: 100%; text-align: center; }
+.btn {
+    margin: auto; margin-top: 20px; height: 65px;
+    background-color: white;
+    border: none; border-radius: 5px; line-height: 1px;
+    cursor: pointer;
+}
+
+.btn:hover{background-color: rgb(63, 55, 59);}
+#p1 {color: red; font-weight: bold;}
+#p2 {color: gray;}
+#p3 {color: red;}
