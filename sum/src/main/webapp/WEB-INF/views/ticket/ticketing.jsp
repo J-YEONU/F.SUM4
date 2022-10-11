@@ -93,7 +93,7 @@
             
 	<div id="choice"><p>선택하신 시간 : </p></div>
 		<div id="btn">
-			<button type="submit" class="btn" onclick="location.href='${ path }/board/seat'">
+			<button type="submit" class="btn" onclick="location.href='${ path }/ticket/seat'">
 				<p id="p1">NEXT STEP</p>
 				<p id="p2">-------------------------------<span id="p3">> </span></p>
 				<em id="p2">chosee a seat</em>

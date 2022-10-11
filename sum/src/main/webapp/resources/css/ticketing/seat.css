@@ -21,6 +21,18 @@
 #subtitle {font-weight: bold; font-size: 24px;margin-top: 70px;}
 #bottom {margin-bottom: 90px; line-height: 1px}
 
+
+#screen {text-align: center; margin-bottom: 15px;}
+.check {
+  accent-color: rgb(244, 217, 91);
+}
+
+
+#choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
+        border-radius: 4px;}
+#choice > p {margin-left: 20px;}
+
+#seat{margin-bottom: 20px;}
 #seatinfo {text-align: center;}
 #seatinfo>div {display: inline-block; margin: auto; font-size: 18px; margin-left: 15px;}
 #seatinfo>div>img {height: 17px; margin-right: 5px;}
