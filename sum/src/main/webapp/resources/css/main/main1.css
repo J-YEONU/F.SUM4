@@ -1,11 +1,6 @@
 @charset "utf-8";
 
 /* ============= 전체 =============*/
-#wrap {
-    min-width: 1050px;
-    position: relative;
-}
-
 html,
 body {
     margin: 0;
@@ -32,10 +27,6 @@ ul {
     padding-left: 0px;
 }
 
-/* 레이아웃 */
-#mNav {display: none; position: absolute; top: 10px; right: 14px;}
-#header {width: 100%; border-bottom: 1px solid #c6c6c6;}
-#banner {position: relative;}
 
 /* 가운데 영역 */
 .container {
@@ -48,77 +39,7 @@ ul {
 /* 로우 영역 */
 .row {padding: 0 28px;}
 
-/* ============= 헤더 =============*/
-
-header {
-    width: 100%;
-    background-color: black;
-}
-
-.header_div {
-    height: 70px;
-    display: flex;
-    align-items: center;
-}
-
-
-
-.logo_div {
-    margin-left: 200px;
-    text-align: center;
-}
-
-.ul1 {
-    width: 970px;
-    padding-left: 150px;
-    margin: 0px;
-}
-
-.ul1 >li {
-    font-weight: bold;
-    list-style: none;
-    float: left;
-    margin-left: 50px;
-}
-
-.ul1 > li > a {
-    color: #999;
-    text-decoration: none;
-}
-
-.ul1 > li > a:hover {
-    color: white;
-}
-
-.ul2 {
-    width: 400px;
-    /* padding-right: 150px; */
-    margin: 0px;
-}
-
-.ul2 >li {
-    color: #F1DB61;
-    font-weight: bold;
-    list-style: none;
-    float: left;
-    margin-left: 30px;
-}
-
-.ul2 > li > a {
-    color: #F1DB61;
-    text-decoration: none;
-}
-
-.ul2 > li > a:hover {
-    color: white;
-}
-
 /* ============= 메인 =============*/
-div.section {
-    padding: 200px;
-    padding-top: 100px;
-    padding-bottom: 70px;
-}
 
 /* 배너 */
 .carousel-inner > .carousel-item > img{
@@ -273,130 +194,6 @@ div.section {
     padding-bottom: 100px;
 }
 
-/* 미디어쿼리 */
-@media (max-width: 1290px){
-    .container {width: 100%;}
-    .header .nav ul li {width: 93px;}
-    .header .nav ul li a {font-size: 15px; padding: 17px 10px}
-    .header h1 em {padding: 11px 8px 5px 0;}
-    .header h1 strong {top: 19px;}
-    
-    .swiper-button-prev, .swiper-button-next {display: none;}
-}
-
-@media (max-width: 1024px){
-    #mNav {display: block;}
-    .nav {display: none;}
-    .row {padding: 0 24px;}
-    .header h1 {float: none; text-align: center;}
-    .header h1 strong {left: 24px;}
-    
-    .banner_menu .bm_left ul {display: none;}
-    .banner_menu .bm_right ul:first-child {display: none;}
-}
-
-@media (max-width: 960px){
-    .slider {height: 500px;}
-    .slider .swiper-slide h2 {margin-top: 170px; font-size: 37px; line-height: 45px;}
-    .slider .swiper-slide h2:after {bottom: -15px;}
-    .slider .swiper-slide h2 em {font-size: 34px;}
-    .slider .swiper-slide p {font-size: 16px; padding-top: 35px;}
-}
-
-@media (max-width: 768px){
-    .row {padding: 0 16px;}
-    #mNav {right: 6px;}
-    .header h1 {text-align: left;}
-    .header h1 strong {display: none;}
-}
-
-@media (max-width: 600px){
-    .slider {height: 400px;}
-    .slider .swiper-slide h2 {margin-top: 140px; font-size: 24px; line-height: 30px;}
-    .slider .swiper-slide h2:after {bottom: -5px;}
-    .slider .swiper-slide h2 em {font-size: 20px;}
-    .slider .swiper-slide p {font-size: 14px; padding-top: 25px;}
-    
-    .banner_menu {top: 16px;}
-    .banner_menu .bm_right li.white a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
-    .banner_menu .bm_right li.purple a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
-    .swiper-pagination-bullet {width: 13px !important; height: 13px !important;}
-}
-
-@media (max-width: 480px){
-    
-}
-
-@media (max-width: 320px){
-    
-}
 
 
 
-
-/* ============= 푸터 =============*/
-footer {
-    Position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #666
-}
-
-
-footer .policy_list {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 23px 0;
-    border-bottom: 1px solid #ebebeb;
-}
-
-ul.policy_list {
-    list-style: none;
-}
-
-footer .policy_list li a {
-    font-weight: 500;
-    font-size: 14px;
-    color: white;
-    line-height: 1.462em;
-}
-
-
-footer .company_info_wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 23px 0;
-}
-
-.company_info {
-    font-size: 14px;
-    color: white;
-    line-height: 1.667em;
-}
-
-.company_info address {
-    font-style: normal;
-}
-
-.company_info .company_info_list {
-    display: flex;
-}
-
-.company_info .company_info_list dt:after {
-    content: ':';
-    padding: 0 4px;
-}
-
-.company_info .company_info_list dt ~ dt:before {
-    content: '|';
-    padding: 0 10px 0 10px;
-}
-
-dd {
-    margin-left: 0px;
-}

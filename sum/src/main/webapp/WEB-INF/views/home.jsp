@@ -390,10 +390,10 @@
     </div>
     </div>
     <!-- 자바스크립트 라이브러리 -->
-    <script src="./js/jquery.min_1.12.4.js"></script>
-    <script src="./js/modernizr-custom.js"></script>
-    <script src="./js/ie-checker.js"></script>
-    <script src="./js/swiper.min.js"></script>
+    <script src="${ path }/resources/js/jquery.min_1.12.4.js"></script>
+    <script src="${ path }/resources/js/modernizr-custom.js"></script>
+    <script src="${ path }/resources/js/ie-checker.js"></script>
+    <script src="${ path }/resources/js/swiper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

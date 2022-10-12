@@ -1,11 +1,6 @@
 @charset "utf-8";
 
 /* ============= 전체 =============*/
-#wrap {
-    min-width: 1050px;
-    position: relative;
-}
-
 html,
 body {
     margin: 0;
@@ -32,11 +27,6 @@ ul {
     padding-left: 0px;
 }
 
-/* 레이아웃 */
-#mNav {display: none; position: absolute; top: 10px; right: 14px;}
-#header {width: 100%; border-bottom: 1px solid #c6c6c6;}
-#banner {position: relative;}
-
 /* 가운데 영역 */
 .container {
     position: relative; 
@@ -49,7 +39,11 @@ ul {
 .row {padding: 0 28px;}
 
 /* ============= 메인 =============*/
-
+#listSection {
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
 
 /* 배너 */
 .carousel-inner > .carousel-item > img{
@@ -93,60 +87,22 @@ ul {
 .icon.gr_all_eng:before	 {content:"ALL"; font-size:11px;}
 .icon.gr_18_eng:before	 {content:"19";}
 
-/* 미디어쿼리 */
-@media (max-width: 1290px){
-    .container {width: 100%;}
-    .header .nav ul li {width: 93px;}
-    .header .nav ul li a {font-size: 15px; padding: 17px 10px}
-    .header h1 em {padding: 11px 8px 5px 0;}
-    .header h1 strong {top: 19px;}
-    
-    .swiper-button-prev, .swiper-button-next {display: none;}
+
+/* 나의 추천영화 */
+.g_icon {
+    width: 600px;
+    margin: 0px;
 }
 
-@media (max-width: 1024px){
-    #mNav {display: block;}
-    .nav {display: none;}
-    .row {padding: 0 24px;}
-    .header h1 {float: none; text-align: center;}
-    .header h1 strong {left: 24px;}
-    
-    .banner_menu .bm_left ul {display: none;}
-    .banner_menu .bm_right ul:first-child {display: none;}
+.g_icon img {
+    width : 30px; 
+    height : 30px;
 }
 
-@media (max-width: 960px){
-    .slider {height: 500px;}
-    .slider .swiper-slide h2 {margin-top: 170px; font-size: 37px; line-height: 45px;}
-    .slider .swiper-slide h2:after {bottom: -15px;}
-    .slider .swiper-slide h2 em {font-size: 34px;}
-    .slider .swiper-slide p {font-size: 16px; padding-top: 35px;}
+#g_icon {
+    display: block;
+    position: absolute;
 }
 
-@media (max-width: 768px){
-    .row {padding: 0 16px;}
-    #mNav {right: 6px;}
-    .header h1 {text-align: left;}
-    .header h1 strong {display: none;}
-}
 
-@media (max-width: 600px){
-    .slider {height: 400px;}
-    .slider .swiper-slide h2 {margin-top: 140px; font-size: 24px; line-height: 30px;}
-    .slider .swiper-slide h2:after {bottom: -5px;}
-    .slider .swiper-slide h2 em {font-size: 20px;}
-    .slider .swiper-slide p {font-size: 14px; padding-top: 25px;}
-    
-    .banner_menu {top: 16px;}
-    .banner_menu .bm_right li.white a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
-    .banner_menu .bm_right li.purple a {font-size: 14px; padding: 3px 5px 5px 5px; color: #fff; background: rgba(0,0,0,0.6); border-color:#fff;}
-    .swiper-pagination-bullet {width: 13px !important; height: 13px !important;}
-}
 
-@media (max-width: 480px){
-    
-}
-
-@media (max-width: 320px){
-    
-}
