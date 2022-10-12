@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -163,7 +163,7 @@
                                                             <li class="nav-item dropdown">
                                                                 <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="./assets/img/dots.png" class="iconimages"></a>
                                                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                                    <li><a class="dropdown-item" href="adminmemberchange.html">관리자로 변경</a></li>
+                                                                    <li><a class="dropdown-item" href="${ path }/admin/memberDetail">관리자로 변경</a></li>
                                                                     <li><a class="dropdown-item" href="#!">회원삭제</a></li>
                                                                 </ul>
                                                             </li>
