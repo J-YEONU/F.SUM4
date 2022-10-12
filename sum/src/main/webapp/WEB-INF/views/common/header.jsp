@@ -24,13 +24,8 @@
             </div>
 
             <ul class="ul1">
-<<<<<<< HEAD
-                <li><a href="${ path }/board/ticketing">예매</a></li>
-                <li><a href="${ path }/movie/movieList">영화</a></li>
-=======
                 <li><a href="${ path }/ticket/ticketing">예매</a></li>
-                <li><a href="#">영화</a></li>
->>>>>>> 2a56c980dde71ea6217cde206fd9d22eff4885ff
+                <li><a href="${ path }/movie/movieList">영화</a></li>
                 <li><a href="#">영화관</a></li>
                 <li><a href="#">무비로드</a></li>
                 <li><a href="#">이벤트</a></li>
