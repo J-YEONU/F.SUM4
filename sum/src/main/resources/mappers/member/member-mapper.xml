@@ -14,7 +14,8 @@
 			MEMBER_GENRE,
 			MEMBER_POINT,
 			ENROLL_DATE,
-			STATUS 
+			STATUS,
+			MEMBER_DATE
 		FROM MEMBER
 	</sql>
 	<resultMap type="Member" id="memberResultMap">
@@ -29,6 +30,7 @@
 		<result property="point" column="MEMBER_POINT"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="status" column="STATUS"/>
+		<result property="birth" column="MEMBER_DATE"/>		
 	</resultMap>
 	
 	<select id="selectCount" resultType="_int">
@@ -58,7 +60,8 @@
 			MEMBER_GENRE,
 			MEMBER_POINT,
 			ENROLL_DATE,
-			STATUS 	
+			STATUS,
+			MEMBER_DATE 	
 		) VALUES (
 			SEQ_MEMBER_NO.NEXTVAL,
 			#{id},
@@ -70,7 +73,8 @@
 			#{genre},
 			DEFAULT,
 			DEFAULT,
-			DEFAULT
+			DEFAULT,
+			#{birth}
 		)
 	</insert>
 	

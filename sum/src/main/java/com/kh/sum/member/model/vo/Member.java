@@ -20,6 +20,8 @@ public class Member {
 	
 	private String name;
 	
+	private java.sql.Date birth;
+	
 	private String email;
 	
 	private String phone;
