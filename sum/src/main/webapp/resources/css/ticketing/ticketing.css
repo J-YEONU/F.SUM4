@@ -28,7 +28,8 @@
 /* cinema nav */
 nav {
     border: 1.2px solid rgb(158, 158, 158);
-    width: 100%; height: 40px; margin-bottom: 30px; background-color: rgb(249, 249, 249);
+    width: 100%; height: 40px; margin-bottom: 30px; background-color: rgb(63, 55, 59);
+    border-radius: 4px;
 }
 
 #navi {
@@ -39,13 +40,14 @@ nav {
     height: 100%;
     float: left;
     text-align: center;
+    background-color: rgb(63, 55, 59);
 }
 
+#navi>li>li {background-color: rgb(63, 55, 59);}
 
 #navi a {
     text-decoration: none;
-    color: black;
-    font-size: 1.2em;
+    color: white;
     width: 150px;
     height: 100%;
     display: block;
@@ -54,7 +56,7 @@ nav {
 
 
 #navi a:hover {
-    background-color: rgb(244, 217, 91);
+    background-color: rgb(63, 55, 59);
 }
 
 #navi>li>a:hover+ul {
@@ -71,9 +73,6 @@ nav {
     display: block;
 }
 
-#navi>li>ul a {
-    font-size: 1.2em;
-}
 
 /*
 .movie_chart {height: 550px; text-align: center; margin-top: 20px;}

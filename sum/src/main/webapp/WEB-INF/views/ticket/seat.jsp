@@ -39,7 +39,7 @@
 				<% for(int i = 1; i <= 6; i++) { %>
 					<%=i %>
 					<% for(char c = 'A'; c <= 'T' ; c++) { %>
-						<input type="checkbox" name="seat" class="check" value="<%=c %>-<%=i %>">
+						<input type="checkbox" name="seat" value="<%=c %>-<%=i %>" onclick='getCheckboxValue()'>
 					<% } %>
 					<br>
 					
@@ -47,7 +47,6 @@
 				<% } %>
 			
 				<br>
-				<input type="submit" value="좌석선택">
 				<input type="reset" value="초기화">
 			</form>
 		</div>
@@ -59,9 +58,7 @@
 	</div>
 
 	<div id="choice">
-		<p>선택하신 좌석 : 
-			<p type="text" id="result1">
-		</p>
+		<p>선택하신 좌석 :&nbsp; <div id="result"> </div>
 	</div>
 
 	<div id="btn">
@@ -88,16 +85,24 @@
 	});
 </script>
 
+<!-- 체크 박스 선택 시, 선택된 값 출력 -->
 <script>
-$(document).ready(() => {
-    $('#choice').onclick(function() {
-        let value = $('input[type=checkbox][name=seat]:checked').val();
-
-        console.log(value);
-
-        $('#result1').val(value);
-    });
-});
+function getCheckboxValue()  {
+	  // 선택된 목록 가져오기
+	  const query = 'input[name="seat"]:checked';
+	  const selectedEls = 
+	      document.querySelectorAll(query);
+	  
+	  // 선택된 목록에서 value 찾기
+	  let result = '';
+	  selectedEls.forEach((el) => {
+	    result += el.value + ' ';
+	  });
+	  
+	  // 출력
+	  document.getElementById('result').innerText
+	    = result;
+	}
 </script>
 
 
