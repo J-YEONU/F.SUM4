@@ -25,7 +25,7 @@
 
             <ul class="ul1">
                 <li><a href="${ path }/board/ticketing">예매</a></li>
-                <li><a href="#">영화</a></li>
+                <li><a href="${ path }/movie/movieList">영화</a></li>
                 <li><a href="#">영화관</a></li>
                 <li><a href="#">무비로드</a></li>
                 <li><a href="#">이벤트</a></li>
