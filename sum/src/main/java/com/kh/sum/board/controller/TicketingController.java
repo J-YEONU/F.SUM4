@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/ticket")
 public class TicketingController {
 	
 	// ticketing
@@ -17,7 +17,7 @@ public class TicketingController {
 	public String ticketing() {
 		
 		
-	return "/board/ticketing";
+	return "/ticket/ticketing";
 	}
 
 
@@ -26,7 +26,7 @@ public class TicketingController {
 	public String seat() {
 		
 		
-	return "/board/seat";
+	return "/ticket/seat";
 	}
 	
 	// payment
@@ -34,7 +34,7 @@ public class TicketingController {
 	public String payment() {
 		
 		
-	return "/board/payment";
+	return "/ticket/payment";
 	}
 	
 }

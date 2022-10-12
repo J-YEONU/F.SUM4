@@ -81,7 +81,7 @@
 	$(document).ready(() => {
 		$(".btn2").on("click", () => {
 			if(confirm("이전 단계로 돌아가시겠습니까?")) {
-				location.replace("${ path }/board/seat");
+				location.replace("${ path }/ticket/seat");
 			}
 		});
 	});
