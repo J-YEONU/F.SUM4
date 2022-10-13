@@ -1,4 +1,4 @@
-package com.kh.sum.board.controller;
+package com.kh.sum.ticketing.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

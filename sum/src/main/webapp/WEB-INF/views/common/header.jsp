@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="${ path }/resources/css/headerFooter.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
+	<!-- 파비콘 삽입 -->
+	<link rel="shortcut icon" type="image/x-icon" href="${ path }/resources/image/4sum1.png">
 </head>
 <body>
     <header>

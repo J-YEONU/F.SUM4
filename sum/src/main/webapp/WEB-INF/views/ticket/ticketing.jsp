@@ -29,9 +29,19 @@
 	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화선택</div>
 	
 	<!-- 영화 목록 css 수정 예정 -->
-		<div class="movie_chart">
-
-		</div>
+<div class="list">
+       <div class="col-md-3">
+            <div class="thumbnail">
+              <a href="detail_before.do?no=${list.movieNo}">
+                <img src="${ path }/resources/post/9_10/DAEMUGA.jpg" alt="Lights" style="width:100%" class="img-rounded">
+                <div class="caption">
+                  <p style="font-size:8pt">${list.movieTitle }</p>
+                </div>
+              </a> 
+              
+            </div>
+        </div>
+    </div>
             
 	<div id="choice"><p>선택하신 영화 : </p></div>
             

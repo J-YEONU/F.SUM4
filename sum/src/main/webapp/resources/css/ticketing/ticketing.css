@@ -74,6 +74,10 @@ nav {
 }
 
 
+.list {
+   margin: 0px auto; overflow: hidden;
+}
+
 /*
 .movie_chart {height: 550px; text-align: center; margin-top: 20px;}
 .movie_chart > div > div > div{float: left; width: 270px; height: 550px; margin-right: 18px;}
