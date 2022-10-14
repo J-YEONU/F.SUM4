@@ -56,10 +56,10 @@
     
     <nav>
 		<ul id="navi">
-			<li><a href="#" id="li">서울</a>
+			<li><a href="#">서울</a>
 			    <ul>
 			        <li><a href="#">&gt; 강남</a></li>
-			        <li><a href="#">&gt; 코엑스</a></li>
+			        <li><a href="#">&gt; 장안</a></li>
 			    </ul>
 			</li>
 			<li><a href="#" >경기</a>
@@ -70,8 +70,8 @@
 			</li>
 			<li><a href="#">인천</a>
 			    <ul>
-			        <li><a href="#">&gt; 인천아시아드</a></li>
-			        <li><a href="#">&gt; 인천터미널</a></li>
+			        <li><a href="#">&gt; 부평</a></li>
+			        <li><a href="#">&gt; 주안</a></li>
 			    </ul>
 			</li>
 			<li>
@@ -84,7 +84,7 @@
 			<li><a href="#">대전/충청</a>
 			    <ul>
 			        <li><a href="#">&gt; 대전</a></li>
-			        <li><a href="#">&gt; 대전중앙로</a></li>
+			        <li><a href="#">&gt; 청주</a></li>
 			    </ul>
 			</li>
 		</ul>
