@@ -34,19 +34,19 @@ nav {
 }
 
 .cInfo {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .cinema {
   display: table;
-  width: 970px;
+  width: 330px; height: 220px; margin-bottom: 20px;
   background-color: #f3f3f3;
 }
 
 .cinema .cinemaInfo + .cinemaInfo {
   border-left: 1px solid #ccc;
-  width: 120px;
-  height: 200px;
+  width: 330px;
+  height: 220px;
   background-size: cover;
 }
 
@@ -57,4 +57,4 @@ nav {
   padding: 20px;
 }
 
-.cinema .cinemaInfo img {width: 100%; height: 100%;}
+.cinema .cinemaInfo img {width: 330px; height: 220px;}

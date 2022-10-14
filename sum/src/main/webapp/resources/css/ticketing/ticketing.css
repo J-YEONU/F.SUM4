@@ -19,7 +19,7 @@
 #subtitle {font-weight: bold; font-size: 24px; margin-top: 70px; margin-bottom: 15px;}
 #bottom {margin-bottom: 90px; line-height: 10px}
 
-/* movie choice */
+/* choice */
 #choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
         border-radius: 4px;}
 #choice > p {margin-left: 20px;}
@@ -54,7 +54,6 @@ nav {
     line-height: 35px;
 }
 
-
 #navi a:hover {
     background-color: rgb(63, 55, 59);
 }
@@ -73,19 +72,36 @@ nav {
     display: block;
 }
 
-
-.list {
-   margin: 0px auto; overflow: hidden;
+/* movie list */
+.movieInfo {
+  margin-top: 15px;
 }
 
-/*
-.movie_chart {height: 550px; text-align: center; margin-top: 20px;}
-.movie_chart > div > div > div{float: left; width: 270px; height: 550px; margin-right: 18px;}
-.movie_chart > div > div > div .poster {position: relative;}
-.movie_chart > div > div > div .poster img {display: block; width: 270px; height: 385px;}
-*/
+.movie {
+  display: table;
+  width: 245px; height: 351px; margin-bottom: 20px;
+  background-color: #f3f3f3;
+}
+
+.movie .movieInfo + .movieInfo {
+  border-left: 1px solid #ccc;
+  width: 245px;
+  height: 351px;
+  background-size: cover;
+}
+
+.movie .movieInfo {
+  display: table-cell;
+  vertical-align: middle; 
+  text-align: center;
+  padding: 20px;
+}
+
+.movie .movieInfo img {width: 245px; height: 351px;}
 
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
+
+/* calendar / btn */
 #calendar {width: 20px;}
 #date {font-weight:bold; font-size:18px; margin-top: 15px;}
 #currentDate {color: rgb(94, 94, 94);}
