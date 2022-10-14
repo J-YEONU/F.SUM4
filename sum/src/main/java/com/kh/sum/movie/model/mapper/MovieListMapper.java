@@ -1,4 +1,4 @@
-package com.kh.sum.movie.mapper;
+package com.kh.sum.movie.model.mapper;
 
 import java.util.List;
 
@@ -21,4 +21,6 @@ public interface MovieListMapper {
 	int updateMovie(MovieList movie);
 	
 	int updateStatus(@Param("no")int no, @Param("status") String status);
+
+	List<MovieList> selectAll();
 }

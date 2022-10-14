@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MovieList {
-	private int MovieNo;
+	private int movieNo;
 	
 	private int memberNo;
 	
@@ -18,7 +18,7 @@ public class MovieList {
 	
 	private String movieGenre;
 	
-	private Date movieRelease;
+	private java.sql.Date movieRelease;
 	
 	private String movieDirector;
 	
@@ -48,6 +48,8 @@ public class MovieList {
 	
 	private String movieGrade;
 	
-	private Date createDate;
+	private java.sql.Date createDate;
+	
+	private String movieBookingRate;
 
 }

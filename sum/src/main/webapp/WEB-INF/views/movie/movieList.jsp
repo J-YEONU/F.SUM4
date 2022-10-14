@@ -76,87 +76,22 @@
 	                    <div class="movie_chart">
 	                        <div class="chart_cont1">
 	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div><div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_12">12</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_15">15</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_18">청불</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
+	                            	<c:forEach var="movieList" items="${ list }">
+		                                <div class="poster">
+		                                <!-- 영화 상세페이지로 가는 링크 
+		                                <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
+		                                    <figure>
+		                                        <img src="${ path }/resources/image/${ movieList.moviePoster }"  alt="포스터">
+		                                    </figure>
+		                                </div>
+		                                <div class="infor">
+		                                    <h3><span class="icon gr_18">청불</span> <strong>${ movieList.movieTitle }</strong></h3>
+		                                    <div class="movie_info">
+		                                        <span>예매율 ${ movieList.movieBookingRate } %</span>
+		                                        <span>관람평점 ${ movieList.movieRating }</span>
+		                                    </div>
+		                                </div>
+	                                </c:forEach>
 	                            </div>
 	                        </div>
 	                        <!-- //chart_cont1-->
