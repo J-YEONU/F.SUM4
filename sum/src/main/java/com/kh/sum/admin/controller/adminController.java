@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.sum.admin.model.service.AdminService;
 import com.kh.sum.common.util.PageInfo;
-import com.kh.sum.myPage.controller.myPageController;
-import com.kh.sum.myPage.model.vo.MyQnA;
+import com.kh.sum.member.model.vo.Member;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +20,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/admin")
 public class adminController {
 
+	// 서비스 객체가 존재하지 않으니 서비스 작성
+	// 서비스를 빈으로 만들어서 주입을 시켜준다.
+	@Autowired
+	private	AdminService service;
+	
 	/* 관리자 메인 대시보드 */
 	
 	@GetMapping("/main")
@@ -32,9 +37,23 @@ public class adminController {
 	/* 회원 목록 리스트 */
 
 	@GetMapping("/memberList")
-	public String memberList() {
+	public ModelAndView memberList(ModelAndView model, 
+			@RequestParam(value = "page", defaultValue = "1") int page) {
 		
-		return "/admin/memberList";
+		List<Member> list = null;
+		PageInfo pageInfo = null;
+		
+		pageInfo = new PageInfo(page, 10, service.getMemberCount(), 10);
+		list = service.getMemberList(pageInfo);
+		
+		System.out.println(pageInfo);
+		
+		model.addObject("list", list);
+		model.addObject("pageInfo", pageInfo);
+		model.setViewName("admin/memberList");
+		
+		return model;
+		
 	}
 	
 	@GetMapping("/memberDetail")
