@@ -35,9 +35,20 @@
                 <li><a href="#">고객센터</a></li>
             </ul>
 
-            <ul class="ul2">
-                <li><a href="${ path }/member/login">LOGIN</a></li>
-                <li><a href="${ path }/member/enroll">JOIN</a></li>
-            </ul>
+			<c:if test="${ loginMember == null}">
+	            <ul class="ul2">
+	                <li><a href="${ path }/member/login">로그인</a></li>
+	                <li><a href="${ path }/member/enroll">회원가입</a></li>
+	            </ul>
+	        </c:if>
+	        <c:if test="${ !empty loginMember }">
+	        	<ul class="ul2">
+					<li><a href="${ path }/member/mypage">
+						${loginMember.name}
+					</a>님</li>
+					<li><a href="${ path }/logout">로그아웃</a></li>
+				</ul>
+			</c:if>
+	        
         </div>
     </header>

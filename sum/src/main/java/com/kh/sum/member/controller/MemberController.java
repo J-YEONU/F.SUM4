@@ -229,6 +229,12 @@ public class MemberController {
 		return "member/enrollEnd";
 	}
 	
+	@GetMapping("/member/mypage")
+	public String mypage() {
+		log.info("마이 페이지 요청");
+		return "myPage/myInfoMod";
+	}
+	
 	
 	@PostMapping("/member/enroll")
 	  public ModelAndView enroll(ModelAndView model, @ModelAttribute Member member) {
