@@ -1,4 +1,4 @@
-package com.kh.sum.movie.mapper;
+package com.kh.sum.movie.model.mapper;
 
 import java.util.List;
 
