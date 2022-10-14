@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+#cinemaSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
+#infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
+#hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
+#tag {height: 15px;}
+#tagtitle {font-weight:bold;font-size:18px; margin-top: 60px; line-height: 1px; margin-bottom: 15px;}
+
+nav {
+    border: 1.2px solid rgb(158, 158, 158);
+    width: 100%; height: 40px; margin-bottom: 30px; background-color: rgb(63, 55, 59);
+    border-radius: 4px;
+}
+
+#navi {
+    list-style-type: none; height: 100%; padding: 0; margin: 0;}
+
+#navi>li {
+    width: 150px;
+    height: 100%;
+    float: left;
+    text-align: center;
+    background-color: rgb(63, 55, 59);
+}
+
+#navi a {
+    text-decoration: none;
+    color: white;
+    width: 150px;
+    height: 100%;
+    display: block;
+    line-height: 35px;
+}
+
+.cInfo {
+  margin-top: 10px;
+}
+
+.cinema {
+  display: table;
+  width: 970px;
+  background-color: #f3f3f3;
+}
+
+.cinema .cinemaInfo + .cinemaInfo {
+  border-left: 1px solid #ccc;
+  width: 120px;
+  height: 200px;
+  background-size: cover;
+}
+
+.cinema .cinemaInfo {
+  display: table-cell;
+  vertical-align: middle; 
+  text-align: center;
+  padding: 20px;
+}
+
+.cinema .cinemaInfo img {width: 100%; height: 100%;}
