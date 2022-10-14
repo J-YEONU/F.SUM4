@@ -29,19 +29,24 @@
 	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화선택</div>
 	
 	<!-- 영화 목록 css 수정 예정 -->
-<div class="list">
-       <div class="col-md-3">
-            <div class="thumbnail">
-              <a href="detail_before.do?no=${list.movieNo}">
-                <img src="${ path }/resources/post/9_10/DAEMUGA.jpg" alt="Lights" style="width:100%" class="img-rounded">
-                <div class="caption">
-                  <p style="font-size:8pt">${list.movieTitle }</p>
-                </div>
-              </a> 
-              
-            </div>
-        </div>
-    </div>
+	<div class="movie">
+	      <div class="movieInfo">
+	         <span><img src="${ path }/resources/post/9_10/DAEMUGA.jpg" name="mChoice" onclick='getMovieChoiceValue()'></span>   
+	         <strong class="mInfo">대무가</strong>
+	      </div>
+	      <div class="movieInfo">
+	         <span><img src="${ path }/resources/post/9_10/Honest Candidate 2.jpg"></span>   
+	         <strong class="mInfo">정직한 후보2</strong>
+	      </div>
+	      <div class="movieInfo">
+	         <span><img src="${ path }/resources/post/9_10/NOPE.jpg"></span>
+	         <strong class="mInfo">놉</strong>
+	      </div>
+   	      <div class="movieInfo">
+	         <span><img src="${ path }/resources/post/9_10/Collaboration 2_ International.jpg"></span>
+	         <strong class="mInfo">공조2 인터내셔날</strong>
+	      </div>
+	</div>
             
 	<div id="choice"><p>선택하신 영화 : </p></div>
             
@@ -51,10 +56,10 @@
     
     <nav>
 		<ul id="navi">
-			<li><a href="#" id="li">서울</a>
+			<li><a href="#">서울</a>
 			    <ul>
 			        <li><a href="#">&gt; 강남</a></li>
-			        <li><a href="#">&gt; 코엑스</a></li>
+			        <li><a href="#">&gt; 장안</a></li>
 			    </ul>
 			</li>
 			<li><a href="#" >경기</a>
@@ -65,8 +70,8 @@
 			</li>
 			<li><a href="#">인천</a>
 			    <ul>
-			        <li><a href="#">&gt; 인천아시아드</a></li>
-			        <li><a href="#">&gt; 인천터미널</a></li>
+			        <li><a href="#">&gt; 부평</a></li>
+			        <li><a href="#">&gt; 주안</a></li>
 			    </ul>
 			</li>
 			<li>
@@ -79,7 +84,7 @@
 			<li><a href="#">대전/충청</a>
 			    <ul>
 			        <li><a href="#">&gt; 대전</a></li>
-			        <li><a href="#">&gt; 대전중앙로</a></li>
+			        <li><a href="#">&gt; 청주</a></li>
 			    </ul>
 			</li>
 		</ul>
@@ -101,7 +106,7 @@
     <span>영화관명</span>
 </div> -->
             
-	<div id="choice"><p>선택하신 시간 : </p></div>
+	<div id="choice"><p>선택하신 시간 : <div id="result"> </p></div></div>
 		<div id="btn">
 			<button type="submit" class="btn" onclick="location.href='${ path }/ticket/seat'">
 				<p id="p1">NEXT STEP</p>
@@ -116,9 +121,24 @@
 		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
 	</script>
 
-    <script>
-    //영화차트 이미지 슬라이드 스크립트
-    
-    </script>
+	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
+	<script>
+	function getMovieChoiceValue()  {
+		  // 선택된 목록 가져오기
+		  const query = 'img[name="mChoice"]:select';
+		  const selectedEls = 
+		      document.querySelectorAll(query);
+		  
+		  // 선택된 목록에서 value 찾기
+		  let result = '';
+		  selectedEls.forEach((el) => {
+		    result += el.value + ' ';
+		  });
+		  
+		  // 출력
+		  document.getElementById('result').innerText
+		    = result;
+		}
+	</script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

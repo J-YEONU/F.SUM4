@@ -1,4 +1,4 @@
-package com.kh.sum.movie.service;
+package com.kh.sum.movie.model.service;
 
 import java.util.List;
 

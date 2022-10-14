@@ -151,13 +151,25 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tbody">
-                                                    <td>1</td>
+                                                
+                                                <c:if test="${ empty list }">
+							            			<tr>
+														<td colspan="8">
+															조회된 회원목록이 없습니다.
+														</td>
+													</tr>	
+												</c:if>
+												
+                                                <c:forEach items="${ list }" var="m">
+                                                <tr>
+                                                    <td>${ m.no }</td>
+                                                    
                                                     <td><img src="./assets/img/admin.png" class="iconimages"></td>
-                                                    <td>admin</td>
-                                                    <td>관리자</td>
-                                                    <td>1999-12-31</td>
-                                                    <td>admin@naver.com</td>
-                                                    <td>멜로/로맨스, 액션, 드라마</td>
+                                                    <td>${ m.role }</td>
+                                                    <td>${ m.id }</td>
+                                                    <td>${ m.birth }</td>
+                                                    <td>${ m.email }</td>
+                                                    <td>${ m.genre }</td>
                                                     <td>
                                                         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                                                             <li class="nav-item dropdown">
@@ -169,6 +181,8 @@
                                                             </li>
                                                         </ul>
                                                     </td>
+                                                </tr>
+                                                </c:forEach>
                                                 </tbody>    
                                             </table>
                                         </form>            
