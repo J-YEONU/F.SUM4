@@ -23,7 +23,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">
-                <img src="./assets/img/sum_logo.png" class="sumLogo">
+                <img src="${ path }/resources/image/sum_logo.png" class="sumLogo">
             </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -38,7 +38,7 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <!-- 관리자 아이디 접속시 나타나는 아이콘-->
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="./assets/img/admin.png" class="iconimages" alt="..."></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="${ path }/resources/image/admin.png" class="iconimages" alt="..."></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
@@ -118,8 +118,8 @@
                         <hr>
                         <div id="member-main-container" class="">
                             <div id="member-select">
-                                <span class="float-end"><img src="./assets/img/member.png" class="iconimages float-end" alt="...">회원 : </span>
-                                <span class="float-end"><img src="./assets/img/admin.png" class="iconimages float-end" alt="...">관리자 : </span>
+                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="...">회원 : </span>
+                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="...">관리자 : </span>
                             </div>
                         <br><br>
                         <div class="card mb-4" id="member-board">
@@ -163,17 +163,23 @@
                                                 <c:forEach items="${ list }" var="m">
                                                 <tr>
                                                     <td>${ m.no }</td>
-                                                    
-                                                    <td><img src="./assets/img/admin.png" class="iconimages"></td>
-                                                    <td>${ m.role }</td>
+                                                    <c:choose>
+						                         		<c:when test="${ m.role == 'ROLE ADMIN' }">
+	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ m.role != 'ROLE UESR' }">
+	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
+						                         		</c:when>
+					                         		</c:choose>
                                                     <td>${ m.id }</td>
+                                                    <td>${ m.name }</td>
                                                     <td>${ m.birth }</td>
                                                     <td>${ m.email }</td>
                                                     <td>${ m.genre }</td>
                                                     <td>
                                                         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                                                             <li class="nav-item dropdown">
-                                                                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="./assets/img/dots.png" class="iconimages"></a>
+                                                                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
                                                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                                                     <li><a class="dropdown-item" href="${ path }/admin/memberDetail">관리자로 변경</a></li>
                                                                     <li><a class="dropdown-item" href="#!">회원삭제</a></li>
@@ -194,6 +200,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="${ path }/resources/js/jquery-3.6.0.min"></script>
     </body>
 </html>

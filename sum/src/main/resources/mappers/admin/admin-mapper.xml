@@ -44,11 +44,27 @@
 		SELECT MEMBER_NO, 
 			   ROLE,
 			   MEMBER_ID,
+			   MEMBER_NAME,
 			   MEMBER_DATE,
 			   MEMBER_EMAIL,
 			   MEMBER_GENRE
 		FROM MEMBER
 	</select>
 
+	<!-- 회원 관리자 및 삭제 변경 -->
 	
+	<select id="selectMemberChange" resultMap="memberListResultMap">
+		SELECT MEMBER_NO, 
+			   ROLE,
+			   MEMBER_ID,
+			   MEMBER_NAME,
+			   MEMBER_DATE,
+			   MEMBER_EMAIL,
+			   MEMBER_GENRE
+		FROM MEMBER
+	</select>
+	
+	<update id="delectMember">
+	
+	</update>
 </mapper>

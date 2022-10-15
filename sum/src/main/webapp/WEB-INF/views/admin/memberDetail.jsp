@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -127,7 +127,8 @@
                                                 <col width="10%" />
                                                 <col width="10%" />
                                                 <col width="20%" />
-                                                <col width="35%" />
+                                                <col width="30%" />
+                                                <col width="5%" />
                                             </colgroup>
                                             <thead>        
                                                 <tr>
@@ -138,27 +139,20 @@
                                                     <th>생년월일</th>
                                                     <th>이메일</th>
                                                     <th>선호장르</th>
+                                                    <th>탈퇴여부</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody">
+                                            	<c:forEach items="${ list }" var="m">
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td><img src="./assets/img/admin.png" class="iconimages"></td>
-                                                    <td>admin</td>
-                                                    <td>관리자</td>
-                                                    <td>1999-12-31</td>
-                                                    <td>admin@naver.com</td>
-                                                    <td>멜로/로맨스, 액션, 드라마</td>
+                                                    <td>${ m.no }</td>
+                                                    <td>${ m.id }</td>
+                                                    <td>${ m.name }</td>
+                                                    <td>${ m.birth }</td>
+                                                    <td>${ m.email }</td>
+                                                    <td>${ m.genre }</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td><img src="./assets/img/member.png" class="iconimages"></td>
-                                                    <td>moviestar</td>
-                                                    <td>김무비</td>
-                                                    <td>1999-12-31</td>
-                                                    <td>moviestar@naver.com</td>
-                                                    <td>코메디, SF, 드라마</td>
-                                                </tr>
+                                                </c:forEach>
                                             </tbody>    
                                         </table>
                                     </form>            

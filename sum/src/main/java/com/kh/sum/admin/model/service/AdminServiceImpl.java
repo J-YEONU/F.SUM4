@@ -31,4 +31,11 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.selectMemberAll(rowBounds);
 	}
 
+	@Override
+	public Member findMemberByNo(int no) {
+
+		
+		return mapper.selectMemberAll(no);
+	}
+
 }

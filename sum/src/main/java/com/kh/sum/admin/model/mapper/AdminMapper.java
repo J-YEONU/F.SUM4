@@ -13,4 +13,6 @@ public interface AdminMapper {
 	int selectMemberCount();
 
 	List<Member> selectMemberAll(RowBounds rowBounds);
+
+	Member selectMemberAll(int no);
 }

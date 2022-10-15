@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,9 +58,15 @@ public class adminController {
 	}
 	
 	@GetMapping("/memberDetail")
-	public String memberDetail() {
+	public ModelAndView memberDetail(ModelAndView model, @RequestParam int no) {
+		Member member = null;
 		
-		return "/admin/memberDetail";
+		member = service.findMemberByNo(no);
+		
+		model.addObject("Member", member);
+		model.setViewName("/admin/memberDetail");
+		
+		return model;
 	}
 	
 	/* 1:1 문의 */

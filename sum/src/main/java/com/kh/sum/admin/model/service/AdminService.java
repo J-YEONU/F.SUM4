@@ -11,4 +11,6 @@ public interface AdminService {
 
 	List<Member> getMemberList(PageInfo pageInfo);
 
+	Member findMemberByNo(int no);
+
 }
