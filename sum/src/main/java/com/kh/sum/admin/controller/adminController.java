@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.sum.admin.model.service.AdminService;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.vo.Member;
+import com.kh.sum.myPage.model.vo.MyQnA;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -72,9 +72,22 @@ public class adminController {
 	/* 1:1 문의 */
 	
 	@GetMapping("/inquiry")
-	public String inquiry() {
+	public ModelAndView inquiry(ModelAndView model,
+		@RequestParam(value = "page", defaultValue = "1") int page) {
+			
+			List<MyQnA> list = null;
+			PageInfo pageInfo = null;
+			
+			pageInfo = new PageInfo(page, 10, service.getInquiryCount(), 10);
+			list = service.getInquiryList(pageInfo);
+			
+			model.addObject("list", list);
+			model.addObject("pageInfo", pageInfo);
+			
 		
-		return "/admin/inquiry";
+		model.setViewName("/admin/inquiry");
+		
+		return model;
 	}
 	
 	@GetMapping("/inquiryDetail") 

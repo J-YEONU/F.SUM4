@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.kh.sum.admin.model.mapper.AdminMapper">
+	
+	<!-- 회원 리스트 Sql -->
 	<sql id="selectMemberListSql">
 		SELECT
 			MEMBER_NO,
@@ -19,6 +21,7 @@
 		FROM MEMBER
 	</sql>
 	
+	<!-- 회원 리스트 resultMap -->
 	<resultMap type="Member" id="memberListResultMap">
 		<id property="no" column="MEMBER_NO" />
 		<result property="id" column="MEMBER_ID"/>
@@ -51,7 +54,7 @@
 		FROM MEMBER
 	</select>
 
-	<!-- 회원 관리자 및 삭제 변경 -->
+	<!-- 회원 관리자 및 삭제 변경 
 	
 	<select id="selectMemberChange" resultMap="memberListResultMap">
 		SELECT MEMBER_NO, 
@@ -67,4 +70,53 @@
 	<update id="delectMember">
 	
 	</update>
+	-->
+	
+	
+	<!-- 1:1 문의 사항 쿼리문 -->
+	<sql id="inquiryListSql">
+		SELECT  Q.QNA_NO, 
+		        Q.QNA_TITLE, 
+		        Q.QNA_CONTENT, 
+		        Q.STATUS, 
+		        Q.MEMBER_NO, 
+		        Q.ANSWER_STATUS, 
+		        Q.CREATE_DATE
+		FROM QNA Q
+		JOIN MEMBER M ON(Q.MEMBER_NO = M.MEMBER_NO)
+		WHERE Q.STATUS = 'Y'
+	</sql>
+	
+	<resultMap type="MyQnA" id="inquiryListResultMap">
+		<id property="no" column="QNA_NO"/>
+		<result property="title" column="QNA_TITLE"/>
+		<result property="content" column="QNA_CONTENT"/>
+		<result property="status" column="STATUS"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="answerStatus" column="ANSWER_STATUS"/>
+		<result property="createDate" column="CREATE_DATE"/>
+	</resultMap>
+	
+	<!-- 1:1 문의 글 조회 -->
+	<select id="selectInquiryCount" resultType="_int">
+		SELECT COUNT(*) FROM QNA WHERE STATUS='Y'
+	</select>
+
+	<select id="selectInquiryAll" resultMap="inquiryListResultMap">
+		SELECT  Q.QNA_NO, 
+		        Q.QNA_TITLE, 
+		        Q.QNA_CONTENT,
+		        Q.STATUS, 
+		        Q.MEMBER_NO, 
+		        Q.ANSWER_STATUS, 
+		        Q.CREATE_DATE,
+		        M.MEMBER_NAME
+		FROM QNA Q
+		JOIN MEMBER M ON(Q.MEMBER_NO = M.MEMBER_NO)
+		WHERE Q.STATUS = 'Y'
+		ORDER BY Q.QNA_NO DESC
+	</select>
+	
+	
+	
 </mapper>

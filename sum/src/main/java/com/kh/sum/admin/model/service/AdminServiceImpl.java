@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.sum.admin.model.mapper.AdminMapper;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.vo.Member;
+import com.kh.sum.myPage.model.vo.MyQnA;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -37,5 +38,18 @@ public class AdminServiceImpl implements AdminService {
 		
 		return mapper.selectMemberAll(no);
 	}
+
+	@Override
+	public int getInquiryCount() {
+
+		return mapper.selectInquiryCount();
+	}
+
+	@Override
+	public List<MyQnA> getInquiryList(PageInfo pageInfo) {
+
+		return mapper.selectInquiryAll();
+	}
+
 
 }

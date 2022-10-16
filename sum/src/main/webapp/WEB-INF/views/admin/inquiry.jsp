@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -131,29 +131,32 @@
                                     <td>답변상태</td>
                                 </tr>
                             </thead>
-                            <tr>
-                                <td>1</td>
-                                <td><a href="">공지사항은 어디서 확인할까요?</a></td>
-                                <td>홍길동</td>
-                                <td>2022-09-30</td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>아이디 변경은 가능한가요?</td>
-                                <td>아무개</td>
-                                <td>2022-09-30</td>
-                                <td>Y/N</td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>영화취소는 어디서 하나요?</td>
-                                <td>하정우</td>
-                                <td>2022-09-30</td>
-                                <td>Y/N</td>
-                            </tr>
+                            <c:if test="${ empty list }">
+		            			<tr>
+									<td colspan="5">
+										조회된 게시글이 없습니다.
+									</td>
+								</tr>	
+							</c:if>
+							
+                            <c:if test="${ not empty list }">
+								<c:forEach var="qna" items="${ list }">
+				                    <tr>
+				                        <td>${ qna.no }</td>
+				                        <td> <a href="#">${ qna.title }</a> </td>
+				                        <td>${ m.name }</td>
+				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
+				                        <c:choose>
+				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
+					                         	<td>진행중</td>
+				                         	</c:when>
+				                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
+					                         	<td class="td4">답변완료</td>
+				                         	</c:when>
+			                         	</c:choose>
+				                    </tr>
+			                    </c:forEach>
+			                </c:if>
                         </table>
                         <hr>
                         <div class="text-center">
