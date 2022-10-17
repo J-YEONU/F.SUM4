@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
         
@@ -30,7 +30,7 @@
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">SUM</a>
+            <a class="navbar-brand ps-3" href="${ path }/">SUM</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -116,7 +116,7 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+                <main id="main_contnet">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">영화등록</h1>
                             * 관리자로 등록된 회원만 글을 저장 할 수 있습니다.

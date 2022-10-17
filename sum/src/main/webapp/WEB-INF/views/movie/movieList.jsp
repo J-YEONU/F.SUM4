@@ -15,6 +15,8 @@
 	<section id="listSection">
 	    <h3><strong>무비차트</strong></h3>
 	    <p>생생함이 담긴 영화소식, 다양한 영화를 만나보세요.</p>
+	    <!-- 영화 등록 임시 버튼 -->
+	                    <button type="submit" onclick="location.href='${ path }/admin/movie'">등록하기(임시)</button>
 	
 	    <div id="demo" class="carousel slide" data-ride="carousel">
 	        <div class="carousel-inner">
@@ -62,6 +64,8 @@
 	        <!-- 인디케이터 끝 -->
 	    </div>
 	        
+	                    
+	                    
 	    <section id="movie">
 	        <div class="container">
 	            <div class="row">

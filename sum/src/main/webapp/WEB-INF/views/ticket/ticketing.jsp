@@ -30,12 +30,12 @@
 	
 	<!-- 영화 목록 css 수정 예정 -->
 	<div class="movie">
+		<c:forEach var="movieList" items="${ list }">
 	      <div class="movieInfo">
-	         <span><img src="${ path }/resources/post/9_10/DAEMUGA.jpg" name="mChoice"></span>   
-	         <strong class="mInfo">대무가</strong>
-	         <input type="checkbox" class="checkbox" id="check1" />
+	         <span><img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" name="mChoice"></span>   
+	         <strong class="mInfo">${ movieList.movieTitle }</strong>
 	      </div>
-	      
+		</c:forEach>
 	      
 	</div>
             
