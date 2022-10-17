@@ -13,6 +13,8 @@
 
 	    <h3><strong>무비차트</strong></h3>
 	    <p>생생함이 담긴 영화소식, 다양한 영화를 만나보세요.</p>
+	    <!-- 영화 등록 임시 버튼 -->
+	                    <button type="submit" onclick="location.href='${ path }/admin/movie'">등록하기(임시)</button>
 	
      <div class="container">
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -60,6 +62,7 @@
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>
+<<<<<<< HEAD
     </div>
     <div id="contents">
         <div class="inner-wrap">
@@ -121,6 +124,41 @@
 	                            <div class="movie_info">
 	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
 	                               <span>관람평점 ${ movieList.movieRating }</span>
+=======
+	        
+	                    
+	                    
+	    <section id="movie">
+	        <div class="container">
+	            <div class="row">
+	                <div class="movie">
+	                    <div class="movie_title">
+	                        <ul>
+	                            <li class="active"><a href="#">현재상영작</a></li>
+	                            <li><a href="#">상영예정작</a></li>
+	                            <li><a href="#">나의추천영화</a></li>
+	                        </ul>
+	                    </div>
+	                    <div class="movie_chart">
+	                        <div class="chart_cont1">
+	                            <div>
+	                            	<c:forEach var="movieList" items="${ list }">
+		                                <div class="poster">
+		                                <!-- 영화 상세페이지로 가는 링크 
+		                                <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
+		                                    <figure>
+		                                        <img src="${ path }/resources/image/${ movieList.moviePoster }"  alt="포스터">
+		                                    </figure>
+		                                </div>
+		                                <div class="infor">
+		                                    <h3><span class="icon gr_18">청불</span> <strong>${ movieList.movieTitle }</strong></h3>
+		                                    <div class="movie_info">
+		                                        <span>예매율 ${ movieList.movieBookingRate } %</span>
+		                                        <span>관람평점 ${ movieList.movieRating }</span>
+		                                    </div>
+		                                </div>
+	                                </c:forEach>
+>>>>>>> 7f2456c60d682214ce0bb0c62d4deb81add072fd
 	                            </div>
 	                        </div>
 	                    </li>
