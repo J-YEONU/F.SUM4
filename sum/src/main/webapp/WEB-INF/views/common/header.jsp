@@ -32,7 +32,7 @@
                 <li><a href="#">무비로드</a></li>
                 <li><a href="#">이벤트</a></li>
                 <li><a href="${ path }/notice/notice">공지사항</a></li>
-                <li><a href="#">고객센터</a></li>
+                <li><a href="${ path }/qna/qna">고객센터</a></li>
             </ul>
 
 			<c:if test="${ loginMember == null}">
