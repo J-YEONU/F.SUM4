@@ -30,4 +30,16 @@ public class movieListController {
 		
 		return model;
 	}
+	
+	@GetMapping("/movie/movieList2")
+	public ModelAndView movieList2(ModelAndView model) {
+		List<MovieList> list = null;
+		
+		list = service.getMovieList2();
+		
+		model.addObject("list", list);
+		model.setViewName("movie/movieList");
+		
+		return model;
+	}
 }

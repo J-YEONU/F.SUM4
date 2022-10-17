@@ -25,6 +25,13 @@ public class MovieListServiceImpl implements MovieListService {
 		
 		return mapper.selectAll();
 	}
+	
+	@Override
+	public List<MovieList> getMovieList2() {
+		
+		
+		return mapper.selectFuture();
+	}
 
 	@Override
 	public MovieList findMovieByNo(int no) {

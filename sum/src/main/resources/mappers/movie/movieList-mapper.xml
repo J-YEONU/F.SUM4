@@ -52,10 +52,18 @@
 		<result property="movieBookingRate" column="MOVIE_BOOKINGRATE"/>		
 	</resultMap>
 	
-	<!-- 영화 목록 조회(전체) --> 
+	<!-- 현재상영영화 조회 --> 
 	<select id="selectAll" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"></include>
+		WHERE SYSDATE >= MOVIE_RELEASE
 		ORDER BY MOVIE_NO DESC
 	</select>
+	
+	<!-- 상영예정영화 조회 --> 
+	<select id="selectFuture" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"></include>
+		WHERE MOVIE_RELEASE > SYSDATE
+		ORDER BY MOVIE_NO DESC
+	</select> 
 	
 </mapper>

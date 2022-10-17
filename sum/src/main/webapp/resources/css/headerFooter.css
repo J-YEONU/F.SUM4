@@ -29,8 +29,6 @@ ul {
 /* ============= 헤더 =============*/
 
 header {
-    Position: sticky;
-    top: 0;
     width: 100%;
     background-color: black
 }
@@ -96,8 +94,9 @@ header {
 
 /* ============= 푸터 =============*/
 footer {
-    Position: sticky;
+	Position: sticky;
     top: 0;
+	overflow: hidden;
     width: 100%;
     background-color: #666
 }

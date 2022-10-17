@@ -23,4 +23,6 @@ public interface MovieListMapper {
 	int updateStatus(@Param("no")int no, @Param("status") String status);
 
 	List<MovieList> selectAll();
+	
+	List<MovieList> selectFuture();
 }

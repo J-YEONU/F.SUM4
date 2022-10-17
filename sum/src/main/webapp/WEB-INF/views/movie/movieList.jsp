@@ -8,15 +8,14 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <link rel="stylesheet" href="${ path }/resources/css/movieList.css">
-<link rel="stylesheet" href="${ path }/resources/css/main/main2.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<section id="listSection">
 	    <h3><strong>무비차트</strong></h3>
 	    <p>생생함이 담긴 영화소식, 다양한 영화를 만나보세요.</p>
 	
-	    <div id="demo" class="carousel slide" data-ride="carousel">
+     <div class="container">
+        <div id="demo" class="carousel slide" data-ride="carousel">
 	        <div class="carousel-inner">
 	        <!-- 슬라이드 쇼 -->
 	        <div class="carousel-item active">
@@ -61,168 +60,104 @@
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>
-	        
-	    <section id="movie">
-	        <div class="container">
-	            <div class="row">
-	                <div class="movie">
-	                    <div class="movie_title">
-	                        <ul>
-	                            <li class="active"><a href="#">현재상영작</a></li>
-	                            <li><a href="#">상영예정작</a></li>
-	                            <li><a href="#">나의추천영화</a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="movie_chart">
-	                        <div class="chart_cont1">
-	                            <div>
-	                            	<c:forEach var="movieList" items="${ list }">
-		                                <div class="poster">
-		                                <!-- 영화 상세페이지로 가는 링크 
-		                                <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-		                                    <figure>
-		                                        <img src="${ path }/resources/image/${ movieList.moviePoster }"  alt="포스터">
-		                                    </figure>
-		                                </div>
-		                                <div class="infor">
-		                                    <h3><span class="icon gr_18">청불</span> <strong>${ movieList.movieTitle }</strong></h3>
-		                                    <div class="movie_info">
-		                                        <span>예매율 ${ movieList.movieBookingRate } %</span>
-		                                        <span>관람평점 ${ movieList.movieRating }</span>
-		                                    </div>
-		                                </div>
-	                                </c:forEach>
+    </div>
+    <div id="contents">
+        <div class="inner-wrap">
+            <div class="movie_title">
+                <ul>
+                    <li class="active"><a href="#">현재상영작</a></li>
+                    <li><a href="${ path }/movie/movieList2">상영예정작</a></li>
+                    <li><a href="#">나의추천영화</a></li>
+                </ul>
+            </div>
+        <!-- movie-list -->
+        <div class="movie-list">
+            <div class="chart_cont1">
+                <ol class="list" id="movieList">
+               		<c:forEach var="movieList" items="${ list }">
+	                    <li class="no-img">
+	                        <div class="movie-list-info">
+	                     		   <!-- 영화 상세페이지로 가는 링크 
+	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
+	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                        </div>
+	                        
+	                        <div class="infor">
+	                        
+	                            <c:if test="${movieList.movieRating == '전체'}"> 
+	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == 12}"> 
+	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == 15}"> 
+	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == '청불'}"> 
+	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <div class="movie_info">
+	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
+	                               <span>관람평점 ${ movieList.movieRating }</span>
+	                            </div>
+	                            
+	                        </div>
+	                        
+	                    </li>
+	                </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont2">
+                <ol class="list" id="movieList">
+               		<c:forEach var="movieList" items="${ list }">
+	                    <li class="no-img">
+	                        <div class="movie-list-info">
+	                     		   <!-- 영화 상세페이지로 가는 링크 
+	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
+	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                        </div>
+	                        <div class="infor">
+	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <div class="movie_info">
+	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
+	                               <span>관람평점 ${ movieList.movieRating }</span>
 	                            </div>
 	                        </div>
-	                        <!-- //chart_cont1-->
-	                        <div class="chart_cont2">
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_12">12</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_15">15</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_18">청불</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
+	                    </li>
+	                </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont3">
+                <div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag">장르</div>
+                <ol class="list" id="movieList">
+               		<c:forEach var="movieList" items="${ list }">
+	                    <li class="no-img">
+	                        <div class="movie-list-info">
+	                     		   <!-- 영화 상세페이지로 가는 링크 
+	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
+	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                        </div>
+	                        <div class="infor">
+	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <div class="movie_info">
+	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
+	                               <span>관람평점 ${ movieList.movieRating }</span>
 	                            </div>
 	                        </div>
-	                        <!-- //chart_cont2-->
-	                        <div class="chart_cont3">
-	                        	<div id="g_icon" class="g_icon">
-	                    			<h4><img src="${ path }/resources/image/SUMICON.png" alt="세모아이콘"> <strong>장르</strong></h4>
-	                			</div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_all">전체</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_12">12</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_15">15</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div>
-	                                <div class="poster">
-	                                    <figure>
-	                                        <img src="${ path }/resources/image/poster1.jpg"  alt="침묵">
-	                                    </figure>
-	                                </div>
-	                                <div class="infor">
-	                                    <h3><span class="icon gr_18">청불</span> <strong>공조</strong></h3>
-	                                    <div class="movie_info">
-	                                        <span>예매율 0.0%</span>
-	                                        <span>관람평점 0.0</span>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <!-- //chart_cont3-->
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </section>
-	    <!-- //movie -->
-      </section>
+	                    </li>
+	                </c:forEach>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+        
+        
+        
+        
+        
+        
         
     <!-- 자바스크립트 라이브러리 -->
     <script src="${ path }/resources/js/jquery.min_1.12.4.js"></script>
@@ -261,8 +196,8 @@
         });
         
         //영화차트 탭 메뉴
-        var movBtn = $(".movie_title > ul > li");
-        var movCont = $(".movie_chart > div");
+        <!-- var movBtn = $(".movie_title > ul > li");
+        var movCont = $(".movie-list > div");
         
         movCont.hide().eq(0).show();
         
@@ -274,6 +209,6 @@
             target.addClass("active"); // 클릭한 부분에 active 추가
             movCont.css("display","none");
             movCont.eq(index).css("display","block");
-        });
+        }); -->
     </script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
