@@ -2,7 +2,6 @@ package com.kh.sum.movie.model.service;
 
 import java.util.List;
 
-import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.movie.model.vo.MovieList;
 
 public interface MovieListService {

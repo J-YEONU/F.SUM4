@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.movie.model.vo.MovieList;
-import com.kh.sum.movie.service.MovieListService;
+import com.kh.sum.movie.model.service.MovieListService;
 
 import lombok.extern.slf4j.Slf4j;
 
