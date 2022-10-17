@@ -31,21 +31,12 @@
 	<!-- 영화 목록 css 수정 예정 -->
 	<div class="movie">
 	      <div class="movieInfo">
-	         <span><img src="${ path }/resources/post/9_10/DAEMUGA.jpg" name="mChoice" onclick='getMovieChoiceValue()'></span>   
+	         <span><img src="${ path }/resources/post/9_10/DAEMUGA.jpg" name="mChoice"></span>   
 	         <strong class="mInfo">대무가</strong>
+	         <input type="checkbox" class="checkbox" id="check1" />
 	      </div>
-	      <div class="movieInfo">
-	         <span><img src="${ path }/resources/post/9_10/Honest Candidate 2.jpg"></span>   
-	         <strong class="mInfo">정직한 후보2</strong>
-	      </div>
-	      <div class="movieInfo">
-	         <span><img src="${ path }/resources/post/9_10/NOPE.jpg"></span>
-	         <strong class="mInfo">놉</strong>
-	      </div>
-   	      <div class="movieInfo">
-	         <span><img src="${ path }/resources/post/9_10/Collaboration 2_ International.jpg"></span>
-	         <strong class="mInfo">공조2 인터내셔날</strong>
-	      </div>
+	      
+	      
 	</div>
             
 	<div id="choice"><p>선택하신 영화 : </p></div>
@@ -102,11 +93,8 @@
 		<div id="infospan"><span><img src="${ path }/resources/image/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
 	
     
-<!-- <div id="choicetz">
-    <span>영화관명</span>
-</div> -->
             
-	<div id="choice"><p>선택하신 시간 : <div id="result"> </p></div></div>
+	<div id="choice"><p>선택하신 시간 : </p> <div id="result"> </div></div>
 		<div id="btn">
 			<button type="submit" class="btn" onclick="location.href='${ path }/ticket/seat'">
 				<p id="p1">NEXT STEP</p>
