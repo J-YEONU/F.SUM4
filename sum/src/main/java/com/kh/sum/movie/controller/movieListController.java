@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.sum.movie.model.vo.MovieList;
 import com.kh.sum.movie.model.service.MovieListService;
+import com.kh.sum.movie.model.vo.MovieList;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,10 +21,13 @@ public class movieListController {
 	@GetMapping("/movie/movieList")
 	public ModelAndView movieList(ModelAndView model) {
 		List<MovieList> list = null;
+		List<MovieList> list1 = null;
 		
 		list = service.getMovieList();
+		list1 = service.getMovieList2();
 		
 		model.addObject("list", list);
+		model.addObject("list1", list1);
 		model.setViewName("movie/movieList");
 		
 		
@@ -42,4 +45,5 @@ public class movieListController {
 		
 		return model;
 	}
+	
 }

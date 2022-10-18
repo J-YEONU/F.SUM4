@@ -11,12 +11,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+     <div class="container">
 	    <h3><strong>무비차트</strong></h3>
 	    <p>생생함이 담긴 영화소식, 다양한 영화를 만나보세요.</p>
 	    <!-- 영화 등록 임시 버튼 -->
 	                    <button type="submit" onclick="location.href='${ path }/admin/movie'">등록하기(임시)</button>
 	
-     <div class="container">
         <div id="demo" class="carousel slide" data-ride="carousel">
 	        <div class="carousel-inner">
 	        <!-- 슬라이드 쇼 -->
@@ -65,10 +65,10 @@
     </div>
     <div id="contents">
         <div class="inner-wrap">
-            <div class="movie_title">
+            <div class="movie_title" id="myTabs">
                 <ul>
                     <li class="active"><a href="#">현재상영작</a></li>
-                    <li><a href="${ path }/movie/movieList2">상영예정작</a></li>
+                    <li><a href="#">상영예정작</a></li>
                     <li><a href="#">나의추천영화</a></li>
                 </ul>
             </div>
@@ -111,26 +111,40 @@
             </div>
             <div class="chart_cont2">
                 <ol class="list" id="movieList">
-               		<c:forEach var="movieList" items="${ list }">
+               		<c:forEach var="movieList" items="${ list1 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		    <!-- 영화 상세페이지로 가는 링크 
+	                     		   <!-- 영화 상세페이지로 가는 링크 
 	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
 	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
 	                        </div>
+	                        
 	                        <div class="infor">
-	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                        
+	                            <c:if test="${movieList.movieRating == '전체'}"> 
+	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == 12}"> 
+	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == 15}"> 
+	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == '청불'}"> 
+	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            
 	                        </div>
+	                        
 	                    </li>
 	                </c:forEach>
                 </ol>
             </div>
             <div class="chart_cont3">
-                <div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag">장르</div>
                 <ol class="list" id="movieList">
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
@@ -179,25 +193,8 @@
     $('.carousel').carousel({
       interval: 2000 //기본 5초
     })
-
-        //영화차트 이미지 슬라이드
-        var mySwiper = new Swiper('.swiper-container2', {
-            slidesPerView: 4,
-            spaceBetween: 24,
-//            mousewheel: {
-//                invert: true,
-//            },
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false,
-            },
-            autoplay: {
-                delay: 6000,
-            },
-        });
-        
         //영화차트 탭 메뉴
-        <!-- var movBtn = $(".movie_title > ul > li");
+        var movBtn = $(".movie_title > ul > li");
         var movCont = $(".movie-list > div");
         
         movCont.hide().eq(0).show();
@@ -210,6 +207,8 @@
             target.addClass("active"); // 클릭한 부분에 active 추가
             movCont.css("display","none");
             movCont.eq(index).css("display","block");
-        }); -->
+        });
     </script>
+
+    
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
