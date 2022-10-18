@@ -248,7 +248,7 @@ public class MemberController {
 			model.addObject("msg", "회원가입이 정상적으로 완료되었습니다.");
 			model.addObject("location", "/member/enrollEnd");
 		} else {
-			model.addObject("msg", "회원가입을 실패하였습니다.");
+			model.addObject("msg", "회원가입에 실패하였습니다.");
 			model.addObject("location", "/member/enroll");
 		}
 		

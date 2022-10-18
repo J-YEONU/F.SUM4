@@ -26,7 +26,7 @@
     <hr>
     <h3>정보입력</h3>
 	<div id="enroll-container">	 	
-        <form name="memberEnrollFrm" action="${ path }/member/enroll" method="post">
+        <form name="memberEnrollFrm" id="join_form" method="post">
             <table style="margin-left:auto;margin-right:auto;">
                 <tr>
 					<th>
@@ -35,7 +35,7 @@
 					</th>
 					<td>
 						<input type="text" name="id" id="newId" placeholder="아이디(4글자이상)" required>
-						<input type="button" id="checkDuplicate" value="중복검사" >
+						<input type="button" id="checkDuplicate" value="중복확인" >
 					</td> 			
                 </tr>
                 <tr>
@@ -156,7 +156,7 @@
                 </tr>
             </table>
             <div class="join">
-			<input type="submit" id="enrollSubmit" value="회원가입">	
+			<input type="button" class="join_button" id="enrollSubmit" value="회원가입">	
             <input type="reset" value="취소">	
 			</div>
 		</form>
@@ -181,6 +181,8 @@
 						if(obj.duplicate === true) {
 							alert("이미 사용중인 아이디 입니다.");
 						} else {
+							$('#checkDuplicate').attr('value','검사완료');
+							
 							alert("사용 가능한 아이디 입니다.");
 						}
 					}, 
@@ -188,6 +190,28 @@
 						console.log(error);
 					}
 				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('#newId').keyup(function(){
+				$('#checkDuplicate').attr('value','중복검사');
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			//회원가입 버튼(회원가입 기능 작동)
+			$(".join_button").click(function(){
+				if($("#checkDuplicate").val() === 검사완료){
+				
+				//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
+				$("#join_form").attr("action", "${ path }/member/enroll");
+				$("#join_form").submit();
+				} else {
+					alert("중복검사를 해주세요.");
+				}
 			});
 		});
 	</script>
