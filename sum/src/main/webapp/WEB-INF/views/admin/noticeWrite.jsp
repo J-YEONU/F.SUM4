@@ -16,8 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- 썸머노트 -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -120,27 +119,29 @@
                         <h1 class="mt-4">공지사항 등록</h1>
                             * 관리자로 등록된 회원만 등록 할 수 있습니다.
                         <hr>
+                        <form action="${ path }/admin/noticeWrite" method="POST">
                         <div id="member-main-container" class="">
-                        
                             <div class="container">
                                 <div>
-                                    제목 : <input type="text">
+                                    제목 : <input type="text" name="title" id="noticeTitle">
                                 </div>
                                 <br>
-                                <div id="summernote" class="summernote"></div>
+                                <div>
+                                	<textarea id="summernote" class="summernote" name="content"></textarea>
+                                </div>
                             </div>
                             
                             <br>
                             <div class="btnzone">
-                                <button type="submit" class="btn btn-warning btnsize"> 저장하기 </button>
-                                <button type="reset" class="btn btn-light btnsize"> 취소 </button>
+                                <button type="submit" class="btn btn-warning btnsize" value="등록"> 등록하기 </button>
+                                <button type="reset" class="btn btn-light btnsize" value="취소"> 취소 </button>
                             </div> 
+                        </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
         <script>
             $('#summernote').summernote({
-            placeholder: '줄거리 내용을 작업 해 주세요.',
+            placeholder: '공지사항 내용을 작성해 주세요.',
             tabsize: 2,
             height: 200
             });

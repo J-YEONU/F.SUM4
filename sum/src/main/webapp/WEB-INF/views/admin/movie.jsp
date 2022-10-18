@@ -101,7 +101,7 @@
                                 <div class="sb-nav-link-icon"><i class="bi bi-calendar3"></i></div>
                                 공지 사항
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
+                    	        </a>
                             <div class="collapse" id="collapseNotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="">공지사항 목록</a>
@@ -115,6 +115,7 @@
                     </div>
                 </nav>
             </div>
+            <form action="${ path }/admin/movie" method="POST" enctype="multipart/form-data">
             <div id="layoutSidenav_content">
                 <main id="main_contnet">
                     <div class="container-fluid px-4">
@@ -126,24 +127,24 @@
 
                             <div>
                                 <div>
-                                    영화이름 : <input type="text">
+                                    영화이름 : <input type="text" name="movieTitle">
                                 </div>
                                 <div>
-                                    장르 : <input type="text">
+                                    장르 : <input type="text" name="movieGenre">
                                 </div>
                                 <div class="date_input">
-                                    개봉일 : <input type="date" id="date" name="birthDate" value>
+                                    개봉일 : <input type="date" id="date" name="movieRelease" >
                                 </div> 
+                                 <div>
+                                    감독 : <input type="text" name="movieDirector">
+                                </div>
                                 <div>
-                                    영화이름 : <input type="text">
-                                </div> 
-                                <div>
-                                    출연진 : <input type="text">
+                                    출연진 : <input type="text" name="movieCast">
                                 </div>
                                 <div class="">
                                     등급 : 
-                                    <select name="address" id="area">
-                                        <option selected>연령제한</option>
+                                    <select name="address" id="area" >
+                                        <option selected name="movieRating">연령제한</option>
                                         <option value="TotalUserPrice">전체 이용가</option>
                                         <option value="12">12</option>
                                         <option value="15">15</option>
@@ -151,10 +152,10 @@
                                     </select>
                                 </div>
                             <div>
-                                동영상 URL : <input type="text">
+                                동영상 URL : <input type="text" name="movieTrailer">
                             </div>
                             <div>
-                                영화 포스터 사진 : <label for=""></label> <input type="file">
+                                영화 포스터 사진 : <label for=""></label> <input type="file" name="poster">
                             </div>
                             <div class="col">
                                 <div class="fileboxBtn">
@@ -179,7 +180,7 @@
                             <div>
                                 줄거리 상세 :
                                 <div id="">
-                                    <textarea id="summernote"></textarea>
+                                    <textarea id="summernote" name="movieComment"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -195,6 +196,7 @@
                 </main>
                 
             </div>
+            </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
