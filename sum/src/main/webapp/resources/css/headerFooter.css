@@ -69,7 +69,8 @@ header {
 
 /* 로그인바 */
 .ul2 {
-    width: 400px;
+	padding-left: 50px;
+    width: 600px;
     margin: 0px;
 }
 

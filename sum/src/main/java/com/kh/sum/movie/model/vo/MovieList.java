@@ -49,7 +49,4 @@ public class MovieList {
 	private String movieGrade;
 	
 	private java.sql.Date createDate;
-	
-	private String movieBookingRate;
-
 }

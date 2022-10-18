@@ -62,7 +62,6 @@
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>
-<<<<<<< HEAD
     </div>
     <div id="contents">
         <div class="inner-wrap">
@@ -82,7 +81,7 @@
 	                        <div class="movie-list-info">
 	                     		   <!-- 영화 상세페이지로 가는 링크 
 	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -100,8 +99,8 @@
 	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
 	                            <div class="movie_info">
-	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
-	                               <span>관람평점 ${ movieList.movieRating }</span>
+	                               <span>예매율  %</span>
+	                               <span>관람평점 </span>
 	                            </div>
 	                            
 	                        </div>
@@ -115,50 +114,15 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
+	                     		    <!-- 영화 상세페이지로 가는 링크 
 	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            <div class="movie_info">
-	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
-	                               <span>관람평점 ${ movieList.movieRating }</span>
-=======
-	        
-	                    
-	                    
-	    <section id="movie">
-	        <div class="container">
-	            <div class="row">
-	                <div class="movie">
-	                    <div class="movie_title">
-	                        <ul>
-	                            <li class="active"><a href="#">현재상영작</a></li>
-	                            <li><a href="#">상영예정작</a></li>
-	                            <li><a href="#">나의추천영화</a></li>
-	                        </ul>
-	                    </div>
-	                    <div class="movie_chart">
-	                        <div class="chart_cont1">
-	                            <div>
-	                            	<c:forEach var="movieList" items="${ list }">
-		                                <div class="poster">
-		                                <!-- 영화 상세페이지로 가는 링크 
-		                                <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-		                                    <figure>
-		                                        <img src="${ path }/resources/image/${ movieList.moviePoster }"  alt="포스터">
-		                                    </figure>
-		                                </div>
-		                                <div class="infor">
-		                                    <h3><span class="icon gr_18">청불</span> <strong>${ movieList.movieTitle }</strong></h3>
-		                                    <div class="movie_info">
-		                                        <span>예매율 ${ movieList.movieBookingRate } %</span>
-		                                        <span>관람평점 ${ movieList.movieRating }</span>
-		                                    </div>
-		                                </div>
-	                                </c:forEach>
->>>>>>> 7f2456c60d682214ce0bb0c62d4deb81add072fd
+	                               <span>예매율  %</span>
+	                               <span>관람평점 </span>
 	                            </div>
 	                        </div>
 	                    </li>
@@ -171,15 +135,14 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/image/poster/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            <div class="movie_info">
-	                               <span>예매율 ${ movieList.movieBookingRate } %</span>
-	                               <span>관람평점 ${ movieList.movieRating }</span>
+	                               <span>예매율  %</span>
+	                               <span>관람평점 </span>
 	                            </div>
 	                        </div>
 	                    </li>

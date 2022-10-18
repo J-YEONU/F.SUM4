@@ -144,7 +144,7 @@
 				                    <tr>
 				                        <td>${ qna.no }</td>
 				                        <td> <a href="#">${ qna.title }</a> </td>
-				                        <td>${ m.name }</td>
+				                        <td>${ qna.name }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
 				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
@@ -159,6 +159,8 @@
 			                </c:if>
                         </table>
                         <hr>
+                        
+                        <!-- ==================== 페이지 버튼 ==================== -->
                         <div class="text-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
@@ -169,7 +171,14 @@
                                     </li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+										<c:if test="${ status.current == pageInfo.currentPage }">
+											<a href="#" class="active">${ status.current }</a>
+										</c:if>
+										<c:if test="${ status.current != pageInfo.currentPage }">
+											<a href="${ path }/admin/inquiry?page=${ status.current }">${ status.current }</a>
+										</c:if>
+									</c:forEach>
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>

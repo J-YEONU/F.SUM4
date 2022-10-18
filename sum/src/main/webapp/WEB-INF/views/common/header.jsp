@@ -43,9 +43,15 @@
 	        </c:if>
 	        <c:if test="${ !empty loginMember }">
 	        	<ul class="ul2">
-					<li><a href="${ path }/member/mypage">
-						${loginMember.name}
-					</a>님</li>
+                    <li>${loginMember.name} 님 </li>
+	                    <c:if test="${loginMember.role == 'ROLE_USER' }">
+							<li><a href="${path }/myPage/myBooking">마이 페이지</a></li>
+	                    </c:if>
+                    
+	                    <c:if test="${loginMember.role == 'ROLE_ADMIN' }">
+		                    <li><a href="${path }/myPage/myBooking">마이 페이지</a></li>
+		                    <li><a href="${path }/admin/main">관리자 페이지</a></li>
+	                    </c:if>
 					<li><a href="${ path }/logout">로그아웃</a></li>
 				</ul>
 			</c:if>

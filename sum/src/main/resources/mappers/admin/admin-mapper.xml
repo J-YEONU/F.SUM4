@@ -117,6 +117,90 @@
 		ORDER BY Q.QNA_NO DESC
 	</select>
 	
+	<!-- 영화/영화관/상영시간 등록 -->
+
+	<!-- 영화 등록 테스트 -->
+	   <insert id="insertMovie" parameterType="movieList"
+	      useGeneratedKeys="true" keyProperty="movieNo" keyColumn="MOVIE_NO">
+	      INSERT INTO MOVIE_INFO (
+	         MOVIE_NO,
+	         MEMBER_NO,
+	         MOVIE_TITLE,
+	         MOVIE_GENRE,
+	         MOVIE_RELEASE,
+	         MOVIE_DIRECTOR,
+	         MOVIE_CAST,
+	         MOVIE_RATING,
+	         MOVIE_TRAILER,
+	         MOVIE_POSTER,
+	         RENAMED_POSTER,
+	         MOVIE_STATUS,
+	         IMG,
+	         RENAMED_IMG,
+	         MOVIE_SUMMARY,
+	         PRICE,
+	         READCOUNT,
+	         MOVIE_COMMENT,
+	         MOVIE_GRADE,
+	         CREATE_DATE
+	      )
+	      VALUES(
+	         SEQ_MOVIE_INFO_NO.NEXTVAL,
+	         #{memberNo},
+	         #{movieTitle},
+	         #{movieGenre},
+	         #{movieRelease},
+	         #{movieDirector},
+	         #{movieCast},
+	         #{movieRating},
+	         #{movieTrailer},
+	         #{moviePoster},
+	         #{renamedPoster},
+	         DEFAULT,
+	         #{img},
+	         #{renamedImg},
+	         #{movieSummary},
+	         #{price},
+	         DEFAULT,
+	         #{movieComment},
+	         #{movieGrade},
+	         DEFAULT
+	      )
+	   </insert>
 	
+	<!-- 공지사항 쿼리문 -->
+	<resultMap type="Notice" id="noticeResultMap">
+		<id property="noticeNo" column="NOTICE_NO"/>
+		<result property="title" column="NOTICE_TITLE"/>
+		<result property="content" column="NOTICE_CONTENT"/>
+		<result property="createDate" column="CREATE_DATE"/>
+		<result property="noticeImg" column="NOTICE_IMG"/>
+		<result property="renamedImg" column="RENAMED_IMG"/>
+		<result property="status" column="STATUS"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+	</resultMap>
 	
+	<insert id="insertNotice" parameterType="Notice"
+			useGeneratedKeys="true" keyColumn="NOTICE_NO" keyProperty="noticeNo">
+		INSERT INTO NOTICE (
+			NOTICE_NO,
+			NOTICE_TITLE,
+			NOTICE_CONTENT,
+			CREATE_DATE,
+			NOTICE_IMG,
+			RENAMED_IMG,
+			STATUS,
+			MEMBER_NO
+		)
+		VALUES(
+			SEQ_NOTICE_NO.NEXTVAL,
+			#{title},
+			#{content},
+			DEFAULT,
+			#{noticeImg},
+			#{renamedImg},
+			DEFAULT,
+			#{memberNo}
+		)
+	</insert>	
 </mapper>
