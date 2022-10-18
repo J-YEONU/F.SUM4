@@ -35,7 +35,7 @@
 					</th>
 					<td>
 						<input type="text" name="id" id="newId" placeholder="아이디(4글자이상)" required>
-						<input type="button" id="checkDuplicate" value="중복확인" >
+						<input type="button" id="checkDuplicateId" value="중복확인" >
 					</td> 			
                 </tr>
                 <tr>
@@ -92,7 +92,8 @@
                 <tr>
                     <th>이메일</th>
                     <td>
-                        <input type="email" placeholder="abc@abc.com" name="email" id="email" required>												
+                        <input type="email" placeholder="abc@abc.com" name="email" id="email" required>
+                        <input type="button" id="checkDuplicateE" value="중복확인" >											
                     </td> 			
                 </tr>
                 <tr>
@@ -106,7 +107,8 @@
                 <tr>
 					<th>핸드폰 번호</th>
 					<td>
-						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required>								
+						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required>
+						<input type="button" id="checkDuplicateP" value="중복확인" >								
 					</td> 			
                 </tr>
                 <tr>
@@ -165,25 +167,61 @@
     <script>
 		// 아이디 중복 확인
 		$(document).ready(() => {
-			$("#checkDuplicate").on("click", () => {
-				let userId = $("#newId").val().trim();			
+			$("#checkDuplicateId").on("click", () => {
+				let userId = $("#newId").val().trim();	
+				
+				if(userId){
+					$.ajax({
+						type: "POST",
+						url: "${ path }/member/idCheck",
+						dataType: "json",
+						data: {
+							userId // "userId": userId
+						},
+						success: (obj) => {
+							console.log(obj);
+							
+							if(obj.duplicate === true) {
+								alert("이미 사용중인 아이디 입니다.");
+							} else {
+								$('#checkDuplicateId').attr('value','검사완료');
+								
+								alert("사용 가능한 아이디 입니다.");
+							}
+						}, 
+						error: (error) => {
+							console.log(error);
+						}
+					});
+				} else {
+					alert("아이디를 입력해주세요.");
+				}
+			});
+		});
+	</script>
+	
+	<script>
+		// 이메일 중복 확인
+		$(document).ready(() => {
+			$("#checkDuplicateE").on("click", () => {
+				let userEmail = $("#email").val().trim();			
 				
 				$.ajax({
 					type: "POST",
-					url: "${ path }/member/idCheck",
+					url: "${ path }/member/emailCheck",
 					dataType: "json",
 					data: {
-						userId // "userId": userId
+						userEmail // "userEmail": userEmail
 					},
 					success: (obj) => {
 						console.log(obj);
 						
 						if(obj.duplicate === true) {
-							alert("이미 사용중인 아이디 입니다.");
+							alert("이미 사용중인 이메일 입니다.");
 						} else {
-							$('#checkDuplicate').attr('value','검사완료');
+							$('#checkDuplicateE').attr('value','검사완료');
 							
-							alert("사용 가능한 아이디 입니다.");
+							alert("사용 가능한 이메일 입니다.");
 						}
 					}, 
 					error: (error) => {
@@ -193,10 +231,65 @@
 			});
 		});
 	</script>
+	
+	<script>
+		// 전화번호 중복 확인
+		$(document).ready(() => {
+			$("#checkDuplicateP").on("click", () => {
+				let userPhone = $("#phone").val().trim();			
+				
+				$.ajax({
+					type: "POST",
+					url: "${ path }/member/phoneCheck",
+					dataType: "json",
+					data: {
+						userPhone // "userId": userId
+					},
+					success: (obj) => {
+						console.log(obj);
+						
+						if(obj.duplicate === true) {
+							alert("이미 사용중인 전화번호 입니다.");
+						} else {
+							$('#checkDuplicateP').attr('value','검사완료');
+							
+							alert("사용 가능한 전화번호 입니다.");
+						}
+					}, 
+					error: (error) => {
+						console.log(error);
+					}
+				});
+			});
+		});
+	</script>
+	
+	<script>
+	// 폰에 숫자만 넣기
+	$("#phone").on("keyup", function() {
+		$("#phone").val($("#phone").val().replace(/[^0-9]/g,""));
+	});
+	
+	</script>
+	
 	<script>
 		$(document).ready(function(){
 			$('#newId').keyup(function(){
-				$('#checkDuplicate').attr('value','중복검사');
+				$('#checkDuplicateId').attr('value','중복확인');
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('#email').keyup(function(){
+				$('#checkDuplicateE').attr('value','중복확인');
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('#phone').keyup(function(){
+				$('#checkDuplicateP').attr('value','중복확인');
 			});
 		});
 	</script>
@@ -204,13 +297,20 @@
 		$(document).ready(function(){
 			//회원가입 버튼(회원가입 기능 작동)
 			$(".join_button").click(function(){
-				if($("#checkDuplicate").val() === 검사완료){
-				
-				//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
-				$("#join_form").attr("action", "${ path }/member/enroll");
-				$("#join_form").submit();
-				} else {
-					alert("중복검사를 해주세요.");
+				if($("#checkDuplicateId").val() == "검사완료"){
+					if($("#checkDuplicateE").val() == "검사완료"){
+						if($("#checkDuplicateP").val() == "검사완료"){
+						//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
+							$("#join_form").attr("action", "${ path }/member/enroll");
+							$("#join_form").submit();
+						}else{
+							alert("핸드폰 번호 중복검사를 해주세요.")
+						}					
+					}else{
+						alert("이메일 중복검사를 해주세요.")
+					}
+				}else{
+					alert("아이디 중복검사를 해주세요.")
 				}
 			});
 		});

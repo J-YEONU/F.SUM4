@@ -9,6 +9,10 @@ import com.kh.sum.member.model.vo.Member;
 public interface MemberMapper {
 	Member selectMemberById(@Param("id") String id);
 
+	Member selectMemberByEmail(@Param("email") String email);
+	
+	Member selectMemberByPhone(@Param("phone") String phone);
+
 	int insertMember(Member member);
 
 	int updateMember(Member member);

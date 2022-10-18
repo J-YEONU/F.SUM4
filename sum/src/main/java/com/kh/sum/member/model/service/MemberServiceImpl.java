@@ -30,6 +30,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public Member findMemberByEmail(String email) {
+		
+		return mapper.selectMemberByEmail(email);
+	}
+	
+	@Override
+	public Member findMemberByPhone(String phone) {
+		
+		return mapper.selectMemberByPhone(phone);
+	}
+	
+	@Override
 	public Member login(String id, String password) {
 		Member member = null;
 		
@@ -74,6 +86,18 @@ public class MemberServiceImpl implements MemberService {
 	public Boolean isDuplicateID(String id) {
 		
 		return this.findMemberById(id) != null;
+	}
+	
+	@Override
+	public Boolean isDuplicateEmail(String email) {
+		
+		return this.findMemberByEmail(email) != null;
+	}
+	
+	@Override
+	public Boolean isDuplicatePhone(String phone) {
+		
+		return this.findMemberByPhone(phone) != null;
 	}
 
 	@Override
