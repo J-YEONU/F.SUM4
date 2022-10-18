@@ -23,8 +23,7 @@
 			READCOUNT,
 			MOVIE_COMMENT,
 			MOVIE_GRADE,
-			CREATE_DATE,
-			MOVIE_BOOKINGRATE
+			CREATE_DATE
 		FROM MOVIE_INFO
 	</sql>
 	
@@ -49,7 +48,6 @@
 		<result property="movieComment" column="MOVIE_COMMENT"/>		
 		<result property="movieGrade" column="MOVIE_GRADE"/>		
 		<result property="createDate" column="CREATE_DATE"/>		
-		<result property="movieBookingRate" column="MOVIE_BOOKINGRATE"/>		
 	</resultMap>
 	
 	<!-- 현재상영영화 조회 --> 
