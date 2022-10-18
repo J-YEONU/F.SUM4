@@ -68,6 +68,9 @@ public class AdminServiceImpl implements AdminService {
         return result;
     }
 
+	
+	// =============== 공지사항 =================
+	
 	@Override
 	public int save(Notice notice) {
 		int result = 0;
@@ -81,6 +84,24 @@ public class AdminServiceImpl implements AdminService {
 			result = mapper.insertNotice(notice);
 		}
 		return result;
+	}
+
+	@Override
+	public List<Notice> getNoticeList(PageInfo pageInfo) {
+
+		return mapper.selectNoticeList();
+	}
+
+	@Override
+	public int getNoticeCount() {
+
+		return mapper.selectNoticeCount();
+	}
+
+	@Override
+	public Notice findNoticeByNo(int no) {
+
+		return mapper.selectNoticeByNo(no);
 	}
 
 }

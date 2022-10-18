@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -122,19 +122,19 @@
                                         제목
                                     </div>
                                     <div class="col-4">
-                                        공지사항 제목이 들어갈 자리
+                                        ${notice.title}
                                     </div>
                                     <div class="col-2">
                                         작성일
                                     </div>
                                     <div class="col-4">
-                                        작성일 날짜
+                                        ${notice.createDate}
                                     </div>
                                     
                                 </div>
                             </div>
                             <div>
-                                내용이 들어갈 부분입니다.
+                                ${notice.content}
                             </div>
                             <div class="btnzone">
                                 <button type="submit" class="btn btn-warning"> 수정 </button>
@@ -144,6 +144,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="${ path }/resources/jquery-3.6.0.min.js/"></script>
     </body>
 </html>

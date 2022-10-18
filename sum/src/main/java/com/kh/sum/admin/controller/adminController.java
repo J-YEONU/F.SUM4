@@ -187,9 +187,23 @@ public class adminController {
 	/* 공지사항 (등록하기, 목록보기) */
 	
 	@GetMapping("/noticeList")
-	public String noticeList() {
+	public ModelAndView noticeList(ModelAndView model,
+			@RequestParam(value = "page", defaultValue = "1") int page) {
+			
+		List<Notice> list = null;
+		PageInfo pageInfo = null;
 		
-		return "/admin/noticeList";
+		pageInfo = new PageInfo(page, 10, service.getNoticeCount(), 10);
+		System.out.println(pageInfo);
+
+		list = service.getNoticeList(pageInfo);
+		
+		
+		model.addObject("list", list);
+		model.addObject("pageInfo", pageInfo);
+		model.setViewName("/admin/noticeList");
+		
+		return model;
 	}
 	
 	@GetMapping("/noticeDetail")
@@ -197,6 +211,19 @@ public class adminController {
 		
 		return "/admin/noticeDetail";
 	}
+	
+	@PostMapping("/noticeDetail")
+	public ModelAndView noticeDetail(ModelAndView model, @RequestParam int no) {
+		Notice notice = null;
+		
+		notice = service.findNoticeByNo(no);
+		
+		model.addObject("notice", notice);
+		model.setViewName("/noticeDetail");
+		
+		return model;
+	}
+	
 	
 	@GetMapping("/noticeWrite")
 	public String noticeWrite() {

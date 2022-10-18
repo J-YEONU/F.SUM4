@@ -13,19 +13,31 @@ import com.kh.sum.myPage.model.vo.MyQnA;
 @Mapper
 public interface AdminMapper {
 
+	// 회원 관련 맵퍼
+	
 	int selectMemberCount();
 
 	List<Member> selectMemberAll(RowBounds rowBounds);
 
 	Member selectMemberAll(int no);
 
+	// 1:1 문의 사항 맵퍼
+	
 	int selectInquiryCount();
 
 	List<MyQnA> selectInquiryAll();
 
 	int insertMovie(MovieList movieList);
 
+	// 공지 사항 관련 맵퍼
+	
 	int updateNotice(Notice notice);
 
 	int insertNotice(Notice notice);
+
+	List<Notice> selectNoticeList();
+
+	int selectNoticeCount();
+
+	Notice selectNoticeByNo(int no);
 }

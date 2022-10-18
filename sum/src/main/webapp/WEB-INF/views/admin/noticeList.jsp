@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link href="css/styles.css" rel="stylesheet" />
+		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -127,10 +127,10 @@
                                                 <colgroup>
                                                     <col width="5%" />
                                                     <col width="5%" />
-                                                    <col width="40%" />
-                                                    <col width="15%" />
-                                                    <col width="5%" />
+                                                    <col width="50%" />
+                                                    <col width="20%" />
                                                     <col width="10%" />
+                                                    <col width="5%" />
                                                 </colgroup>
                                                 <thead>        
                                                     <tr>
@@ -145,27 +145,31 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tbody">
-                                                    <tr>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                        <td>1</td>
-                                                        <td>공지사항은 어떤게 공지사항입니까?</td>
-                                                        <td>1999-12-31</td>
-                                                        <td>36</td>
-                                                        <td>Y/N</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                        <td>2</td>
-                                                        <td>시사회 영화 안내 알려드립니다.</td>
-                                                        <td>1999-12-31</td>
-                                                        <td>12</td>
-                                                        <td>Y/N</td>
-                                                    </tr>
+                                                 <c:if test="${ not empty list }">
+													<c:forEach var="notice" items="${ list }">
+									                    <tr>
+									                    	<td>
+									                    		<input type="checkbox">
+									                    	</td>
+									                        <td>${ notice.noticeNo }</td>
+									                        <td> <a href="#">${ notice.title }</a> </td>
+									                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
+									                        <td></td>
+									                        <td>
+		                                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+		                                                            <li class="nav-item dropdown">
+		                                                                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
+		                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail">공지사항 수정</a></li>
+		                                                                    <li><a class="dropdown-item" href="#!">공지사항 삭제</a></li>
+		                                                                    <li><a class="dropdown-item" href="#!">SUM 공지사항</a></li>
+		                                                                </ul>
+		                                                            </li>
+		                                                        </ul>
+		                                                    </td>
+									                    </tr>
+								                    </c:forEach>
+								                </c:if>
                                                 </tbody>    
                                             </table>
                                         </form>            

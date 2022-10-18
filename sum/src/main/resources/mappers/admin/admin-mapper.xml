@@ -169,6 +169,7 @@
 	   </insert>
 	
 	<!-- 공지사항 쿼리문 -->
+	
 	<resultMap type="Notice" id="noticeResultMap">
 		<id property="noticeNo" column="NOTICE_NO"/>
 		<result property="title" column="NOTICE_TITLE"/>
@@ -179,6 +180,34 @@
 		<result property="status" column="STATUS"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 	</resultMap>
+	
+	<select id="selectNoticeCount" resultType="_int">
+		SELECT COUNT(*) FROM NOTICE WHERE STATUS='Y'
+	</select>
+	
+	<select id="selectNoticeList" resultMap="noticeResultMap">
+		SELECT NOTICE_NO,
+				NOTICE_TITLE,
+				NOTICE_CONTENT,
+				CREATE_DATE,
+				NOTICE_IMG,
+				RENAMED_IMG,
+				STATUS,
+				MEMBER_NO
+		FROM NOTICE
+	</select>
+	
+	<select id="selectNoticeByNo" parameterType="_int" resultMap="noticeResultMap">
+		SELECT NOTICE_NO,
+				NOTICE_TITLE,
+				NOTICE_CONTENT,
+				CREATE_DATE,
+				NOTICE_IMG,
+				RENAMED_IMG,
+				STATUS,
+				MEMBER_NO
+		FROM NOTICE
+	</select>
 	
 	<insert id="insertNotice" parameterType="Notice"
 			useGeneratedKeys="true" keyColumn="NOTICE_NO" keyProperty="noticeNo">

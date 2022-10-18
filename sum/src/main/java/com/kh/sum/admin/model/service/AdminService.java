@@ -10,19 +10,33 @@ import com.kh.sum.myPage.model.vo.MyQnA;
 
 public interface AdminService {
 
+	// 회원 관련 서비스
+	
 	int getMemberCount();
 	
 	List<Member> getMemberList(PageInfo pageInfo);
 	
 	Member findMemberByNo(int no);
 	
+	// 1:1 문의 사항 서비스
+	
 	int getInquiryCount();
 	
 	List<MyQnA> getInquiryList(PageInfo pageInfo);
 	
+	// 영화 관련 서비스
+	
 	int save(MovieList movieList);
 
+	// 공지사항 관련 서비스 
+	
 	int save(Notice notice);
+
+	List<Notice> getNoticeList(PageInfo pageInfo);
+
+	int getNoticeCount();
+
+	Notice findNoticeByNo(int no);
 	
 
 
