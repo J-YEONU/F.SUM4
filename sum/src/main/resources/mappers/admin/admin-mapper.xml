@@ -194,13 +194,13 @@
 		)
 		VALUES(
 			SEQ_NOTICE_NO.NEXTVAL,
-			${title},
-			${content},
+			#{title},
+			#{content},
 			DEFAULT,
-            ${noticeImg},
-            ${renamedImg},
+			#{noticeImg},
+			#{renamedImg},
 			DEFAULT,
-			${memberNo}
+			#{memberNo}
 		)
 	</insert>	
 </mapper>
