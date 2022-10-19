@@ -118,6 +118,29 @@ public class adminController {
 	      return model;
 	   }
 	
+	   /* 1:1 문의 삭제 */
+	   
+	   @GetMapping("/inquiryDelete")
+	   public ModelAndView inquiryDelete(ModelAndView model,@RequestParam int no) {
+		   int result = 0;
+		   
+		   result = service.delete(no);
+		   
+		   if(result > 0) {
+			   model.addObject("msg", "게시글이 정상적으로 삭제되었습니다.");
+			   model.addObject("location", "/admin/inquiry");
+		   } else {
+			   model.addObject("msg", "게시글 삭제를 실패하였습니다.");
+			   model.addObject("location", "/admin/inquiryDetail?no=" + no);
+		   }
+		   
+		   model.setViewName("common/msg");
+		   
+		   return model;
+	   }
+	   
+	   /* 1:1 문의 답변 (수정)*/
+	   
 	/* 영화 (영화관 등록, 영화 등록, 영화 시간 등록 ) */
 
 	   @GetMapping("/movie")

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.sum.admin.model.mapper.AdminMapper;
 import com.kh.sum.admin.model.vo.Notice;
@@ -53,6 +54,21 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.selectInquiryAll();
 	}
 
+	@Override
+	public MyQnA findQnAByNo(int no) {
+		
+		return mapper.selectQnAByNo(no);
+	}
+	
+	@Override
+	@Transactional
+	public int delete(int no) {
+		int result = 0;
+		
+		result = mapper.qnaUpdateStatus(no, "N");
+		
+		return result;
+	}
 
 	@Override
     public int save(MovieList movieList) {
@@ -104,10 +120,5 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.selectNoticeByNo(no);
 	}
 
-	@Override
-	public MyQnA findQnAByNo(int no) {
-	      
-		return mapper.selectQnAByNo(no);
-   }
 
 }

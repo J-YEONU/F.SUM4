@@ -39,6 +39,8 @@ public interface AdminService {
 	Notice findNoticeByNo(int no);
 
 	MyQnA findQnAByNo(int no);
+
+	int delete(int no);
 	
 
 

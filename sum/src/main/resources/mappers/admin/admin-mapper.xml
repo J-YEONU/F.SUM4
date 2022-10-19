@@ -131,6 +131,11 @@
       WHERE Q.STATUS = 'Y' AND QNA_NO = #{no}
    </select>
 	
+	<!-- 1:1 문의내역 삭제 -->
+	<update id="qnaUpdateStatus" parameterType="map">
+		UPDATE QNA SET STATUS = #{status} WHERE QNA_NO = #{no}
+	</update>
+	
 	<!-- 영화/영화관/상영시간 등록 -->
 
 	<!-- 영화 등록 테스트 -->

@@ -116,11 +116,18 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+					<form action="${ path }/admin/inquiryDetail?no=${ qna.no }" method="POST">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">1:1 문의 답변</h1>
                             * 관리자만 글을 작성 할 수 있습니다.
+					<div class="btnupdiv">
+                        <button type="submit" class="btnup" 
+							onclick="location.href='${ path }/admin/inquiryDetail?no=${ qna.no }'">수정</button>
+						<button type="button" class="btnup" id="btnDelete">삭제</button>
+						<button type="button" class="btnup" onclick="location.href='${ path }/admin/inquiry'">목록으로</button>
+                    </div>
                         <hr>
-                        
+						<input type="hidden" name="no" value="${ qna.no }">
                         <div id="main-container" class="">
                             <div id="top-container">
                                 <div class="inquiryBoard">
@@ -139,25 +146,32 @@
                             </div>
                         </div>
                         <br>
-                        <div class="btnzone">
-                            <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
-                            <button type="reset" class="btn btn-light btnsize"> 취소 </button>
-                        </div> 
-                    </div>
+	                        <div class="btnzone">
+	                            <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
+	                            <button type="reset" class="btn btn-light btnsize"> 취소 </button>
+	                        </div> 
+                    	</div>
+                    </form>
                 </main>
                 
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
         <script>
+		$(document).ready(() => {
+			$("#btnDelete").on("click", () => {
+				if(confirm("문의내용을 삭제 하시겠습니까?")) {
+					location.replace("${ path }/admin/inquiryDelete?no=${ qna.no }");
+				}
+			});
+			
             $('#summernote').summernote({
             placeholder: '문의 답변을 적어 주세요.',
             tabsize: 2,
             height: 300
             });
+		});
         </script>
-        
-    </script>
     </body>
 </html>
