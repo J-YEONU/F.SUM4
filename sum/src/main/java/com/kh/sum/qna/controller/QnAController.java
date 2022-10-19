@@ -39,7 +39,7 @@ public class QnAController {
         
         int result = 0;
         
-        qna.setNo(loginMember.getNo());
+        qna.setMemberNo(loginMember.getNo());
         result = service.save(qna);
         
         if(result > 0) {
@@ -52,6 +52,7 @@ public class QnAController {
         }
         model.setViewName("common/msg");
         
+        System.out.println(loginMember.getNo());
         System.out.println(qna);
         
         

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.myPage.model.mapper.MyBookingMapper;
@@ -61,6 +62,7 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
     @Override
+    @Transactional
     public int save(MyQnA qna) {
      int result = 0;
         
