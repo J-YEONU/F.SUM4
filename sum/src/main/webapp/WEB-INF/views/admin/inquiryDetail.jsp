@@ -62,7 +62,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 관리자 메인
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="${ path }/admin/memberList">
                                 <div class="sb-nav-link-icon"><i class="bi bi-person-lines-fill"></i></div>
                                 회원 목록
                             </a>
@@ -86,10 +86,10 @@
                                     <a class="nav-link collapsed" href="${ path }/admin/movie" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         영화 등록
                                     </a>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <a class="nav-link collapsed" href="${ path }/admin/cinema" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         영화관 등록
                                     </a>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <a class="nav-link collapsed" href="${ path }/admin/movieTime" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         상영시간 등록
                                     </a>
                                     <div class="collapse" id="pagesMovies" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
@@ -104,7 +104,7 @@
                             <div class="collapse" id="collapseNotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="${ path }/admin/noticeList">공지사항 목록</a>
-                                    <a class="nav-link" href="layout-static.html">공지사항 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/noticeWrite">공지사항 등록</a>
                                 </nav>
                             </div>
                         </div>
