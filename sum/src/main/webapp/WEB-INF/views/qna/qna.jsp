@@ -23,10 +23,10 @@
 <form action="${ path }/qna/qna" method="POST">
     <section class="content">
         <div>
-            <input type="text" name="qnaTitle" class="qnaTitle" placeholder=" 제목">
-            <input type="text" name="userId" class="userId" placeholder=" 손님 (guest)">
+            <input type="text" name="title" class="qnaTitle" placeholder=" 제목">
+            <input type="text" name="memberId" class="userId" value="${ loginMember.id }" readonly>
             <div>
-                <input type="text" name="qnaContent" class="qnaContent" placeholder=" 문의내용">
+                <input type="text" name="content" class="qnaContent" placeholder=" 문의내용">
             </div>
         </div>
 
