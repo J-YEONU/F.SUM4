@@ -207,6 +207,7 @@
 				STATUS,
 				MEMBER_NO
 		FROM NOTICE
+		WHERE STATUS = 'Y' AND NOTICE_NO = #{no}
 	</select>
 	
 	<insert id="insertNotice" parameterType="Notice"
