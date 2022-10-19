@@ -145,8 +145,8 @@
 								<c:forEach var="qna" items="${ list }">
 				                    <tr>
 				                        <td>${ qna.no }</td>
-				                        <td> <a href="#">${ qna.title }</a> </td>
-				                        <td>${ qna.name }</td>
+				                        <td> <a href="${ path }/admin/inquiryDetail?no=${ qna.no }">${ qna.title }</a> </td>
+				                        <td>${ qna.memberNo }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
 				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
@@ -195,6 +195,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/resources/js/jquery-3.6.0.min"></script>
+        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>
 </html>
