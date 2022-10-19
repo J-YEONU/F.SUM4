@@ -37,7 +37,7 @@
       </div>
       <div class="cinemaInfo">
          <span><img src="${ path }/resources/image/cinema/cinema2.jpg"></span>   
-         <strong class="cInfo">코엑스</strong>
+         <strong class="cInfo">장안</strong>
       </div>
       <div class="cinemaInfo">
          <span><img src="${ path }/resources/image/cinema/cinema3.jpg"></span>   
@@ -49,11 +49,11 @@
       </div>
       <div class="cinemaInfo">
          <span><img src="${ path }/resources/image/cinema/cinema5.png"></span>   
-         <strong class="cInfo">인천아시아드</strong>
+         <strong class="cInfo">부평</strong>
       </div>
       <div class="cinemaInfo">
          <span><img src="${ path }/resources/image/cinema/cinema6.jpg"></span>   
-         <strong class="cInfo">인천터미널</strong>
+         <strong class="cInfo">주안</strong>
       </div>
    </div>
 </section>
