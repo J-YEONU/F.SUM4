@@ -104,4 +104,10 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.selectNoticeByNo(no);
 	}
 
+	@Override
+	public MyQnA findQnAByNo(int no) {
+	      
+		return mapper.selectQnAByNo(no);
+   }
+
 }

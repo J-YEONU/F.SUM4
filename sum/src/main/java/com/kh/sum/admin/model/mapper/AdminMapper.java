@@ -40,4 +40,6 @@ public interface AdminMapper {
 	int selectNoticeCount();
 
 	Notice selectNoticeByNo(int no);
+
+	MyQnA selectQnAByNo(int no);
 }

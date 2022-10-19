@@ -37,6 +37,8 @@ public interface AdminService {
 	int getNoticeCount();
 
 	Notice findNoticeByNo(int no);
+
+	MyQnA findQnAByNo(int no);
 	
 
 

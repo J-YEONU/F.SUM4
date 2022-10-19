@@ -103,11 +103,20 @@ public class adminController {
 		return model;
 	}
 	
-	@GetMapping("/inquiryDetail") 
-	public String inquiryDetail() {
-		
-		return "/admin/inquiryDetail";
-	}
+	  /* 1:1 문의 답변 페이지*/
+	   
+	   @GetMapping("/inquiryDetail") 
+	   public ModelAndView inquiryDetail(ModelAndView model, @RequestParam int no) {
+	       
+	       MyQnA qna = null;
+	       
+	       qna = service.findQnAByNo(no);
+	       
+	       model.addObject("qna", qna);
+	       model.setViewName("/admin/inquiryDetail");
+	       
+	      return model;
+	   }
 	
 	/* 영화 (영화관 등록, 영화 등록, 영화 시간 등록 ) */
 
