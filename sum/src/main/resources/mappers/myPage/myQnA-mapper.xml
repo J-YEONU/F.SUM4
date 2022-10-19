@@ -35,5 +35,31 @@
 		ORDER BY Q.QNA_NO DESC
 	</select>
 	
+	<!-- QnA 등록 -->
+	<insert id="insertQnA" parameterType="MyQnA"
+			useGeneratedKeys="true" keyColumn="QNA_NO" keyProperty="qnaNo">
+		INSERT INTO QNA (
+			Q.QNA_NO,
+			Q.QNA_TITLE,
+			Q.QNA_CONTENT,
+			Q.STATUS,
+			Q.MEMBER_NO,
+			Q.ANSWER_STATUS,
+			Q.CREATE_DATE
+		)
+		VALUES(
+			SEQ_QNA_NO.NEXTVAL,
+			#{title},
+			#{content},
+			DEFAULT,
+			#{memberNo},
+			DEFAULT,
+			DEFAULT
+		)
+		FROM QNA Q
+		JOIN MEMBER M ON(Q.MEMBER_NO = M.MEMBER_NO)
+		WHERE Q.STATUS = 'Y'
+	</insert>
+	
 	
 </mapper>

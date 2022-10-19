@@ -14,4 +14,6 @@ public interface MyQnAMapper {
 
 	List<MyQnA> selectAll(RowBounds rowBounds);
 
+    int insertQnA(MyQnA qna);
+
 }

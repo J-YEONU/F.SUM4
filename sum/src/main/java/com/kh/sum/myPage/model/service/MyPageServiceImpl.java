@@ -60,4 +60,18 @@ public class MyPageServiceImpl implements MyPageService {
 		return bookingMapper.selectAll(rowBounds);
 	}
 
+    @Override
+    public int save(MyQnA qna) {
+     int result = 0;
+        
+        if(qna.getNo() != 0) {
+
+        } else {
+            // insert
+            result = qnaMapper.insertQnA(qna);
+        }
+        
+        return result;
+    }
+
 }

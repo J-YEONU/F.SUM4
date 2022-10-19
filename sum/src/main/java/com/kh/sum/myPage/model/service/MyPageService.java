@@ -17,4 +17,6 @@ public interface MyPageService {
 
 	List<MyQnA> getBookingList(PageInfo pageInfo);
 
+    int save(MyQnA qna);
+
 }

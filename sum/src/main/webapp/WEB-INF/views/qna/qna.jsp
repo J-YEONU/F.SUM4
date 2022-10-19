@@ -20,6 +20,7 @@
         <img src="${ path }/resources/image/qna/phone_ico.png" class="ico"> <span> 010-1234-5678</span></div>
     </section>
 
+<form action="${ path }/qna/qna" method="POST">
     <section class="content">
         <div>
             <input type="text" name="qnaTitle" class="qnaTitle" placeholder=" 제목">
@@ -33,5 +34,6 @@
             <button type="submit">문의하기</button>
         </div>
     </section>
+</form>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
