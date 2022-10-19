@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.common.util.PageInfo;
-import com.kh.sum.movie.model.service.MovieListService;
-import com.kh.sum.movie.model.vo.MovieList;
+import com.kh.sum.ticketing.model.service.TicketingService;
+import com.kh.sum.ticketing.model.vo.TicketMovie;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,18 +21,22 @@ import lombok.extern.slf4j.Slf4j;
 public class TicketingController {
 	
 	@Autowired
-	private MovieListService service;
+	private TicketingService service;
 	
 	// ticketing (영화 목록)
 	@GetMapping("/ticketing")
-	public ModelAndView ticketing(ModelAndView model) {
+	public ModelAndView ticketing(ModelAndView model,
+	        @RequestParam(value = "page", defaultValue = "1") int page) {
 		
-		List<MovieList> list = null;
+		List<TicketMovie> list = null;
+		PageInfo pageInfo = null;
 		
-		list = service.getMovieList();
+		pageInfo = new PageInfo(page, 5, service.selectCount(), 5);
+		list = service.getTicketMovie(pageInfo);
 		
 		model.addObject("list", list);
-		model.setViewName("ticket/ticketing");
+		model.addObject("pageInfo", pageInfo);
+		model.setViewName("/ticket/ticketing");
 		
 		return model;
 	}
