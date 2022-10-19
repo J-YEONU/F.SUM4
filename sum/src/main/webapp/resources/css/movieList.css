@@ -56,7 +56,7 @@ ul {
     margin: 0 auto;
 }
 /* 무비 */
-.h3, h3 {
+.title {
     padding-top: 30px;
 }
 .movie_title {margin-bottom: 60px;}
@@ -108,7 +108,7 @@ li {
 }
 
 #movieList .movie-list-info img {
-    width: 245px; height: 351px;
+    width: 220px; height: 351px;
 }
 
 .movie-list > div > ol > li > .infor {background: #fff; padding: 17px; border: 1px solid #d9d9d9;}

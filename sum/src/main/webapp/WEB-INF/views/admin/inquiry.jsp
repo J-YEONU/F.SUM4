@@ -22,7 +22,7 @@
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="${ path }/admin/main">
+            <a class="navbar-brand ps-3" href="${ path }/">
                 <img src="${ path }/resources/image/sum_logo.png" class="sumLogo">
             </a>
             <!-- Sidebar Toggle-->
@@ -53,11 +53,11 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">관리자 대시보드</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="${ path }/admin/main">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 관리자 메인
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="${ path }/admin/memberList">
                                 <div class="sb-nav-link-icon"><i class="bi bi-person-lines-fill"></i></div>
                                 회원 목록
                             </a>
@@ -78,13 +78,13 @@
                             </a>
                             <div class="collapse" id="collapseMovie" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <a class="nav-link collapsed" href="${ path }/admin/movie" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         영화 등록
                                     </a>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <a class="nav-link collapsed" href="${ path }/admin/cinema" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         영화관 등록
                                     </a>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <a class="nav-link collapsed" href="${ path }/admin/movieTime" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
                                         상영시간 등록
                                     </a>
                                     <div class="collapse" id="pagesMovies" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
@@ -98,8 +98,8 @@
                             </a>
                             <div class="collapse" id="collapseNotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">공지사항 목록</a>
-                                    <a class="nav-link" href="layout-static.html">공지사항 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/noticeList">공지사항 목록</a>
+                                    <a class="nav-link" href="${ path }/admin/noticeWrite">공지사항 등록</a>
                                 </nav>
                             </div>
                         </div>
@@ -145,8 +145,8 @@
 								<c:forEach var="qna" items="${ list }">
 				                    <tr>
 				                        <td>${ qna.no }</td>
-				                        <td> <a href="#">${ qna.title }</a> </td>
-				                        <td>${ qna.name }</td>
+				                        <td> <a href="${ path }/admin/inquiryDetail?no=${ qna.no }">${ qna.title }</a> </td>
+				                        <td>${ qna.memberNo }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
 				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
@@ -195,6 +195,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/resources/js/jquery-3.6.0.min"></script>
+        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>
 </html>

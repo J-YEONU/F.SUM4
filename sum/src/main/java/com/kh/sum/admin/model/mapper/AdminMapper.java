@@ -3,6 +3,7 @@ package com.kh.sum.admin.model.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import com.kh.sum.admin.model.vo.Notice;
@@ -40,4 +41,8 @@ public interface AdminMapper {
 	int selectNoticeCount();
 
 	Notice selectNoticeByNo(int no);
+
+	MyQnA selectQnAByNo(@Param("no")int no);
+
+	int qnaUpdateStatus(@Param("no")int no, @Param("status") String string);
 }
