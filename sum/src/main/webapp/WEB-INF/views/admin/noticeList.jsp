@@ -127,9 +127,8 @@
                                                 <colgroup>
                                                     <col width="5%" />
                                                     <col width="5%" />
-                                                    <col width="50%" />
+                                                    <col width="55%" />
                                                     <col width="20%" />
-                                                    <col width="10%" />
                                                     <col width="5%" />
                                                 </colgroup>
                                                 <thead>        
@@ -140,7 +139,6 @@
                                                         <th>No</th>
                                                         <th>제목</th>
                                                         <th>등록일</th>
-                                                        <th>조회수</th>
                                                         <th>수정/삭제</th>
                                                     </tr>
                                                 </thead>
@@ -152,17 +150,16 @@
 									                    		<input type="checkbox">
 									                    	</td>
 									                        <td>${ notice.noticeNo }</td>
-									                        <td> <a href="#">${ notice.title }</a> </td>
+									                        <td><a href="${ path }/admin/adminDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
 									                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
-									                        <td></td>
 									                        <td>
 		                                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 		                                                            <li class="nav-item dropdown">
 		                                                                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
 		                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail">공지사항 수정</a></li>
-		                                                                    <li><a class="dropdown-item" href="#!">공지사항 삭제</a></li>
-		                                                                    <li><a class="dropdown-item" href="#!">SUM 공지사항</a></li>
+		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">공지사항 수정</a></li>
+		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">공지사항 삭제</a></li>
+		                                                                    <li><a class="dropdown-item" href="${path}/notice/notice">SUM 공지사항</a></li>
 		                                                                </ul>
 		                                                            </li>
 		                                                        </ul>
