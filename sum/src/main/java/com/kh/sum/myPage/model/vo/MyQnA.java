@@ -24,5 +24,4 @@ public class MyQnA {
 	
 	private Date createDate;
 	
-
 }

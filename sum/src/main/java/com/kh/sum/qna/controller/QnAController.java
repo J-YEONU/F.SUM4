@@ -39,7 +39,7 @@ public class QnAController {
         
         int result = 0;
         
-        qna.setNo(loginMember.getNo());
+        qna.setMemberNo(loginMember.getNo());
         result = service.save(qna);
         
         if(result > 0) {
@@ -50,10 +50,9 @@ public class QnAController {
             model.addObject("msg", "문의 등록을 실패하였습니다.");
             model.addObject("location", "/qna/qna");
         }
+        
+        model.addObject("result", result);
         model.setViewName("common/msg");
-        
-        System.out.println(qna);
-        
         
         return model;
     }
