@@ -150,7 +150,7 @@
 									                    		<input type="checkbox">
 									                    	</td>
 									                        <td>${ notice.noticeNo }</td>
-									                        <td><a href="${ path }/admin/adminDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
+									                        <td><a href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
 									                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
 									                        <td>
 		                                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

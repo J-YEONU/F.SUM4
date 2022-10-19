@@ -206,20 +206,20 @@ public class adminController {
 		return model;
 	}
 	
-	@GetMapping("/noticeDetail")
-	public String noticeDetail() {
-		
-		return "/admin/noticeDetail";
-	}
+//	@GetMapping("/noticeDetail")
+//	public String noticeDetail() {
+//		
+//		return "/admin/noticeDetail";
+//	}
 	
-	@PostMapping("/noticeDetail")
+	@GetMapping("/noticeDetail")
 	public ModelAndView noticeDetail(ModelAndView model, @RequestParam int no) {
 		Notice notice = null;
 		
 		notice = service.findNoticeByNo(no);
 		
 		model.addObject("notice", notice);
-		model.setViewName("/noticeDetail");
+		model.setViewName("/admin/noticeDetail");
 		
 		return model;
 	}

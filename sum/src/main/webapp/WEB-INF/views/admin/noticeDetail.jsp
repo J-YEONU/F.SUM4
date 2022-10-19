@@ -114,8 +114,6 @@
                             * 관리자로 등록된 회원만 수정/삭제 할 수 있습니다.
                         <hr>
                         <div id="member-main-container" class="">
-                        <form action="">
-                        	<c:forEach items="${ notice }" var="notice">
                             <div class="container" style="border: 1px solid">
                                 <div class="row">
 
@@ -123,19 +121,15 @@
                                         제목
                                     </div>
                                     <div class="col-4">
-                                        ${notice.title}
                                     </div>
                                     <div class="col-2">
                                         작성일
                                     </div>
                                     <div class="col-4">
-                                        ${notice.createDate}
                                     </div>
                                     
-                                </div>
                             </div>
                             <div>
-                                ${notice.content}
                             </div>
                             
                             <div class="btnzone">
@@ -143,10 +137,8 @@
                                 <button type="reset" class="btn btn-light"> 삭제 </button>
                                 <button type="reset" class="btn btn-light"> 목록 </button>
                             </div>
-                            </c:forEach> 
             </div>
         </div>
-                        </form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/resources/jquery-3.6.0.min.js/"></script>
     </body>
