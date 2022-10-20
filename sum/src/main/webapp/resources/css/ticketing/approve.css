@@ -1,0 +1,22 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+#tSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
+#infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
+#info {font-size: 16px; text-align: right; font-weight: bold;}
+#step {text-align: right; color: rgb(127, 127, 127);}
+#tagbox {height: 10px;}
+#mark {width: 15px;}
+#hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
+
+.ticket_img {text-align: center;}
+
+#btn {width: 100%; text-align: center;}
+.btn1, .btn2 {
+    margin: auto; margin-top: 50px; width: 120px; height: 35px;
+    background-color: rgb(224, 224, 224);
+    border: none; border-radius: 5px; font-weight: bold;
+    cursor: pointer;
+}
+.btn1 {background-color: rgb(244, 217, 91);}
