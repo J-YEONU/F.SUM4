@@ -22,7 +22,7 @@
         <div class="detail_info">
             <div>개봉일: ${movieDetail.movieRelease}</div>
             <div>감독 : ${movieDetail.movieDirector}</div>
-            <div>출연진 : ${movieDetail.movieDirector}</div>
+            <div>출연진 : ${movieDetail.movieCast}</div>
             <div>장르 : ${movieDetail.movieGenre}</div>
             <div>관람등급 : ${movieDetail.movieRating}</div>
             <div>평점 : ${movieDetail.movieGrade} (참여 : 16명)</div>
@@ -30,13 +30,13 @@
         </div>
 
         <div class="booking">
-            <button id="btn" type="button">영화 예매하러가기</button>
+            <a href="${ path }/ticket/ticketing"><button id="btn" type="button">영화 예매하러가기</button></a>
         </div>
     </div>
 
     <div class="plot_div">
         <h3><img id="tag" src="${ path }/resources/image/tag.png">줄거리</h3>
-        <div>${movieDetail.movieSummary} </div>
+        <div>${movieDetail.movieSummary}</div>
     </div>
 
     <div class="poto">
@@ -74,30 +74,22 @@
         <input type="hidden" name="pcnum" value="${Pconmment.PCm_no}">
         <div class="reply_contents">
             <ul>
-                <li>
-                    <img src="${ path }/resources/image/4sum1.png" class="reply_contents_userIcon">
-                    <span id="reply_contents_writer"> 작성한 회원 아이디 </span>
-                    <span> 댓글작성합니다. </span>
-                    <span id="reply_contents_date">
-                        2022-10-18
-                        <span>
-                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
-                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">삭제</button>
-                        </span>
-                    </span>
-                </li>
-                <li>
-                    <img src="${ path }/resources/image/4sum1.png" class="reply_contents_userIcon">
-                    <span id="reply_contents_writer"> 작성한 회원 아이디 </span>
-                    <span> 댓글작성합니다. </span>
-                    <span id="reply_contents_date">
-                        2022-10-18
-                        <span>
-                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
-                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">삭제</button>
-                        </span>
-                    </span>
-                </li>
+            	<c:forEach var="commentList" items="${ list }">
+	                <li>
+	                    <img src="${ path }/resources/image/4sum1.png" class="reply_contents_userIcon">
+	                    <span id="reply_contents_writer"> ${ commentList.cmId } </span>
+	                    <span> ${ commentList.content } </span>
+	                    <span id="reply_contents_date">
+	                       <fmt:formatDate value="${ commentList.upDate }" pattern="yyyy-MM-dd"/>
+	                        <span>
+	                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
+	                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">수정</button>
+	                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">삭제</button>
+	                        </span>
+	                        <hr>
+	                    </span>
+	                </li>
+            	</c:forEach>
             </ul>
         </div>
     </div>
