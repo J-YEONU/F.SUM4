@@ -13,7 +13,11 @@ public interface MovieListMapper {
 	int selectMovieListCount();
 
 	List<MovieList> selectAll(RowBounds rowBounds);
-
+	
+	List<MovieList> selectFuture();
+	
+	List<MovieList> getMoviebyGenre(@Param("genre") String genre);
+	
 	MovieList selectMovieByNo(@Param("no") int no);
 
 	int insertMovie(MovieList movie);
@@ -24,5 +28,4 @@ public interface MovieListMapper {
 
 	List<MovieList> selectAll();
 	
-	List<MovieList> selectFuture();
 }

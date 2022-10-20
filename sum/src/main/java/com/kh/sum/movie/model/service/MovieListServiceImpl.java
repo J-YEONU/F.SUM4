@@ -51,4 +51,10 @@ public class MovieListServiceImpl implements MovieListService {
 		return 0;
 	}
 
+	@Override
+	public List<MovieList> getMoviebyGenre(String genre) {
+		
+		return mapper.getMoviebyGenre(genre);
+	}
+
 }

@@ -64,4 +64,11 @@
 		ORDER BY MOVIE_NO DESC
 	</select> 
 	
+	<!-- 내가 선택한 장르 영화 조회 -->
+	<select id="getMoviebyGenre" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"></include>
+		WHERE MOVIE_GENRE LIKE #{genre} AND MOVIE_STATUS ='Y'
+		ORDER BY MOVIE_RELEASE DESC
+	</select> 
+	
 </mapper>
