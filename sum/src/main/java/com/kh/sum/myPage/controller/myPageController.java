@@ -61,6 +61,22 @@ public class myPageController {
 	}
 	
 	
+	//===============  myQnADetail ===============
+	
+    @GetMapping("/myQnADetail")
+    public ModelAndView myQnADetail(ModelAndView model,
+        @RequestParam int no) {
+        
+        MyQnA qna = null;
+        
+        qna = service.findQnAByNo(no);
+        
+        model.addObject("qna", qna);
+        model.setViewName("/myPage/myQnADetail");
+        
+        return model;
+    }	
+	
 	
 	//===============  myReview ===============	
 	

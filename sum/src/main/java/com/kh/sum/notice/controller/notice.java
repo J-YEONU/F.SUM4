@@ -20,18 +20,18 @@ public class notice {
 }
 
 // @GetMapping("/notice")
-// 	public ModelAndView myQnA(ModelAndView model,
+// 	public ModelAndView notice(ModelAndView model,
 // 			@RequestParam(value = "page", defaultValue = "1") int page) {
-		
+//		
 // 		List<Notice> list = null;
 // 		PageInfo pageInfo = null;
-		
+//		
 // 		pageInfo = new PageInfo(page, 5, service.getNoticeCount(), 5);
 // 		list = service.getNoticeList(pageInfo);
-		
+//		
 // 		model.addObject("list", list);
 // 		model.addObject("pageInfo", pageInfo);
 // 		model.setViewName("/notice/notice");
-		
+//		
 // 		return model;
 // 	}
