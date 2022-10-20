@@ -18,7 +18,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
+        <!-- 썸머노트 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
@@ -121,8 +122,6 @@
                         <h1 class="mt-4">1:1 문의 답변</h1>
                             * 관리자만 글을 작성 할 수 있습니다.
 					<div class="btnupdiv">
-                        <button type="submit" class="btnup" 
-							onclick="location.href='${ path }/admin/inquiryDetail?no=${ qna.no }'">수정</button>
 						<button type="button" class="btnup" id="btnDelete">삭제</button>
 						<button type="button" class="btnup" onclick="location.href='${ path }/admin/inquiry'">목록으로</button>
                     </div>
@@ -142,7 +141,7 @@
                                 </div>
                             <hr>
                             <div id="bottom-container">
-                                <div id="summernote" class="summernote"></div>
+                                <div id="summernote" class="summernote">${ qna.content }</div>
                             </div>
                         </div>
                         <br>
@@ -151,13 +150,13 @@
 	                            <button type="reset" class="btn btn-light btnsize"> 취소 </button>
 	                        </div> 
                     	</div>
+                    	</div>
                     </form>
                 </main>
                 
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
         <script>
 		$(document).ready(() => {
 			$("#btnDelete").on("click", () => {
@@ -167,7 +166,7 @@
 			});
 			
             $('#summernote').summernote({
-            placeholder: '문의 답변을 적어 주세요.',
+            placeholder: '${ qna.content }',
             tabsize: 2,
             height: 300
             });

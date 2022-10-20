@@ -149,10 +149,10 @@
 				                        <td>${ qna.memberNo }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
-				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
+				                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
 					                         	<td>진행중</td>
 				                         	</c:when>
-				                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
+				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
 					                         	<td class="td4">답변완료</td>
 				                         	</c:when>
 			                         	</c:choose>

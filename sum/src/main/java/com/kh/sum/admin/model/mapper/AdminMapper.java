@@ -30,6 +30,10 @@ public interface AdminMapper {
 
 	int insertMovie(MovieList movieList);
 
+	int inquiryUpdate(@Param("no")int no, MyQnA qna);
+	
+	int qnaUpdateStatus(@Param("no")int no, @Param("status") String string);
+	
 	// 공지 사항 관련 맵퍼
 	
 	int updateNotice(Notice notice);
@@ -44,5 +48,7 @@ public interface AdminMapper {
 
 	MyQnA selectQnAByNo(@Param("no")int no);
 
-	int qnaUpdateStatus(@Param("no")int no, @Param("status") String string);
+    int inquiryUpdate(MyQnA qna);
+
+
 }
