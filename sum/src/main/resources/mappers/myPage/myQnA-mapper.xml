@@ -58,5 +58,41 @@
 		)
 	</insert>
 	
-	
+	<!-- QnA 상세화면 -->
+	<select id="selectQnAByNo" parameterType="_int" resultMap="myQnAListResultMap">
+      SELECT Q.QNA_NO,
+			 Q.QNA_TITLE,
+			 Q.QNA_CONTENT,
+			 Q.STATUS,
+			 Q.MEMBER_NO,
+			 Q.ANSWER_STATUS,
+			 Q.CREATE_DATE,
+			 M.MEMBER_NAME
+      FROM QNA Q
+      JOIN MEMBER M ON(Q.MEMBER_NO = M.MEMBER_NO)
+      WHERE Q.STATUS = 'Y' AND Q.QNA_NO = #{no}
+   </select>
+   
+   	<!-- QnA 수정 -->
+	<update id="inquiryUpdate" parameterType="MyQnA">
+      UPDATE QNA 
+      <trim prefix="SET" suffixOverrides=",">
+         <if test="title != null">
+            QNA_TITLE = #{title},
+         </if>
+         <if test="content != null">
+            QNA_CONTENT = #{content},
+         </if>
+         <if test="answerStatus != null">
+            ANSWER_STATUS = 'Y'
+         </if>
+      </trim>      
+      WHERE QNA_NO = #{no} AND ANSWER_STATUS = 'N'
+   </update>
+   	
+   	<!-- QnA 삭제 -->
+   	<update id="qnaDeleteStatus" parameterType="map">
+		UPDATE QNA SET STATUS = #{status} WHERE QNA_NO = #{no}
+	</update>
+		
 </mapper>

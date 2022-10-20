@@ -58,4 +58,11 @@ public class TicketingController {
 	return "/ticket/payment";
 	}
 	
+	
+	// approve
+	@GetMapping("/approve")
+	public String approve() {
+	    
+	return "/ticket/approve";
+	}
 }

@@ -160,19 +160,10 @@ li {
 }
 
 /* 박스오피스 */
-.date_week {
-    display: flex;
-    padding-left: 120px;
-}
-
-.date {
-    padding-right: 20px;
-}
-
 .boxoffice_head {
     border: 1px solid;
     width: 385px;
-    height: 100px;
+    height: 75px;
     background-color: #333;
     color: #fff;
     font-size: 1em;
@@ -181,26 +172,28 @@ li {
     text-align: center;
 }
 
-.content-table {
+.wrap {
+
     border-collapse: collapse;
+    width: 385px;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
     margin-top: 0px;
 }
 
-.content-table thead tr {
+.wrap thead tr {
     text-align: left;
     font-weight: bold;
 }
 
-.content-table th,
-.content-table td {
+.wrap th,
+.wrap td {
     padding: 12px 15px;
 }
 
-.content-table thead th, 
-.content-table tbody tr {
+.wrap thead th, 
+.wrap tbody tr {
     border-bottom: 1px solid;
 }
 

@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+#tSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
+#infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
+#info {font-size: 16px; text-align: right; font-weight: bold;}
+#step {text-align: right; color: rgb(127, 127, 127);}
+#tagbox {height: 10px;}
+#mark {width: 15px;}
+#hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
+
+.t_img1 {text-align: center;}
+.t_div {witdh: 1160px; height: 400px;}
+.t_img2 {background-image: url('../../image/ticketing/ticket_img2.png'); background-size: cover;}
+
+.area1 {display: inline-block; width: 630px; height: 370px;}
+.area2 {display: inline-block; width: 360px; height: 370px;}
+
+div[name=tk_show], div[name=tkt_time], div[name=tk_pay], div[name=tk_date],
+	div[name=tk_title],div[name=tk_seat] {display: inline-block;}
+div[name=tk_no] {margin-top: 80px;}
+div[name=tk_cinema] {margin-top: 10px;}
+div[name=tk_show], div[name=tk_price], div[name=tk_pay] {margin-top: 25px;}
+div[name=tk_pay] {width: 230px;}
+div[name=tk_date] {width: 200px; margin-left: 150px;}
+.area1>div[name^=tk_] {width: 230px; margin-left:220px;}
+.area2>div[name^=tk_] {width: 200px; margin-left:50px;}
+.blank {visibility:hidden;}
+
+#btn {width: 100%; text-align: center;}
+.btn1, .btn2 {
+    margin: auto; margin-top: 50px; width: 120px; height: 35px;
+    background-color: rgb(224, 224, 224);
+    border: none; border-radius: 5px; font-weight: bold;
+    cursor: pointer;
+}
+.btn1 {background-color: rgb(244, 217, 91);}

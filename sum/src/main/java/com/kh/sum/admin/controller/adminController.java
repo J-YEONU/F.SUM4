@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -121,7 +123,7 @@ public class adminController {
 	   /* 1:1 문의 삭제 */
 	   
 	   @GetMapping("/inquiryDelete")
-	   public ModelAndView inquiryDelete(ModelAndView model,@RequestParam int no) {
+	   public ModelAndView inquiryDelete(ModelAndView model, @RequestParam int no) {
 		   int result = 0;
 		   
 		   result = service.delete(no);
@@ -140,6 +142,26 @@ public class adminController {
 	   }
 	   
 	   /* 1:1 문의 답변 (수정)*/
+	   
+	   @RequestMapping(value = "/inquiryDetail", method = { RequestMethod.POST })
+	   public ModelAndView inquiryUpdate(ModelAndView model,
+	           @ModelAttribute MyQnA qna, @RequestParam int no) {
+	       int result = 0;
+	       
+	       result = service.save(qna);
+           
+	       if(result > 0) {
+               model.addObject("msg", "문의 답변이 정상적으로 등록되었습니다.");
+               model.addObject("location", "/admin/inquiry");
+           } else {
+               model.addObject("msg", "문의 답변에 실패하였습니다.");
+               model.addObject("location", "/admin/inquiryDetail?no=" + qna.getNo());
+           }
+           
+           model.setViewName("common/msg");
+	       
+	       return model;
+	   }
 	   
 	/* 영화 (영화관 등록, 영화 등록, 영화 시간 등록 ) */
 

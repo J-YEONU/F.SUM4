@@ -15,18 +15,18 @@
 <section id="tSection">
 	<div id="title">영화예매</div>
         <span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
-            <div id="info"><img src="${ path }/resources/image/tagbox.png" id="tagbox">
+            <div id="info"><img src="${ path }/resources/image/ticketing/tagbox.png" id="tagbox">
                 <span id="step"> 영화 &gt; 좌석 &gt; 결제 3단계로 이루어져 있습니다.</span>
             </div>
             <hr id="hr">
-                <div id="tagtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화예매</div>
+                <div id="tagtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화예매</div>
                     <div id="bottom">
                         <div id="tagdiv1"></div>
                         <div id="tagdiv2"></div>
                         <div id="tagdiv3"></div>
                     </div>
             
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화선택</div>
+	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 	
 	<!-- 영화 목록 css 수정 예정 -->
 	<div class="movie">
@@ -42,8 +42,8 @@
 	<div id="choice"><p>선택하신 영화 : </p></div>
             
 <!-- cinema choice -->
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화관 선택</div>
-	<div id="infospan"><span><img src="${ path }/resources/image/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
+	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
+	<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
     
     <nav>
 		<ul id="navi">
@@ -81,16 +81,16 @@
 		</ul>
 	</nav>
             
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 상영날짜</div>
-		<span id="infospan"><img src="${ path }/resources/image/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
-			<div id="date"><img src="${ path }/resources/image/calendar_icon.png" id="calendar"> DATE
+	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 상영날짜</div>
+		<span id="infospan"><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
+			<div id="date"><img src="${ path }/resources/image/ticketing/calendar_icon.png" id="calendar"> DATE
 				<form style="display: inline-block;">
 					<input type='date' id='currentDate'/>
 				</form>
 			</div>
 	
-	<div id="subtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 시간 선택</div>
-		<div id="infospan"><span><img src="${ path }/resources/image/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
+	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 시간 선택</div>
+		<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
 	
     
             

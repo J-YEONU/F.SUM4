@@ -183,44 +183,10 @@
     </div>
         <div class="event_right">
             <div class="boxoffice_head">
-                <div>2022-09-19</div>
+                <div>SYSDATE</div>
                 <div>BOX OFFICE</div>
-                <div class="date_week">
-                    <div class="date">일별순</div>
-                    <div class="week">주별순</div>
-                </div>
             </div>
-        <table class="content-table">
-            <thead>
-                <tr>
-                    <th>순위</th>
-                    <th>영화제목</th>
-                    <th>관객수</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>탑건:메버릭</td>
-                    <td>7,880,301 명</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>탑건:메버릭</td>
-                    <td>7,880,301 명</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>탑건:메버릭</td>
-                    <td>7,880,301 명</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>탑건:메버릭</td>
-                    <td>7,880,301 명</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="wrap contaner"></div>
                 <button type="button" class="btn text-white" style="background-color: #333;">예매하기</button>
         
     </div>
@@ -291,6 +257,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     // 배너 이미지 슬라이드
     $('.carousel').carousel({
@@ -312,4 +279,79 @@
             movCont.eq(index).css("display","block");
         });
     </script>
+    <script type="text/javascript">
+        // 박스오피스 api
+
+        // 조회할 날짜를 계산
+            var dt = new Date();
+        
+            var m = dt.getMonth() + 1;
+            if (m < 10) {
+                var month = "0" + m;
+            } else {
+                var month = m + "";
+            }
+        
+            var d = dt.getDate() - 1;
+            if (d < 10) {
+                var day = "0" + d;
+            } else {
+                var day = d + "";
+            }
+        
+            var y = dt.getFullYear();
+            var year = y + "";
+        
+            var result = year + month + day;
+            $(function() {
+                $.ajax({
+                    //"키입력" 부분에 발급받은 키를 입력
+                    //&itemPerPage: 1-10위 까지의 데이터가 출력되도록 설정
+                            url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml?key=de487a28577ca808d2fdf3a2f7cf5640&targetDt="
+                                    + result + "&itemPerPage=10",
+                            dataType : "xml",
+                            success : function(data) {
+                                var $data = $(data)
+                                        .find("boxOfficeResult>dailyBoxOfficeList>dailyBoxOffice");
+                                //데이터를 테이블 구조에 저장. html의 table태그, class는 table로 하여 부트스트랩 적용
+                                if ($data.length > 0) {
+                                    var table = $("<table/>").attr("class", "table");
+                                    //<table>안에 테이블의 컬럼 타이틀 부분인 thead 태그
+                                    var thead = $("<thead/>").append($("<tr/>"))
+                                            .append(
+                                                    //추출하고자 하는 컬럼들의 타이틀 정의
+                                                    $("<th/>").html("&nbsp;순위"),
+                                                    $("<th/>").html("&nbsp;&nbsp;영화 제목"),
+                                                    $("<th/>").html("&nbsp;&nbsp;누적 관객수"));
+                                    var tbody = $("<tbody/>");
+                                    $.each($data, function(i, o) {
+        
+                                        //오픈 API에 정의된 변수와 내가 정의한 변수 데이터 파싱
+                                        var $rank = $(o).find("rank").text(); // 순위
+                                        var $movieNm = $(o).find("movieNm").text(); //영화명
+                                        var $audiAcc = $(o).find("audiAcc").text(); //누적 관객수
+                                        
+                                        //<tbody><tr><td>태그안에 파싱하여 추출된 데이터 넣기
+                                        var row = $("<tr/>").append(
+                                                
+                                                $("<td/>").text($rank),
+                                                $("<td/>").text($movieNm),
+                                                $("<td/>").text($audiAcc));
+        
+                                        tbody.append(row);
+        
+                                    });// end of each 
+        
+                                    table.append(thead);
+                                    table.append(tbody);
+                                    $(".wrap").append(table);
+                                }
+                            },
+                            //에러 발생시 "실시간 박스오피스 로딩중"메시지가 뜨도록 한다.
+                            error : function() {
+                                alert("실시간 박스오피스 로딩중...");
+                            }
+                        });
+            });
+        </script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

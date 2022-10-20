@@ -19,4 +19,6 @@ public interface MyPageService {
 
     int save(MyQnA qna);
 
+    MyQnA findQnAByNo(int no);
+
 }
