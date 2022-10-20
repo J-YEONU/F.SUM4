@@ -71,6 +71,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+	@Transactional
     public int save(MovieList movieList) {
         int result = 0;
         
@@ -88,6 +89,7 @@ public class AdminServiceImpl implements AdminService {
 	// =============== 공지사항 =================
 	
 	@Override
+	@Transactional
 	public int save(Notice notice) {
 		int result = 0;
 		
@@ -119,6 +121,21 @@ public class AdminServiceImpl implements AdminService {
 
 		return mapper.selectNoticeByNo(no);
 	}
+
+    @Override
+    @Transactional
+    public int save(MyQnA qna) {
+        int result = 0;
+        
+        if (qna.getNo() != 0) {
+            // update
+            result = mapper.inquiryUpdate(qna);
+            
+        } else {
+            // insert 필요 시 추가
+        }
+        return result;
+    }
 
 
 }

@@ -24,6 +24,8 @@ public interface AdminService {
 	
 	List<MyQnA> getInquiryList(PageInfo pageInfo);
 	
+	int save(MyQnA qna);
+
 	// 영화 관련 서비스
 	
 	int save(MovieList movieList);
@@ -41,6 +43,7 @@ public interface AdminService {
 	MyQnA findQnAByNo(int no);
 
 	int delete(int no);
+
 	
 
 
