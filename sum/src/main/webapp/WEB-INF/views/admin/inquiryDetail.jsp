@@ -141,7 +141,10 @@
                                 </div>
                             <hr>
                             <div id="bottom-container">
-                                <div id="summernote" class="summernote">${ qna.content }</div>
+                                <div id="summernote" class="summernote">
+                                <input type="text" name="content" id="content"
+							value="${ qna.content }" style="width: 708px; height: 256px;">
+                                </div>
                             </div>
                         </div>
                         <br>
