@@ -1,12 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-</body>
-</html>
+<c:set var="path" value="${ pageContext.request.contextPath }" />
+<script src="${ path }/js/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ path }/resources/css/ticketing/approve.css">
+
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
+
+<section id="tSection">
+	<div id="title">영화 예매완료</div>
+        <span id="infospan">영화 예매를 해주셔서 감사합니다.</span>
+            <div id="info"><img src="${ path }/resources/image/ticketing/tagbox.png" id="tagbox">
+                <span id="step"> 마이페이지에서 취소 가능합니다.</span>
+            </div>
+            <hr id="hr">
+        <div class="ticket_img">
+			<div><img src="${ path }/resources/image/ticketing/ticket_img1.png"></div>
+			<div>
+				<img src="${ path }/resources/image/ticketing/ticket_img2.png">
+					<div><p>asdasd</p></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				
+				
+				
+				
+				
+				
+			</div>
+		</div>
+	<div id="btn">
+		<button type="submit" class="btn1" onclick="location.href='${ path }/myPage/myBooking'">마이페이지</button>
+		<button type="submit" class="btn2" onclick="location.href='${ path }/'">메인</button>
+	</div>
+
+            
+</section>

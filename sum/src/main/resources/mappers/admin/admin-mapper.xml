@@ -136,6 +136,23 @@
 		UPDATE QNA SET STATUS = #{status} WHERE QNA_NO = #{no}
 	</update>
 	
+	<!-- 1:1 문의내역 답변 (게시글 수정) -->
+	<update id="inquiryUpdate" parameterType="MyQnA">
+      UPDATE QNA 
+      <trim prefix="SET" suffixOverrides=",">
+         <if test="title != null">
+            QNA_TITLE = #{title},
+         </if>
+         <if test="content != null">
+            QNA_CONTENT = #{content},
+         </if>
+         <if test="answerStatus != null">
+            ANSWER_STATUS = 'Y'
+         </if>
+      </trim>      
+      WHERE QNA_NO = #{no} AND ANSWER_STATUS = 'N'
+   </update>
+	
 	<!-- 영화/영화관/상영시간 등록 -->
 
 	<!-- 영화 등록 테스트 -->

@@ -16,7 +16,7 @@
    <div id="title">영화관</div>
       <span id="infospan">내 집같은 편안함, 영화관의 새로운 표준을 제시합니다.</span>
           <hr id="hr">
-      <div><img src="${ path }/resources/image/cinema.png"></div>
+      <div><img src="${ path }/resources/image/cinema/cinema.png"></div>
 
       <div id="tagtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화관 선택</div>
 

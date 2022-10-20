@@ -15,19 +15,19 @@
 <section id="tSection">
 	<div id="title">영화예매</div>
 		<span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
-			<div id="info"><img src="${ path }/resources/image/tagbox.png" id="tagbox">
+			<div id="info"><img src="${ path }/resources/image/ticketing/tagbox.png" id="tagbox">
 				<span id="step"> 영화 &gt; 좌석 &gt; 결제 3단계로 이루어져 있습니다.</span>
 			</div>
 		<hr id="hr">
-		<div id="tagtitle1"><img src="${ path }/resources/image/tag_gray.png" id="tag"> 영화예매</div>
-		<div id="tagtitle2"><img src="${ path }/resources/image/tag.png" id="tag"> 좌석선택</div>
+		<div id="tagtitle1"><img src="${ path }/resources/image/ticketing/tag_gray.png" id="tag"> 영화예매</div>
+		<div id="tagtitle2"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 좌석선택</div>
 			<div id="bottom">
 				<div id="tagdiv1"></div>
 				<div id="tagdiv2"></div>
 				<div id="tagdiv3"></div>
 			</div>
 			
-	<div id="screen"><img src="${ path }/resources/image/screen.png"></div>
+	<div id="screen"><img src="${ path }/resources/image/ticketing/screen.png"></div>
 		<div align="center" id="seat">
 			<form >		
 				&nbsp;&nbsp;
@@ -52,9 +52,9 @@
 		</div>
 		
 	<div id="seatinfo">
-		<div><img src="${ path }/resources/image/box_gray.png">예매완료</div>
-		<div><img src="${ path }/resources/image/box_choice.png">선택가능</div>
-		<div><img src="${ path }/resources/image/box_check.png" id="checkbox">선택좌석</div>
+		<div><img src="${ path }/resources/image/ticketing/box_gray.png">예매완료</div>
+		<div><img src="${ path }/resources/image/ticketing/box_choice.png">선택가능</div>
+		<div><img src="${ path }/resources/image/ticketing/box_check.png" id="checkbox">선택좌석</div>
 	</div>
 
 	<div id="choice">

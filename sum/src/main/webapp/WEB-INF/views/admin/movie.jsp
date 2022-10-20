@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
         
         <!-- 썸머노트 -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -181,8 +180,8 @@
                             </div>
                             <div>
                                 줄거리 상세 :
-                                <div id="">
-                                    <textarea id="summernote" name="movieComment"></textarea>
+                                <div>
+                                    <textarea id="summernote" class="summernote" name="movieComment"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -201,7 +200,6 @@
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
         <script>
             $('#summernote').summernote({
             placeholder: '줄거리 내용을 작업 해 주세요.',

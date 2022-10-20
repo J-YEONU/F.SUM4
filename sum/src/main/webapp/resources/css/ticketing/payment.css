@@ -34,7 +34,7 @@ tbody {font-size: 17px; font-weight: bold; color: rgb(70, 70, 70);}
 
 #btn {width: 100%; text-align: center;}
 .btn1, .btn2 {
-    margin: auto; margin-top: 50px; width: 120px; height: 30px;
+    margin: auto; margin-top: 50px; width: 120px; height: 35px;
     background-color: rgb(224, 224, 224);
     border: none; border-radius: 5px; font-weight: bold;
     cursor: pointer;
