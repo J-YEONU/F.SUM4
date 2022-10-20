@@ -51,7 +51,7 @@
 					<c:forEach var="qna" items="${ list }">
 	                    <tr>
 	                        <td>${ qna.no }</td>
-	                        <td> <a href="#">${ qna.title }</a> </td>
+	                        <td> <a href="${ path }/sum/myPage/myQnADetail?no=${ qna.no }">${ qna.title }</a> </td>
 	                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 	                        <c:choose>
 	                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
