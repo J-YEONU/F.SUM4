@@ -16,4 +16,6 @@ public interface MyQnAMapper {
 
     int insertQnA(MyQnA qna);
 
+    MyQnA selectQnAByNo(int no);
+
 }

@@ -76,4 +76,11 @@ public class MyPageServiceImpl implements MyPageService {
         return result;
     }
 
+    @Override
+    public MyQnA findQnAByNo(int no) {
+        
+        return qnaMapper.selectQnAByNo(no);
+    }
+
+    
 }
