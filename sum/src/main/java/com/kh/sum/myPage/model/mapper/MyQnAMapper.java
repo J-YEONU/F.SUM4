@@ -3,6 +3,7 @@ package com.kh.sum.myPage.model.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import com.kh.sum.myPage.model.vo.MyQnA;
@@ -16,6 +17,6 @@ public interface MyQnAMapper {
 
     int insertQnA(MyQnA qna);
 
-    MyQnA selectQnAByNo(int no);
+    MyQnA findQnAByNo(@Param("no")int no);
 
 }
