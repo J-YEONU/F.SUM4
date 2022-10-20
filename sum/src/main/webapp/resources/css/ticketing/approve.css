@@ -11,8 +11,8 @@
 #hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
 
 .t_img1 {text-align: center;}
-.t_div {witdh: 1170px; height: 395px;}
-.t_img2 {background-image: url('../../image/ticketing/ticket_img2.png'); background-size: cover; display: inline-block;}
+.t_div {witdh: 1160px; height: 387px;}
+.t_img2 {background-image: url('../../image/ticketing/ticket_img2.png'); background-size: cover;}
 
 .area1 {display: inline-block; width: 630px; height: 395px;}
 .area2 {display: inline-block; width: 360px; height: 395px;}
@@ -24,7 +24,7 @@ div[name=tk_cinema] {margin-top: 10px;}
 div[name=tk_show], div[name=tk_price], div[name=tk_pay] {margin-top: 25px;}
 div[name=tk_pay] {width: 230px;}
 div[name=tk_date] {width: 200px; margin-left: 150px;}
-.area1>div[name^=tk_] {width: 180px; margin-left:220px;}
+.area1>div[name^=tk_] {width: 230px; margin-left:220px;}
 .area2>div[name^=tk_] {width: 200px; margin-left:50px;}
 .blank {visibility:hidden;}
 

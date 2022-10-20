@@ -28,8 +28,8 @@
 					<div name="tkt_time">상영시간 : <span>20:00</span></div>	
 					<div name="tk_cinema">상영관 : <span> 강남</span></div>	
 					<div name="tk_price">가격 : &#8361;<span> 10,000</span></div>	
-					<div name="tk_pay">결제수단 : 	<span>카카오</span></div>
-					<div name="tk_date">결제일 : <span>날짜</span></div>
+					<div name="tk_pay">결제수단 : 	<span>KAKAOPAY</span></div>
+					<div name="tk_date">결제일 : <span>2022-10-20 20:30</span></div>
 				</div>
 				<div class="area2">
 					<div name="tk_title" id="tk_title">영화명 : <span id="title"></span></div>
@@ -40,8 +40,6 @@
 					<div class="blank">hidden</div>
 					<div class="blank">hidden</div>
 				</div>
-				
-				
 				
 				
 			</div>
