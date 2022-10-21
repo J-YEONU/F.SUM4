@@ -22,49 +22,62 @@ public class movieListController {
 	
 	@GetMapping("/movie/movieList")
 	public ModelAndView movieList(ModelAndView model,
-								  @SessionAttribute("loginMember") Member loginMember) {
-		
-		Object[] MA = new Object[8];
-		
-		String MemberG = loginMember.getGenre();
-		
-		if(MemberG.contains("SF")) {
-			MA[0] = service.getMoviebyGenre("SF");
-		}
-		if(MemberG.contains("드라마")) {
-			MA[1] = service.getMoviebyGenre("드라마");
-		}
-		if(MemberG.contains("멜로/로맨스")) {
-			MA[2] = service.getMoviebyGenre("멜로/로맨스");
-		}
-		if(MemberG.contains("코미디")) {
-			MA[3] = service.getMoviebyGenre("코미디");
-		}
-		if(MemberG.contains("스릴러")) {
-			MA[4] = service.getMoviebyGenre("스릴러");
-		}
-		if(MemberG.contains("애니매이션")) {
-			MA[5] = service.getMoviebyGenre("애니매이션");
-		}
-		if(MemberG.contains("스포츠")) {
-			MA[6] = service.getMoviebyGenre("스포츠");
-		}
-		if(MemberG.contains("액션")) {
-			MA[7] = service.getMoviebyGenre("액션");
-		}
+								  @SessionAttribute(required = false, name = "loginMember") Member loginMember) {
 		
 		
-		System.out.println(MA[7]);
+		if(loginMember != null) {
 		
-		List<MovieList> list = null;
-		List<MovieList> list1 = null;
+			Object[] MA = new Object[8];
+			
+			String MemberG = loginMember.getGenre();
+			
+			if(MemberG.contains("SF")) {
+				MA[0] = service.getMoviebyGenre("SF");
+			}
+			if(MemberG.contains("드라마")) {
+				MA[1] = service.getMoviebyGenre("드라마");
+			}
+			if(MemberG.contains("멜로/로맨스")) {
+				MA[2] = service.getMoviebyGenre("멜로/로맨스");
+			}
+			if(MemberG.contains("코미디")) {
+				MA[3] = service.getMoviebyGenre("코미디");
+			}
+			if(MemberG.contains("스릴러")) {
+				MA[4] = service.getMoviebyGenre("스릴러");
+			}
+			if(MemberG.contains("애니매이션")) {
+				MA[5] = service.getMoviebyGenre("애니매이션");
+			}
+			if(MemberG.contains("스포츠")) {
+				MA[6] = service.getMoviebyGenre("스포츠");
+			}
+			if(MemberG.contains("액션")) {
+				MA[7] = service.getMoviebyGenre("액션");
+			}
+			System.out.println(MA[7]);
+			
+			List<MovieList> list = null;
+			List<MovieList> list1 = null;
+			
+			list = service.getMovieList();
+			list1 = service.getMovieList2();
+			
+			model.addObject("list", list);
+			model.addObject("list1", list1);
+			
+			model.addObject("MA", MA);
+		} else {		
 		
-		list = service.getMovieList();
-		list1 = service.getMovieList2();
-		
-		model.addObject("MA", MA);
-		model.addObject("list", list);
-		model.addObject("list1", list1);
+			List<MovieList> list = null;
+			List<MovieList> list1 = null;
+			
+			list = service.getMovieList();
+			list1 = service.getMovieList2();
+			
+			model.addObject("list", list);
+			model.addObject("list1", list1);
+		}
 		model.setViewName("movie/movieList");
 		
 		

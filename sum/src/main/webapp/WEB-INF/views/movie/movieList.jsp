@@ -144,7 +144,7 @@
             </div>
             <div class="chart_cont3">
                 <ol class="list" id="movieList">
-                	<c:forEach items="${ MA }" begin="0" end="7" step="1" var="i" >
+                	<c:forEach items="${ MA }" var="i" >
                		<c:forEach var="movieList" items="${ i }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
