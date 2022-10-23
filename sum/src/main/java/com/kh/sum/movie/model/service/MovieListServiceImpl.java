@@ -57,6 +57,10 @@ public class MovieListServiceImpl implements MovieListService {
 		return mapper.select4();
 	}
 	
-	
+	public List<MovieList> getMoviebyGenre(String genre) {
+		
+		return mapper.getMoviebyGenre(genre);
+	}
+
 
 }
