@@ -17,5 +17,7 @@ public interface MovieListService {
 
 	List<MovieList> getMovieList2();
 	
+	List<MovieList> select4();
+	
 
 }

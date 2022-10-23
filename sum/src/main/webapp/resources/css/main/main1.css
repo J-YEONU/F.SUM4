@@ -187,10 +187,6 @@ li {
     font-weight: bold;
 }
 
-.wrap th,
-.wrap td {
-    padding: 12px 15px;
-}
 
 .wrap thead th, 
 .wrap tbody tr {

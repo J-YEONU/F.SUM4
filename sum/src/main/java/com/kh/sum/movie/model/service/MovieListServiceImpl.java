@@ -51,4 +51,12 @@ public class MovieListServiceImpl implements MovieListService {
 		return 0;
 	}
 
+	@Override
+	public List<MovieList> select4() {
+		
+		return mapper.select4();
+	}
+	
+	
+
 }

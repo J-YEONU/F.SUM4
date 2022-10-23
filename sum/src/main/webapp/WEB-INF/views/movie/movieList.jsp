@@ -21,23 +21,21 @@
 	        <div class="carousel-item active">
 	            <!--가로-->
 	            <img class="d-block w-100" 
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner캐릭터.jpg"
 	                alt="First slide">
-	            <div class="carousel-caption d-none d-md-block">
-	                <h5>TEST</h5>
-	                <p>testtesttest</p>
-	            </div>
 	        </div>
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner자백.jpg"
 	            alt="Second slide">
 	        </div>
+	        <!-- 
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner1.jpg"
 	            alt="Third slide">
 	        </div>
+	         -->
 	        
 	        <!-- / 슬라이드 쇼 끝 -->
 	    
@@ -56,7 +54,9 @@
 	        <ul class="carousel-indicators">
 	            <li data-target="#demo" data-slide-to="0" class="active"></li> <!--0번부터시작-->
 	            <li data-target="#demo" data-slide-to="1"></li>
+	            <!--  
 	            <li data-target="#demo" data-slide-to="2"></li>
+	            -->
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>

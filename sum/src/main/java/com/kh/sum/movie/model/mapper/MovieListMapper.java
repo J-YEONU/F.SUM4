@@ -25,4 +25,6 @@ public interface MovieListMapper {
 	List<MovieList> selectAll();
 	
 	List<MovieList> selectFuture();
+	
+	List<MovieList> select4();
 }
