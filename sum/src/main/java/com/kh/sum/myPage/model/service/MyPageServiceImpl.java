@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.sum.common.util.PageInfo;
+import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.myPage.model.mapper.MyBookingMapper;
 import com.kh.sum.myPage.model.mapper.MyPageMapper;
 import com.kh.sum.myPage.model.mapper.MyQnAMapper;
@@ -15,6 +16,7 @@ import com.kh.sum.myPage.model.vo.MyQnA;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
+	
 	
 	@Autowired
 	private MyPageMapper mapper;
@@ -24,6 +26,7 @@ public class MyPageServiceImpl implements MyPageService {
 	
 	@Autowired
 	private MyBookingMapper bookingMapper;
+	
 
 	@Override
 	public int selectCount() {
@@ -81,6 +84,14 @@ public class MyPageServiceImpl implements MyPageService {
         
         return qnaMapper.selectQnAByNo(no);
     }
+
+	@Override
+	public Member findMemberById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
     
 }

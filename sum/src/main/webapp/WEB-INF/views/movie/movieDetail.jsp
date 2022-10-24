@@ -79,7 +79,7 @@
 	                    <span id="reply_contents_writer"> ${ commentList.cmId } </span>
 	                    <span> ${ commentList.content } </span>
 	                    <span id="reply_contents_date">
-	                       <fmt:formatDate value="${ commentList.upDate }" pattern="yyyy-MM-dd"/>
+	                       <fmt:formatDate value="${ commentList.regDate }" pattern="yyyy-MM-dd"/>
 	                        <span>
 	                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
 	                            <button class="reply_contents_delete" type="button" id="commentEditBtn" name="commentEditBtn">수정</button>

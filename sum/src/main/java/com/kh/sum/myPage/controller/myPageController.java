@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.common.util.PageInfo;
+import com.kh.sum.member.model.service.MemberService;
+import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.myPage.model.service.MyPageService;
 import com.kh.sum.myPage.model.vo.MyQnA;
 
@@ -22,6 +25,9 @@ public class myPageController {
 	
 	@Autowired
 	private MyPageService service;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	//===============  myBooking ===============
 	@GetMapping("/myBooking")
@@ -91,5 +97,28 @@ public class myPageController {
 	public String myInfoMod() {
 		return "/myPage/myInfoMod";
 	}
+	
+	@GetMapping("/myInfoMod/detail")
+	public String myInfoModDetail() {
+		return "/myPage/myInfoModDetail";
+	}
+	
+	@PostMapping("/myInfoMod/pwdCheck")
+	public ModelAndView pwdCheck(ModelAndView model, String id, String password) {	
+		
+		Member loginMember = memberService.login(id, password);
+		
+		if(loginMember != null) {
+			model.addObject("loginMember", loginMember);
+			model.setViewName("/myPage/myInfoModDetail");
+		} else {
+			model.addObject("msg", "비밀번호를 입력 또는 확인해주세요.");
+			model.addObject("location", "/myPage/myInfoMod");
+			model.setViewName("common/msg");			
+		}		
+		
+		return model;
+	}
+
 
 }

@@ -3,6 +3,7 @@ package com.kh.sum.myPage.model.service;
 import java.util.List;
 
 import com.kh.sum.common.util.PageInfo;
+import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.myPage.model.vo.MyQnA;
 
 public interface MyPageService {
@@ -20,5 +21,7 @@ public interface MyPageService {
     int save(MyQnA qna);
 
     MyQnA findQnAByNo(int no);
+
+	Member findMemberById(String id);
 
 }
