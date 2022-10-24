@@ -230,7 +230,7 @@
 	         CINEMA_LOCAL,
 	         CINEMA_ADDRESS,
 	         CINEMA_CONTENT,
-	         CINENA_SEAT_COUNT,
+	         CINEMA_SEAT_COUNT,
 	         STATUS,
 	         MOVIE_NO,
 	         MEMBER_NO,
