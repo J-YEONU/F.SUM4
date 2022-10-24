@@ -274,13 +274,13 @@
 	<update id="updateNotice" parameterType="Notice">
 		UPDATE NOTICE
 			<if test="title != null">
-				TITLE = #{title},
+				NOTICE_TITLE = #{title},
 			</if>
 			<if test="content != null">
-				CONTENT = #{content},
+				NOTICE_CONTENT = #{content},
 			</if>
 			CREATE_DATE = SYSDATE
-		WHERE NO = #{no}
+		WHERE NOTICE_NO = #{no}
 	</update>
 	
 	<!-- 공지사항 삭제 테스트 -->

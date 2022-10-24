@@ -321,17 +321,18 @@ public class adminController {
 		int result = 0;
 		
 		result = service.save(notice);
+		System.out.println(notice);
 		
         
        if(result > 0) {
             model.addObject("msg", "문의 답변이 정상적으로 등록되었습니다.");
-            model.addObject("location", "/admin/notice");
+            model.addObject("location", "/admin/noticeList");
         } else {
             model.addObject("msg", "문의 답변에 실패하였습니다.");
             model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
         }
         
-        model.setViewName("common/msg");
+       model.setViewName("common/msg");
 		
 		
 		return model;
