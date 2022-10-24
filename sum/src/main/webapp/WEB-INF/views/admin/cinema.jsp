@@ -119,17 +119,17 @@
 	                                영화관 이름 : <input type="text" name="cinemaName">
 	                            </div>
 	                            <div>
-	                                전화 번호 : <input type="number" name="cinemaPhone">
+	                                전화 번호 : <input type="text" name="cinemaPhone">
 	                            </div>
 	                            <div>
 	                                영화관 사진 : <input type="file" name="upfile">
 	                            </div>
 	                            <div>
-	                                좌석 수 : <input type="number" name="cinemaSeatCount">
+	                                좌석 수 : <input type="text" name="cinemaSeatCount">
 	                            </div>
                             <div class="st_select_area">
                                 지역 선택 :
-                                <select name="cinemaLocal" id="area">
+                                <select name="address" id="area">
                                     <option selected>---</option>
                                     <optgroup label="특별시 및 광역시">
                                     <option value="seoul">서울특별시</option>
@@ -176,9 +176,8 @@
                             </div>
 
                             <div id="bottom-container">
-                                <div id="summernote" class="summernote">
-                                상세내용 : <input type="text" name="cinemaContent">
-                                </div>
+                                상세내용 :
+                                <div id="summernote" class="summernote" name="cinemaContent"></div>
                             </div>
                         </div>
                     <br>
