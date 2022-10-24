@@ -108,21 +108,25 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                        <form action="${ path }/admin/cinema" method="POST" enctype="multipart/form-data">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">영화관 등록</h1>
                             * 관리자로 등록된 회원만 글을 저장 할 수 있습니다.
                         <hr>
                         <div>
-
-                            <div>
-                                영화관 이름 : <input type="text">
-                            </div>
-                            <div>
-                                전화 번호 : <input type="text">
-                            </div>
-                            <div>
-                                영화관 사진 : <input type="file">
-                            </div>
+							<div id="cinemaInfo">
+	                            <div>
+	                                영화관 이름 : <input type="text" name="cinemaName">
+	                            </div>
+	                            <div>
+	                                전화 번호 : <input type="text" name="cinemaPhone">
+	                            </div>
+	                            <div>
+	                                영화관 사진 : <input type="file" name="upfile">
+	                            </div>
+	                            <div>
+	                                좌석 수 : <input type="text" name="cinemaSeatCount">
+	                            </div>
                             <div class="st_select_area">
                                 지역 선택 :
                                 <select name="address" id="area">
@@ -149,7 +153,8 @@
                                     </optgroup>
                                 </select>
                             </div>
-                                <div>주소 :</div>
+                                <div>영화관 주소 : <input type="text" name="cinemaAddress"></div>
+                            </div>
                                 <div>
                                 <!-- 1. 약도 노드 -->
                                 <div id="daumRoughmapContainer1665431614559" class="root_daum_roughmap root_daum_roughmap_landing"></div>
@@ -172,17 +177,17 @@
 
                             <div id="bottom-container">
                                 상세내용 :
-                                <div id="summernote" class="summernote"></div>
+                                <div id="summernote" class="summernote" name="cinemaContent"></div>
                             </div>
-                            
                         </div>
                     <br>
                     <div class="btnzone">
                         <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
                         <button type="reset" class="btn btn-light btnsize"> 취소 </button>
                     </div>    
-                    </div>
+                  </form>
                 </main>
+                    </div>
                 
             </div>
         </div>

@@ -186,6 +186,7 @@ CREATE SEQUENCE SEQ_TICKETING_NO;
 
 --------------------------------------------------
 ------------------ CINEMA 테이블 -----------------
+-- 20221024_임진호.  CREATE_DATE 컬럼 추가
 
 CREATE TABLE CINEMA (
 	CINEMA_NO NUMBER NOT NULL,
