@@ -130,7 +130,7 @@
                             
                             <br>
                             <div class="btnzone">
-                                <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
+                                <button type="submit">수정</button>
                                 <button type="button" onclick="location.href='${ path }/admin/noticeList'">목록으로</button>
                             </div>
             </div>

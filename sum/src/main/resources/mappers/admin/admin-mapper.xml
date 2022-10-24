@@ -272,19 +272,16 @@
 	
 	<!-- 공지사항 수정  -->
 	<update id="updateNotice" parameterType="Notice">
-		UPDATE NOTICE
-			<if test="title != null">
-				NOTICE_TITLE = #{title},
-			</if>
-			<if test="content != null">
-				NOTICE_CONTENT = #{content},
-			</if>
+		UPDATE NOTICE SET
+			NOTICE_TITLE = #{title},
+			NOTICE_CONTENT = #{content},
 			CREATE_DATE = SYSDATE
-		WHERE NOTICE_NO = #{no}
+   
+		WHERE NOTICE_NO = #{no} AND STATUS = 'Y'
 	</update>
 	
 	<!-- 공지사항 삭제 테스트 -->
 	<update id="noticeDelectStatus" parameterType="Notice">
-		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
+		UPDATE NOTICE SET STATUS = #{status} WHERE NOTICE_NO = #{no}
 	</update>
 </mapper>
