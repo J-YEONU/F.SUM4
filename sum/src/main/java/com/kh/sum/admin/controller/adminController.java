@@ -3,6 +3,7 @@ package com.kh.sum.admin.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
@@ -315,18 +316,23 @@ public class adminController {
 	}
 	
 	@PostMapping("/noticeUpdate")
-	public ModelAndView noticeUpdate(ModelAndView model, @ModelAttribute Notice notice) {
+	public ModelAndView noticeUpdate(ModelAndView model, @ModelAttribute Notice notice,
+			@RequestParam int no) {
 		int result = 0;
 		
 		result = service.save(notice);
 		
-		if (result > 0) {
-			model.addObject("msg", "공지사항 게시글이 정상적으로 수정되었습니다.");
-			model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
-		} else {
-			model.addObject("msg", "게시글이 수정을 실패하였습니다.");
-			model.addObject("location", "/admin/noticeUpdate?no=" + notice.getNoticeNo());
-		}
+        
+       if(result > 0) {
+            model.addObject("msg", "문의 답변이 정상적으로 등록되었습니다.");
+            model.addObject("location", "/admin/notice");
+        } else {
+            model.addObject("msg", "문의 답변에 실패하였습니다.");
+            model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
+        }
+        
+        model.setViewName("common/msg");
+		
 		
 		return model;
 	}

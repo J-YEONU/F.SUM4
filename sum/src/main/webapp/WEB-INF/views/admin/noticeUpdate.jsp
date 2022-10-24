@@ -121,7 +121,7 @@
                         <h1 class="mt-4">공지사항</h1>
                             * 관리자로 등록된 회원만 수정/삭제 할 수 있습니다.
                         <hr>
-                         <form action="${ path }/admin/noticeDetail?no=${ notice.noticeNo }" method="POST">
+                         <form action="${ path }/admin/noticeUpdate?no=${ notice.noticeNo }" method="POST">
                         <div id="member-main-container" class="">
                             <div class="container">
                                 <div>
@@ -131,7 +131,7 @@
                                 <div id="bottom-container">
                                 <div id="summernote" class="summernote">
                                 <input type="text" name="content" id="content"
-							value="${ notice.content }" style="width: 708px; height: 256px;">
+							value="${ notice.content }" style="width: 708px; height: 256px; border: 0px;">
                                 </div>
                             </div>
                             </div>
