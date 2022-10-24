@@ -206,7 +206,7 @@
 	   
 	<resultMap type="Cinema" id="adminCinemaResultMap">
 		<id property="cinemaNo" column="CINEMA_NO"/>
-		<result property="cinemaName" column="CINEMA_NAME"/>z
+		<result property="cinemaName" column="CINEMA_NAME"/>
 		<result property="cinemaPhone" column="CINEMA_PHONE"/>
 		<result property="cinemaImg" column="CINEMA_IMG"/>
 		<result property="cinemaLocal" column="CINEMA_LOCAL"/>
