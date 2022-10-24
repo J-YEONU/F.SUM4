@@ -57,12 +57,6 @@ public class MovieListServiceImpl implements MovieListService {
 		return mapper.select4();
 	}
 	
-	@Override
-	public List<MovieList> selectFuture4() {
-		
-		return mapper.selectFuture4();
-	}
-	
 	public List<MovieList> getMoviebyGenre(String genre) {
 		
 		return mapper.getMoviebyGenre(genre);

@@ -53,22 +53,15 @@
 	<!-- 현재상영영화 조회 --> 
 	<select id="selectAll" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"></include>
-		WHERE SYSDATE >= MOVIE_RELEASE AND MOVIE_STATUS = 'Y'
+		WHERE SYSDATE >= MOVIE_RELEASE
 		ORDER BY MOVIE_NO DESC
 	</select>
 	
 	<!-- 상영예정영화 조회 --> 
 	<select id="selectFuture" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"></include>
-		WHERE MOVIE_RELEASE > SYSDATE AND MOVIE_STATUS = 'Y'
+		WHERE MOVIE_RELEASE > SYSDATE
 		ORDER BY MOVIE_NO DESC
-	</select> 
-
-	<!-- 내가 선택한 장르 영화 조회 -->
-	<select id="getMoviebyGenre" resultMap="movieListResultMap">
-		<include refid="selectMovieSql"></include>
-		WHERE MOVIE_GENRE LIKE #{genre} AND MOVIE_STATUS ='Y'
-		ORDER BY MOVIE_RELEASE DESC
 	</select> 
 
 	<!-- 메인 현재상영영화 랭킹 4위까지 조회 -->
@@ -101,32 +94,11 @@
         GROUP BY MOVIE_TITLE) A on (B.MOVIE_TITLE= A.MOVIE_TITLE)
         WHERE ROWNUM < 5 AND B.MOVIE_STATUS= 'Y' AND SYSDATE >= B.MOVIE_RELEASE]]>
 	</select>
-	
-	<!-- 상영예정영화 조회 --> 
-	<select id="selectFuture4" resultMap="movieListResultMap">
-		<![CDATA[SELECT ROW_NUMBER() OVER(ORDER BY MOVIE_NO) RANKS, 
-			MOVIE_NO,
-			MEMBER_NO,
-			MOVIE_TITLE,
-			MOVIE_GENRE,
-			MOVIE_RELEASE,
-			MOVIE_DIRECTOR,
-			MOVIE_CAST,
-			MOVIE_RATING,
-			MOVIE_TRAILER,
-			MOVIE_POSTER,
-			RENAMED_POSTER,
-			MOVIE_STATUS,
-			IMG,
-			RENAMED_IMG,
-			MOVIE_SUMMARY,
-			PRICE,
-			READCOUNT,
-			MOVIE_COMMENT,
-			MOVIE_GRADE,
-			CREATE_DATE
-		FROM MOVIE_INFO
-        WHERE ROWNUM < 5 AND MOVIE_STATUS= 'Y' AND SYSDATE < MOVIE_RELEASE]]>
+	<!-- 내가 선택한 장르 영화 조회 -->
+	<select id="getMoviebyGenre" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"></include>
+		WHERE MOVIE_GENRE LIKE #{genre} AND MOVIE_STATUS ='Y'
+		ORDER BY MOVIE_RELEASE DESC
 	</select> 
-	
+
 </mapper>

@@ -265,16 +265,13 @@
     $('.carousel').carousel({
       interval: 2000 //기본 5초
     })
-    </script>
-    <script>
         //영화차트 탭 메뉴
         var movBtn = $(".movie_title > ul > li");
         var movCont = $(".movie-list > div");
         
         movCont.hide().eq(0).show();
         
-        movBtn
-        .click(function(e){
+        movBtn.click(function(e){
             e.preventDefault(); // 눌렀을 때 위로 안올라감.
             var target = $(this); // 사용자가 몇번째 버튼을 클릭했는지 알 수 있음.
             var index = target.index();
