@@ -281,5 +281,10 @@
 			</if>
 			CREATE_DATE = SYSDATE
 		WHERE NO = #{no}
-	</update>	
+	</update>
+	
+	<!-- 공지사항 삭제 테스트 -->
+	<update id="noticeDelectStatus" parameterType="Notice">
+		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
+	</update>
 </mapper>

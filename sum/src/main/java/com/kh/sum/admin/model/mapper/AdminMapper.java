@@ -52,5 +52,6 @@ public interface AdminMapper {
     
     int save(Notice notice);
 
+	int noticeDelectStatus(@Param("no")int no, @Param("status")String string);
 
 }

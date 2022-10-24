@@ -307,7 +307,8 @@ public class adminController {
 		
 		notice = service.findNoticeByNo(no);
 		
-		System.out.println(notice);
+        model.addObject("notice", notice);
+        model.setViewName("admin/noticeUpdate");
 		
 		return model;
 		

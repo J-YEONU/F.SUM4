@@ -139,12 +139,19 @@
                             
                             <div class="btnzone">
                                 <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
-                                <button type="reset" class="btn btn-light"> 삭제 </button>
+								<button type="button" id="btnDelete" class="btn btn-light"> 삭제 </button>
                                 <button type="reset" class="btn btn-light"> 목록 </button>
                             </div>
             </div>
         </div>
+        <script>
+        $(document).ready(() => {
+			$("#btnDelete").on("click", () => {
+				if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
+					location.replace("${ path }/admin/adminUpdate?no=${ admin.noticeNo }");
+				}
+			});
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>
 </html>

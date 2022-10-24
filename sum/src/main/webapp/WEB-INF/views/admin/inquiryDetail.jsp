@@ -169,9 +169,9 @@
 			});
 			
             $('#summernote').summernote({
-            placeholder: '${ qna.content }',
-            tabsize: 2,
-            height: 300
+	            placeholder: '${ qna.content }',
+	            tabsize: 2,
+	            height: 300
             });
 		});
         </script>

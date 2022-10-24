@@ -139,7 +139,6 @@
                             <br>
                             <div class="btnzone">
                                 <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
-                                <button type="button" id="btnDelete" class="btn btn-light"> 삭제 </button>
                                 <button type="button" onclick="location.href='${ path }/admin/noticeList'">목록으로</button>
                             </div>
             </div>
@@ -148,12 +147,6 @@
         <!-- 삭제 버튼 스크립트 -->
         <script>
         	$(document).ready(() => {
-				$("#btnDelete").on("click", () => {
-					if(confirm("문의내용을 삭제 하시겠습니까?")) {
-						location.replace("${ path }/admin/noticeDelete?no=${ notice.noticeNo }");
-					}
-				});
-       
 				$('#summernote').summernote({
 		            placeholder: '${ notice.content }',
 		            tabsize: 2,
@@ -162,6 +155,5 @@
 				});
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>
 </html>
