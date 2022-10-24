@@ -16,8 +16,14 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
+        <link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- 썸머노트 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     </head>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -115,35 +121,46 @@
                         <h1 class="mt-4">공지사항</h1>
                             * 관리자로 등록된 회원만 수정/삭제 할 수 있습니다.
                         <hr>
+                         <form action="${ path }/admin/noticeDetail?no=${ notice.noticeNo }" method="POST">
                         <div id="member-main-container" class="">
-                            <div class="container" style="border: 1px solid">
-                                <div class="row">
-
-                                    <div class="col-2">
-                                        제목
-                                    </div>
-                                    <div class="col-4">
-                                    	${notice.title}
-                                    </div>
-                                    <div class="col-2">
-                                        작성일
-                                    </div>
-                                    <div class="col-4">
-                                    	${notice.createDate}
-                                    </div>
-                                    
+                            <div class="container">
+                                <div>
+                                    제목 : <input type="text" name="title" id="title" value="${notice.title}">
+                                </div>
+                                <br>
+                                <div id="bottom-container">
+                                <div id="summernote" class="summernote">
+                                <input type="text" name="content" id="content"
+							value="${ notice.content }" style="width: 708px; height: 256px;">
+                                </div>
                             </div>
-                            <div>
-								${notice.content}
                             </div>
                             
+                            <br>
                             <div class="btnzone">
                                 <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
-                                <button type="reset" class="btn btn-light"> 삭제 </button>
-                                <button type="reset" class="btn btn-light"> 목록 </button>
+                                <button type="button" id="btnDelete" class="btn btn-light"> 삭제 </button>
+                                <button type="button" onclick="location.href='${ path }/admin/noticeList'">목록으로</button>
                             </div>
             </div>
+                        </form>
         </div>
+        <!-- 삭제 버튼 스크립트 -->
+        <script>
+        	$(document).ready(() => {
+				$("#btnDelete").on("click", () => {
+					if(confirm("문의내용을 삭제 하시겠습니까?")) {
+						location.replace("${ path }/admin/noticeDelete?no=${ notice.noticeNo }");
+					}
+				});
+       
+				$('#summernote').summernote({
+		            placeholder: '${ notice.content }',
+		            tabsize: 2,
+		            height: 300
+		            });
+				});
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>

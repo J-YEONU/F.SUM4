@@ -43,6 +43,7 @@ public interface AdminService {
 	MyQnA findQnAByNo(int no);
 
 	int delete(int no);
+	
 
 	
 

@@ -268,5 +268,18 @@
 			DEFAULT,
 			#{memberNo}
 		)
-	</insert>	
+	</insert>
+	
+	<!-- 공지사항 수정  -->
+	<update id="updateNotice" parameterType="Notice">
+		UPDATE NOTICE
+			<if test="title != null">
+				TITLE = #{title},
+			</if>
+			<if test="content != null">
+				CONTENT = #{content},
+			</if>
+			CREATE_DATE = SYSDATE
+		WHERE NO = #{no}
+	</update>	
 </mapper>

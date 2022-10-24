@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -259,13 +258,7 @@ public class adminController {
 		
 		return model;
 	}
-	
-//	@GetMapping("/noticeDetail")
-//	public String noticeDetail() {
-//		
-//		return "/admin/noticeDetail";
-//	}
-	
+
 	@GetMapping("/noticeDetail")
 	public ModelAndView noticeDetail(ModelAndView model, @RequestParam int no) {
 		Notice notice = null;
@@ -306,5 +299,36 @@ public class adminController {
 		
 		return model;
 	}
+	
+	
+	@GetMapping("/noticeUpdate")
+	public ModelAndView noticeUpdate(ModelAndView model, @RequestParam int no) {
+		Notice notice = null;
+		
+		notice = service.findNoticeByNo(no);
+		
+		System.out.println(notice);
+		
+		return model;
+		
+	}
+	
+	@PostMapping("/noticeUpdate")
+	public ModelAndView noticeUpdate(ModelAndView model, @ModelAttribute Notice notice) {
+		int result = 0;
+		
+		result = service.save(notice);
+		
+		if (result > 0) {
+			model.addObject("msg", "공지사항 게시글이 정상적으로 수정되었습니다.");
+			model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
+		} else {
+			model.addObject("msg", "게시글이 수정을 실패하였습니다.");
+			model.addObject("location", "/admin/noticeUpdate?no=" + notice.getNoticeNo());
+		}
+		
+		return model;
+	}
+	
 	
 }
