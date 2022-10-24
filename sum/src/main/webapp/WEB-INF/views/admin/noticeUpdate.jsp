@@ -114,6 +114,7 @@
                             * 관리자로 등록된 회원만 수정/삭제 할 수 있습니다.
                         <hr>
                          <form action="${ path }/admin/noticeUpdate?no=${ notice.noticeNo }" method="POST">
+                        <input type="hidden" name="noticeNo" value="${ notice.noticeNo }">
                         <div id="member-main-container" class="">
                             <div class="container">
                                 <div>

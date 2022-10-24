@@ -277,7 +277,7 @@
 			NOTICE_CONTENT = #{content},
 			CREATE_DATE = SYSDATE
    
-		WHERE NOTICE_NO = #{no} AND STATUS = 'Y'
+		WHERE NOTICE_NO = #{noticeNo} AND STATUS = 'Y'
 	</update>
 	
 	<!-- 공지사항 삭제 테스트 -->
