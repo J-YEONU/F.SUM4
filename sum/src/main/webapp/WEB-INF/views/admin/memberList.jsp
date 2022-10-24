@@ -78,18 +78,10 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseMovie" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="${ path }/admin/movie" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        영화 등록
-                                    </a>
-                                    <a class="nav-link collapsed" href="${ path }/admin/cinema" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        영화관 등록
-                                    </a>
-                                    <a class="nav-link collapsed" href="${ path }/admin/movieTime" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        상영시간 등록
-                                    </a>
-                                    <div class="collapse" id="pagesMovies" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    </div>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="${ path }/admin/movie">영화 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/cinema">영화관 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/movieTime">상영시간 등록</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseNotice" aria-expanded="false" aria-controls="collapseLayouts">

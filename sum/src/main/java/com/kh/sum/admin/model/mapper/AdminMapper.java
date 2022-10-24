@@ -49,6 +49,9 @@ public interface AdminMapper {
 	MyQnA selectQnAByNo(@Param("no")int no);
 
     int inquiryUpdate(MyQnA qna);
+    
+    int save(Notice notice);
 
+	int noticeDelectStatus(@Param("no")int no, @Param("status")String string);
 
 }

@@ -77,18 +77,10 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseMovie" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="${ path }/admin/movie" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        영화 등록
-                                    </a>
-                                    <a class="nav-link collapsed" href="${ path }/admin/cinema" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        영화관 등록
-                                    </a>
-                                    <a class="nav-link collapsed" href="${ path }/admin/movieTime" data-bs-toggle="collapse" data-bs-target="#pagesMovies" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        상영시간 등록
-                                    </a>
-                                    <div class="collapse" id="pagesMovies" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    </div>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="${ path }/admin/movie">영화 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/cinema">영화관 등록</a>
+                                    <a class="nav-link" href="${ path }/admin/movieTime">상영시간 등록</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseNotice" aria-expanded="false" aria-controls="collapseLayouts">
@@ -123,25 +115,35 @@
                                         제목
                                     </div>
                                     <div class="col-4">
+                                    	${notice.title}
                                     </div>
                                     <div class="col-2">
                                         작성일
                                     </div>
                                     <div class="col-4">
+                                    	${notice.createDate}
                                     </div>
                                     
                             </div>
                             <div>
+								${notice.content}
                             </div>
                             
                             <div class="btnzone">
-                                <button type="submit" class="btn btn-warning"> 수정 </button>
-                                <button type="reset" class="btn btn-light"> 삭제 </button>
+                                <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
+								<button type="button" id="btnDelete" class="btn btn-light"> 삭제 </button>
                                 <button type="reset" class="btn btn-light"> 목록 </button>
                             </div>
             </div>
         </div>
+        <script>
+        $(document).ready(() => {
+			$("#btnDelete").on("click", () => {
+				if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
+					location.replace("${ path }/admin/adminUpdate?no=${ admin.noticeNo }");
+				}
+			});
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>
 </html>

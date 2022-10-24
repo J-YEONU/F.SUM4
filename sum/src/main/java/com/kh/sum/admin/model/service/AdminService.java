@@ -44,6 +44,9 @@ public interface AdminService {
 
 	int delete(int no);
 
+	int NoticeDelect(int no);
+	
+
 	
 
 

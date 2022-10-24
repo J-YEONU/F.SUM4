@@ -3,6 +3,7 @@ package com.kh.sum.admin.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -259,13 +259,7 @@ public class adminController {
 		
 		return model;
 	}
-	
-//	@GetMapping("/noticeDetail")
-//	public String noticeDetail() {
-//		
-//		return "/admin/noticeDetail";
-//	}
-	
+
 	@GetMapping("/noticeDetail")
 	public ModelAndView noticeDetail(ModelAndView model, @RequestParam int no) {
 		Notice notice = null;
@@ -306,5 +300,43 @@ public class adminController {
 		
 		return model;
 	}
+	
+	
+	@GetMapping("/noticeUpdate")
+	public ModelAndView noticeUpdate(ModelAndView model, @RequestParam int no) {
+		Notice notice = null;
+		
+		notice = service.findNoticeByNo(no);
+		
+        model.addObject("notice", notice);
+        model.setViewName("admin/noticeUpdate");
+		
+		return model;
+		
+	}
+	
+	@PostMapping("/noticeUpdate")
+	public ModelAndView noticeUpdate(ModelAndView model, @ModelAttribute Notice notice,
+			@RequestParam int no) {
+		int result = 0;
+		
+		result = service.save(notice);
+		System.out.println(notice);
+		
+        
+       if(result > 0) {
+            model.addObject("msg", "문의 답변이 정상적으로 등록되었습니다.");
+            model.addObject("location", "/admin/noticeList");
+        } else {
+            model.addObject("msg", "문의 답변에 실패하였습니다.");
+            model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
+        }
+        
+       model.setViewName("common/msg");
+		
+		
+		return model;
+	}
+	
 	
 }
