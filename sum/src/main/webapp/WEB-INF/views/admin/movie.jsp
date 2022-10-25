@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="">
                                     등급 : 
-                                    <select name="address" id="area" >
+                                    <select name=movieRating id="area" >
                                         <option selected name="movieRating">연령제한</option>
                                         <option value="TotalUserPrice">전체 이용가</option>
                                         <option value="12">12</option>

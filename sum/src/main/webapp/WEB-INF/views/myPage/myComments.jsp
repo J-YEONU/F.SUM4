@@ -20,7 +20,7 @@
                 <li><a href="${ path }/myPage/myBooking">예매확인/취소</a></li>
                 <li><a href="#">나의 포인트</a></li>
                 <li><a href="${ path }/myPage/myQnA">나의 문의내역</a></li>
-                <li><a href="${ path }/myPage/myReview">나의 한줄평</a></li>
+                <li><a href="${ path }/myPage/myComments">나의 한줄평</a></li>
                 <li><a href="#">나의 무비로드</a></li>
                 <li><a href="${ path }/myPage/myInfoMod">개인정보수정</a></li>
             </ul>
@@ -39,20 +39,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>탑건</td>
-                        <td>톰 크루즈 너무 멋짐</td>
-                        <td>5점</td>
-                        <td>2022-08-23</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>탑건</td>
-                        <td>톰 크루즈 너무 멋짐</td>
-                        <td>5점</td>
-                        <td>2022-08-23</td>
-                    </tr>
+                                 
+	                <c:if test="${ empty list }">
+	            		<tr>
+							<td colspan="5">
+								조회된 한줄평이 없습니다.
+							</td>
+						</tr>	
+					</c:if>
+					
+					<c:if test="${ not empty list }">
+						<c:forEach var="comments" items="${ list }">
+		                    <tr>
+		                        <td>${ comments.no }</td>
+		                        <td> ${ comments.mName }</td>
+		                        <td> <a href="#"> ${ comments.content }</a> </td>
+		                        <td>${ comments.no }점</td>
+		                        <td><fmt:formatDate type="date" value="${ comments.regDate }"/></td>
+		                    </tr>
+	                    </c:forEach>
+               		</c:if>
                 </tbody>
             </table>
         </div>

@@ -19,4 +19,6 @@ public interface MyQnAMapper {
 
     MyQnA findQnAByNo(@Param("no")int no);
 
+	MyQnA selectQnAByNo(int no);
+
 }

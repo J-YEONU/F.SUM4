@@ -92,17 +92,20 @@
 	
 	<update id="updateMember" parameterType="Member">
 	UPDATE MEMBER
-	SET
-		MEMBER_NAME = #{name},
-		MEMBER_PHONE = #{phone},
-		MEMBER_EMAIL = #{email},
-		MEMBER_PHONE = #{phone},
-		MEMBER_GENRE = #{genre} 
-	WHERE MEMBER_NO = #{no}
+		SET
+			MEMBER_NAME = #{name},
+			MEMBER_DATE = #{birth},
+			MEMBER_EMAIL = #{email},
+			MEMBER_PHONE = #{phone},
+			MEMBER_GENRE = #{genre} 
+		WHERE MEMBER_NO = #{no}
 	</update>
 	
-	<delete id="deleteMember" parameterType="_int">
-		DELETE FROM MEMBER WHERE MEMBER_NO = #{no}
+	<delete id="deleteMember" parameterType="Member">
+	UPDATE MEMBER
+	SET
+		STATUS = 'N'
+	WHERE MEMBER_NO = #{no}
 	</delete>
 	
 </mapper>

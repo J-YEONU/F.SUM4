@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.sum.admin.model.mapper.AdminMapper;
 import com.kh.sum.admin.model.vo.Notice;
+import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.vo.MovieList;
@@ -145,6 +146,20 @@ public class AdminServiceImpl implements AdminService {
     	result = mapper.noticeDelectStatus(no, "N");
     	
     	return result;
+    }
+
+    @Override
+    public int save(Cinema cinema) {
+        int result = 0;
+        
+        if (cinema.getCinemaNo() != 0) {
+            // update 필요시 추가
+            
+        } else {
+            // insert
+            result = mapper.insertCinema(cinema);
+        }
+        return result;
     }
 
 

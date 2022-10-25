@@ -132,7 +132,7 @@
                             <div class="btnzone">
                                 <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
 								<button type="button" id="btnDelete" class="btn btn-light"> 삭제 </button>
-                                <button type="reset" class="btn btn-light"> 목록 </button>
+                                <button type="button" onclick="location.href='${ path }/admin/noticeList'" class="btn btn-light"> 목록 </button>
                             </div>
             </div>
         </div>
