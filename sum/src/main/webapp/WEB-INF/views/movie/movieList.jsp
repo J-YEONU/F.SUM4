@@ -77,9 +77,8 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -112,9 +111,8 @@
                		<c:forEach var="movieList" items="${ list1 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		    <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -144,19 +142,20 @@
             </div>
             <div class="chart_cont3">
                 <ol class="list" id="movieList">
-                	<!-- 로그인이 안되어 있으면
-                    <c:if test="${ loginMember.id == board.writerId }">
+                	<!-- 로그인이 안되어 있으면 -->
+                    <c:if test="${ loginMember == null }">
                         <div>로그인 후 확인할 수 있습니다.</div>
                     </c:if>
-                	 -->
-                	 <!-- 로그인이 되어있으면
+                	 
+                	 <!-- 로그인이 되어있으면 -->
                 	<c:if test="${ loginMember.id == board.writerId }">
                 	<c:forEach items="${ MA }" var="i" >
                		<c:forEach var="movieList" items="${ i }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
@@ -169,7 +168,7 @@
 	                </c:forEach>
 	                </c:forEach>
                     </c:if>
-                	  -->
+                	  
 	                
                 </ol>
             </div>

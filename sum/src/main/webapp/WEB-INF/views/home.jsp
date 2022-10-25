@@ -78,9 +78,9 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                            <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                        	<div class="rank">1</div>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -113,9 +113,8 @@
                		<c:forEach var="movieList" items="${ list1 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -149,7 +148,8 @@
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
@@ -185,7 +185,7 @@
     </div>
         <div class="event_right">
             <div class="boxoffice_head">
-                <div>SYSDATE</div>
+                <div id="table_date"></div>
                 <div>BOX OFFICE</div>
             </div>
             <div class="wrap contaner"></div>
@@ -358,5 +358,17 @@
                             }
                         });
             });
+        </script>
+                <script>
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+
+            var dateString = year + '-' + month  + '-' + day;
+
+            document.getElementById("table_date").innerText = dateString;
+            console.log(dateString);
         </script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
