@@ -11,9 +11,9 @@ import com.kh.sum.myPage.model.vo.MyQnA;
 @Mapper
 public interface MyQnAMapper {
 
-	int selectMyQnACount();
+	int selectMyQnACount(int loginMemberNo);
 
-	List<MyQnA> selectAll(RowBounds rowBounds);
+	List<MyQnA> selectAll(RowBounds rowBounds, int loginMemberNo);
 
     int insertQnA(MyQnA qna);
 

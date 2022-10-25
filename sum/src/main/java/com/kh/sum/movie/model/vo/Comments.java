@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class Comments {
 	private int cmNo;
 	
+	private int rowNum;
+	
 	private String cmId;
 	
 	private int mNo;

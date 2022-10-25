@@ -11,7 +11,7 @@
 
     <div class="section">
         <h2>마이페이지</h2>
-        <p>홍길동님, 오늘도 영화처럼 멋진 하루 되세요!</p>
+        <p>${loginMember.name}님, 오늘도 영화처럼 멋진 하루 되세요!</p>
 
         <hr class="hr1">
 
@@ -50,14 +50,14 @@
 				<c:if test="${ not empty list }">
 					<c:forEach var="qna" items="${ list }">
 	                    <tr>
-	                        <td>${ qna.no }</td>
-	                        <td> <a href="${ path }/sum/myPage/myQnADetail?no=${ qna.no }">${ qna.title }</a> </td>
+	                        <td>${ qna.rowNum }</td>
+	                        <td> <a href="${ path }/myPage/myQnADetail?no=${ qna.no }">${ qna.title }</a> </td>
 	                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 	                        <c:choose>
-	                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
+	                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
 		                         	<td>진행중</td>
 	                         	</c:when>
-	                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
+	                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
 		                         	<td class="td4">답변완료</td>
 	                         	</c:when>
                          	</c:choose>
