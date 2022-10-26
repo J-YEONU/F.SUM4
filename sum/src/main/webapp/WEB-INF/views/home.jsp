@@ -8,7 +8,6 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <link rel="stylesheet" href="${ path }/resources/css/main/main1.css">
-<link rel="stylesheet" href="${ path }/resources/css/main/main2.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -75,12 +74,12 @@
         <div class="movie-list">
             <div class="chart_cont1">
                 <ol class="list" id="movieList">
-               		<c:forEach var="movieList" items="${ list }">
+               		<c:forEach var="movieList" items="${ list }" varStatus="ml">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 	                            <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
 	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
-	                        	<div class="rank">1</div>
+	                        	<div class="rank">${ ml.index +1 }</div>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -170,7 +169,7 @@
 <!-- 이벤트 -->
 <div id="event">
     <div class="event_title">
-        <h4><img src="${ path }/resources/image/tag.png" alt="세모아이콘"> <strong>새로운 이벤트</strong></h4>
+        <h4><img id="tag" src="${ path }/resources/image/tag.png" alt="세모아이콘"> <strong>새로운 이벤트</strong></h4>
     </div>
     <div class="event_left">
         <div class="event_slider">
@@ -199,7 +198,7 @@
 
 <div id="comunity">
         <div class="community_icon">
-            <h4><img src="${ path }/resources/image/tag.png" alt="세모아이콘"> <strong>커뮤니티</strong></h4>
+            <h4><img id="tag" src="${ path }/resources/image/tag.png" alt="세모아이콘"> <strong>커뮤니티</strong></h4>
         </div>
         <div class="row">
         <div class="comunity">
@@ -265,6 +264,8 @@
     $('.carousel').carousel({
       interval: 2000 //기본 5초
     })
+    </script>
+    <script>
         //영화차트 탭 메뉴
         var movBtn = $(".movie_title > ul > li");
         var movCont = $(".movie-list > div");
@@ -356,7 +357,7 @@
                         });
             });
         </script>
-                <script>
+        <script>
             var today = new Date();
 
             var year = today.getFullYear();
