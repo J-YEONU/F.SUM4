@@ -11,7 +11,7 @@
 
 	<div class="section">
         <h2>마이페이지</h2>
-        <p>홍길동님, 오늘도 영화처럼 멋진 하루 되세요!</p>
+        <p>${loginMember.name}님, 오늘도 영화처럼 멋진 하루 되세요!</p>
 
         <hr class="hr1">
 
@@ -52,8 +52,8 @@
 					<c:if test="${ not empty list }">
 						<c:forEach var="ticketing" items="${ list }">
 		                    <tr>
-		                        <td>${ ticketing.no }</td>
-		                        <td> <a href="#"> ${ ticketing.no }</a> </td>
+		                        <td>${ ticketing.rowNum }</td>
+		                        <td> <a href="${ path }/ticket/approve"> ${ ticketing.no }</a> </td>
 		                        <td>${ ticketing.movieTitle } / ${ ticketing.cinemaName }</td>
 		                        <td><fmt:formatDate type="date" value="${ ticketing.showDate }"/></td>
 		                        <td><fmt:formatDate type="date" value="${ ticketing.ticketDate }"/></td>

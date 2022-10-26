@@ -396,5 +396,12 @@ public class MemberController {
 	    return model;
 	  }
 	
+	@PostMapping("/member/findId")
+	public ModelAndView findId(ModelAndView model, @ModelAttribute Member member) {
+		
+		
+		
+		return model;
+	}
 	
 }

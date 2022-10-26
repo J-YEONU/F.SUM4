@@ -12,8 +12,8 @@ public interface MyBookingMapper {
 
 	int selectMyQnACount();
 
-	List<MyQnA> selectAll(RowBounds rowBounds);
+	List<MyQnA> selectAll(RowBounds rowBounds, int loginMemberNo);
 
-	int selectMyBookingCount();
+	int selectMyBookingCount(int loginMemberNo);
 
 }

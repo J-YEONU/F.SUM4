@@ -11,7 +11,7 @@
 
 	<div class="section">
         <h2>마이페이지</h2>
-        <p>홍길동님, 오늘도 영화처럼 멋진 하루 되세요!</p>
+        <p>${loginMember.name}님, 오늘도 영화처럼 멋진 하루 되세요!</p>
 
         <hr class="hr1">
 
@@ -51,10 +51,10 @@
 					<c:if test="${ not empty list }">
 						<c:forEach var="comments" items="${ list }">
 		                    <tr>
-		                        <td>${ comments.no }</td>
-		                        <td> ${ comments.mName }</td>
-		                        <td> <a href="#"> ${ comments.content }</a> </td>
-		                        <td>${ comments.no }점</td>
+		                        <td>${ comments.rowNum }</td>
+		                        <td>${ comments.MName }</td>
+		                        <td> <a href="${ path }/movie/movieDetail?no=${ comments.MNo }"> ${ comments.content }</a> </td>
+		                        <td>${ comments.score }점</td>
 		                        <td><fmt:formatDate type="date" value="${ comments.regDate }"/></td>
 		                    </tr>
 	                    </c:forEach>
@@ -63,19 +63,24 @@
             </table>
         </div>
         
-        <div class="page_wrap">
-            <div class="page_nation">
-                <a class="arrow pprev" href="#">&#60;&#60;</a>
-                <a class="arrow prev" href="#">&#60;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a class="arrow next" href="#">&#62;</a>
-                <a class="arrow nnext" href="#">&#62;&#62;</a>
-            </div>
-        </div>
+         <div class="page_wrap">
+             <div class="page_nation">
+                 <a class="arrow pprev" href="${ path }/myPage/myComments?page=1">&#60;&#60;</a>
+                 <a class="arrow prev" href="${ path }/myPage/myComments?page=${ pageInfo.prevPage }">&#60;</a>
+                 
+			   		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+						<c:if test="${ status.current == pageInfo.currentPage }">
+							<a href="#" class="active">${ status.current }</a>
+						</c:if>
+						<c:if test="${ status.current != pageInfo.currentPage }">
+							<a href="${ path }/myPage/myComments?page=${ status.current }">${ status.current }</a>
+						</c:if>
+					</c:forEach>
+
+                 <a class="arrow next" href="${ path }/myPage/myComments?page=${ pageInfo.nextPage }">&#62;</a>
+                 <a class="arrow nnext" href="${ path }/myPage/myComments?page=${ pageInfo.maxPage }">&#62;&#62;</a>
+             </div>
+         </div>
 
     </div> 
 

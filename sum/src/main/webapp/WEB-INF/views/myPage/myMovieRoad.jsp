@@ -11,7 +11,7 @@
 
     <div class="section">
         <h2>마이페이지</h2>
-        <p>홍길동님, 오늘도 영화처럼 멋진 하루 되세요!</p>
+        <p>${loginMember.name}님, 오늘도 영화처럼 멋진 하루 되세요!</p>
 
         <hr class="hr1">
 

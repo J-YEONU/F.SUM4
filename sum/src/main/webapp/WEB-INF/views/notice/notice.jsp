@@ -38,7 +38,7 @@
 				<c:if test="${ not empty list }">
 					<c:forEach var="qna" items="${ list }">
 	                    <tr>
-	                        <td>${ qna.no }</td>
+	                        <td>${ qna.noticeNo }</td>
 	                        <td> <a href="#">${ qna.title }</a> </td>
 	                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 	                        <td> <a href="#">${board.readCount }</a> </td>
@@ -54,20 +54,20 @@
          <!-- 페이지 버튼 -->
          <div class="page_wrap">
              <div class="page_nation">
-                 <a class="arrow pprev" href="${ path }/myPage/myQnA?page=1">&#60;&#60;</a>
-                 <a class="arrow prev" href="${ path }/myPage/myQnA?page=${ pageInfo.prevPage }">&#60;</a>
+                 <a class="arrow pprev" href="${ path }/notice?page=1">&#60;&#60;</a>
+                 <a class="arrow prev" href="${ path }/notice?page=${ pageInfo.prevPage }">&#60;</a>
                  
 			   		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
 						<c:if test="${ status.current == pageInfo.currentPage }">
 							<a href="#" class="active">${ status.current }</a>
 						</c:if>
 						<c:if test="${ status.current != pageInfo.currentPage }">
-							<a href="${ path }/myPage/myQnA?page=${ status.current }">${ status.current }</a>
+							<a href="${ path }/notice?page=${ status.current }">${ status.current }</a>
 						</c:if>
 					</c:forEach>
 
-                 <a class="arrow next" href="${ path }/myPage/myQnA?page=${ pageInfo.nextPage }">&#62;</a>
-                 <a class="arrow nnext" href="${ path }/myPage/myQnA?page=${ pageInfo.maxPage }">&#62;&#62;</a>
+                 <a class="arrow next" href="${ path }/notice?page=${ pageInfo.nextPage }">&#62;</a>
+                 <a class="arrow nnext" href="${ path }/notice?page=${ pageInfo.maxPage }">&#62;&#62;</a>
              </div>
          </div>
 

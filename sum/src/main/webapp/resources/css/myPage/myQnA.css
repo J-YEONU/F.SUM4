@@ -144,3 +144,22 @@ table {
 	color:#fff;
 	border:1px solid #42454c;
 }
+
+
+/* 상세페이지 */
+.whiteTd{
+    background-color: white;
+}
+
+#btn{
+    background-color: #F1DB61;
+    width: 80px;
+    height: 40px;
+    margin: auto;
+    text-align: center;
+    margin-top: 70px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 450px;
+    
+}

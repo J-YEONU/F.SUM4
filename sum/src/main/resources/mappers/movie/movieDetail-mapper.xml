@@ -52,6 +52,7 @@
 	
 	<resultMap type="Comments" id="CommentsResultMap">
 		<id property="cmNo" column="CM_NO"/>
+		<result property="rowNum" column="RNUM"/>
 		<result property="cmId" column="CM_ID"/>
 		<result property="mNo" column="M_NO"/>
 		<result property="mName" column="M_NAME"/>
@@ -103,6 +104,20 @@
             (#{cmNo}, #{cmId}, #{mNo}, #{mName}, #{content}, #{score}, DEFAULT)
     </insert>
 
+	<!-- 마이페이지용  -->
+    <select id="selectCommentsCount" parameterType="String" resultType="_int">
+        SELECT count(*) FROM COMMENTS
+        WHERE  CM_ID = #{loginMemberId}
+    </select>
+
+    <select id="selectAll" parameterType="String" resultMap="CommentsResultMap">
+        SELECT ROWNUM AS RNUM, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE
+        FROM( 
+        SELECT CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE
+        FROM COMMENTS
+        WHERE CM_ID = #{loginMemberId})
+        ORDER BY RNUM DESC
+    </select>
 
 
 	

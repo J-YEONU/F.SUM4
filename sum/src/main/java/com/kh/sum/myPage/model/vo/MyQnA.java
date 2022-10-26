@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class MyQnA {
 	private int no;
 	
+	private int rowNum;
+	
 	private String title;
 	
 	private String content;

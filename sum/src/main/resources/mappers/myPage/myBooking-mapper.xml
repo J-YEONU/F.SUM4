@@ -2,7 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.kh.sum.myPage.model.mapper.MyBookingMapper">
-	<sql id="MyBookingListSql">
+
+	<resultMap type="Ticketing" id="MyBookingListResultMap">
+		<id property="no" column="TICKET_NO"/>
+		<result property="rowNum" column="RNUM"/>
+		<result property="movieTitle" column="MOVIE_TITLE"/>
+		<result property="cinemaName" column="CINEMA_NAME"/>
+		<result property="showDate" column="SHOW_DATE"/>
+		<result property="ticketDate" column="TICKET_DATE"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="showNo" column="SHOW_NO"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+
+    <!-- 회원별 예매 수 조회 -->
+	<select id="selectMyBookingCount" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM TICKETING WHERE STATUS='Y' AND MEMBER_NO = #{loginMemberNo}
+	</select>
+
+	<!-- 회원별 예매 내역 조회 -->
+	<select id="selectAll" parameterType="_int" resultMap="MyBookingListResultMap" >
+		SELECT ROWNUM AS RNUM, TICKET_NO, MOVIE_TITLE, CINEMA_NAME, 
+		        SHOW_DATE, TICKET_DATE, MEMBER_NO, SHOW_NO, STATUS
+		FROM(    
 		SELECT  T.TICKET_NO,
 		        T.MOVIE_TITLE,
 		        T.CINEMA_NAME,
@@ -13,28 +35,9 @@
 		        T.STATUS
 		FROM TICKETING T
 		JOIN MEMBER M ON(T.MEMBER_NO = M.MEMBER_NO)
-		WHERE T.STATUS = 'Y'
-	</sql>
-	
-	<resultMap type="Ticketing" id="MyBookingListResultMap">
-		<id property="no" column="TICKET_NO"/>
-		<result property="movieTitle" column="MOVIE_TITLE"/>
-		<result property="cinemaName" column="CINEMA_NAME"/>
-		<result property="showDate" column="SHOW_DATE"/>
-		<result property="ticketDate" column="TICKET_DATE"/>
-		<result property="memberNo" column="MEMBER_NO"/>
-		<result property="showNo" column="SHOW_NO"/>
-		<result property="status" column="STATUS"/>
-	</resultMap>
-
-    <!-- 게시글 목록 조회(전체 목록) -->
-	<select id="selectMyBookingCount" resultType="_int">
-		SELECT COUNT(*) FROM TICKETING WHERE STATUS='Y'
-	</select>
-
-	<select id="selectAll" resultMap="MyBookingListResultMap">
-		<include refid="MyBookingListSql" />
-		ORDER BY T.TICKET_NO DESC
+		WHERE T.STATUS = 'Y' AND T.MEMBER_NO = #{loginMemberNo}
+		ORDER BY T.TICKET_NO)
+		ORDER BY RNUM DESC
 	</select>
 	
 	
