@@ -67,6 +67,23 @@
 		WHERE MOVIE_NO = #{no}
 	</select>
 	
+    <select id="selectStillCut" parameterType="int" resultType="String">
+        select IMG from MOVIE_INFO
+        where MOVIE_NO = #{mNo}
+    </select>
+    
+    <!-- 영화 평점, 예매율  -->
+    <select id="allCountTicketing" parameterType="int" resultType="Integer">
+		SELECT count(*) FROM TICKETING
+    </select>
+    
+    <select id="countTicketing" parameterType="int" resultType="Integer">
+        SELECT count(*) FROM TICKETING
+        WHERE  MOVIE_TITLE = (SELECT MOVIE_TITLE
+        FROM MOVIE_INFO
+        WHERE MOVIE_NO=#{mNo})
+    </select>
+    
 	
 	<!-- 댓글 관련 쿼리  -->
 	
@@ -75,7 +92,7 @@
         WHERE  bno = #{bno}
     </delete> -->
 
-    <select id="countComments" parameterType="int" resultType="int">
+    <select id="countComments" parameterType="int" resultType="_integer">
         SELECT count(*) FROM COMMENTS
         WHERE  M_NO = #{M_NO}
     </select>
@@ -92,6 +109,12 @@
         FROM COMMENTS
         WHERE CM_NO = #{cmNo}
     </select>
+    
+    <select id="selectCommentsAvgScore" parameterType="int" resultType="_integer">
+		SELECT AVG(SCORE)
+		FROM COMMENTS
+		WHERE M_NO = #{mNo}
+    </select>
 
     <delete id="deleteComments" parameterType="map">
         DELETE FROM COMMENTS WHERE CM_NO = #{cmNo} AND CM_ID = #{cmId}
@@ -99,10 +122,16 @@
 
     <insert id="insertComments" parameterType="Comments" >
         INSERT INTO COMMENTS
-            (CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DAT)
+            (CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE)
         VALUES
-            (#{cmNo}, #{cmId}, #{mNo}, #{mName}, #{content}, #{score}, DEFAULT)
+            (SEQ_COMMENTS_NO.NEXTVAL, #{cmId}, #{mNo}, #{mName}, #{content}, #{score}, DEFAULT)
     </insert>
+    
+    
+    
+    
+    
+    
 
 	<!-- 마이페이지용  -->
     <select id="selectCommentsCount" parameterType="String" resultType="_int">

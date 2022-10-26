@@ -16,7 +16,7 @@
 
     <div class="detail_page">
         <div class="posterImg">
-            <img id="poster" width="300" src="${ path }/resources/post/9_10/645.jpg">
+            <img id="poster" width="300" src="${ path }/resources/post/9_10/${ movieDetail.moviePoster }">
         </div>
 
         <div class="detail_info">
@@ -25,9 +25,9 @@
             <div>출연진 : ${movieDetail.movieCast}</div>
             <div>장르 : ${movieDetail.movieGenre}</div>
             <div>관람등급 : ${movieDetail.movieRating}</div>
-            <div>평점 : ${movieDetail.movieGrade} (참여 : 16명)</div>
-            <div>예매율: 10.2%</div>
-        </div>
+            <div>평점 : ${ avgScore }점 (참여 : ${ participant }명)</div>
+            <div>예매율: <fmt:formatNumber value="${ ticketingRate }" pattern=".0"/>%</div> 
+        </div> 
 
         <div class="booking">
             <a href="${ path }/ticket/ticketing"><button id="btn" type="button">영화 예매하러가기</button></a>
@@ -41,52 +41,89 @@
 
     <div class="poto">
         <h3><img id="tag" src="${ path }/resources/image/tag.png">포토 & 예고편</h3>
-        <div class="filmstrip">
-            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/stillcut_645.jpg"></div>
-            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/stillcut_645.jpg"></div>
-            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/stillcut_645.jpg"></div>
-            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/stillcut_645.jpg"></div>
+        <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/M-OsBtkztpQ" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        <div class="filmstrip">  	
+			<c:choose>
+				<c:when test="${ stillCutList.get(0) == null }">
+					<div class="stillCut"></div>
+					<div class="stillCut"></div>
+					<div class="stillCut"></div>
+					<div class="stillCut"></div>
+				</c:when>
+
+				<c:when test="${ stillCutList != null }">
+		            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/${ stillCutList.get(0) }"></div>
+		            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/${ stillCutList.get(1) }"></div>
+		            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/${ stillCutList.get(2) }"></div>
+		            <div class="stillCut"><img id="sc" src="${ path }/resources/image/stillCut/${ stillCutList.get(3) }"></div>
+				</c:when>
+			</c:choose>
+
+            
         </div>
     </div>
 
     <div class="review">
         <h3 class="review_h3"><img id="tag" src="${ path }/resources/image/tag.png">평점 및 영화 리뷰</h3>
 
-        <form class="mb-3" name="myform" id="myform" method="post">
+        <form class="mb-3" name="myform" id="myform" action="${ path }/movie/movieCommentsInsert" method="post">
+			<input type="hidden" name="cmId" value="${loginMember.id}">
+			<input type="hidden" name="mNo" value="${movieDetail.movieNo}">
+			<input type="hidden" name="mName" value="${movieDetail.movieTitle}">
             <span class="text-bold">내 평점 등록하기</span>
             <fieldset>
-                <input type="radio" name="reviewStar" value="5" id="rate1"><label for="rate1">★</label>
-                <input type="radio" name="reviewStar" value="4" id="rate2"><label for="rate2">★</label>
-                <input type="radio" name="reviewStar" value="3" id="rate3"><label for="rate3">★</label>
-                <input type="radio" name="reviewStar" value="2" id="rate4"><label for="rate4">★</label>
-                <input type="radio" name="reviewStar" value="1" id="rate5"><label for="rate5">★</label>
+                <input type="radio" name="score" value="5" id="rate1"><label for="rate1">★</label>
+                <input type="radio" name="score" value="4" id="rate2"><label for="rate2">★</label>
+                <input type="radio" name="score" value="3" id="rate3"><label for="rate3">★</label>
+                <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
+                <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
             </fieldset>
             <div>
-                <textarea class="col-auto form-control" type="text" 
+                <textarea class="col-auto form-control" type="text" name="content"
                 id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
                 <span class="input-group-btn">
-                    <button class="btn-btn-default" type="button" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
+                    <button class="btn-btn-default" type="submit" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
                 </span>
             </div>
         </form>
+        
         <!-- 댓글 불러오기 -->
-        <input type="hidden" name="pcnum" value="${Pconmment.PCm_no}">
         <div class="reply_contents">
             <ul id="comment_ul">
             	<c:forEach var="commentList" items="${ list }">
 	                <li>
+	                	<span id="iconSpan">
 	                    <img src="${ path }/resources/image/4sum1.png" class="reply_contents_userIcon">
+	                	</span>
+	                	<c:choose>
+	                		<c:when test="${ commentList.score == 1 }">
+	                			<span id="starSpan"><img src="${ path }/resources/image/star/star1.PNG" id="star"></span>
+	                		</c:when>
+	                		<c:when test="${ commentList.score == 2 }">
+	                			<span id="starSpan"><img src="${ path }/resources/image/star/star2.PNG" id="star"></span>
+	                		</c:when>
+	                		<c:when test="${ commentList.score == 3 }">
+	                			<span id="starSpan"><img src="${ path }/resources/image/star/star3.PNG" id="star"></span>
+	                		</c:when>
+	                		<c:when test="${ commentList.score == 4 }">
+	                			<span id="starSpan"><img src="${ path }/resources/image/star/star4.PNG" id="star"></span>
+	                		</c:when>
+	                		<c:when test="${ commentList.score == 5 }">
+	                			<span id="starSpan"><img src="${ path }/resources/image/star/star5.PNG" id="star"></span>
+	                		</c:when>
+	                	</c:choose>
 	                    <span id="reply_contents_writer"> ${ commentList.cmId } </span>
 	                    <span> ${ commentList.content } </span>
 	                    <span id="reply_contents_date">
 	                       <fmt:formatDate value="${ commentList.regDate }" pattern="yyyy-MM-dd"/>
 	                        <span>
 	                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
-	                            <button class="reply_contents_delete" type="button" id="commentEditBtn" name="commentEditBtn">수정</button>
 	                            <button class="reply_contents_delete" type="button" id="commentDeleteBtn" name="commentDeleteBtn">삭제</button>
 	                        </span>
-	                        <hr>
 	                    </span>
+                        <hr>
 	                </li>
             	</c:forEach>
             </ul>
@@ -94,7 +131,7 @@
     </div>
     <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     <script>
-	    $(document).ready(function(){
+/* 	    $(document).ready(function(){
 	        $("#commentInsertBtn").click(function(){
 	        	let comment = $("#reviewContents").val();
 	        	
@@ -112,11 +149,12 @@
 	                    		+ "<img src='" + "/sum" + "/resources/image/4sum1.png' class='reply_contents_userIcon'>"
 	                    		+ "<span>"+result.comment +"</span>"
 	                    		+"</li>"); //ul_list안쪽에 li추가
+	                    		
 	                },
 	                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
 	            }); // $.ajax()
 	            //alert("the request is sent")
-	        });
+	        }); */
 	        
 	    });
 	    

@@ -27,4 +27,54 @@ public class MovieDetailServiceImpl implements MovieDetailService {
 		return mapper.selectAllComments(no);
 	}
 
+	@Override
+	public Integer getCommentsAvgScore(int no) {
+		
+		return mapper.selectCommentsAvgScore(no);
+	}
+
+	@Override
+	public Integer getCommentsParticipant(int no) {
+		
+		return mapper.countComments(no);
+	}
+
+	@Override
+	public double getAllCountTicketing(int no) {
+		Integer allCountTicketing = mapper.allCountTicketing(no);
+		
+		if(allCountTicketing == null) {
+			return 0;
+		} else {
+			return mapper.allCountTicketing(no);			
+		}
+	}
+
+	@Override
+	public double getCountTicketing(int no) {
+		
+		Integer countTicketing = mapper.countTicketing(no);
+		
+		if(countTicketing == null) {
+			return 0;
+		} else {
+			return mapper.countTicketing(no);			
+		}
+
+	}
+
+	@Override
+	public String getStillCut(int no) {
+
+		return mapper.selectStillCut(no);	
+	}
+
+	@Override
+	public int saveComments(Comments comments) {
+
+		return mapper.insertComments(comments);
+	}
+
+
+
 }

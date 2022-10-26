@@ -11,4 +11,16 @@ public interface MovieDetailService {
 
 	List<Comments> getCommentsList(int no);
 
+	Integer getCommentsAvgScore(int no);
+
+	Integer getCommentsParticipant(int no);
+
+	double getAllCountTicketing(int no);
+
+	double getCountTicketing(int no);
+
+	String getStillCut(int no);
+
+	int saveComments(Comments comments);
+
 }
