@@ -397,7 +397,11 @@ public class MemberController {
 	  }
 	
 	@PostMapping("/member/findId")
-	public ModelAndView findId(ModelAndView model, @ModelAttribute Member member) {
+	public ModelAndView findId(ModelAndView model, 
+								@RequestParam("name") String userName,
+								@RequestParam("birth") String userBirth,
+								@RequestParam("email") String userEmail,
+								@RequestParam("phone") String userPhone) {
 		
 		
 		
