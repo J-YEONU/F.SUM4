@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class Ticketing {
 	private int no;
 	
+	private int rowNum;
+	
 	private String movieTitle;
 	
 	private String cinemaName;

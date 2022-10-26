@@ -203,6 +203,54 @@
 	         DEFAULT
 	      )
 	   </insert>
+	   
+	<resultMap type="Cinema" id="adminCinemaResultMap">
+		<id property="cinemaNo" column="CINEMA_NO"/>
+		<result property="cinemaName" column="CINEMA_NAME"/>
+		<result property="cinemaPhone" column="CINEMA_PHONE"/>
+		<result property="cinemaImg" column="CINEMA_IMG"/>
+		<result property="cinemaLocal" column="CINEMA_LOCAL"/>
+		<result property="cinemaAddress" column="CINEMA_ADDRESS"/>
+		<result property="cinemaContent" column="CINEMA_CONTENT"/>
+		<result property="cinemaSeatCount" column="CINEMA_SEAT_COUNT"/>
+		<result property="status" column="STATUS"/>
+		<result property="movieNo" column="MOVIE_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="createDate" column="CREATE_DATE"/>
+	</resultMap>
+		   
+	   	<!-- 영화관 등록 -->
+	   <insert id="insertCinema" parameterType="Cinema"
+	      useGeneratedKeys="true" keyProperty="cinemaNo" keyColumn="CINEMA_NO">
+	      INSERT INTO CINEMA (
+	         CINEMA_NO,
+	         CINEMA_NAME,
+	         CINEMA_PHONE,
+	         CINEMA_IMG,
+	         CINEMA_LOCAL,
+	         CINEMA_ADDRESS,
+	         CINEMA_CONTENT,
+	         CINENA_SEAT_COUNT,
+	         STATUS,
+	         MOVIE_NO,
+	         MEMBER_NO,
+	         CREATE_DATE
+	      )
+	      VALUES(
+	         SEQ_CINEMA_NO.NEXTVAL,
+	         #{cinemaName},
+	         #{cinemaPhone},
+	         #{cinemaImg},
+	         #{cinemaLocal},
+	         #{cinemaAddress},
+	         #{cinemaContent},
+	         #{cinemaSeatCount},
+	         DEFAULT,
+	         #{movieNo},
+	         #{memberNo},
+	         DEFAULT
+	      )
+	   </insert>
 	
 	<!-- 공지사항 쿼리문 -->
 	
@@ -268,5 +316,25 @@
 			DEFAULT,
 			#{memberNo}
 		)
-	</insert>	
+	</insert>
+	
+	<!-- 공지사항 수정  -->
+	<update id="updateNotice" parameterType="Notice">
+		UPDATE NOTICE
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="title != null">
+				NOTICE_TITLE = #{title},
+			</if>
+			<if test="content != null">
+				NOTICE_CONTENT = #{content},
+			</if>
+			CREATE_DATE = SYSDATE
+		</trim>
+		WHERE NOTICE_NO = #{no}
+	</update>
+	
+	<!-- 공지사항 삭제 테스트 -->
+	<update id="noticeDelectStatus" parameterType="Notice">
+		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
+	</update>
 </mapper>

@@ -70,6 +70,7 @@ ul {
 .movie_title li a {display: block; padding: 15px 0; font-size: 18px; color: #666; font-weight: 700;}
 .movie_title li.active a {background: #333; color: #fff;}
 
+
 ol, ul {
     list-style-type: none;
     margin: 0;
@@ -116,6 +117,7 @@ li {
     width: 220px; height: 351px;
 }
 
+.movie-list > div > ol > li > .movie-list-info .rank {position: absolute; top: 17px; left: 0; width: 50px; height: 50px; line-height: 50px; text-align: center; font-size: 70px; color: #fff;}
 .movie-list > div > ol > li > .infor {background: #fff; padding: 17px; border: 1px solid #d9d9d9;}
 .movie-list > div > ol > li > .infor h3 {color: #333; font-size: 30px; font-weight: 700; margin-bottom: 20px;}
 
@@ -172,6 +174,14 @@ li {
     text-align: center;
 }
 
+.table th:nth-child(2) {
+	width:90px;
+}
+
+.table th:last-child {
+	width:127px;
+}
+
 .wrap {
 
     border-collapse: collapse;
@@ -187,10 +197,6 @@ li {
     font-weight: bold;
 }
 
-.wrap th,
-.wrap td {
-    padding: 12px 15px;
-}
 
 .wrap thead th, 
 .wrap tbody tr {

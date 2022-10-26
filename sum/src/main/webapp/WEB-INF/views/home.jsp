@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <div class="container">
 	
         <div id="demo" class="carousel slide" data-ride="carousel">
 	        <div class="carousel-inner">
@@ -20,23 +19,21 @@
 	        <div class="carousel-item active">
 	            <!--가로-->
 	            <img class="d-block w-100" 
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner캐릭터.jpg"
 	                alt="First slide">
-	            <div class="carousel-caption d-none d-md-block">
-	                <h5>TEST</h5>
-	                <p>testtesttest</p>
-	            </div>
 	        </div>
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner자백.jpg"
 	            alt="Second slide">
 	        </div>
+	        <!-- 
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner1.jpg"
 	            alt="Third slide">
 	        </div>
+	         -->
 	        
 	        <!-- / 슬라이드 쇼 끝 -->
 	    
@@ -55,11 +52,16 @@
 	        <ul class="carousel-indicators">
 	            <li data-target="#demo" data-slide-to="0" class="active"></li> <!--0번부터시작-->
 	            <li data-target="#demo" data-slide-to="1"></li>
+	            <!--  
 	            <li data-target="#demo" data-slide-to="2"></li>
+	            -->
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>
     </div>
+    
+    
+    <div class="container">
     <div id="contents">
         <div class="inner-wrap">
             <div class="movie_title" id="myTabs">
@@ -76,9 +78,9 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                            <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                        	<div class="rank">1</div>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -111,9 +113,8 @@
                		<c:forEach var="movieList" items="${ list1 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -143,11 +144,12 @@
             </div>
             <div class="chart_cont3">
                 <ol class="list" id="movieList">
-               		<c:forEach var="movieList" items="${ list }">
+               		<c:forEach var="movieList" items="${ list2 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
@@ -172,18 +174,18 @@
     </div>
     <div class="event_left">
         <div class="event_slider">
-            <img src="${ path }/resources/image/event01.jpg" srcset="./img/event01@2.jpg 2x" alt="시티 패키지">
+            <img src="${ path }/resources/image/main/event01.jpg" srcset="./img/event01@2.jpg 2x" alt="시티 패키지">
         </div>
         <div class="event_box1">
-            <img src="${ path }/resources/image/event02.jpg" srcset="./img/event02@2.jpg 2x" alt="남포항점 2019 시즌할인권">
+            <img src="${ path }/resources/image/main/event02.jpg" srcset="./img/event02@2.jpg 2x" alt="남포항점 2019 시즌할인권">
         </div>
         <div class="event_box2">
-            <img src="${ path }/resources/image/event03.jpg" srcset="./img/event03@2.jpg 2x" alt="설 선물 이수점 전용 관람권 런칭">
+            <img src="${ path }/resources/image/main/event03.jpg" srcset="./img/event03@2.jpg 2x" alt="설 선물 이수점 전용 관람권 런칭">
         </div>
     </div>
         <div class="event_right">
             <div class="boxoffice_head">
-                <div>SYSDATE</div>
+                <div id="table_date"></div>
                 <div>BOX OFFICE</div>
             </div>
             <div class="wrap contaner"></div>
@@ -202,7 +204,7 @@
         <div class="row">
         <div class="comunity">
                 <div class="cell notice">
-                    <img src="${ path }/resources/image/notice_ico.png" alt="notice아이콘">
+                    <img src="${ path }/resources/image/main/notice_ico.png" alt="notice아이콘">
                     <div>
                         2022-08-23<br>
                         'Support Ur Movie'에서<br>
@@ -214,7 +216,7 @@
                     </div>
                 </div>
                 <div class="cell event2">
-                    <img src="${ path }/resources/image/event_ico.png" alt="event아이콘">
+                    <img src="${ path }/resources/image/main/event_ico.png" alt="event아이콘">
                     <div>
                         새로운 이벤트<br>
                         특별한 혜택과 함께<br>
@@ -226,7 +228,7 @@
                     </div>
                 </div>
                 <div class="cell inquiry">
-                    <img src="${ path }/resources/image/inquiry_ico.png" alt="inquiry아이콘">
+                    <img src="${ path }/resources/image/main/inquiry_ico.png" alt="inquiry아이콘">
                     <div>
                         1:1 상담<br>
                         문의사항이나 불편사항을<br>
@@ -320,9 +322,9 @@
                                     var thead = $("<thead/>").append($("<tr/>"))
                                             .append(
                                                     //추출하고자 하는 컬럼들의 타이틀 정의
-                                                    $("<th/>").html("&nbsp;순위"),
-                                                    $("<th/>").html("&nbsp;&nbsp;영화 제목"),
-                                                    $("<th/>").html("&nbsp;&nbsp;누적 관객수"));
+                                                    $("<th/>").html("순위"),
+                                                    $("<th/>").html("영화 제목"),
+                                                    $("<th/>").html("누적 관객수"));
                                     var tbody = $("<tbody/>");
                                     $.each($data, function(i, o) {
         
@@ -353,5 +355,17 @@
                             }
                         });
             });
+        </script>
+                <script>
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+
+            var dateString = year + '-' + month  + '-' + day;
+
+            document.getElementById("table_date").innerText = dateString;
+            console.log(dateString);
         </script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

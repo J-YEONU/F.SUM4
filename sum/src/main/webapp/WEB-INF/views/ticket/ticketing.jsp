@@ -32,8 +32,10 @@
 	<div class="movie">
 		<c:forEach var="movieList" items="${ list }">
 	      <div class="movieInfo">
-	         <span><img src="${ movieList.moviePoster }" name="mChoice"></span>   
-	         <strong class="mInfo">${ movieList.movieTitle }</strong>
+	         <span>
+	         	<img src="${ movieList.moviePoster }" name="mChoice">
+         	</span>   
+	        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
 	      </div>
 		</c:forEach>
 	      

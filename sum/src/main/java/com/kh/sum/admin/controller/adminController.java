@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.admin.model.service.AdminService;
 import com.kh.sum.admin.model.vo.Notice;
+import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.MultipartFileUtil;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.vo.Member;
@@ -226,12 +226,65 @@ public class adminController {
 	       return model;
 	   }
 	
+	   
+   /* 영화관 등록 */
+	   
 	@GetMapping("/cinema")
 	public String cinema() {
-	
+	    log.info("영화 등록 페이지 요청");
+	    
 		return "/admin/cinema";
 	}
 
+    @PostMapping("/cinema")
+    public ModelAndView cinema(
+            ModelAndView model,
+            @ModelAttribute Cinema cinema,
+            @RequestParam("upfile") MultipartFile upfile) {
+        int result = 0;
+        
+//      파일을 업로드하지 않으면 true, 파일을 업로드하면 false
+        log.info("Upfile is Empty : {}", upfile.isEmpty());
+//      파일을 업로드하지 않으면 "", 파일을 업로드하면 "파일명"
+        log.info("Upfile Name : {}", upfile.getOriginalFilename());
+        
+        // 파일을 업로드 했는지 확인 후 파일을 저장
+        if(cinema != null && !upfile.isEmpty()) {
+            // 파일을 저장하는 로직 작성
+            String location = null;
+            String cinemaImg = null;
+            
+            try {
+                // 포스터 업로드 시 저장할 경로 지정
+                 location = resourceLoader.getResource("resources/image/cinema").getFile().getPath();
+                 cinemaImg = MultipartFileUtil.save(upfile, location);
+                 
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+            if(cinemaImg != null) {
+                cinema.setCinemaImg(upfile.getOriginalFilename());
+            }
+        }
+        
+        // 작성한 게시글 데이터베이스에 저장
+        //movieList.setMemberNo(loginMember.getNo());
+        result = service.save(cinema);
+        
+        if(result > 0) {
+            model.addObject("msg", "게시글이 정상적으로 등록되었습니다.");
+             model.addObject("location", "/movie/cinema");
+        } else {
+            model.addObject("msg", "게시글 등록을 실패하였습니다.");
+             model.addObject("location", "/admin/cinema");
+        }
+        
+        model.setViewName("common/msg");
+        
+        return model;
+    }
+	
+	
 	@GetMapping("/movieTime")
 	public String movieTime() {
 		
@@ -259,13 +312,7 @@ public class adminController {
 		
 		return model;
 	}
-	
-//	@GetMapping("/noticeDetail")
-//	public String noticeDetail() {
-//		
-//		return "/admin/noticeDetail";
-//	}
-	
+
 	@GetMapping("/noticeDetail")
 	public ModelAndView noticeDetail(ModelAndView model, @RequestParam int no) {
 		Notice notice = null;
@@ -306,5 +353,44 @@ public class adminController {
 		
 		return model;
 	}
+	
+	
+	@GetMapping("/noticeUpdate")
+	public ModelAndView noticeUpdate(
+	        ModelAndView model,
+	        @RequestParam int no) {
+		
+	    Notice notice = null;
+		
+		notice = service.findNoticeByNo(no);
+		
+		System.out.println(notice);
+		
+        model.addObject("notice", notice);
+        model.setViewName("admin/noticeUpdate");
+		
+		return model;
+		
+	}
+	
+    @RequestMapping(value = "/noticeUpdate", method = { RequestMethod.POST })
+    public ModelAndView noticeUpdate(ModelAndView model, @ModelAttribute Notice notice) {
+        int result = 0;
+        
+        result = service.save(notice);
+        
+        if(result > 0) {
+            model.addObject("msg", "문의 답변이 정상적으로 등록되었습니다.");
+            model.addObject("location", "/admin/noticeDetail?no=" + notice.getNoticeNo());
+        } else {
+            model.addObject("msg", "문의 답변에 실패하였습니다.");
+            model.addObject("location", "/admin/noticeUpdate?no=" + notice.getNoticeNo());
+        }
+        
+        model.setViewName("common/msg");
+        
+        return model;
+    }
+	
 	
 }

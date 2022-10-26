@@ -3,12 +3,8 @@ package com.kh.sum.member.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -358,9 +353,6 @@ public class MemberController {
 			@SessionAttribute("loginMember") Member loginMember,
 			@ModelAttribute Member member) {
 		
-		log.info(member.toString());
-		log.info(loginMember.toString());
-		
 		int result = 0;
 		
 		member.setNo(loginMember.getNo());
@@ -369,15 +361,17 @@ public class MemberController {
 		
 		if(result > 0) {
 			model.addObject("loginMember", service.findMemberById(loginMember.getId()));
-			model.addObject("msg", "회원정보 수정을 완료했습니다.");
+			model.addObject("msg", "회원 정보 수정을 완료했습니다. 다시 로그인해주세요.");
+			model.addObject("location", "/logout");
 		} else {
-			model.addObject("msg", "회원정보 수정을 실패했습니다.");
+			model.addObject("msg", "회원 정보 수정을 실패했습니다.");
+			model.addObject("location", "/myPage/myInfoMod");
 		}
 		
-		model.addObject("location", "/member/myPage");	
 		model.setViewName("common/msg");
 		
 		return model;
+		
 	}
 	
 	@GetMapping("/member/delete")

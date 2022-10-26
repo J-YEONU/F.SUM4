@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import com.kh.sum.admin.model.vo.Notice;
+import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.vo.MovieList;
 import com.kh.sum.myPage.model.vo.MyQnA;
@@ -44,11 +45,19 @@ public interface AdminMapper {
 
 	int selectNoticeCount();
 
-	Notice selectNoticeByNo(int no);
+	Notice selectNoticeByNo(@Param("no") int no);
 
 	MyQnA selectQnAByNo(@Param("no")int no);
 
     int inquiryUpdate(MyQnA qna);
+    
+    int save(Notice notice);
 
+	int noticeDelectStatus(@Param("no")int no, @Param("status")String string);
+
+	
+	// 영화관
+	
+    int insertCinema(Cinema cinema);
 
 }

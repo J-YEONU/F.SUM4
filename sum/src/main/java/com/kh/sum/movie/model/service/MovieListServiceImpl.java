@@ -52,9 +52,15 @@ public class MovieListServiceImpl implements MovieListService {
 	}
 
 	@Override
+	public List<MovieList> select4() {
+		
+		return mapper.select4();
+	}
+	
 	public List<MovieList> getMoviebyGenre(String genre) {
 		
 		return mapper.getMoviebyGenre(genre);
 	}
+
 
 }

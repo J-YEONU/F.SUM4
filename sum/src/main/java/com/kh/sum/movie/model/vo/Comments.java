@@ -12,13 +12,17 @@ import lombok.NoArgsConstructor;
 public class Comments {
 	private int cmNo;
 	
+	private int rowNum;
+	
 	private String cmId;
 	
 	private int mNo;
 	
+	private String mName;
+	
 	private String content;
 	
-	private Date regDate;
+	private int score;
 	
-	private Date upDate;
+	private Date regDate;
 }

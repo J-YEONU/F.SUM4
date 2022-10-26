@@ -50,13 +50,15 @@
 		<result property="createDate" column="CREATE_DATE"/>		
 	</resultMap>
 	
-		<resultMap type="Comments" id="CommentsResultMap">
+	<resultMap type="Comments" id="CommentsResultMap">
 		<id property="cmNo" column="CM_NO"/>
+		<result property="rowNum" column="RNUM"/>
 		<result property="cmId" column="CM_ID"/>
 		<result property="mNo" column="M_NO"/>
+		<result property="mName" column="M_NAME"/>
 		<result property="content" column="CONTENT"/>
+		<result property="score" column="SCORE"/>		
 		<result property="regDate" column="REG_DATE"/>
-		<result property="upDate" column="UP_DATE"/>		
 	</resultMap>
 
     <!-- 영화 상세내역, 영화포스터, 줄거리 조회  -->
@@ -79,14 +81,14 @@
     </select>
     
     <select id="selectAllComments" parameterType="int" resultMap="CommentsResultMap">
-        SELECT CM_NO, CM_ID, M_NO, CONTENT, REG_DATE, UP_DATE
+        SELECT CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE
         FROM COMMENTS
         WHERE M_NO = #{mNo}
         ORDER BY REG_DATE ASC, CM_NO ASC
     </select>
 
     <select id="selectComments" parameterType="int" resultMap="CommentsResultMap">
-        SELECT CM_NO, CM_ID, M_NO, CONTENT, REG_DATE, UP_DATE
+        SELECT CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DAT
         FROM COMMENTS
         WHERE CM_NO = #{cmNo}
     </select>
@@ -97,18 +99,25 @@
 
     <insert id="insertComments" parameterType="Comments" >
         INSERT INTO COMMENTS
-            (CM_NO, CM_ID, M_NO, CONTENT, REG_DATE, UP_DATE)
+            (CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DAT)
         VALUES
-            (#{cmNo}, #{cmId}, #{mNo}, #{content}, DEFAULT, DEFAULT)
+            (#{cmNo}, #{cmId}, #{mNo}, #{mName}, #{content}, #{score}, DEFAULT)
     </insert>
 
+	<!-- 마이페이지용  -->
+    <select id="selectCommentsCount" parameterType="String" resultType="_int">
+        SELECT count(*) FROM COMMENTS
+        WHERE  CM_ID = #{loginMemberId}
+    </select>
 
-    <update id="updateComments" parameterType="Comments">
-        UPDATE COMMENTS
-        SET CONTENT = #{content}
-          , UP_DATE = DEFAULT
-        WHERE CM_NO = #{cmNo} and CM_ID = #{cmId}
-    </update>
+    <select id="selectAll" parameterType="String" resultMap="CommentsResultMap">
+        SELECT ROWNUM AS RNUM, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE
+        FROM( 
+        SELECT CM_NO, CM_ID, M_NO, M_NAME, CONTENT, SCORE, REG_DATE
+        FROM COMMENTS
+        WHERE CM_ID = #{loginMemberId})
+        ORDER BY RNUM DESC
+    </select>
 
 
 	

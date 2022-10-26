@@ -3,6 +3,7 @@ package com.kh.sum.admin.model.service;
 import java.util.List;
 
 import com.kh.sum.admin.model.vo.Notice;
+import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.vo.MovieList;
@@ -43,6 +44,13 @@ public interface AdminService {
 	MyQnA findQnAByNo(int no);
 
 	int delete(int no);
+
+	int NoticeDelect(int no);
+
+	// 영화관 
+	
+    int save(Cinema cinema);
+	
 
 	
 

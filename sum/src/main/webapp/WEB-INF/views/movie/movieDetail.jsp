@@ -65,26 +65,25 @@
                 <textarea class="col-auto form-control" type="text" 
                 id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
                 <span class="input-group-btn">
-                    <button class="btn-btn-default" type="button" name="commentInsertBtn">등록</button>
+                    <button class="btn-btn-default" type="button" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
                 </span>
             </div>
         </form>
-        
         <!-- 댓글 불러오기 -->
         <input type="hidden" name="pcnum" value="${Pconmment.PCm_no}">
         <div class="reply_contents">
-            <ul>
+            <ul id="comment_ul">
             	<c:forEach var="commentList" items="${ list }">
 	                <li>
 	                    <img src="${ path }/resources/image/4sum1.png" class="reply_contents_userIcon">
 	                    <span id="reply_contents_writer"> ${ commentList.cmId } </span>
 	                    <span> ${ commentList.content } </span>
 	                    <span id="reply_contents_date">
-	                       <fmt:formatDate value="${ commentList.upDate }" pattern="yyyy-MM-dd"/>
+	                       <fmt:formatDate value="${ commentList.regDate }" pattern="yyyy-MM-dd"/>
 	                        <span>
 	                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
-	                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">수정</button>
-	                            <button class="reply_contents_delete" type="button" name="commentInsertBtn">삭제</button>
+	                            <button class="reply_contents_delete" type="button" id="commentEditBtn" name="commentEditBtn">수정</button>
+	                            <button class="reply_contents_delete" type="button" id="commentDeleteBtn" name="commentDeleteBtn">삭제</button>
 	                        </span>
 	                        <hr>
 	                    </span>
@@ -93,5 +92,35 @@
             </ul>
         </div>
     </div>
+    <script src="${ path }/js/jquery-3.6.0.min.js"></script>
+    <script>
+	    $(document).ready(function(){
+	        $("#commentInsertBtn").click(function(){
+	        	let comment = $("#reviewContents").val();
+	        	
+	            $.ajax({
+	                type:'POST',       // 요청 메서드
+	                url: '${ path }/movie/movieCommentsInsert',  // 요청 URI
+	                //headers : { "content-type": "application/json"}, // 요청 헤더
+	                dataType: "json", // 전송받을 데이터의 타입
+	                data : {"comment" : comment },  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+	                success : function(result){
+	                    //alert("received="+result);       // result는 서버가 전송한 데이터
+	                    //$("#data").html("name="+person2.name+", age="+person2.age);
+	                    var comment_ul = $("#comment_ul"); //
+	                    comment_ul.append("<li>"
+	                    		+ "<img src='" + "/sum" + "/resources/image/4sum1.png' class='reply_contents_userIcon'>"
+	                    		+ "<span>"+result.comment +"</span>"
+	                    		+"</li>"); //ul_list안쪽에 li추가
+	                },
+	                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
+	            }); // $.ajax()
+	            //alert("the request is sent")
+	        });
+	        
+	    });
+	    
+	    
+	</script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

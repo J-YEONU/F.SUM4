@@ -21,23 +21,21 @@
 	        <div class="carousel-item active">
 	            <!--가로-->
 	            <img class="d-block w-100" 
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner캐릭터.jpg"
 	                alt="First slide">
-	            <div class="carousel-caption d-none d-md-block">
-	                <h5>TEST</h5>
-	                <p>testtesttest</p>
-	            </div>
 	        </div>
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner자백.jpg"
 	            alt="Second slide">
 	        </div>
+	        <!-- 
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/banner1.jpg"
+	            src="${ path }/resources/image/main/banner1.jpg"
 	            alt="Third slide">
 	        </div>
+	         -->
 	        
 	        <!-- / 슬라이드 쇼 끝 -->
 	    
@@ -56,7 +54,9 @@
 	        <ul class="carousel-indicators">
 	            <li data-target="#demo" data-slide-to="0" class="active"></li> <!--0번부터시작-->
 	            <li data-target="#demo" data-slide-to="1"></li>
+	            <!--  
 	            <li data-target="#demo" data-slide-to="2"></li>
+	            -->
 	        </ul>
 	        <!-- 인디케이터 끝 -->
 	    </div>
@@ -77,9 +77,8 @@
                		<c:forEach var="movieList" items="${ list }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -112,9 +111,8 @@
                		<c:forEach var="movieList" items="${ list1 }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <!-- 영화 상세페이지로 가는 링크 
-	                               <a href="${path}/movie/view?no=${ movieList.movieNo }" name="no"> -->
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                     		    <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -144,12 +142,20 @@
             </div>
             <div class="chart_cont3">
                 <ol class="list" id="movieList">
+                	<!-- 로그인이 안되어 있으면 -->
+                    <c:if test="${ loginMember == null }">
+                        <div>로그인 후 확인할 수 있습니다.</div>
+                    </c:if>
+                	 
+                	 <!-- 로그인이 되어있으면 -->
+                	<c:if test="${ loginMember.id == board.writerId }">
                 	<c:forEach items="${ MA }" var="i" >
                		<c:forEach var="movieList" items="${ i }">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)">
+	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        <div class="infor">
 	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
@@ -161,6 +167,8 @@
 	                    </li>
 	                </c:forEach>
 	                </c:forEach>
+                    </c:if>
+                	  
 	                
                 </ol>
             </div>
