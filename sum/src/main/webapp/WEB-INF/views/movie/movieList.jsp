@@ -144,11 +144,11 @@
                 <ol class="list" id="movieList">
                 	<!-- 로그인이 안되어 있으면 -->
                     <c:if test="${ loginMember == null }">
-                        <div>로그인 후 확인할 수 있습니다.</div>
+                        <div class="login">로그인 후 확인할 수 있습니다.</div>
                     </c:if>
                 	 
                 	 <!-- 로그인이 되어있으면 -->
-                	<c:if test="${ loginMember.id == board.writerId }">
+                	<c:if test="${ loginMember != null }">
                 	<c:forEach items="${ MA }" var="i" >
                		<c:forEach var="movieList" items="${ i }">
 	                    <li class="no-img">

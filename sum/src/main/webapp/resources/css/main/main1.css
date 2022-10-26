@@ -147,24 +147,18 @@ li {
 /* 이벤트 */
 #event {padding: 100px 0;}
 #event {display: inline-block;}
-#event img {display: block;}
 #event h2 {font-size: 30px; font-weight: 500; margin-bottom: 20px;}
-#event .event_left {overflow: hidden; float: left; width: 66%; margin-right: 2%;}
+#event .event_left {overflow: hidden; float: left; width: 700px; margin-right: 2%;}
 #event .event_left .event_box1 {float: left; width: 50%;}
 #event .event_left .event_box2 {float: left; width: 50%;}
 #event .event_right {float: left; width: 32%;}
 
-    
-.event_title img {
-    display: inline-block;
-    width : 30px; 
-    height : 30px;
-}
+
 
 /* 박스오피스 */
 .boxoffice_head {
     border: 1px solid;
-    width: 385px;
+    width: 400px;
     height: 75px;
     background-color: #333;
     color: #fff;
@@ -213,15 +207,14 @@ li {
     width: 33%;
 }
 
-.community_icon {
-    width: 600px;
-    margin: 0px;
+#comunity > .row {
+	
+    width: 1100px;
+    margin-left: 0px;
+    margin-right: 0px;
+	
 }
 
-.community_icon img {
-    width : 30px; 
-    height : 30px;
-}
 
 .comunity > div > img {
     width : 150px; 
