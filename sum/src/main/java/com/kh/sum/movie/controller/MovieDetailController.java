@@ -31,7 +31,7 @@ public class MovieDetailController {
 	
 	@GetMapping("/movieDetail")
 	public ModelAndView movieDetail(ModelAndView model, 
-			@SessionAttribute("loginMember") Member loginMember,
+			@SessionAttribute(required = false, name = "loginMember") Member loginMember,
 			@RequestParam int no) {
 		MovieList movieDetail = null;
 		List<Comments> list = null;
