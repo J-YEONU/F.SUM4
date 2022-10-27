@@ -27,10 +27,13 @@ public interface MovieDetailMapper {
 	
 	int insertComments(Comments comments);
 	
+	int deleteComments(int cmNo);
+	
 	// 마이페이지용
 	int selectCommentsCount(String loginMemberId);
 	
 	List<Comments> selectAll(RowBounds rowBounds, String loginMemberId);
+
 
 
 

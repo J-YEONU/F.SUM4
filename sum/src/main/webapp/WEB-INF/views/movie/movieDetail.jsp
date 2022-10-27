@@ -41,7 +41,7 @@
 
     <div class="poto">
         <h3><img id="tag" src="${ path }/resources/image/tag.png">포토 & 예고편</h3>
-        <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/M-OsBtkztpQ" 
+        <p align="center" id="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/M-OsBtkztpQ" 
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
         clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
         <div class="filmstrip">  	
@@ -119,8 +119,14 @@
 	                    <span id="reply_contents_date">
 	                       <fmt:formatDate value="${ commentList.regDate }" pattern="yyyy-MM-dd"/>
 	                        <span>
-	                            <input type="hidden" class="pcno" value="${Pconmment.PCm_no}">
-	                            <button class="reply_contents_delete" type="button" id="commentDeleteBtn" name="commentDeleteBtn">삭제</button>
+                   				<c:if test="${ not empty loginMember && loginMember.id == commentList.cmId }">
+                   					<form action="${ path }/movie/movieCommentsDelete" method="post"
+                   							style="display: inline;">
+                   						<input type="hidden" name="cmNo" value="${commentList.cmNo}">
+                   						<input type="hidden" name="mNo" value="${movieDetail.movieNo}">
+			                            <button class="reply_contents_delete" type="submit" id="commentDeleteBtn" name="commentDeleteBtn">삭제</button>
+	                   				</form>
+								</c:if>
 	                        </span>
 	                    </span>
                         <hr>
@@ -129,6 +135,7 @@
             </ul>
         </div>
     </div>
+
     <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     <script>
 /* 	    $(document).ready(function(){
@@ -154,9 +161,25 @@
 	                error   : function(){ alert("error") } // 에러가 발생했을 때, 호출될 함수
 	            }); // $.ajax()
 	            //alert("the request is sent")
-	        }); */
+	        });
 	        
-	    });
+	    });*/
+	    
+/* 		$(document).ready(() => {
+			$("#commentDeleteBtn").on("click", () => {
+				if(confirm("댓글을 삭제 하시겠습니까?")) {
+					location.replace("${ path }/movie/movieCommentsDelete?cmNo=${ list.get(0) }&mNo=${movieDetail.movieNo});
+				}
+			}); */
+			
+/* 			$("#replyContent").on("focus", (e) => {
+				if(${ empty loginMember }) {
+					alert("로그인 후 이용해주세요!");
+					
+					$("#userId").focus();				
+				}
+			}); 
+		});*/
 	    
 	    
 	</script>

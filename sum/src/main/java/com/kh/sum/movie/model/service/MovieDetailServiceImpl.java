@@ -75,6 +75,12 @@ public class MovieDetailServiceImpl implements MovieDetailService {
 		return mapper.insertComments(comments);
 	}
 
+	@Override
+	public int deleteComments(int cmNo) {
+
+		return mapper.deleteComments(cmNo);
+	}
+
 
 
 }

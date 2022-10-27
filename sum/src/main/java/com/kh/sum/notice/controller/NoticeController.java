@@ -40,4 +40,17 @@ public class NoticeController {
 	   
 	   return model;
    }
+	
+	@GetMapping("/notice/view")
+	public ModelAndView view(ModelAndView model, @RequestParam int no) {
+		
+		Notice notice = null;
+		
+		notice = service.findNoticeByNo(no);
+		
+		model.addObject("notice", notice);
+		model.setViewName("/notice/view");
+		
+		return model;
+	}
 }

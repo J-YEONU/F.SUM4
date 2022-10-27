@@ -36,11 +36,11 @@
 				</c:if>
 				
 				<c:if test="${ not empty list }">
-					<c:forEach var="qna" items="${ list }">
+					<c:forEach var="notice" items="${ list }">
 	                    <tr>
-	                        <td>${ qna.noticeNo }</td>
-	                        <td> <a href="#">${ qna.title }</a> </td>
-	                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
+	                        <td>${ notice.noticeNo }</td>
+	                        <td> <a href="${ path }/notice/view?no=${ notice.noticeNo }">${ notice.title }</a> </td>
+	                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
 	                        <td> <a href="#">${board.readCount }</a> </td>
 	                    </tr>
                     </c:forEach>

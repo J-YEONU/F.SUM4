@@ -23,4 +23,6 @@ public interface MovieDetailService {
 
 	int saveComments(Comments comments);
 
+	int deleteComments(int cmNo);
+
 }

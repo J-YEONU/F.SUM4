@@ -121,6 +121,30 @@ public class MovieDetailController {
 		return model;
 	}
 	
+	@PostMapping("/movieCommentsDelete")
+	public ModelAndView movieCommentsDelete(ModelAndView model, 
+			@RequestParam int cmNo,
+			@RequestParam int mNo){
+		int result = 0;
+		
+		result = service.deleteComments(cmNo);
+		
+		
+		if(result > 0) {
+			model.addObject("msg", "댓글이 정상적로 삭제되었습니다.");
+			model.addObject("location", "/movie/movieDetail?no=" + mNo);
+		} else {
+			model.addObject("msg", "댓글 삭제를 실패하였습니다.");
+			model.addObject("location", "/movie/movieDetail?no=" + mNo);
+		}
+		
+		
+		model.setViewName("common/msg");
+		
+		
+		return model;
+	}
+	
 	
 	
 }

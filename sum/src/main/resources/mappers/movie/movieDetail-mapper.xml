@@ -116,8 +116,8 @@
 		WHERE M_NO = #{mNo}
     </select>
 
-    <delete id="deleteComments" parameterType="map">
-        DELETE FROM COMMENTS WHERE CM_NO = #{cmNo} AND CM_ID = #{cmId}
+    <delete id="deleteComments" parameterType="int">
+        DELETE FROM COMMENTS WHERE CM_NO = #{cmNo}
     </delete>
 
     <insert id="insertComments" parameterType="Comments" >
