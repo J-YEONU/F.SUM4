@@ -14,12 +14,6 @@ public class MovieListServiceImpl implements MovieListService {
 	private MovieListMapper mapper;
 	
 	@Override
-	public int getMovieListCount() {
-		// TODO Auto-generated method stub
-		return mapper.selectMovieListCount();
-	}
-
-	@Override
 	public List<MovieList> getMovieList() {
 		
 		
@@ -31,24 +25,6 @@ public class MovieListServiceImpl implements MovieListService {
 		
 		
 		return mapper.selectFuture();
-	}
-
-	@Override
-	public MovieList findMovieByNo(int no) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int delete(int no) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int save(MovieList movieList) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override
