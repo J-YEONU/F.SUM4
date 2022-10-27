@@ -102,7 +102,7 @@
 	$("#final-submit").click(function(e){
 	//결제요청
 	IMP.request_pay({
-	    pg : 'kakao', // pg사 선택 (kakao, kakaopay)
+	    pg : 'kakaopay', // pg사 선택 (kakao, kakaopay)
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : '주문명:결제테스트',
