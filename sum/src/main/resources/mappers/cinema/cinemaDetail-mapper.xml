@@ -15,7 +15,9 @@
 	         STATUS,
 	         MOVIE_NO,
 	         MEMBER_NO,
-	         CREATE_DATE
+	         CREATE_DATE,
+	         MAP_X,
+	         MAP_Y
 		FROM CINEMA
 	</sql>
 	
@@ -32,6 +34,8 @@
 		<result property="movieNo" column="MOVIE_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="createDate" column="CREATE_DATE"/>
+		<result property="mapX" column="MAP_X"/>
+		<result property="mapY" column="MAP_Y"/>
 	</resultMap>
 	
 
@@ -42,7 +46,7 @@
 		WHERE CINEMA_NO = #{no}
 	</select>
 	
-	
+
 
 	
 </mapper>

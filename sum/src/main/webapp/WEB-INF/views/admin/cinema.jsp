@@ -129,50 +129,18 @@
 	                            </div>
                             <div class="st_select_area">
                                 지역 선택 :
-                                <select name="address" id="area">
+                                <select name="cinemaLocal" id="area">
                                     <option selected>---</option>
-                                    <optgroup label="특별시 및 광역시">
-                                    <option value="seoul">서울특별시</option>
-                                    <option value="incheon">인천광역시</option>
-                                    <option value="daejeon">대전광역시</option>
-                                    <option value="gwangju">광주광역시</option>
-                                    <option value="daegu">대구광역시</option>
-                                    <option value="busan">부산광역시</option>
-                                    <option value="ulsan">울산광역시</option>
-                                    </optgroup>
-                                    <optgroup label="도">
-                                    <option value="gyeonggi">경기도</option>
-                                    <option value="gangwon">강원도</option>
-                                    <option value="chungbuk">충청북도</option>
-                                    <option value="chungnam">충청남도</option>
-                                    <option value="jeonbuk">전라북도</option>
-                                    <option value="jeonnam">전라남도</option>
-                                    <option value="gyeongbuk">경상북도</option>
-                                    <option value="gyeongnam">경상남도</option>
-                                    <option value="jeju">제주도</option>
-                                    </optgroup>
+                                    <option value="seoul">서울</option>
+                                    <option value="gyeonggi">경기</option>
+                                    <option value="incheon">인천</option>
+                                    <option value="gangwon">강원</option>
+                                    <option value="daejeon">대전/충청</option>
                                 </select>
                             </div>
                                 <div>영화관 주소 : <input type="text" name="cinemaAddress"></div>
-                            </div>
-                                <div>
-                                <!-- 1. 약도 노드 -->
-                                <div id="daumRoughmapContainer1666857002067" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-
-                                <!-- 2. 설치 스크립트 -->
-                                <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-
-                                <!-- 3. 실행 스크립트 -->
-                                <script charset="UTF-8">
-                                    new daum.roughmap.Lander({
-                                        "timestamp" : "1666857002067",
-                                        "key" : "2c923",
-                                        "mapWidth" : "640",
-                                        "mapHeight" : "360"
-                                    }).render();
-                                </script>
-                                </div>
-                                
+                                <div>영화관 X좌표 : <input type="text" name="mapX"></div>
+                                <div>영화관 Y좌표 : <input type="text" name="mapY"></div>
                             </div>
 
                             <div id="bottom-container">

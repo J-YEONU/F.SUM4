@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -273,7 +274,7 @@ public class adminController {
         
         if(result > 0) {
             model.addObject("msg", "게시글이 정상적으로 등록되었습니다.");
-             model.addObject("location", "/movie/cinema");
+             model.addObject("location", "/cinema/cinema");
         } else {
             model.addObject("msg", "게시글 등록을 실패하였습니다.");
              model.addObject("location", "/admin/cinema");
@@ -283,7 +284,7 @@ public class adminController {
         
         return model;
     }
-	
+    
 	
 	@GetMapping("/movieTime")
 	public String movieTime() {

@@ -59,5 +59,7 @@ public interface AdminMapper {
 	// 영화관
 	
     int insertCinema(Cinema cinema);
+    
+    int save(Cinema cinema);
 
 }

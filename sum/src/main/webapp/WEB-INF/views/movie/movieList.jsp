@@ -202,6 +202,8 @@
     $('.carousel').carousel({
       interval: 2000 //기본 5초
     })
+    </script>
+    <script>
         //영화차트 탭 메뉴
         var movBtn = $(".movie_title > ul > li");
         var movCont = $(".movie-list > div");

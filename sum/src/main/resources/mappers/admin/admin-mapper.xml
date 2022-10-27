@@ -230,11 +230,13 @@
 	         CINEMA_LOCAL,
 	         CINEMA_ADDRESS,
 	         CINEMA_CONTENT,
-	         CINENA_SEAT_COUNT,
+	         CINEMA_SEAT_COUNT,
 	         STATUS,
 	         MOVIE_NO,
 	         MEMBER_NO,
-	         CREATE_DATE
+	         CREATE_DATE,
+	         MAP_X,
+	         MAP_Y
 	      )
 	      VALUES(
 	         SEQ_CINEMA_NO.NEXTVAL,
@@ -248,7 +250,9 @@
 	         DEFAULT,
 	         #{movieNo},
 	         #{memberNo},
-	         DEFAULT
+	         DEFAULT,
+	         #{mapX},
+	         #{mapY}
 	      )
 	   </insert>
 	

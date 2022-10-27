@@ -34,5 +34,9 @@ public class Cinema {
     private int memberNo;
     
     private Date createDate;
+    
+    private double mapX;
+    
+    private double mapY;
 
 }

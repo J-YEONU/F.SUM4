@@ -15,7 +15,9 @@
 	         STATUS,
 	         MOVIE_NO,
 	         MEMBER_NO,
-	         CREATE_DATE
+	         CREATE_DATE,
+	         MAP_X,
+	         MAP_Y
 		FROM CINEMA
 	</sql>
 	
@@ -32,14 +34,40 @@
 		<result property="movieNo" column="MOVIE_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="createDate" column="CREATE_DATE"/>
+		<result property="mapX" column="MAP_X"/>
+		<result property="mapY" column="MAP_Y"/>
 	</resultMap>
 	
-
-    <!--   -->
-	<select id="selectCinema" parameterType="Cinema" resultMap="CinemaResultMap">
+		
+	<!-- 서울 조회 -->
+	<select id="selectCinemaS" parameterType="Cinema" resultMap="CinemaResultMap">
 		<include refid="CinemaSql" />
-		
-	</select>
-		
+        WHERE CINEMA_LOCAL = 'seoul'
+    </select>
+    
+	<!-- 경기 조회 -->
+	<select id="selectCinemaGG" parameterType="Cinema" resultMap="CinemaResultMap">
+		<include refid="CinemaSql" />
+        WHERE CINEMA_LOCAL = 'gyeonggi'
+    </select>
+    
+	<!-- 인천 조회 -->
+	<select id="selectCinemaIC" parameterType="Cinema" resultMap="CinemaResultMap">
+		<include refid="CinemaSql" />
+        WHERE CINEMA_LOCAL = 'incheon'
+    </select>
+    
+	<!-- 강원 조회 -->
+	<select id="selectCinemaGW" parameterType="Cinema" resultMap="CinemaResultMap">
+		<include refid="CinemaSql" />
+        WHERE CINEMA_LOCAL = 'gangwon'
+    </select>
+    
+	<!-- 대전 조회 -->
+	<select id="selectCinemaD" parameterType="Cinema" resultMap="CinemaResultMap">
+		<include refid="CinemaSql" />
+        WHERE CINEMA_LOCAL = 'daejeon'
+    </select>
+	
 	
 </mapper>
