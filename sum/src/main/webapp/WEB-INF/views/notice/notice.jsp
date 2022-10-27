@@ -38,10 +38,10 @@
 				<c:if test="${ not empty list }">
 					<c:forEach var="notice" items="${ list }">
 	                    <tr>
-	                        <td>${ notice.noticeNo }</td>
+	                        <td>${ notice.rowNum }</td>
 	                        <td> <a href="${ path }/notice/view?no=${ notice.noticeNo }">${ notice.title }</a> </td>
 	                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
-	                        <td> <a href="#">${board.readCount }</a> </td>
+	                        <td>${notice.readCount }</td>
 	                    </tr>
                     </c:forEach>
                 </c:if>

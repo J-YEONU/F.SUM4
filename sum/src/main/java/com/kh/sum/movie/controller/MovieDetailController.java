@@ -66,8 +66,10 @@ public class MovieDetailController {
 		}
 		
 		
+		if (list != null && !list.isEmpty()) {
+			model.addObject("list", list);
+		}
 		
-		model.addObject("list", list);
 		model.addObject("avgScore", avgScore);
 		model.addObject("participant", participant);
 		model.addObject("ticketingRate", ticketingRate);

@@ -108,4 +108,10 @@
 	WHERE MEMBER_NO = #{no}
 	</delete>
 	
+	<update id="updatePwdMember" parameterType="Member">
+	UPDATE MEMBER
+		SET
+			MEMBER_PWD = #{password}
+		WHERE MEMBER_NO = #{no}
+	</update>
 </mapper>

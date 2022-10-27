@@ -40,16 +40,20 @@ public interface AdminService {
 	int getNoticeCount();
 
 	Notice findNoticeByNo(int no);
-
+	
 	MyQnA findQnAByNo(int no);
 
 	int delete(int no);
 
 	int NoticeDelect(int no);
 
+	int updateReadCount(int no);
+	
 	// 영화관 
 	
     int save(Cinema cinema);
+
+
 	
 
 	

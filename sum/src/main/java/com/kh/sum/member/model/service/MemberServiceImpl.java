@@ -81,6 +81,21 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	
+	@Override
+	@Transactional
+	public void updatePwd(Member member) {
+			CharSequence pwd = "1234";
+			member.setPassword(passwordEncoder.encode(pwd));
+			mapper.updatePwdMember(member);
+			
+		}
+		
+		
+
+	
+	
+	
 
 	@Override
 	public Boolean isDuplicateID(String id) {

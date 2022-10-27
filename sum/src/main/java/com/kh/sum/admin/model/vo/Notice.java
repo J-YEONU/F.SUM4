@@ -26,4 +26,8 @@ public class Notice {
 	private String status;
 	
 	private int memberNo;
+	
+	private int readCount;
+	
+	private int rowNum;
 }

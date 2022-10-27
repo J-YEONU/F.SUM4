@@ -13,6 +13,8 @@ public interface MemberService {
 	Member login(String id, String password);
 
 	int save(Member member);
+	
+	void updatePwd(Member member);
 
 	Boolean isDuplicateID(String id);
 
@@ -22,5 +24,5 @@ public interface MemberService {
 
 	int delete(int no);
 
-
+	
 }
