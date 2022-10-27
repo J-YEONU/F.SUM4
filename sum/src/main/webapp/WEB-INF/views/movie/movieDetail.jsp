@@ -67,28 +67,28 @@
 
     <div class="review">
         <h3 class="review_h3"><img id="tag" src="${ path }/resources/image/tag.png">평점 및 영화 리뷰</h3>
-
-        <form class="mb-3" name="myform" id="myform" action="${ path }/movie/movieCommentsInsert" method="post">
-			<input type="hidden" name="cmId" value="${loginMember.id}">
-			<input type="hidden" name="mNo" value="${movieDetail.movieNo}">
-			<input type="hidden" name="mName" value="${movieDetail.movieTitle}">
-            <span class="text-bold">내 평점 등록하기</span>
-            <fieldset>
-                <input type="radio" name="score" value="5" id="rate1"><label for="rate1">★</label>
-                <input type="radio" name="score" value="4" id="rate2"><label for="rate2">★</label>
-                <input type="radio" name="score" value="3" id="rate3"><label for="rate3">★</label>
-                <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
-                <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
-            </fieldset>
-            <div>
-                <textarea class="col-auto form-control" type="text" name="content"
-                id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
-                <span class="input-group-btn">
-                    <button class="btn-btn-default" type="submit" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
-                </span>
-            </div>
+		<c:if test="${loginMember != null}">
+	        <form class="mb-3" name="myform" id="myform" action="${ path }/movie/movieCommentsInsert" method="post">
+				<input type="hidden" name="cmId" value="${loginMember.id}">
+				<input type="hidden" name="mNo" value="${movieDetail.movieNo}">
+				<input type="hidden" name="mName" value="${movieDetail.movieTitle}">
+	            <span class="text-bold">내 평점 등록하기</span>
+	            <fieldset>
+	                <input type="radio" name="score" value="5" id="rate1"><label for="rate1">★</label>
+	                <input type="radio" name="score" value="4" id="rate2"><label for="rate2">★</label>
+	                <input type="radio" name="score" value="3" id="rate3"><label for="rate3">★</label>
+	                <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
+	                <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
+	            </fieldset>
+	            <div>
+	                <textarea class="col-auto form-control" type="text" name="content"
+	                id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
+	                <span class="input-group-btn">
+	                    <button class="btn-btn-default" type="submit" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
+	                </span>
+	            </div>
         </form>
-        
+        </c:if>
         <!-- 댓글 불러오기 -->
         <div class="reply_contents">
             <ul id="comment_ul">
