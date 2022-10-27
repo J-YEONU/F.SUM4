@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -396,15 +398,90 @@ public class MemberController {
 	    return model;
 	  }
 	
+	@GetMapping("/member/findIdPage")
+	public String findIdPage() {
+		log.info("아이디 찾기 페이지 요청");
+		return "member/findId";
+	}
+	
+	@GetMapping("/member/findPwdPage")
+	public String findPwdPage() {
+		log.info("비밀번호 찾기 페이지 요청");
+		return "member/findPwd";
+	}
+	
+	
+	
+	
 	@PostMapping("/member/findId")
 	public ModelAndView findId(ModelAndView model, 
 								@RequestParam("name") String userName,
-								@RequestParam("birth") String userBirth,
+								@RequestParam("birth") java.sql.Date userBirth,
 								@RequestParam("email") String userEmail,
 								@RequestParam("phone") String userPhone) {
 		
+		// 이메일, 폰 을 통해서 멤버를 찾아옴
+		// 찾아온 멤버객체와 네임 벌스 폰 등이 맞는지 확인해봄
+		// 맞다면 객체의 아이디를 반환
+		// 틀리다면 정보가 일치하지 않습니다. 반환
+		
+		log.info("{}, {}", userName, userBirth);
+		
+		Member findIdforE = service.findMemberByEmail(userEmail); 
+	
+		if(findIdforE != null && 
+		   userName.equals(findIdforE.getName()) &&
+		   userBirth.equals(findIdforE.getBirth()) &&
+		   userPhone.equals(findIdforE.getPhone())){
+			
+			model.addObject("msg", "아이디는 "+ findIdforE.getId() +" 입니다.");			
+			model.addObject("location", "/");
+			model.setViewName("common/msg");
+		} else {
+			model.addObject("msg", "정보가 일치하지 않습니다.");			
+			model.addObject("location", "/member/findIdPage");
+			model.setViewName("common/msg");
+		}
 		
 		
+		return model;
+	}
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	@PostMapping("/member/findPwd")
+	public ModelAndView findPwd(ModelAndView model, 
+								@RequestParam("id") String userId,
+								@RequestParam("name") String userName,
+								@RequestParam("birth") java.sql.Date userBirth,
+								@RequestParam("email") String userEmail,
+								@RequestParam("phone") String userPhone) {
+		
+		// 이메일, 폰 을 통해서 멤버를 찾아옴
+		// 찾아온 멤버객체와 네임 벌스 폰 등이 맞는지 확인해봄
+		// 맞다면 객체의 아이디를 반환
+		// 틀리다면 정보가 일치하지 않습니다. 반환
+		
+		log.info("{}, {}", userName, userBirth);
+		
+		Member findIdforE = service.findMemberByEmail(userEmail); 
+		
+		if (findIdforE != null && userId.equals(findIdforE.getId()) && userName.equals(findIdforE.getName())
+				&& userBirth.equals(findIdforE.getBirth()) && userPhone.equals(findIdforE.getPhone())) {
+
+			service.updatePwd(findIdforE);
+
+			model.addObject("msg", "초기 비밀번호는 1234 입니다.");
+			model.addObject("location", "/");
+			model.setViewName("common/msg");
+
+		} else {
+			model.addObject("msg", "정보가 일치하지 않습니다.");
+			model.addObject("location", "/member/findPwdPage");
+			model.setViewName("common/msg");
+		}
+
 		return model;
 	}
 	

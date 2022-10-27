@@ -18,16 +18,23 @@
 			src="${ path }/resources/image/member/the-sum-of11.png">
 		</a>
 	</div>
-	<h1>아이디 찾기</h1>
+	<h1>비밀번호 찾기</h1>
 	<hr>
 	<div id="findId-container">
 		<form name="findId_Form" id="findId_Form"
-			action="${ path }/member/findId" method="post">
+			action="${ path }/member/findPwd" method="post">
 			<table style="margin-left: auto; margin-right: auto;">
 				<tr>
+					<th>아이디</th>
+					<td>
+						<input type="text" name="id" id="userId" placeholder="아이디를 입력해주세요." required>
+					</td>
+				</tr>
+				<tr>
 					<th>이름</th>
-					<td><input type="text" name="name" id="userName"
-						placeholder="이름을 입력해주세요." required></td>
+					<td>
+						<input type="text" name="name" id="userName" placeholder="이름을 입력해주세요." required>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">&nbsp;</td>
@@ -42,18 +49,20 @@
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="email" placeholder="abc@abc.com" name="email"
-						id="email" required> <input type="button"
-						id="checkDuplicateE" value="중복확인"></td>
+					<td>
+						<input type="email" placeholder="abc@abc.com" name="email" id="email" required>
+						<input type="button" id="checkDuplicateE" value="중복확인">
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">&nbsp;</td>
 				</tr>
 				<tr>
 					<th>핸드폰 번호</th>
-					<td><input type="tel" placeholder="(-없이)01012345678"
-						name="phone" id="phone" maxlength="11" required> <input
-						type="button" id="checkDuplicateP" value="중복확인"></td>
+					<td>
+						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required> 
+						<input type="button" id="checkDuplicateP" value="중복확인">
+					</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -62,8 +71,8 @@
 				</tr>
 			</table>
 			<div>
-				<input type="submit" class="findId_button" id="findId_button"
-					value="아이디 찾기"> <input type="reset" value="취소">
+				<input type="submit" class="findId_button" id="findId_button" value="아이디 찾기"> 
+				<input type="reset" value="취소">
 			</div>
 		</form>
 	</div>
