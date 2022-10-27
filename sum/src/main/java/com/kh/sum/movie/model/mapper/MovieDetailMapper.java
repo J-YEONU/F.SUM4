@@ -14,11 +14,28 @@ public interface MovieDetailMapper {
 	MovieList selectMovieDetail(int no);
 
 	List<Comments> selectAllComments(int no);
+	
+	Integer selectCommentsAvgScore(int no);
 
+	Integer countComments(int no);
+	
+	Integer allCountTicketing(int no);
+
+	Integer countTicketing(int no);
+
+	String selectStillCut(int no);
+	
+	int insertComments(Comments comments);
+	
+	int deleteComments(int cmNo);
+	
 	// 마이페이지용
 	int selectCommentsCount(String loginMemberId);
-
-	List<Comments> selectAll(RowBounds rowBounds, String loginMemberId);
 	
+	List<Comments> selectAll(RowBounds rowBounds, String loginMemberId);
+
+
+
+
 	
 }

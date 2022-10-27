@@ -7,9 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.common.util.PageInfo;
+import com.kh.sum.member.model.service.MemberService;
+import com.kh.sum.member.model.vo.Member;
+import com.kh.sum.myPage.model.vo.Ticketing;
 import com.kh.sum.ticketing.model.service.TicketingService;
 import com.kh.sum.ticketing.model.vo.TicketMovie;
 
@@ -20,6 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/ticket")
 public class TicketingController {
 	
+    @Autowired
+    private MemberService memberService;
+    
 	@Autowired
 	private TicketingService service;
 	
@@ -58,6 +66,7 @@ public class TicketingController {
 	return "/ticket/payment";
 	}
 	
+
 	
 	// approve
 	@GetMapping("/approve")

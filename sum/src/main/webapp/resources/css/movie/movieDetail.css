@@ -180,7 +180,7 @@
 
 .reply_contents{
     margin-top: 100px;
-    background-color:rgba(220,220,220,0.4);
+/*     background-color:rgba(220,220,220,0.4); */
     height: auto;
     overflow: hidden;
 }
@@ -231,4 +231,21 @@
     right: -10px;
 }
 
+#star {
+	width: 150px;
+    margin-left: 10px;
+}
 
+#starSpan {
+    top: 7px;
+    margin-right: 10px;
+}
+
+#iconSpan{
+top: 0px;	
+}
+
+#url {
+	/* background-color: rgba(0, 0, 0, .35); */
+	background-color: black;
+}
