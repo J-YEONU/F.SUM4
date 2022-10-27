@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.kh.sum.cinema.model.mapper.CinemaMapper">
+	<sql id="CinemaSql">
+		SELECT
+	         CINEMA_NO,
+	         CINEMA_NAME,
+	         CINEMA_PHONE,
+	         CINEMA_IMG,
+	         CINEMA_LOCAL,
+	         CINEMA_ADDRESS,
+	         CINEMA_CONTENT,
+	         CINEMA_SEAT_COUNT,
+	         STATUS,
+	         MOVIE_NO,
+	         MEMBER_NO,
+	         CREATE_DATE
+		FROM CINEMA
+	</sql>
+	
+	<resultMap type="Cinema" id="CinemaResultMap">
+		<id property="cinemaNo" column="CINEMA_NO"/>
+		<result property="cinemaName" column="CINEMA_NAME"/>
+		<result property="cinemaPhone" column="CINEMA_PHONE"/>
+		<result property="cinemaImg" column="CINEMA_IMG"/>
+		<result property="cinemaLocal" column="CINEMA_LOCAL"/>
+		<result property="cinemaAddress" column="CINEMA_ADDRESS"/>
+		<result property="cinemaContent" column="CINEMA_CONTENT"/>
+		<result property="cinemaSeatCount" column="CINEMA_SEAT_COUNT"/>
+		<result property="status" column="STATUS"/>
+		<result property="movieNo" column="MOVIE_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="createDate" column="CREATE_DATE"/>
+	</resultMap>
+	
+
+    <!--   -->
+	<select id="selectCinema" parameterType="Cinema" resultMap="CinemaResultMap">
+		<include refid="CinemaSql" />
+		
+	</select>
+		
+	
+</mapper>

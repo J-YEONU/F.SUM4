@@ -5,13 +5,6 @@ import java.util.List;
 import com.kh.sum.movie.model.vo.MovieList;
 
 public interface MovieListService {
-	int getMovieListCount();
-
-	MovieList findMovieByNo(int no);
-
-	int delete(int no);
-
-	int save(MovieList movieList);
 
 	List<MovieList> getMovieList();
 

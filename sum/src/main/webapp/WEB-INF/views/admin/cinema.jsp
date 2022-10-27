@@ -157,7 +157,7 @@
                             </div>
                                 <div>
                                 <!-- 1. 약도 노드 -->
-                                <div id="daumRoughmapContainer1665431614559" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+                                <div id="daumRoughmapContainer1666857002067" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
                                 <!-- 2. 설치 스크립트 -->
                                 <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
@@ -165,8 +165,8 @@
                                 <!-- 3. 실행 스크립트 -->
                                 <script charset="UTF-8">
                                     new daum.roughmap.Lander({
-                                        "timestamp" : "1665431614559",
-                                        "key" : "2byqj",
+                                        "timestamp" : "1666857002067",
+                                        "key" : "2c923",
                                         "mapWidth" : "640",
                                         "mapHeight" : "360"
                                     }).render();

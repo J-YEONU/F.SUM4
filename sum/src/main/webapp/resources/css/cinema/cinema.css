@@ -1,60 +1,79 @@
 @charset "UTF-8";
 
-#cinemaSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
-#title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
-#infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
-#hr {height: 2px; background-color: rgb(224, 224, 224); border: none;}
 #tag {height: 15px;}
 #tagtitle {font-weight:bold;font-size:18px; margin-top: 60px; line-height: 1px; margin-bottom: 15px;}
 
-nav {
-    border: 1.2px solid rgb(158, 158, 158);
-    width: 100%; height: 40px; margin-bottom: 30px; background-color: rgb(63, 55, 59);
-    border-radius: 4px;
+
+* {
+    box-sizing: border-box;
 }
 
-#navi {
-    list-style-type: none; height: 100%; padding: 0; margin: 0;}
-
-#navi>li {
-    width: 150px;
-    height: 100%;
-    float: left;
-    text-align: center;
-    background-color: rgb(63, 55, 59);
+.container {
+    width: 100%;
+    min-width: 1100px;
+    min-height: 100%;
+    margin: -92px 0 -200px 0;
+    padding: 92px 0 300px 0;
 }
 
-#navi a {
-    text-decoration: none;
-    color: white;
-    width: 150px;
-    height: 100%;
+#contents {
+    width: 100%;
+    margin: 0;
+    padding: 40px 0 0 0;
+}
+
+.inner-wrap {
+    width: 1100px;
+    margin: 0 auto;
+}
+/* 영화관 */
+
+.movie_title {margin-bottom: 60px;}
+.movie_title ul {overflow: hidden; width: 1050px; margin: 0 auto;}
+.movie_title li {float: left; width: 210px; text-align: center; border: 1px solid #c4c4c4; margin-right: -1px;}
+.movie_title li a {display: block; padding: 15px 0; font-size: 18px; color: #666; font-weight: 700;}
+.movie_title li.active a {background: #333; color: #fff;}
+
+ol, ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+ol {
     display: block;
-    line-height: 35px;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
-.cInfo {
-  margin-top: 15px;
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
-.cinema {
-  display: table;
-  width: 330px; height: 220px; margin-bottom: 20px;
-  background-color: #f3f3f3;
+.movie-list ol {
+    margin-left: -60px;
 }
 
-.cinema .cinemaInfo + .cinemaInfo {
-  border-left: 1px solid #ccc;
-  width: 330px;
-  height: 220px;
-  background-size: cover;
+.movie-list ol li {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 220px;
+    height: 285px;
+    margin: 0 0 0 60px;
+    padding: 0;
+    background-color: #fff;
 }
 
-.cinema .cinemaInfo {
-  display: table-cell;
-  vertical-align: middle; 
-  text-align: center;
-  padding: 20px;
+#movieList .movie-list-info img {
+    width: 220px; height: 220px;
 }
 
-.cinema .cinemaInfo img {width: 330px; height: 220px;}
+.movie-list > div > ol > li > .infor {background: #fff; text-align: center; border: 1px solid #d9d9d9;}
+.movie-list > div > ol > li > .infor {color: #333; font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-top: 5px; padding-bottom: 5px;}
