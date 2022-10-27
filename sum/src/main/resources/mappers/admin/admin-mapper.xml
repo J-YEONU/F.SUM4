@@ -256,6 +256,7 @@
 	
 	<resultMap type="Notice" id="noticeResultMap">
 		<id property="noticeNo" column="NOTICE_NO"/>
+		<result property="rowNum" column="RNUM"/>
 		<result property="title" column="NOTICE_TITLE"/>
 		<result property="content" column="NOTICE_CONTENT"/>
 		<result property="createDate" column="CREATE_DATE"/>
@@ -263,6 +264,7 @@
 		<result property="renamedImg" column="RENAMED_IMG"/>
 		<result property="status" column="STATUS"/>
 		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="readCount" column="READCOUNT"/>
 	</resultMap>
 	
 	<select id="selectNoticeCount" resultType="_int">
@@ -270,15 +272,27 @@
 	</select>
 	
 	<select id="selectNoticeList" resultMap="noticeResultMap">
-		SELECT NOTICE_NO,
+        SELECT ROWNUM AS RNUM, NOTICE_NO,
 				NOTICE_TITLE,
 				NOTICE_CONTENT,
 				CREATE_DATE,
 				NOTICE_IMG,
 				RENAMED_IMG,
 				STATUS,
-				MEMBER_NO
-		FROM NOTICE
+				MEMBER_NO,
+				READCOUNT
+                FROM
+        (SELECT NOTICE_NO,
+				NOTICE_TITLE,
+				NOTICE_CONTENT,
+				CREATE_DATE,
+				NOTICE_IMG,
+				RENAMED_IMG,
+				STATUS,
+				MEMBER_NO,
+				READCOUNT
+		FROM NOTICE)
+        ORDER BY RNUM DESC
 	</select>
 	
 	<select id="selectNoticeByNo" parameterType="_int" resultMap="noticeResultMap">
@@ -336,5 +350,10 @@
 	<!-- 공지사항 삭제 테스트 -->
 	<update id="noticeDelectStatus" parameterType="Notice">
 		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
+	</update>
+	
+	<!-- 공지사항 조회수 증가  -->
+	<update id="updateReadCount" parameterType="_int">
+		update notice set READCOUNT = READCOUNT + 1 where NOTICE_NO = #{no}
 	</update>
 </mapper>

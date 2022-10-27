@@ -1,5 +1,6 @@
 package com.kh.sum.admin.model.service;
 
+import java.sql.Connection;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -161,6 +162,13 @@ public class AdminServiceImpl implements AdminService {
         }
         return result;
     }
+
+	@Override
+	public int updateReadCount(int no) {
+	
+		return mapper.updateReadCount(no);
+	}
+
 
 
 }

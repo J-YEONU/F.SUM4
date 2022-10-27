@@ -55,9 +55,11 @@ public interface AdminMapper {
 
 	int noticeDelectStatus(@Param("no")int no, @Param("status")String string);
 
+	int updateReadCount(int no);
 	
 	// 영화관
 	
     int insertCinema(Cinema cinema);
+
 
 }

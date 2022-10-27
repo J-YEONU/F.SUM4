@@ -9,6 +9,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <link rel="stylesheet" href="${ path }/resources/css/movie/movieDetail.css?var=1">
 
+
 	<div class="name">
         <h1>${movieDetail.movieTitle}</h1>
         <hr>
@@ -25,8 +26,13 @@
             <div>출연진 : ${movieDetail.movieCast}</div>
             <div>장르 : ${movieDetail.movieGenre}</div>
             <div>관람등급 : ${movieDetail.movieRating}</div>
+            <c:if test="${avgScore != null}">
             <div>평점 : ${ avgScore }점 (참여 : ${ participant }명)</div>
-            <div>예매율: <fmt:formatNumber value="${ ticketingRate }" pattern=".0"/>%</div> 
+            </c:if>
+            <c:if test="${avgScore == null}">
+            <div>평점 : 0점 (참여 : ${ participant }명)</div>
+            </c:if>
+            <div>예매율: <fmt:formatNumber value="${ ticketingRate }" pattern="0.0"/>%</div> 
         </div> 
 
         <div class="booking">
@@ -82,10 +88,29 @@
 	            </fieldset>
 	            <div>
 	                <textarea class="col-auto form-control" type="text" name="content"
-	                id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
+	                id="reviewContents" placeholder="영화 리뷰를 작성해주세요."></textarea>
 	                <span class="input-group-btn">
 	                    <button class="btn-btn-default" type="submit" id="commentInsertBtn" name="commentInsertBtn" >등록</button>
 	                </span>
+	            </div>
+        </form>
+        </c:if>
+		<c:if test="${loginMember == null}">
+	        <form class="mb-3" name="myform" id="myform" action="${ path }/movie/movieCommentsInsert" method="post">
+				<input type="hidden" name="cmId" value="${loginMember.id}">
+				<input type="hidden" name="mNo" value="${movieDetail.movieNo}">
+				<input type="hidden" name="mName" value="${movieDetail.movieTitle}">
+	            <span class="text-bold">내 평점 등록하기</span>
+	            <fieldset>
+	                <input type="radio" name="score" value="5" id="rate1"><label for="rate1">★</label>
+	                <input type="radio" name="score" value="4" id="rate2"><label for="rate2">★</label>
+	                <input type="radio" name="score" value="3" id="rate3"><label for="rate3">★</label>
+	                <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
+	                <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
+	            </fieldset>
+	            <div>
+	                <textarea class="control_guest" type="text" name="content"
+	                id="reviewContents" placeholder="영화 리뷰는 로그인 후 작성 가능합니다."></textarea>
 	            </div>
         </form>
         </c:if>
@@ -180,7 +205,11 @@
 				}
 			}); 
 		});*/
-	    
+		$(document).ready(() => {
+			$('.control_guest').on("click", () =>{
+		        alert("로그인 후 이용해주세요.")
+		    });
+		});
 	    
 	</script>
 

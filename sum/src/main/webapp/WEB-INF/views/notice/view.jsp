@@ -8,6 +8,9 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     <div class="section">
         <h2>공지사항</h2>
@@ -34,7 +37,10 @@
             </table>
         </div>
 
-        <button type="button" id="btn" onclick="location.href='${ path }/notice'">목록으로</button>
+        <div class="btnzone">
+ 			<button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/notice'"
+ 				style=" width: 129px; margin-top: 50px; "> 목록으로 </button>
+       </div>  
 
     </div> 
 
