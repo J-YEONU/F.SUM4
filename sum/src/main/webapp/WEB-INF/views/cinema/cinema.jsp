@@ -50,7 +50,8 @@
                 	<c:forEach var="cinema" items="${ cinema }">
                     <li>
                         <div class="movie-list-info">
-                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
                             <strong>${ cinema.cinemaName }</strong>
@@ -64,7 +65,8 @@
                 	<c:forEach var="cinema" items="${ cinema }">
                     <li>
                         <div class="movie-list-info">
-                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
                             <strong>${ cinema.cinemaName }</strong>
@@ -78,7 +80,8 @@
                 	<c:forEach var="cinema" items="${ cinema }">
                     <li>
                         <div class="movie-list-info">
-                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
                             <strong>${ cinema.cinemaName }</strong>
@@ -92,7 +95,8 @@
                 	<c:forEach var="cinema" items="${ cinema }">
                     <li>
                         <div class="movie-list-info">
-                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
                             <strong>${ cinema.cinemaName }</strong>
@@ -107,7 +111,6 @@
 </div>
 
 
-<<<<<<< HEAD
     <!-- 자바스크립트 라이브러리 -->
     <script src="${ path }/resources/js/jquery.min_1.12.4.js"></script>
     <script src="${ path }/resources/js/modernizr-custom.js"></script>
@@ -130,19 +133,6 @@
         movCont.eq(index).css("display","block");
     });
     </script>
-=======
-   <div class="cinema">
-  	 <c:forEach var="cinema" items="${ list }">
-	      <div class="cinemaInfo">
-	         <span>
-	         	<img src="${ cinema.cinemaImg }">
-         	</span>   
-	        	 <strong class="cInfo">${ cinema.cinemaName } </strong>
-	      </div>
-	</c:forEach>
-   </div>
-</section>
->>>>>>> 50d41631ec4d415d57f01ede0d8469f883a40c3a
 
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
