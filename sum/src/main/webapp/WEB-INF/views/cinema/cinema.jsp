@@ -31,30 +31,14 @@
    </nav>
 
    <div class="cinema">
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema1.jpg"></span>   
-         <strong class="cInfo">강남</strong>
-      </div>
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema2.jpg"></span>   
-         <strong class="cInfo">장안</strong>
-      </div>
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema3.jpg"></span>   
-         <strong class="cInfo">분당</strong>
-      </div>
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema4.jpg"></span>   
-         <strong class="cInfo">일산</strong>
-      </div>
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema5.png"></span>   
-         <strong class="cInfo">부평</strong>
-      </div>
-      <div class="cinemaInfo">
-         <span><img src="${ path }/resources/image/cinema/cinema6.jpg"></span>   
-         <strong class="cInfo">주안</strong>
-      </div>
+  	 <c:forEach var="cinema" items="${ list }">
+	      <div class="cinemaInfo">
+	         <span>
+	         	<img src="${ cinema.cinemaImg }">
+         	</span>   
+	        	 <strong class="cInfo">${ cinema.cinemaName } </strong>
+	      </div>
+	</c:forEach>
    </div>
 </section>
 

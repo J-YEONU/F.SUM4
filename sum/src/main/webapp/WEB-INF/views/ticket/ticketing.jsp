@@ -33,7 +33,7 @@
 		<c:forEach var="movieList" items="${ list }">
 	      <div class="movieInfo">
 	         <span>
-	         	<img src="${ movieList.moviePoster }" name="mChoice">
+	         	<img src="${ movieList.moviePoster }" name="mChoice" id="mclick">
          	</span>   
 	        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
 	      </div>
@@ -41,7 +41,7 @@
 	      
 	</div>
             
-	<div id="choice"><p>선택하신 영화 : </p></div>
+	<div id="choice">선택하신 영화 : <p id="Cmovie"></p></div>
             
 <!-- cinema choice -->
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
@@ -96,7 +96,7 @@
 	
     
             
-	<div id="choice"><p>선택하신 시간 : </p> <div id="result"> </div></div>
+	<div id="choice"><p>선택하신 시간 : <span></span> </p> <div id="result"> </div></div>
 		<div id="btn">
 			<button type="submit" class="btn" onclick="location.href='${ path }/ticket/seat'">
 				<p id="p1">NEXT STEP</p>
@@ -113,22 +113,12 @@
 
 	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
 	<script>
-	function getMovieChoiceValue()  {
-		  // 선택된 목록 가져오기
-		  const query = 'img[name="mChoice"]:select';
-		  const selectedEls = 
-		      document.querySelectorAll(query);
-		  
-		  // 선택된 목록에서 value 찾기
-		  let result = '';
-		  selectedEls.forEach((el) => {
-		    result += el.value + ' ';
-		  });
-		  
-		  // 출력
-		  document.getElementById('result').innerText
-		    = result;
-		}
+	document.getElementById("mclick").addEventListener('click', Cmovie);
+
+	function Cmovie() {
+	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
+	}
+
 	</script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
