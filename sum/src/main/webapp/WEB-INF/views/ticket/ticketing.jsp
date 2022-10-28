@@ -29,11 +29,12 @@
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 	
 	<!-- 영화 목록 css 수정 예정 -->
-	<div class="movie">
-		<c:forEach var="movieList" items="${ list }">
-	      <div class="movieInfo">
+	<div class="movie slider">
+		<c:forEach var="movieList" items="${ mlist }">
+	      <div class="movieInfo slider-inner">
+	      <a type="hidden" href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no"></a>
 	         <span>
-	         	<img src="${ movieList.moviePoster }" name="mChoice" id="mclick">
+	         	<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }" name="mChoice" id="mclick">
          	</span>   
 	        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
 	      </div>
@@ -47,41 +48,41 @@
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
 	<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
     
-    <nav>
-		<ul id="navi">
-			<li><a href="#">서울</a>
-			    <ul>
-			        <li><a href="#">&gt; 강남</a></li>
-			        <li><a href="#">&gt; 장안</a></li>
-			    </ul>
-			</li>
-			<li><a href="#" >경기</a>
-			    <ul>
-			        <li><a href="#">&gt; 분당</a></li>
-			        <li><a href="#">&gt; 일산</a></li>
-			    </ul>
-			</li>
-			<li><a href="#">인천</a>
-			    <ul>
-			        <li><a href="#">&gt; 부평</a></li>
-			        <li><a href="#">&gt; 주안</a></li>
-			    </ul>
-			</li>
-			<li>
-			    <a href="#">강원</a>
-			    <ul>
-			        <li><a href="#">&gt; 춘천</a></li>
-			        <li><a href="#">&gt; 원주</a></li>
-			    </ul>
-			</li>
-			<li><a href="#">대전/충청</a>
-			    <ul>
-			        <li><a href="#">&gt; 대전</a></li>
-			        <li><a href="#">&gt; 청주</a></li>
-			    </ul>
-			</li>
-		</ul>
-	</nav>
+	    <nav>
+			<ul id="navi">
+				<li><a href="#">서울</a>
+				    <ul>
+				        <li><a href="#">&gt; 강남</a></li>
+				        <li><a href="#">&gt; 장안</a></li>
+				    </ul>
+				</li>
+				<li><a href="#" >경기</a>
+				    <ul>
+				        <li><a href="#">&gt; 분당</a></li>
+				        <li><a href="#">&gt; 일산</a></li>
+				    </ul>
+				</li>
+				<li><a href="#">인천</a>
+				    <ul>
+				        <li><a href="#">&gt; 부평</a></li>
+				        <li><a href="#">&gt; 주안</a></li>
+				    </ul>
+				</li>
+				<li>
+				    <a href="#">강원</a>
+				    <ul>
+				        <li><a href="#">&gt; 춘천</a></li>
+				        <li><a href="#">&gt; 원주</a></li>
+				    </ul>
+				</li>
+				<li><a href="#">대전/충청</a>
+				    <ul>
+				        <li><a href="#">&gt; 대전</a></li>
+				        <li><a href="#">&gt; 청주</a></li>
+				    </ul>
+				</li>
+			</ul>
+		</nav>
             
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 상영날짜</div>
 		<span id="infospan"><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
@@ -109,16 +110,61 @@
 	<!-- 달력에 현재 일자 스크립트 -->
 	<script>
 		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-	</script>
+	
 
 	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
-	<script>
 	document.getElementById("mclick").addEventListener('click', Cmovie);
-
 	function Cmovie() {
 	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
 	}
 
-	</script>
+	
+       //영화차트 이미지 슬라이드
+
+let slider = document.querySelector(".slider")
+let innerSlider = document.querySelector(".slider-inner")
+let pressed = false
+let startx
+let x
+
+slider.addEventListener("mousedown", e => {
+  pressed = true
+  startx = e.offsetX - innerSlider.offsetLeft
+  slider.style.cursor = "grabbing"
+})
+
+slider.addEventListener("mouseenter", () => {
+  slider.style.cursor = "grab"
+})
+
+slider.addEventListener("mouseup", () => {
+  slider.style.cursor = "grab"
+})
+
+window.addEventListener("mouseup", () => {
+  pressed = false
+})
+
+slider.addEventListener("mousemove", e => {
+  if (!pressed) return
+  e.preventDefault()
+  x = e.offsetX
+
+  innerSlider.style.left = `${x - startx}px`
+  checkboundary()
+})
+
+function checkboundary() {
+  let outer = slider.getBoundingClientRect()
+  let inner = innerSlider.getBoundingClientRect()
+
+  if (parseInt(innerSlider.style.left) > 0) {
+    innerSlider.style.left = "0px"
+  } else if (inner.right < outer.right) {
+    innerSlider.style.left = `-${inner.width - outer.width}px`
+  }
+}
+       
+</script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

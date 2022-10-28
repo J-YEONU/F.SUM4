@@ -7,16 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.sum.cinema.model.service.CinemaService;
+import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.PageInfo;
 import com.kh.sum.member.model.service.MemberService;
 import com.kh.sum.member.model.vo.Member;
-import com.kh.sum.myPage.model.vo.Ticketing;
-import com.kh.sum.ticketing.model.service.TicketingService;
-import com.kh.sum.ticketing.model.vo.TicketMovie;
+import com.kh.sum.movie.model.service.MovieListService;
+import com.kh.sum.movie.model.vo.MovieList;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,21 +29,24 @@ public class TicketingController {
     private MemberService memberService;
     
 	@Autowired
-	private TicketingService service;
+	private MovieListService Mservice;
 	
-	// ticketing (영화 목록)
+	@Autowired
+	private CinemaService Cservice;
+	
+	// ticketing (영화,영화관 목록)
 	@GetMapping("/ticketing")
 	public ModelAndView ticketing(ModelAndView model,
-	        @RequestParam(value = "page", defaultValue = "1") int page) {
+	        @SessionAttribute(required = false, name = "loginMember") Member loginMember) {
 		
-		List<TicketMovie> list = null;
-		PageInfo pageInfo = null;
+		List<MovieList> mlist = null;
+		List<Cinema> clist = null;
 		
-		pageInfo = new PageInfo(page, 5, service.selectCount(), 5);
-		list = service.getTicketMovie(pageInfo);
+		mlist = Mservice.getMovieList();
+		clist = Cservice.getCinema();
 		
-		model.addObject("list", list);
-		model.addObject("pageInfo", pageInfo);
+		model.addObject("mlist", mlist);
+		model.addObject("clist", clist);
 		model.setViewName("/ticket/ticketing");
 		
 		return model;
