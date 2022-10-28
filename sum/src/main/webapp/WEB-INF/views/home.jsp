@@ -67,7 +67,7 @@
                 <ul>
                     <li class="active"><a href="#">현재상영작</a></li>
                     <li><a href="#">상영예정작</a></li>
-                    <li><a href="#">나의추천영화</a></li>
+
                 </ul>
             </div>
         <!-- movie-list -->
