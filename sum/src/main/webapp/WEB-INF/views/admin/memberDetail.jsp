@@ -169,7 +169,7 @@
                         </div>
                         <br><br>
                         <div class="btnzone">
-                            <button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/admin/memberDetail?no=${ member.no }'"> 변경 </button>
+                            <button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/admin/memberUpdate?no=${ member.no }'"> 변경 </button>
                             <button type="button" class="btn btn-light btnsize" onclick="location.href='${ path }/admin/memberList'"> 취소 </button>
                             <button type="button" id="btnDelete" class="btn btn-danger btnsize" onclick="location.href='${ path }/admin/memberDetail?no=${ member.no }'" style="float-end"> 회원탈퇴 </button>
                         </div> 
