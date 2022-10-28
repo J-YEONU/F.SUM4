@@ -103,6 +103,7 @@
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="answerStatus" column="ANSWER_STATUS"/>
 		<result property="createDate" column="CREATE_DATE"/>
+		<result property="memberId" column="MEMBER_ID"/>
 	</resultMap>
 	
 	<!-- 1:1 문의 글 조회 -->

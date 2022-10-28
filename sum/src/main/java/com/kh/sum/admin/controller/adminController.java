@@ -142,6 +142,7 @@ public class adminController {
 			list = service.getInquiryList(pageInfo);
 			
 			System.out.println(pageInfo);
+			System.out.println(list);
 			
 			model.addObject("list", list);
 			model.addObject("pageInfo", pageInfo);

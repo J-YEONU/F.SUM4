@@ -139,7 +139,7 @@
 				                    <tr>
 				                        <td>${ qna.no }</td>
 				                        <td> <a href="${ path }/admin/inquiryDetail?no=${ qna.no }">${ qna.title }</a> </td>
-				                        <td>${ member.id }</td>
+				                        <td>${ qna.memberId }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
 				                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
