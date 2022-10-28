@@ -245,7 +245,7 @@ public class adminController {
 	           
 	           try {
 	               // 포스터 업로드 시 저장할 경로 지정
-	                location = resourceLoader.getResource("resources/poster").getFile().getPath();
+	                location = resourceLoader.getResource("resources/post/9_10").getFile().getPath();
 	                renamedPoster = MultipartFileUtil.save(poster, location);
 	                
 	            } catch (IOException e) {

@@ -15,6 +15,7 @@
         <meta name="author" content="" />
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
+        <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -108,26 +109,24 @@
                             * 관리자로 등록된 회원만 수정/삭제 할 수 있습니다.
                         <hr>
                         <div id="member-main-container" class="">
-                            <div class="container" style="border: 1px solid">
-                                <div class="row">
-
-                                    <div class="col-2">
-                                        제목
-                                    </div>
-                                    <div class="col-4">
-                                    	${notice.title}
-                                    </div>
-                                    <div class="col-2">
-                                        작성일
-                                    </div>
-                                    <div class="col-4">
-                                    	${notice.createDate}
-                                    </div>
-                                    
-                            </div>
-                            <div>
-								${notice.content}
-                            </div>
+                            <div class="board_list_wrap">
+				            <table class="board_list">
+				                <thead>
+				                    <tr class="tr1">
+				                        <td>제목</td>
+				                        <td class="whiteTd">${ notice.title }</td>
+				                        <td>작성일</td>
+				                        <td class="whiteTd"><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
+				                    </tr>
+				                </thead>
+				                <tbody>
+				                    <tr>
+				                        <td colspan="4">${ notice.content }</td>
+				                    </tr>
+				
+				                </tbody>
+				            </table>
+				        	</div>
                             
                             <div class="btnzone">
                                 <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
