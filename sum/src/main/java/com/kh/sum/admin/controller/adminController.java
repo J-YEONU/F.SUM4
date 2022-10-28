@@ -3,6 +3,8 @@ package com.kh.sum.admin.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
@@ -98,9 +100,8 @@ public class adminController {
 		member = service.memberDetail(no);
 		
 		System.out.println(member);
-		System.out.println(no);
 		
-		model.addObject("Member", member);
+		model.addObject("member", member);
 		model.setViewName("/admin/memberDetail");
 		
 		return model;
@@ -447,6 +448,5 @@ public class adminController {
         
         return model;
     }
-	
 	
 }

@@ -145,7 +145,9 @@
 
                             <div id="bottom-container">
                                 상세내용 :
-                                <div id="summernote" class="summernote" name="cinemaContent"></div>
+                                <div>
+	                                <textarea id="summernote" class="summernote" name="cinemaContent"></textarea>
+                                </div>
                             </div>
                         </div>
                     <br>

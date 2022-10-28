@@ -23,11 +23,11 @@ public interface AdminMapper {
 
 	Member selectMemberAll(int no);
 	
-	int delectMember(int no);
+	int deleteMember(@Param("no")int no, @Param("status") String string);
 	
 	Member selectMemberChange(int no);
 	
-	int changeTheAdmin(Member member);
+	int changeTheAdmin(Member member, @Param("role") String string);
 
 	// 1:1 문의 사항 맵퍼
 	
@@ -68,6 +68,11 @@ public interface AdminMapper {
     int insertCinema(Cinema cinema);
     
     int save(Cinema cinema);
+
+    
+    
+    
+
 
 
 }

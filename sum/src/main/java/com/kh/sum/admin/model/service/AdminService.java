@@ -60,6 +60,7 @@ public interface AdminService {
     int save(Cinema cinema);
 
 
+
 	
 
 	

@@ -111,7 +111,7 @@
                         <hr>
                         <div id="member-main-container" class="">
                             <div id="member-select">
-                                <button class="float-end">선택 삭제</button>
+                                <button type="submit" id="btnDelete" class="btn btn-light float-end"> 선택 삭제 </button>
                             </div>
                         <br><br>
                         <div class="card mb-4" id="member-board">
@@ -130,7 +130,7 @@
                                                 <thead>        
                                                     <tr>
                                                         <th>
-                                                        	<input type="checkbox" id="cbx_chkAll" />
+                                                        	<input type="checkbox" id="cbx_chkAll" name="allCheck"/>
                                                         </th>
                                                         <th>No</th>
                                                         <th>제목</th>
@@ -143,7 +143,7 @@
 													<c:forEach var="notice" items="${ list }">
 									                    <tr>
 									                    	<td>
-									                    		<input type="checkbox" name="chk">
+									                    		<input type="checkbox" name="chk" value="${ notice.noticeNo}">
 									                    	</td>
 									                        <td>${ notice.noticeNo }</td>
 									                        <td><a href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
@@ -209,6 +209,15 @@
 				else $("#cbx_chkAll").prop("checked", true); 
 			});
 		});
+		
+		$(function() {
+			$('#btnDelete').click(function() {
+				if(!confirm('정말로 선택한 공지사항을 삭제하시겠습니까?')) {
+					return false;
+				}
+			});
+		});
+		
 		</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>

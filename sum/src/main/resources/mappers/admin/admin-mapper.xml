@@ -71,13 +71,13 @@
 	
 	
 	<!-- 회원 탈퇴 쿼리문 -->
-	<update id="delectMember">
+	<update id="deleteMember">
 		UPDATE MEMBER SET STATUS = #{status} WHERE MEMBER_NO = #{no}	
 	</update>
 
 	<!-- 회원 관리자 변경 쿼리문 -->
 	<update id="changeTheAdmin">
-		UPDATE MEMBER SET ROLE = #{role} WHERE MEMBER_NO = #{no}	
+		UPDATE MEMBER SET ROLE = 'ROLE_ADMIN' WHERE MEMBER_NO = #{no}	
 	</update>
 	
 	
@@ -361,9 +361,13 @@
 	</update>
 	
 	<!-- 공지사항 삭제 테스트 -->
-	<update id="noticeDelectStatus" parameterType="Notice">
+	<update id="noticeDeleteStatus" parameterType="Notice">
 		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
 	</update>
+	
+	<delete id="noticeDelete" parameterType="Notice">
+		DELETE NOTICE WHERE NOTICE_NO = #{no} 	
+	</delete>
 	
 	<!-- 공지사항 조회수 증가  -->
 	<update id="updateReadCount" parameterType="_int">

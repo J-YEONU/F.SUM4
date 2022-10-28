@@ -142,7 +142,7 @@
                                             <tbody id="tbody">
                                             
                                                 <tr>
-                                                    <td>${ no }</td>
+                                                    <td>${ member.no }</td>
                                                     <c:choose>
 						                         		<c:when test="${ member.role == 'ROLE_ADMIN' }">
 	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
@@ -154,7 +154,7 @@
 	                                                    	<td><img src="${ path }/resources/image/ghost.png" class="iconimages"></td>
 						                         		</c:when>
 					                         		</c:choose>
-                                                    <td>${ m.id }</td>
+                                                    <td>${ member.id }</td>
                                                     <td>${ member.name }</td>
                                                     <td>${ member.birth }</td>
                                                     <td>${ member.email }</td>
@@ -169,9 +169,9 @@
                         </div>
                         <br><br>
                         <div class="btnzone">
-                            <button type="submit" class="btn btn-warning btnsize"> 변경 </button>
+                            <button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/admin/memberDetail?no=${ member.no }'"> 변경 </button>
                             <button type="button" class="btn btn-light btnsize" onclick="location.href='${ path }/admin/memberList'"> 취소 </button>
-                            <button type="button" id="btnDelete" class="btn btn-danger btnsize" style="float-end"> 회원탈퇴 </button>
+                            <button type="button" id="btnDelete" class="btn btn-danger btnsize" onclick="location.href='${ path }/admin/memberDetail?no=${ member.no }'" style="float-end"> 회원탈퇴 </button>
                         </div> 
                     </div>
                 </main>
