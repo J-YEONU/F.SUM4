@@ -22,6 +22,12 @@ public interface AdminMapper {
 	List<Member> selectMemberAll(RowBounds rowBounds);
 
 	Member selectMemberAll(int no);
+	
+	int delectMember(int no);
+	
+	Member selectMemberChange(int no);
+	
+	int changeTheAdmin(Member member);
 
 	// 1:1 문의 사항 맵퍼
 	

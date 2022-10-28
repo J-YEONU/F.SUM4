@@ -15,6 +15,7 @@
         <meta name="author" content="" />
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
+        <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -138,7 +139,7 @@
 				                    <tr>
 				                        <td>${ qna.no }</td>
 				                        <td> <a href="${ path }/admin/inquiryDetail?no=${ qna.no }">${ qna.title }</a> </td>
-				                        <td>${ qna.memberNo }</td>
+				                        <td>${ member.id }</td>
 				                        <td><fmt:formatDate type="date" value="${ qna.createDate }"/></td>
 				                        <c:choose>
 				                         	<c:when test="${ qna.answerStatus == 'N'.charAt(0) }">
@@ -154,33 +155,25 @@
                         </table>
                         <hr>
                         
-                        <!-- ==================== 페이지 버튼 ==================== -->
-                        <div class="text-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
-										<c:if test="${ status.current == pageInfo.currentPage }">
-											<a href="#" class="active">${ status.current }</a>
-										</c:if>
-										<c:if test="${ status.current != pageInfo.currentPage }">
-											<a href="${ path }/admin/inquiry?page=${ status.current }">${ status.current }</a>
-										</c:if>
-									</c:forEach>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <!-- 리스트 목록-->
+                        <div class="page_wrap">
+			             <div class="page_nation">
+			                 <a class="arrow pprev" href="${ path }/admin/inquiryList?page=1">&#60;&#60;</a>
+			                 <a class="arrow prev" href="${ path }/admin/inquiryList?page=${ pageInfo.prevPage }">&#60;</a>
+			                 
+						   		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+									<c:if test="${ status.current == pageInfo.currentPage }">
+										<a href="#" class="active">${ status.current }</a>
+									</c:if>
+									<c:if test="${ status.current != pageInfo.currentPage }">
+										<a href="${ path }/admin/inquiryList?page=${ status.current }">${ status.current }</a>
+									</c:if>
+								</c:forEach>
+			
+			                 <a class="arrow next" href="${ path }/admin/inquiryList?page=${ pageInfo.nextPage }">&#62;</a>
+			                 <a class="arrow nnext" href="${ path }/admin/inquiryList?page=${ pageInfo.maxPage }">&#62;&#62;</a>
+			             </div>
+			         </div>
                     </div>
                 </main>
                 

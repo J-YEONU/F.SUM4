@@ -108,9 +108,14 @@
                             * 관리자로 등록된 회원만 변경할 수 있습니다.
                         <hr>
                         <div id="wrap">
+                        <div id="member-select">
+                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="...">회원 : </span>
+                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="...">관리자 : </span>
+                            </div>
+                        <br><br>
                             <div id="container">
                                 <div class="inner">        
-                                    <form id="boardForm" name="boardForm">
+                                    <form action="${ path }/admin/meberDetail?no=${ member.no }" method="POST">
                                         <table width="100%" class="table01">
                                             <colgroup>
                                                 <col width="5%" />
@@ -135,16 +140,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody">
-                                            	<c:forEach items="${ list }" var="m">
+                                            
                                                 <tr>
-                                                    <td>${ m.no }</td>
+                                                    <td>${ no }</td>
+                                                    <c:choose>
+						                         		<c:when test="${ member.role == 'ROLE_ADMIN' }">
+	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ member.role != 'ROLE_UESR' }">
+	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ member.status == 'N' }">
+	                                                    	<td><img src="${ path }/resources/image/ghost.png" class="iconimages"></td>
+						                         		</c:when>
+					                         		</c:choose>
                                                     <td>${ m.id }</td>
-                                                    <td>${ m.name }</td>
-                                                    <td>${ m.birth }</td>
-                                                    <td>${ m.email }</td>
-                                                    <td>${ m.genre }</td>
+                                                    <td>${ member.name }</td>
+                                                    <td>${ member.birth }</td>
+                                                    <td>${ member.email }</td>
+                                                    <td>${ member.genre }</td>
+                                                    <td>${ member.status }</td>
                                                 </tr>
-                                                </c:forEach>
                                             </tbody>    
                                         </table>
                                     </form>            
@@ -154,13 +170,22 @@
                         <br><br>
                         <div class="btnzone">
                             <button type="submit" class="btn btn-warning btnsize"> 변경 </button>
-                            <button type="reset" class="btn btn-light btnsize"> 취소 </button>
+                            <button type="button" class="btn btn-light btnsize" onclick="location.href='${ path }/admin/memberList'"> 취소 </button>
+                            <button type="button" id="btnDelete" class="btn btn-danger btnsize" style="float-end"> 회원탈퇴 </button>
                         </div> 
                     </div>
                 </main>
                 
             </div>
         </div>
+        <script>
+        $(document).ready(() => {
+			$("#btnDelete").on("click", () => {
+				if(confirm("회원탈퇴를 하시겠습니까?")) {
+					location.replace("${ path }/admin/memberDelete?no=${ member.no }");
+				}
+			});
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>

@@ -15,6 +15,7 @@
         <meta name="author" content="" />
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
+        <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -121,14 +122,14 @@
                                                 <colgroup>
                                                     <col width="5%" />
                                                     <col width="5%" />
-                                                    <col width="55%" />
+                                                    <col width="53%" />
                                                     <col width="20%" />
-                                                    <col width="5%" />
+                                                    <col width="7%" />
                                                 </colgroup>
                                                 <thead>        
                                                     <tr>
                                                         <th>
-                                                            <input type="checkbox">
+                                                        	<input type="checkbox" name="all" id="all">
                                                         </th>
                                                         <th>No</th>
                                                         <th>제목</th>
@@ -153,7 +154,7 @@
 		                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">공지사항 수정</a></li>
 		                                                                    <li><a class="dropdown-item" href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">공지사항 삭제</a></li>
-		                                                                    <li><a class="dropdown-item" href="${path}/notice/notice">SUM 공지사항</a></li>
+		                                                                    <li><a class="dropdown-item" href="${path}/notice?page=1">SUM 공지사항</a></li>
 		                                                                </ul>
 		                                                            </li>
 		                                                        </ul>
@@ -170,28 +171,41 @@
                             
                         </main> 
                         <!-- 리스트 목록-->
-                        <div class="text-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <div class="page_wrap">
+			             <div class="page_nation">
+			                 <a class="arrow pprev" href="${ path }/admin/noticeList?page=1">&#60;&#60;</a>
+			                 <a class="arrow prev" href="${ path }/admin/noticeList?page=${ pageInfo.prevPage }">&#60;</a>
+			                 
+						   		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+									<c:if test="${ status.current == pageInfo.currentPage }">
+										<a href="#" class="active">${ status.current }</a>
+									</c:if>
+									<c:if test="${ status.current != pageInfo.currentPage }">
+										<a href="${ path }/admin/noticeList?page=${ status.current }">${ status.current }</a>
+									</c:if>
+								</c:forEach>
+			
+			                 <a class="arrow next" href="${ path }/admin/noticeList?page=${ pageInfo.nextPage }">&#62;</a>
+			                 <a class="arrow nnext" href="${ path }/admin/noticeList?page=${ pageInfo.maxPage }">&#62;&#62;</a>
+			             </div>
+			         </div>
                 
             </div>
         </div>
+        <script>
+		//체크박스 전체 선택
+		$(".checkbox_group").on("click", "#all", function () {
+		    $(this).parents(".checkbox_group").find('input').prop("checked", $(this).is(":checked"));
+		});
+		// 체크박스 개별 선택
+		$(".checkbox_group").on("click", ".checkBox", function() {
+		    var is_checked = true;
+		    $(".checkbox_group .checkBox").each(function(){
+		        is_checked = is_checked && $(this).is(":checked");
+		    });
+		    $("#all").prop("checked", is_checked);
+		});
+		</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>

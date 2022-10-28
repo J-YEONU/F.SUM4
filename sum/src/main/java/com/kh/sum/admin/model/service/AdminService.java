@@ -19,6 +19,12 @@ public interface AdminService {
 	
 	Member findMemberByNo(int no);
 	
+	int deleteMember(int no);
+	
+	Member memberDetail(int no);
+	
+	int save(Member member);
+	
 	// 1:1 문의 사항 서비스
 	
 	int getInquiryCount();

@@ -71,17 +71,63 @@ public class adminController {
 		
 	}
 	
+	
+	@PostMapping("/memberDelete")
+	   public ModelAndView memberDelete(ModelAndView model, @RequestParam int no) {
+		   int result = 0;
+		   
+		   result = service.deleteMember(no);
+		   
+		   if(result > 0) {
+			   model.addObject("msg", "회원이 탈퇴 되었습니다.");
+			   model.addObject("location", "/admin/memberList");
+		   } else {
+			   model.addObject("msg", "회원 탈퇴에 실패하였습니다.");
+			   model.addObject("location", "/admin/memberDetail?no=" + no);
+		   }
+		   
+		   model.setViewName("common/msg");
+		   
+		   return model;
+	   }
+	
 	@GetMapping("/memberDetail")
 	public ModelAndView memberDetail(ModelAndView model, @RequestParam int no) {
 		Member member = null;
 		
-		member = service.findMemberByNo(no);
+		member = service.memberDetail(no);
+		
+		System.out.println(member);
+		System.out.println(no);
 		
 		model.addObject("Member", member);
 		model.setViewName("/admin/memberDetail");
 		
 		return model;
 	}
+	
+	
+	@PostMapping("/memberDetail")
+	public ModelAndView changeTheAdmin(ModelAndView model, @RequestParam int no,
+			@ModelAttribute Member member) {
+		int result = 0;
+		
+		result = service.save(member);
+		
+		if(result > 0) {
+            model.addObject("msg", "관리자로 변경되었습니다.");
+            model.addObject("location", "/admin/memberList");
+        } else {
+            model.addObject("msg", "관리자 변경에 실패하였습니다.");
+            model.addObject("location", "/admin/memberDetail?no=" + member.getNo());
+        }
+        
+        model.setViewName("common/msg");
+		
+		
+		return model;
+	}
+	
 	
 	/* 1:1 문의 */
 	
@@ -290,6 +336,14 @@ public class adminController {
 	public String movieTime() {
 		
 		return "/admin/movieTime";
+	}
+	
+	@PostMapping("/movieTime")
+	public ModelAndView movieTime(ModelAndView model) {
+		
+		
+		
+		return model;
 	}
 
 	/* 공지사항 (등록하기, 목록보기) */

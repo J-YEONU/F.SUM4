@@ -45,6 +45,34 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+	public int deleteMember(int no) {
+
+		return mapper.delectMember(no);
+	}
+	
+	@Override
+	public Member memberDetail(int no) {
+
+		return mapper.selectMemberChange(no);
+	}
+	
+	@Override
+	@Transactional
+	public int save(Member member) {
+
+		int result = 0;
+		
+		if (member.getNo() != 0) {
+			// update
+			result = mapper.changeTheAdmin(member);
+			
+		} else {
+			// insert 필요 없을듯?
+		}
+		return result;
+	}
+	
+	@Override
 	public int getInquiryCount() {
 
 		return mapper.selectInquiryCount();

@@ -15,6 +15,7 @@
         <meta name="author" content="" />
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
+        <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -98,7 +99,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">로그인한 사람의 아이디가 보여지는 곳</div>
+                        <div class="small">${loginMember.name}님, 관리자 페이지에 접속중입니다.</div>
                     </div>
                 </nav>
             </div>
@@ -156,11 +157,14 @@
                                                 <tr>
                                                     <td>${ m.no }</td>
                                                     <c:choose>
-						                         		<c:when test="${ m.role == 'ROLE ADMIN' }">
+						                         		<c:when test="${ m.role == 'ROLE_ADMIN' }">
 	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
 						                         		</c:when>
-						                         		<c:when test="${ m.role != 'ROLE UESR' }">
+						                         		<c:when test="${ m.role != 'ROLE_UESR' }">
 	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ m.status == 'N' }">
+	                                                    	<td><img src="${ path }/resources/image/ghost.png" class="iconimages"></td>
 						                         		</c:when>
 					                         		</c:choose>
                                                     <td>${ m.id }</td>
@@ -173,8 +177,8 @@
                                                             <li class="nav-item dropdown">
                                                                 <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
                                                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                                    <li><a class="dropdown-item" href="${ path }/admin/memberDetail">관리자로 변경</a></li>
-                                                                    <li><a class="dropdown-item" href="#!">회원삭제</a></li>
+                                                                    <li><a class="dropdown-item" href="${ path }/admin/memberDetail?no=${ m.no }">관리자로 변경</a></li>
+                                                                    <li><a class="dropdown-item" href="${ path }/admin/memberDetail?no=${ m.no }">회원탈퇴</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -187,7 +191,26 @@
                                     </div>
                                 </div>
                             </div>
-                </main> 
+                </main>
+                <!-- 리스트 목록-->
+                        <div class="page_wrap">
+			             <div class="page_nation">
+			                 <a class="arrow pprev" href="${ path }/admin/memberList?page=1">&#60;&#60;</a>
+			                 <a class="arrow prev" href="${ path }/admin/memberList?page=${ pageInfo.prevPage }">&#60;</a>
+			                 
+						   		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+									<c:if test="${ status.current == pageInfo.currentPage }">
+										<a href="#" class="active">${ status.current }</a>
+									</c:if>
+									<c:if test="${ status.current != pageInfo.currentPage }">
+										<a href="${ path }/admin/memberList?page=${ status.current }">${ status.current }</a>
+									</c:if>
+								</c:forEach>
+			
+			                 <a class="arrow next" href="${ path }/admin/memberList?page=${ pageInfo.nextPage }">&#62;</a>
+			                 <a class="arrow nnext" href="${ path }/admin/memberList?page=${ pageInfo.maxPage }">&#62;&#62;</a>
+			             </div>
+			         </div>
                 
             </div>
         </div>

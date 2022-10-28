@@ -54,7 +54,7 @@
 		FROM MEMBER
 	</select>
 
-	<!-- 회원 관리자 및 삭제 변경 
+	<!-- 회원 관리자 및 삭제 변경 -->
 	
 	<select id="selectMemberChange" resultMap="memberListResultMap">
 		SELECT MEMBER_NO, 
@@ -63,14 +63,22 @@
 			   MEMBER_NAME,
 			   MEMBER_DATE,
 			   MEMBER_EMAIL,
-			   MEMBER_GENRE
+			   MEMBER_GENRE,
+			   STATUS
 		FROM MEMBER
+		WHERE MEMBER_NO = #{no}
 	</select>
 	
-	<update id="delectMember">
 	
+	<!-- 회원 탈퇴 쿼리문 -->
+	<update id="delectMember">
+		UPDATE MEMBER SET STATUS = #{status} WHERE MEMBER_NO = #{no}	
 	</update>
-	-->
+
+	<!-- 회원 관리자 변경 쿼리문 -->
+	<update id="changeTheAdmin">
+		UPDATE MEMBER SET ROLE = #{role} WHERE MEMBER_NO = #{no}	
+	</update>
 	
 	
 	<!-- 1:1 문의 사항 쿼리문 -->
@@ -110,7 +118,7 @@
 		        Q.MEMBER_NO, 
 		        Q.ANSWER_STATUS, 
 		        Q.CREATE_DATE,
-		        M.MEMBER_NAME
+		        M.MEMBER_ID
 		FROM QNA Q
 		JOIN MEMBER M ON(Q.MEMBER_NO = M.MEMBER_NO)
 		WHERE Q.STATUS = 'Y'
