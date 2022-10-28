@@ -66,6 +66,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		if(member.getNo() != 0) {
 			// update
+			member.setPassword(passwordEncoder.encode(member.getPassword()));
+			
 			result = mapper.updateMember(member);
 			
 		} else {

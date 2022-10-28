@@ -97,7 +97,8 @@
 			MEMBER_DATE = #{birth},
 			MEMBER_EMAIL = #{email},
 			MEMBER_PHONE = #{phone},
-			MEMBER_GENRE = #{genre} 
+			MEMBER_GENRE = #{genre},
+			MEMBER_PWD = #{password}
 		WHERE MEMBER_NO = #{no}
 	</update>
 	
