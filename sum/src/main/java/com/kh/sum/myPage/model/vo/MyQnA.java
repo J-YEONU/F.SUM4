@@ -26,6 +26,6 @@ public class MyQnA {
 	
 	private Date createDate;
 	
-	private String id;
+	private String memberId;
 	
 }
