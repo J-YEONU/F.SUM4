@@ -87,6 +87,29 @@ nav {
   display: table;
   width: 245px; height: 351px; margin-bottom: 20px;
   background-color: #f3f3f3;
+  overflow: hidden;
+}
+
+.slider {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  width: 80%;
+  height: 200px;
+  overflow: hidden;
+}
+
+#slider-inner {
+	  position: absolute;
+  top: 0;
+  left: 0;
+	height: 100%;
+	width: 200%;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 5px;
+	pointer-events: none;
+	overflow: hidden;
 }
 
 .movie .movieInfo + .movieInfo {

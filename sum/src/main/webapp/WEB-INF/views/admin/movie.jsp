@@ -138,10 +138,10 @@
                                     등급 : 
                                     <select name=movieRating id="area" >
                                         <option selected name="movieRating">연령제한</option>
-                                        <option value="TotalUserPrice">전체 이용가</option>
+                                        <option value="전체">전체 이용가</option>
                                         <option value="12">12</option>
                                         <option value="15">15</option>
-                                        <option value="19">19</option>
+                                        <option value="청불">19</option>
                                     </select>
                                 </div>
                             <div>

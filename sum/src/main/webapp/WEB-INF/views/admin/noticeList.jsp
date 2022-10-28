@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 		<link href="${ path }/resources/css/admin/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     </head>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -129,7 +130,7 @@
                                                 <thead>        
                                                     <tr>
                                                         <th>
-                                                        	<input type="checkbox" name="all" id="all">
+                                                        	<input type="checkbox" id="cbx_chkAll" />
                                                         </th>
                                                         <th>No</th>
                                                         <th>제목</th>
@@ -142,7 +143,7 @@
 													<c:forEach var="notice" items="${ list }">
 									                    <tr>
 									                    	<td>
-									                    		<input type="checkbox">
+									                    		<input type="checkbox" name="chk">
 									                    	</td>
 									                        <td>${ notice.noticeNo }</td>
 									                        <td><a href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
@@ -194,16 +195,19 @@
         </div>
         <script>
 		//체크박스 전체 선택
-		$(".checkbox_group").on("click", "#all", function () {
-		    $(this).parents(".checkbox_group").find('input').prop("checked", $(this).is(":checked"));
-		});
-		// 체크박스 개별 선택
-		$(".checkbox_group").on("click", ".checkBox", function() {
-		    var is_checked = true;
-		    $(".checkbox_group .checkBox").each(function(){
-		        is_checked = is_checked && $(this).is(":checked");
-		    });
-		    $("#all").prop("checked", is_checked);
+		$(document).ready(function() {
+			$("#cbx_chkAll").click(function() {
+				if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+				else $("input[name=chk]").prop("checked", false);
+			});
+		
+			$("input[name=chk]").click(function() {
+				var total = $("input[name=chk]").length;
+				var checked = $("input[name=chk]:checked").length;
+		
+				if(total != checked) $("#cbx_chkAll").prop("checked", false);
+				else $("#cbx_chkAll").prop("checked", true); 
+			});
 		});
 		</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
