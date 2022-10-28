@@ -23,13 +23,25 @@ public class CinemaController {
 	
    @GetMapping("/cinema")
    public ModelAndView cinema(ModelAndView model) {
-      List<Cinema> cinema = null;
+      List<Cinema> cinemaS = null;
+      List<Cinema> cinemaGG = null;
+      List<Cinema> cinemaIC = null;
+      List<Cinema> cinemaGW = null;
+      List<Cinema> cinemaD = null;
       
-      cinema = service.getCinema();
+      cinemaS = service.getCinemaS();
+      cinemaGG = service.getCinemaGG();
+      cinemaIC = service.getCinemaIC();
+      cinemaGW = service.getCinemaGW();
+      cinemaD = service.getCinemaD();
       
-      System.out.println(cinema);
+      System.out.println(cinemaS);
       
-      model.addObject("cinema", cinema);
+      model.addObject("cinemaS", cinemaS);
+      model.addObject("cinemaGG", cinemaGG);
+      model.addObject("cinemaIC", cinemaIC);
+      model.addObject("cinemaGW", cinemaGW);
+      model.addObject("cinemaD", cinemaD);
       model.setViewName("/cinema/cinema");
       
       

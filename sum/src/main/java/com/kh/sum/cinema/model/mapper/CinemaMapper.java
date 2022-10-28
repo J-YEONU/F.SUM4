@@ -8,5 +8,9 @@ import com.kh.sum.cinema.model.vo.Cinema;
 
 @Mapper
 public interface CinemaMapper {
-	List<Cinema> selectCinema();
+	List<Cinema> selectCinemaS();
+	List<Cinema> selectCinemaGG();
+	List<Cinema> selectCinemaIC();
+	List<Cinema> selectCinemaGW();
+	List<Cinema> selectCinemaD();
 }
