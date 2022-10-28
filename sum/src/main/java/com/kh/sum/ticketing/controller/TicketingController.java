@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -17,6 +18,7 @@ import com.kh.sum.member.model.service.MemberService;
 import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.service.MovieListService;
 import com.kh.sum.movie.model.vo.MovieList;
+import com.kh.sum.myPage.model.vo.Ticketing;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -68,11 +70,14 @@ public class TicketingController {
 
 	// seat
 	@GetMapping("/seat")
-	public String seat() {
+	public ModelAndView seat(ModelAndView model, @ModelAttribute Ticketing ticketing) {
+			
+    model.addObject("ticketing", ticketing);
+	model.setViewName("/ticket/seat");
 		
-		
-	return "/ticket/seat";
+	return model;
 	}
+	
 	
 	// payment
 	@GetMapping("/payment")
