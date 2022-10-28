@@ -108,19 +108,18 @@ public class adminController {
 	}
 	
 	
-	@PostMapping("/memberDetail")
-	public ModelAndView changeTheAdmin(ModelAndView model, @RequestParam int no,
-			@ModelAttribute Member member) {
+	@GetMapping("/memberUpdate")
+	public ModelAndView changeTheAdmin(ModelAndView model, @RequestParam int no) {
 		int result = 0;
 		
-		result = service.save(member);
+		result = service.save(no);
 		
 		if(result > 0) {
             model.addObject("msg", "관리자로 변경되었습니다.");
             model.addObject("location", "/admin/memberList");
         } else {
             model.addObject("msg", "관리자 변경에 실패하였습니다.");
-            model.addObject("location", "/admin/memberDetail?no=" + member.getNo());
+            model.addObject("location", "/admin/memberList");
         }
         
         model.setViewName("common/msg");

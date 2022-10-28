@@ -58,17 +58,12 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	@Transactional
-	public int save(Member member) {
+	public int save(int no) {
 
 		int result = 0;
 		
-		if (member.getNo() != 0) {
-			// update
-			result = mapper.changeTheAdmin(member, "ROLE_ADMIN");
-			
-		} else {
-			// insert 필요 없을듯?
-		}
+			result = mapper.changeTheAdmin(no);
+
 		return result;
 	}
 	
