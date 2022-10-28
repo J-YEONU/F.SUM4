@@ -43,7 +43,7 @@ public class TicketingController {
 		List<Cinema> clist = null;
 		
 		mlist = Mservice.getMovieList();
-		clist = Cservice.getCinema();
+		
 		
 		model.addObject("mlist", mlist);
 		model.addObject("clist", clist);
