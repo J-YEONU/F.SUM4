@@ -40,13 +40,26 @@ public class TicketingController {
 	        @SessionAttribute(required = false, name = "loginMember") Member loginMember) {
 		
 		List<MovieList> mlist = null;
-		List<Cinema> clist = null;
+		List<Cinema> cinemaS = null;
+        List<Cinema> cinemaGG = null;
+        List<Cinema> cinemaIC = null;
+        List<Cinema> cinemaGW = null;
+        List<Cinema> cinemaD = null;
 		
 		mlist = Mservice.getMovieList();
+		cinemaS = Cservice.getCinemaS();
+        cinemaGG = Cservice.getCinemaGG();
+        cinemaIC = Cservice.getCinemaIC();
+        cinemaGW = Cservice.getCinemaGW();
+        cinemaD = Cservice.getCinemaD();
 		
 		
 		model.addObject("mlist", mlist);
-		model.addObject("clist", clist);
+        model.addObject("cinemaS", cinemaS);
+        model.addObject("cinemaGG", cinemaGG);
+        model.addObject("cinemaIC", cinemaIC);
+        model.addObject("cinemaGW", cinemaGW);
+        model.addObject("cinemaD", cinemaD);
 		model.setViewName("/ticket/ticketing");
 		
 		return model;
@@ -77,4 +90,6 @@ public class TicketingController {
 	    
 	return "/ticket/approve";
 	}
+	
+	
 }

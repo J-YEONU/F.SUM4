@@ -9,6 +9,10 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ path }/resources/css/ticketing/ticketing.css">
+<!-- slick -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
@@ -29,60 +33,117 @@
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 	
 	<!-- 영화 목록 css 수정 예정 -->
-	<div class="movie slider">
-		<c:forEach var="movieList" items="${ mlist }">
-	      <div class="movieInfo slider-inner">
-	      <a type="hidden" href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no"></a>
-	         <span>
-	         	<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }" name="mChoice" id="mclick">
-         	</span>   
-	        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
-	      </div>
-		</c:forEach>
-	      
+	<div class="movieSection">
+		<div class="movie" >
+			<c:forEach var="movieList" items="${ mlist }">
+		      <div class="movieInfo" onclick="mvSelect(this, '${movieList.movieNo}', '${ movieList.renamedPoster }', '${ movieList.movieTitle }')">
+		         <span>
+		         	<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
+	         	</span>   
+		        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
+		      </div>
+			</c:forEach>
+		</div>
 	</div>
             
-	<div id="choice">선택하신 영화 : <p id="Cmovie"></p></div>
+	<div id="choice"><p id="Cmovie">선택하신 영화 :  </p></div>
             
-<!-- cinema choice -->
-	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
-	<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
+	<!-- cinema choice -->
+		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
+		<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
     
-	    <nav>
-			<ul id="navi">
-				<li><a href="#">서울</a>
-				    <ul>
-				        <li><a href="#">&gt; 강남</a></li>
-				        <li><a href="#">&gt; 장안</a></li>
-				    </ul>
-				</li>
-				<li><a href="#" >경기</a>
-				    <ul>
-				        <li><a href="#">&gt; 분당</a></li>
-				        <li><a href="#">&gt; 일산</a></li>
-				    </ul>
-				</li>
-				<li><a href="#">인천</a>
-				    <ul>
-				        <li><a href="#">&gt; 부평</a></li>
-				        <li><a href="#">&gt; 주안</a></li>
-				    </ul>
-				</li>
-				<li>
-				    <a href="#">강원</a>
-				    <ul>
-				        <li><a href="#">&gt; 춘천</a></li>
-				        <li><a href="#">&gt; 원주</a></li>
-				    </ul>
-				</li>
-				<li><a href="#">대전/충청</a>
-				    <ul>
-				        <li><a href="#">&gt; 대전</a></li>
-				        <li><a href="#">&gt; 청주</a></li>
-				    </ul>
-				</li>
-			</ul>
-		</nav>
+     <div class="container">
+    <div id="contents">
+		<div class="movie_title">
+                <ul>
+                    <li class="active"><a href="#">서울</a></li>
+                    <li><a href="#">경기</a></li>
+                    <li><a href="#">인천</a></li>
+                    <li><a href="#">강원</a></li>
+                    <li><a href="#">대전/충청</a></li>
+                </ul>
+            </div>
+            
+	<!-- cinema-list -->
+        <div class="movie-list">
+            <div class="chart_cont1">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaS }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont2">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaGG }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont3">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaIC }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont4">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaGW }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont5">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaD }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+        </div>
+	</div>
+</div>
             
 	<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 상영날짜</div>
 		<span id="infospan"><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
@@ -120,51 +181,49 @@
 
 	
        //영화차트 이미지 슬라이드
+		$(function(){
+			$('#slider-div').slick({
+				slide: 'div',		//슬라이드 되어야 할 태그 ex) div, li 
+				infinite : true, 	//무한 반복 옵션	 
+				slidesToShow : 4,		// 한 화면에 보여질 컨텐츠 개수
+				slidesToScroll : 4,		//스크롤 한번에 움직일 컨텐츠 개수
+				speed : 100,	 // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+				arrows : true, 		// 옆으로 이동하는 화살표 표시 여부
+				autoplay : true,			// 자동 스크롤 사용 여부
+				autoplaySpeed : 10000, 		// 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+				pauseOnHover : true,		// 슬라이드 이동	시 마우스 호버하면 슬라이더 멈추게 설정
+				vertical : false,		// 세로 방향 슬라이드 옵션
+				prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
+				nextArrow : "<button type='button' class='slick-next'>Next</button>",		// 다음 화살표 모양 설정
+				draggable : true, 	//드래그 가능 여부
+				
+				
 
-let slider = document.querySelector(".slider")
-let innerSlider = document.querySelector(".slider-inner")
-let pressed = false
-let startx
-let x
-
-slider.addEventListener("mousedown", e => {
-  pressed = true
-  startx = e.offsetX - innerSlider.offsetLeft
-  slider.style.cursor = "grabbing"
-})
-
-slider.addEventListener("mouseenter", () => {
-  slider.style.cursor = "grab"
-})
-
-slider.addEventListener("mouseup", () => {
-  slider.style.cursor = "grab"
-})
-
-window.addEventListener("mouseup", () => {
-  pressed = false
-})
-
-slider.addEventListener("mousemove", e => {
-  if (!pressed) return
-  e.preventDefault()
-  x = e.offsetX
-
-  innerSlider.style.left = `${x - startx}px`
-  checkboundary()
-})
-
-function checkboundary() {
-  let outer = slider.getBoundingClientRect()
-  let inner = innerSlider.getBoundingClientRect()
-
-  if (parseInt(innerSlider.style.left) > 0) {
-    innerSlider.style.left = "0px"
-  } else if (inner.right < outer.right) {
-    innerSlider.style.left = `-${inner.width - outer.width}px`
-  }
-}
+				
+			});
+  		})
        
+		//영화차트 탭 메뉴
+		var movBtn = $(".movie_title > ul > li");
+		var movCont = $(".movie-list > div");
+		
+		movCont.hide().eq(0).show();
+		
+		movBtn.click(function(e){
+		    e.preventDefault(); // 눌렀을 때 위로 안올라감.
+		    var target = $(this); // 사용자가 몇번째 버튼을 클릭했는지 알 수 있음.
+		    var index = target.index();
+		    movBtn.removeClass("active"); // 클릭하지 않은 부분 active 제거
+		    target.addClass("active"); // 클릭한 부분에 active 추가
+		    movCont.css("display","none");
+		    movCont.eq(index).css("display","block");
+		});
+		
+		
+	      $( document ).ready( function() {
+	          var jbText = $( 'div' ).text();
+	          alert( jbText );
+	        } );
 </script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
