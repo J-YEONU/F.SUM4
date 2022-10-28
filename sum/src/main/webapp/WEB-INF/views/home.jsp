@@ -78,7 +78,7 @@
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 	                            <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        	<div class="rank">${ ml.index +1 }</div>
 	                        </div>
 	                        
@@ -113,7 +113,7 @@
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -137,40 +137,6 @@
 	                            
 	                        </div>
 	                        
-	                    </li>
-	                </c:forEach>
-                </ol>
-            </div>
-            <div class="chart_cont3">
-                <ol class="list" id="movieList">
-               		<c:forEach var="movieList" items="${ list2 }">
-	                    <li class="no-img">
-	                        <div class="movie-list-info">
-
-	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
-	                        </div>
-	                        
-	                        <div class="infor">
-	                        
-	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
-	                            </c:if>
-	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
-	                            </c:if>
-	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
-	                            </c:if>
-	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
-	                            </c:if>
-	                            <div class="movie_info">
-	                               <span>예매율  %</span>
-	                               <span>관람평점 </span>
-	                            </div>
-	                            
-	                        </div>
 	                    </li>
 	                </c:forEach>
                 </ol>
@@ -202,7 +168,6 @@
                 <div>BOX OFFICE</div>
             </div>
             <div class="wrap contaner"></div>
-                <button type="button" class="btn text-white" style="background-color: #333;">예매하기</button>
         
     </div>
 </div>

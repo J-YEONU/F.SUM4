@@ -78,7 +78,7 @@
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -112,7 +112,7 @@
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
 	                     		    <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
@@ -155,7 +155,7 @@
 	                        <div class="movie-list-info">
 
 	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
-	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
 	                        
 	                        <div class="infor">
