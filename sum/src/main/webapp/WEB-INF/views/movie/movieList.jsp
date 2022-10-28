@@ -86,10 +86,10 @@
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
 	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
-	                            <c:if test="${movieList.movieRating == 12}"> 
+	                            <c:if test="${movieList.movieRating == '12'}"> 
 	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
-	                            <c:if test="${movieList.movieRating == 15}"> 
+	                            <c:if test="${movieList.movieRating == '15'}"> 
 	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
@@ -120,10 +120,10 @@
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
 	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
-	                            <c:if test="${movieList.movieRating == 12}"> 
+	                            <c:if test="${movieList.movieRating == '12'}"> 
 	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
-	                            <c:if test="${movieList.movieRating == 15}"> 
+	                            <c:if test="${movieList.movieRating == '15'}"> 
 	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
@@ -157,12 +157,26 @@
 	                             <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
 	                            <img src="${ path }/resources/post/9_10/${ movieList.moviePoster }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
 	                        </div>
+	                        
 	                        <div class="infor">
-	                            <h3><span class="icon gr_all">전체</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                        
+	                            <c:if test="${movieList.movieRating == '전체'}"> 
+	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == '12'}"> 
+	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == '15'}"> 
+	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
+	                            <c:if test="${movieList.movieRating == '청불'}"> 
+	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            </c:if>
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            
 	                        </div>
 	                    </li>
 	                </c:forEach>
