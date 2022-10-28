@@ -14,10 +14,34 @@ public class CinemaServiceImpl implements CinemaService {
 	private CinemaMapper mapper;
 	
 	@Override
-	public List<Cinema> getCinema() {
+	public List<Cinema> getCinemaS() {
 
 		
-		return mapper.selectCinema();
+		return mapper.selectCinemaS();
+	}
+
+	@Override
+	public List<Cinema> getCinemaGG() {
+		// TODO Auto-generated method stub
+		return mapper.selectCinemaGG();
+	}
+
+	@Override
+	public List<Cinema> getCinemaIC() {
+		// TODO Auto-generated method stub
+		return mapper.selectCinemaIC();
+	}
+
+	@Override
+	public List<Cinema> getCinemaGW() {
+		// TODO Auto-generated method stub
+		return mapper.selectCinemaGW();
+	}
+
+	@Override
+	public List<Cinema> getCinemaD() {
+		// TODO Auto-generated method stub
+		return mapper.selectCinemaD();
 	}
 
 }

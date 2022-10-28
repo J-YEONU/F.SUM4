@@ -32,7 +32,7 @@
         <div class="movie-list">
             <div class="chart_cont1">
                 <ol class="list" id="movieList">
-                	<c:forEach var="cinema" items="${ cinema }">
+                	<c:forEach var="cinema" items="${ cinemaS }">
                     <li>
                         <div class="movie-list-info">
                         	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
@@ -47,7 +47,7 @@
             </div>
             <div class="chart_cont2">
                 <ol class="list" id="movieList">
-                	<c:forEach var="cinema" items="${ cinema }">
+                	<c:forEach var="cinema" items="${ cinemaGG }">
                     <li>
                         <div class="movie-list-info">
                         	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
@@ -62,7 +62,7 @@
             </div>
             <div class="chart_cont3">
                 <ol class="list" id="movieList">
-                	<c:forEach var="cinema" items="${ cinema }">
+                	<c:forEach var="cinema" items="${ cinemaIC }">
                     <li>
                         <div class="movie-list-info">
                         	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
@@ -77,7 +77,7 @@
             </div>
             <div class="chart_cont4">
                 <ol class="list" id="movieList">
-                	<c:forEach var="cinema" items="${ cinema }">
+                	<c:forEach var="cinema" items="${ cinemaGW }">
                     <li>
                         <div class="movie-list-info">
                         	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
@@ -92,7 +92,7 @@
             </div>
             <div class="chart_cont5">
                 <ol class="list" id="movieList">
-                	<c:forEach var="cinema" items="${ cinema }">
+                	<c:forEach var="cinema" items="${ cinemaD }">
                     <li>
                         <div class="movie-list-info">
                         	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
