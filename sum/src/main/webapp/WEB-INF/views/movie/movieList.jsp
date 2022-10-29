@@ -84,16 +84,16 @@
 	                        <div class="infor">
 	                        
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
@@ -118,16 +118,16 @@
 	                        <div class="infor">
 	                        
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
@@ -144,7 +144,7 @@
                 <ol class="list" id="movieList">
                 	<!-- 로그인이 안되어 있으면 -->
                     <c:if test="${ loginMember == null }">
-                        <div class="login">로그인 후 확인할 수 있습니다.</div>
+                        <div class="login" style="text-align: center;">로그인 후 확인할 수 있습니다.</div>
                     </c:if>
                 	 
                 	 <!-- 로그인이 되어있으면 -->
@@ -161,16 +161,16 @@
 	                        <div class="infor">
 	                        
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
