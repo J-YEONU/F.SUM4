@@ -47,7 +47,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int deleteMember(int no) {
 
-		return mapper.delectMember(no);
+		return mapper.deleteMember(no, "N");
 	}
 	
 	@Override
@@ -58,17 +58,12 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	@Transactional
-	public int save(Member member) {
+	public int save(int no) {
 
 		int result = 0;
 		
-		if (member.getNo() != 0) {
-			// update
-			result = mapper.changeTheAdmin(member);
-			
-		} else {
-			// insert 필요 없을듯?
-		}
+			result = mapper.changeTheAdmin(no);
+
 		return result;
 	}
 	
@@ -197,6 +192,7 @@ public class AdminServiceImpl implements AdminService {
 	
 		return mapper.updateReadCount(no);
 	}
+
 
 
 

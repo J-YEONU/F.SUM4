@@ -30,7 +30,7 @@
             <div>평점 : ${ avgScore }점 (참여 : ${ participant }명)</div>
             </c:if>
             <c:if test="${avgScore == null}">
-            <div>평점 : 0점 (참여 : ${ participant }명)</div>
+            <div>평점 : -점 (참여 : ${ participant }명)</div>
             </c:if>
             <div>예매율: <fmt:formatNumber value="${ ticketingRate }" pattern="0.0"/>%</div> 
         </div> 

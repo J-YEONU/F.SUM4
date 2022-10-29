@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -17,6 +18,7 @@ import com.kh.sum.member.model.service.MemberService;
 import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.service.MovieListService;
 import com.kh.sum.movie.model.vo.MovieList;
+import com.kh.sum.myPage.model.vo.Ticketing;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,13 +42,26 @@ public class TicketingController {
 	        @SessionAttribute(required = false, name = "loginMember") Member loginMember) {
 		
 		List<MovieList> mlist = null;
-		List<Cinema> clist = null;
+		List<Cinema> cinemaS = null;
+        List<Cinema> cinemaGG = null;
+        List<Cinema> cinemaIC = null;
+        List<Cinema> cinemaGW = null;
+        List<Cinema> cinemaD = null;
 		
 		mlist = Mservice.getMovieList();
+		cinemaS = Cservice.getCinemaS();
+        cinemaGG = Cservice.getCinemaGG();
+        cinemaIC = Cservice.getCinemaIC();
+        cinemaGW = Cservice.getCinemaGW();
+        cinemaD = Cservice.getCinemaD();
 		
 		
 		model.addObject("mlist", mlist);
-		model.addObject("clist", clist);
+        model.addObject("cinemaS", cinemaS);
+        model.addObject("cinemaGG", cinemaGG);
+        model.addObject("cinemaIC", cinemaIC);
+        model.addObject("cinemaGW", cinemaGW);
+        model.addObject("cinemaD", cinemaD);
 		model.setViewName("/ticket/ticketing");
 		
 		return model;
@@ -55,11 +70,14 @@ public class TicketingController {
 
 	// seat
 	@GetMapping("/seat")
-	public String seat() {
+	public ModelAndView seat(ModelAndView model, @ModelAttribute Ticketing ticketing) {
+			
+    model.addObject("ticketing", ticketing);
+	model.setViewName("/ticket/seat");
 		
-		
-	return "/ticket/seat";
+	return model;
 	}
+	
 	
 	// payment
 	@GetMapping("/payment")
@@ -77,4 +95,6 @@ public class TicketingController {
 	    
 	return "/ticket/approve";
 	}
+	
+	
 }

@@ -23,7 +23,7 @@ public interface AdminService {
 	
 	Member memberDetail(int no);
 	
-	int save(Member member);
+	int save(int no);
 	
 	// 1:1 문의 사항 서비스
 	
@@ -58,6 +58,7 @@ public interface AdminService {
 	// 영화관 
 	
     int save(Cinema cinema);
+
 
 
 	

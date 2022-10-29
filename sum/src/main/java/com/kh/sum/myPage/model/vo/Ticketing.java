@@ -18,15 +18,17 @@ public class Ticketing {
 	
 	private String cinemaName;
 	
-	private Date showDate;
+	private String showDate;
 
-	private Date ticketDate;
+	private String ticketDate;
 
 	private int memberNo;
 
 	private int showNo;
 		
 	private char status;
+	
+	private String seatNo;
 	
 	
 

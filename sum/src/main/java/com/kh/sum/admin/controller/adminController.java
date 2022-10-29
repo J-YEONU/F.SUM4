@@ -3,6 +3,8 @@ package com.kh.sum.admin.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
@@ -98,28 +100,26 @@ public class adminController {
 		member = service.memberDetail(no);
 		
 		System.out.println(member);
-		System.out.println(no);
 		
-		model.addObject("Member", member);
+		model.addObject("member", member);
 		model.setViewName("/admin/memberDetail");
 		
 		return model;
 	}
 	
 	
-	@PostMapping("/memberDetail")
-	public ModelAndView changeTheAdmin(ModelAndView model, @RequestParam int no,
-			@ModelAttribute Member member) {
+	@GetMapping("/memberUpdate")
+	public ModelAndView changeTheAdmin(ModelAndView model, @RequestParam int no) {
 		int result = 0;
 		
-		result = service.save(member);
+		result = service.save(no);
 		
 		if(result > 0) {
             model.addObject("msg", "관리자로 변경되었습니다.");
             model.addObject("location", "/admin/memberList");
         } else {
             model.addObject("msg", "관리자 변경에 실패하였습니다.");
-            model.addObject("location", "/admin/memberDetail?no=" + member.getNo());
+            model.addObject("location", "/admin/memberList");
         }
         
         model.setViewName("common/msg");
@@ -448,6 +448,5 @@ public class adminController {
         
         return model;
     }
-	
 	
 }

@@ -60,6 +60,12 @@
 	<div id="choice">
 		<p>선택하신 좌석 :&nbsp; <div id="result"> </div>
 	</div>
+<form action="${ path }/ticket/payment" method="get">
+	<input type="hidden" name="movieTitle" value="${ticketing.movieTitle }">
+	<input type="hidden" name="cinemaName" value="${ticketing.cinemaName }">
+	<input type="hidden" name="ticketDate" value="${ticketing.ticketDate }">
+	<input type="hidden" name="showNo" value="${ticketing.showNo }">
+	<input type="hidden" name="seatNo" value="M-5">
 
 	<div id="btn">
 		<button type="submit" id="btn1" class="btn" onclick="location.href='${ path }/ticket/ticketing'">
@@ -67,12 +73,13 @@
 			<p id="p2"><span id="p3"><</span>-------------------------------</p>
 			<em id="p2">chosee a movie</em>
 		</button>
-		<button type="submit" class="btn" onclick="location.href='${ path }/ticket/payment'">
+		<button type="submit" class="btn">
 			<p id="p1">NEXT STEP</p>
 			<p id="p2">-------------------------------<span id="p3">> </span></p>
 			<em id="p2">chosee a payment</em>
 		</button>
 	</div>
+</form>
 </section>
 
 <script>
