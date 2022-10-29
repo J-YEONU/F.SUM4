@@ -64,6 +64,7 @@ public class adminController {
 		list = service.getMemberList(pageInfo);
 		
 		System.out.println(pageInfo);
+		System.out.println(list);
 		
 		model.addObject("list", list);
 		model.addObject("pageInfo", pageInfo);
@@ -74,7 +75,7 @@ public class adminController {
 	}
 	
 	
-	@PostMapping("/memberDelete")
+	@GetMapping("/memberDelete")
 	   public ModelAndView memberDelete(ModelAndView model, @RequestParam int no) {
 		   int result = 0;
 		   

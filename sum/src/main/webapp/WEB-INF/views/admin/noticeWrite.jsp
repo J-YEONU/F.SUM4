@@ -117,7 +117,7 @@
                         <div id="member-main-container" class="">
                             <div class="container">
                                 <div>
-                                    제목 : <input type="text" name="title" id="noticeTitle">
+                                    <strong>제목&nbsp;&nbsp;:&nbsp;&nbsp; </strong><input style="border: 1px solid black; border-radius: 3px; width: 550px; height: 50px" type="text" name="title" id="noticeTitle">
                                 </div>
                                 <br>
                                 <div>

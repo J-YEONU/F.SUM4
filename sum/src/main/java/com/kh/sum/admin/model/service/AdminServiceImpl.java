@@ -45,9 +45,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+	@Transactional
 	public int deleteMember(int no) {
-
-		return mapper.deleteMember(no, "N");
+		int result = 0;
+		
+		result = mapper.deleteMember(no);
+		
+		return result;
 	}
 	
 	@Override

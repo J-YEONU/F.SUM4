@@ -23,7 +23,7 @@ public interface AdminMapper {
 
 	Member selectMemberAll(int no);
 	
-	int deleteMember(@Param("no")int no, @Param("status") String string);
+	int deleteMember(int no);
 	
 	Member selectMemberChange(int no);
 	

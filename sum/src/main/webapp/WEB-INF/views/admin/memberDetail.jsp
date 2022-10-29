@@ -109,8 +109,9 @@
                         <hr>
                         <div id="wrap">
                         <div id="member-select">
-                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="...">회원 : </span>
-                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="...">관리자 : </span>
+								<span class="float-end"><img src="${ path }/resources/image/ghost.png" class="iconimages float-end" alt="..."><strong>&nbsp;&nbsp;탈퇴 회원&nbsp;:&nbsp; </strong></span>
+                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="..."><strong>&nbsp;&nbsp;관리자&nbsp;:&nbsp;</strong></span>
+                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="..."><strong> 회원&nbsp;&nbsp;:&nbsp;&nbsp;</strong></span>
                             </div>
                         <br><br>
                             <div id="container">
@@ -144,14 +145,14 @@
                                                 <tr>
                                                     <td>${ member.no }</td>
                                                     <c:choose>
-						                         		<c:when test="${ member.role == 'ROLE_ADMIN' }">
-	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
-						                         		</c:when>
-						                         		<c:when test="${ member.role != 'ROLE_UESR' }">
-	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
-						                         		</c:when>
 						                         		<c:when test="${ member.status == 'N' }">
 	                                                    	<td><img src="${ path }/resources/image/ghost.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ member.role == 'ROLE_ADMIN' and member.status == 'Y' }">
+	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ member.role != 'ROLE_UESR' and member.status == 'Y' }">
+	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
 						                         		</c:when>
 					                         		</c:choose>
                                                     <td>${ member.id }</td>
@@ -171,7 +172,7 @@
                         <div class="btnzone">
                             <button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/admin/memberUpdate?no=${ member.no }'"> 변경 </button>
                             <button type="button" class="btn btn-light btnsize" onclick="location.href='${ path }/admin/memberList'"> 취소 </button>
-                            <button type="button" id="btnDelete" class="btn btn-danger btnsize" onclick="location.href='${ path }/admin/memberDetail?no=${ member.no }'" style="float-end"> 회원탈퇴 </button>
+                            <button type="button" class="btn btn-danger btnsize" onclick="location.href='${ path }/admin/memberDelete?no=${ member.no }'" style="float-end"> 회원탈퇴 </button>
                         </div> 
                     </div>
                 </main>
@@ -179,12 +180,12 @@
             </div>
         </div>
         <script>
-        $(document).ready(() => {
-			$("#btnDelete").on("click", () => {
-				if(confirm("회원탈퇴를 하시겠습니까?")) {
-					location.replace("${ path }/admin/memberDelete?no=${ member.no }");
-				}
-			});
+	        $(document).ready(() => {
+				$("#btnDelete").on("click", () => {
+					if(confirm("회원님을 탈퇴 하겠습니까?")) {
+						location.replace("${ path }/admin/memberDelete?no=${ member.no }");
+					}
+				});
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>

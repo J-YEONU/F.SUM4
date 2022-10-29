@@ -111,7 +111,7 @@
                         <hr>
                         <div id="member-main-container" class="">
                             <div id="member-select">
-                                <button type="submit" id="btnDelete" class="btn btn-light float-end"> 선택 삭제 </button>
+                                <button type="submit" id="btnDelete" class="btnup float-end"> 선택 삭제 </button>
                             </div>
                         <br><br>
                         <div class="card mb-4" id="member-board">
@@ -146,7 +146,7 @@
 									                    		<input type="checkbox" name="chk" value="${ notice.noticeNo}">
 									                    	</td>
 									                        <td>${ notice.noticeNo }</td>
-									                        <td><a href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
+									                        <td><a style="text-decoration: none; color: black; " href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
 									                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
 									                        <td>
 		                                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

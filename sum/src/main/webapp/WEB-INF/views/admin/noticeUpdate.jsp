@@ -117,11 +117,11 @@
                         <div id="member-main-container" class="">
                             <div class="container">
                                 <div>
-                                    제목 : <input type="text" name="title" id="title" value="${notice.title}">
+                                    <strong>제목&nbsp;&nbsp;:&nbsp;&nbsp;</strong><input style="border: 1px solid black; border-radius: 3px; width: 550px; height: 50px" type="text" name="title" id="title" value="${notice.title}">
                                 </div>
                                 <br>
                                 <div id="bottom-container">
-                                <div id="summernote" class="summernote">
+                                <div id="summernote" class="summernote" style="border: 2px solid black; border-radius: 3px">
                                 <input type="text" name="content" id="content"
 									value="${ notice.content }" style="width: 708px; height: 256px; border: 0px;">
                                 </div>
@@ -130,8 +130,8 @@
                             
                             <br>
                             <div class="btnzone">
-                                <button type="button" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
-                                <button type="button" onclick="location.href='${ path }/admin/noticeList'">목록으로</button>
+                                <button type="button" class="btn btn-warning btnsize" onclick="location.href='${ path }/admin/noticeUpdate?no=${ notice.noticeNo }'">수정</button>
+                                <button type="button" class="btn btn-light btnsize" onclick="location.href='${ path }/admin/noticeList'">목록으로</button>
                             </div>
             </div>
                         </form>
