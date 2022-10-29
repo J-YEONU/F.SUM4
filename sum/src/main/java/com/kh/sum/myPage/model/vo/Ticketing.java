@@ -30,6 +30,8 @@ public class Ticketing {
 	
 	private String seatNo;
 	
+	private int amount;
+	
 	
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.sum.common.util.PageInfo;
+import com.kh.sum.myPage.model.vo.Ticketing;
 import com.kh.sum.ticketing.model.mapper.TicketingMapper;
 import com.kh.sum.ticketing.model.vo.TicketMovie;
 
@@ -30,6 +31,12 @@ public class TicketingServiceImpl implements TicketingService {
         
         return mapper.selectAll(rowBounds);
     }
+
+	@Override
+	public int setTicketing(Ticketing ticketing) {
+
+		return mapper.insertTicketing(ticketing);
+	}
 
 
 }

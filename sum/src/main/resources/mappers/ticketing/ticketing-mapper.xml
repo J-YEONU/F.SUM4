@@ -87,4 +87,46 @@
 		WHERE MOVIE_STATUS = 'Y' AND MOVIE_NO = #{no}
 	</select>
 	
+	
+	<resultMap type="Ticketing" id="TicketingResultMap">
+		<id property="no" column="TICKET_NO" />
+		<result property="movieTitle" column="MOVIE_TITLE"/>
+		<result property="cinemaName" column="CINEMA_NAME"/>
+		<result property="showDate" column="SHOW_DATE"/>
+		<result property="ticketDate" column="TICKET_DATE"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="showNo" column="SHOW_NO"/>
+		<result property="status" column="STATUS"/>
+		<result property="seatNo" column="SEAT_NO"/>
+		<result property="amount" column="AMOUNT"/>	
+	</resultMap>
+	
+	   <insert id="insertTicketing" parameterType="Ticketing"
+	      useGeneratedKeys="true" keyProperty="no" keyColumn="TICKET_NO">
+	      INSERT INTO Ticketing (
+	         TICKET_NO,
+	         MOVIE_TITLE,
+	         CINEMA_NAME,
+	         SHOW_DATE,
+	         TICKET_DATE,
+	         MEMBER_NO,
+	         SHOW_NO,
+	         STATUS,
+	         SEAT_NO,
+	         AMOUNT
+	      )
+	      VALUES(
+	         SEQ_TICKETING_NO.NEXTVAL,
+	         #{movieTitle},
+	         #{cinemaName},
+	         #{showDate},
+	         #{ticketDate},
+	         #{memberNo},
+	         #{showNo},
+	         DEFAULT,
+	         #{seatNo},
+	         #{amount}
+	      )
+	   </insert>
+	
 </mapper>
