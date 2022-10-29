@@ -19,6 +19,7 @@ import com.kh.sum.member.model.vo.Member;
 import com.kh.sum.movie.model.service.MovieListService;
 import com.kh.sum.movie.model.vo.MovieList;
 import com.kh.sum.myPage.model.vo.Ticketing;
+import com.kh.sum.ticketing.model.service.TicketingService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +27,9 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/ticket")
 public class TicketingController {
+	
+    @Autowired
+    private TicketingService service;
 	
     @Autowired
     private MemberService memberService;
@@ -81,19 +85,29 @@ public class TicketingController {
 	
 	// payment
 	@GetMapping("/payment")
-	public String payment() {
+	public ModelAndView payment(ModelAndView model, @ModelAttribute Ticketing ticketing) {
 		
-		
-	return "/ticket/payment";
+	    model.addObject("ticketing", ticketing);
+		model.setViewName("/ticket/payment");
+			
+		return model;
 	}
 	
 
 	
 	// approve
 	@GetMapping("/approve")
-	public String approve() {
-	    
-	return "/ticket/approve";
+	public ModelAndView approve(ModelAndView model, 
+			@ModelAttribute Ticketing ticketing) {
+		
+		int result = 0;
+		
+		result = service.setTicketing(ticketing);
+		
+	    model.addObject("ticketing", ticketing);
+		model.setViewName("/ticket/approve");
+			
+		return model;
 	}
 	
 	

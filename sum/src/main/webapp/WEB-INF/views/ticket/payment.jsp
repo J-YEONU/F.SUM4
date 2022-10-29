@@ -77,6 +77,15 @@
 		<button type="submit" class="btn1" id="final-submit">결제</button>
 		<button type="submit" class="btn2">취소</button>
 	</div>
+	
+	<form action="${ path }/ticket/approve" method="get" id="paymentForm">
+		<input type="hidden" name="movieTitle" value="${ticketing.movieTitle }">
+		<input type="hidden" name="cinemaName" value="${ticketing.cinemaName }">
+		<input type="hidden" name="ticketDate" value="${ticketing.ticketDate }">
+		<input type="hidden" name="showNo" value="${ticketing.showNo }">
+		<input type="hidden" name="seatNo" value="${ticketing.seatNo }">
+		<input type="hidden" name="amount" value="10000">
+	</form>
 </section>
 
 <script>
@@ -118,6 +127,10 @@
         msg += '상점 거래ID : ' + rsp.merchant_uid;
         msg += '결제 금액 : ' + rsp.paid_amount;
         msg += '카드 승인번호 : ' + rsp.apply_num;
+        
+
+        $('#paymentForm').submit();
+        
     } else {
         var msg = '결제에 실패하였습니다.';
         msg += '에러내용 : ' + rsp.error_msg;

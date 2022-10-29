@@ -111,8 +111,9 @@
                         <hr>
                         <div id="member-main-container" class="">
                             <div id="member-select">
-                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="...">회원 : </span>
-                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="...">관리자 : </span>
+                                <span class="float-end"><img src="${ path }/resources/image/ghost.png" class="iconimages float-end" alt="..."><strong>&nbsp;&nbsp;탈퇴 회원&nbsp;:&nbsp; </strong></span>
+                                <span class="float-end"><img src="${ path }/resources/image/admin.png" class="iconimages float-end" alt="..."><strong>&nbsp;&nbsp;관리자&nbsp;:&nbsp;</strong></span>
+                                <span class="float-end"><img src="${ path }/resources/image/member.png" class="iconimages float-end" alt="..."><strong> 회원&nbsp;&nbsp;:&nbsp;&nbsp;</strong></span>
                             </div>
                         <br><br>
                         <div class="card mb-4" id="member-board">
@@ -157,14 +158,14 @@
                                                 <tr>
                                                     <td>${ m.no }</td>
                                                     <c:choose>
-						                         		<c:when test="${ m.role == 'ROLE_ADMIN' }">
-	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
-						                         		</c:when>
-						                         		<c:when test="${ m.role != 'ROLE_UESR' }">
-	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
-						                         		</c:when>
 						                         		<c:when test="${ m.status == 'N' }">
 	                                                    	<td><img src="${ path }/resources/image/ghost.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ m.role == 'ROLE_ADMIN' and m.status == 'Y' }">
+	                                                    	<td><img src="${ path }/resources/image/admin.png" class="iconimages"></td>
+						                         		</c:when>
+						                         		<c:when test="${ m.role != 'ROLE_UESR' and m.status == 'Y' }">
+	                                                    	<td><img src="${ path }/resources/image/member.png" class="iconimages"></td>
 						                         		</c:when>
 					                         		</c:choose>
                                                     <td>${ m.id }</td>

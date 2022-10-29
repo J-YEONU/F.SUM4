@@ -50,7 +50,8 @@
 			   MEMBER_NAME,
 			   MEMBER_DATE,
 			   MEMBER_EMAIL,
-			   MEMBER_GENRE
+			   MEMBER_GENRE,
+			   STATUS
 		FROM MEMBER
 	</select>
 
@@ -72,7 +73,7 @@
 	
 	<!-- 회원 탈퇴 쿼리문 -->
 	<update id="deleteMember">
-		UPDATE MEMBER SET STATUS = #{status} WHERE MEMBER_NO = #{no}	
+		UPDATE MEMBER SET STATUS = 'N' WHERE MEMBER_NO = #{no}	
 	</update>
 
 	<!-- 회원 관리자 변경 쿼리문 -->
