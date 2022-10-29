@@ -187,6 +187,7 @@ public class AdminServiceImpl implements AdminService {
         } else {
             // insert
             result = mapper.insertCinema(cinema);
+            System.out.println(cinema);
         }
         return result;
     }

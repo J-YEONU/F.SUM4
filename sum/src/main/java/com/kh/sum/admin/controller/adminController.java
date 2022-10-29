@@ -290,6 +290,7 @@ public class adminController {
             @ModelAttribute Cinema cinema,
             @RequestParam("upfile") MultipartFile upfile) {
         int result = 0;
+        System.out.println(cinema);
         
 //      파일을 업로드하지 않으면 true, 파일을 업로드하면 false
         log.info("Upfile is Empty : {}", upfile.isEmpty());

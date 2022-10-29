@@ -123,7 +123,7 @@
                                 <div id="bottom-container">
                                 <div id="summernote" class="summernote">
                                 <input type="text" name="content" id="content"
-							value="${ notice.content }" style="width: 708px; height: 256px; border: 0px;">
+									value="${ notice.content }" style="width: 708px; height: 256px; border: 0px;">
                                 </div>
                             </div>
                             </div>

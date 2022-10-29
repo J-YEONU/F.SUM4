@@ -19,14 +19,11 @@
         <div id="map" style="width:600px;height:400px; margin:auto; margin-top:10px;">
         </div>
 
-        <div class="plot_div">
-            <h3><img id="tag" src="${ path }/resources/image/cinema/bus.jpg">교통안내</h3>
-            <div>교통편 설명</div>
-        </div>
+    
         <hr>
         <div class="plot_div">
             <h3><img id="tag" src="${ path }/resources/image/cinema/car.jpg">주차안내</h3>
-            <div>주차 설명</div>
+            <div>${ cinemaDetail.cinemaContent }</div>
         </div>
         <hr>
 

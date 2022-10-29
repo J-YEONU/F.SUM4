@@ -143,14 +143,13 @@
                                 <div>영화관 Y좌표 : <input type="text" name="mapY"></div>
                             </div>
 
-                            <div id="bottom-container">
-                                상세내용 :
-                                <div id="summernote" class="summernote" name="cinemaContent"></div>
+                            <div>
+                            	<textarea id="summernote" class="summernote" name="cinemaContent"></textarea>
                             </div>
                         </div>
                     <br>
                     <div class="btnzone">
-                        <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
+                        <button type="submit" class="btn btn-warning btnsize"> 등록 </button>
                         <button type="reset" class="btn btn-light btnsize"> 취소 </button>
                     </div>    
                   </form>
