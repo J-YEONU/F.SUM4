@@ -40,7 +40,7 @@
 			<ul class="swiper-wrapper">
 					<c:forEach var="movieList" items="${ mlist }">
 				<li class="swiper-slide">
-							<div id="wrap" class="movie mprint" value="${ movieList.movieTitle }">
+							<div id="wrap" class="movie">
 					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
 					        	 	<p>${ movieList.movieTitle }</p>
 							</div>
@@ -52,7 +52,7 @@
 		</div>
 		</div>
 <section id="tSection2">	            
-		<div id="choice"><div id="mdiv"></div><p class="mprint">선택하신 영화 :  </p></div>
+		<div id="choice"><p id="Cmovie">선택하신 영화 :  </p></div>
 		<input type="hidden" name="movieTitle" value="공조2">
 	            
 		<!-- cinema choice -->
@@ -167,7 +167,7 @@
 		
 	    
 	            
-		<div id="choice" class="mprint"><p>선택하신 시간 : <span></span> </p> <div id="result"> </div></div>
+		<div id="choice"><p>선택하신 시간 : <span></span> </p> <div id="result"> </div></div>
 		<input type="hidden" name="showNo" value="2">
 	
 
@@ -185,39 +185,40 @@
 	<!-- 달력에 현재 일자 스크립트 -->
 	<script>
 		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-	</script>
 	
-	<!-- 클릭 이벤트 -->
-	<script>
 
-	</script>
-	
-	
-	<script>
-	//영화차트 탭 메뉴
-	var movBtn = $(".movie_title > ul > li");
-	var movCont = $(".movie-list > div");
-	
-	movCont.hide().eq(0).show();
-	
-	movBtn.click(function(e){
-	    e.preventDefault(); // 눌렀을 때 위로 안올라감.
-	    var target = $(this); // 사용자가 몇번째 버튼을 클릭했는지 알 수 있음.
-	    var index = target.index();
-	    movBtn.removeClass("active"); // 클릭하지 않은 부분 active 제거
-	    target.addClass("active"); // 클릭한 부분에 active 추가
-	    movCont.css("display","none");
-	    movCont.eq(index).css("display","block");
-	});
-	
-	
-      $( document ).ready( function() {
-          var jbText = $( 'div' ).text();
-        } );
+	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
+	document.getElementById("mclick").addEventListener('click', Cmovie);
+	function Cmovie() {
+	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
+	}
+
+       
+       //영화차트 탭 메뉴
+		var movBtn = $(".movie_title > ul > li");
+		var movCont = $(".movie-list > div");
+		
+		movCont.hide().eq(0).show();
+		
+		movBtn.click(function(e){
+		    e.preventDefault(); // 눌렀을 때 위로 안올라감.
+		    var target = $(this); // 사용자가 몇번째 버튼을 클릭했는지 알 수 있음.
+		    var index = target.index();
+		    movBtn.removeClass("active"); // 클릭하지 않은 부분 active 제거
+		    target.addClass("active"); // 클릭한 부분에 active 추가
+		    movCont.css("display","none");
+		    movCont.eq(index).css("display","block");
+		});
+		
+		
+	      $( document ).ready( function() {
+	          var jbText = $( 'div' ).text();
+	          alert( jbText );
+	        } );
 </script>
 
 <script>
-       //영화 목록 swiper
+       //영화차트 이미지 슬라이드
  var swiper = new Swiper(".mySwiper", {
 	 slidesPerView : 6,
         navigation: {

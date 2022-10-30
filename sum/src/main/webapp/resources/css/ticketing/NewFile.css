@@ -46,9 +46,7 @@
 }
 
 #wrap {width:275px; padding-top: 10px; line-height: 50px;
-    text-align: center; cursor: pointer;}
-
-#wrap > p {font-weight: bold;}
+    text-align: center;}
 
 
 
@@ -57,8 +55,6 @@
 
 
 
-
-/* 영화관 */
 .container {
     width: 100%;
     min-width: 1100px;
@@ -72,6 +68,8 @@
     margin: 0;
     padding: 40px 0 0 0;
 }
+
+/* 영화관 */
 
 .movie_title {margin-bottom: 60px;}
 .movie_title ul {overflow: hidden; width: 1050px; margin: 0 auto;}
