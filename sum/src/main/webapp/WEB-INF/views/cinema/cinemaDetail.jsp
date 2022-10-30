@@ -28,7 +28,7 @@
         <hr>
 
         <div class="button_area">
-            <button>목록</button>
+            <button onclick="location.href='${ path }/cinema/cinema'">목록</button>
         </div>
     </div>
     
