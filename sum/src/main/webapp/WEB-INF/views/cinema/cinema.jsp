@@ -18,7 +18,7 @@
       <div><img src="${ path }/resources/image/cinema/cinema.png"></div>
 
     <div id="contents">
-      <div id="tagtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화관 선택</div>
+      <div id="tagtitle"><img src="${ path }/resources/image/tag.png" id="tag"> 영화관</div>
             <div class="movie_title">
                 <ul>
                     <li class="active"><a href="#">서울</a></li>
