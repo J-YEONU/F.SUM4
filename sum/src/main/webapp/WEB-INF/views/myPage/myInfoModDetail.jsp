@@ -25,7 +25,7 @@
     <hr>
     <h3>정보 수정</h3>
 	<div id="enroll-container">	 	
-        <form id="updateForm" action="${ path }/member/update" method="post">
+        <form id="updateForm"  method="post">
             <table style="margin-left:auto;margin-right:auto;">
                 <tr>
 					<th>
@@ -147,7 +147,7 @@
                 </tr>
             </table>
             <div class="join">
-			<input type="submit" value="수정">	
+			<input type="button" class="join_button" id="enrollSubmit" value="수정">	
             <input type="button" id="btnDelete" value="탈퇴">	
 			</div>
 		</form>
@@ -171,7 +171,7 @@
 				
 				$.ajax({
 					type: "POST",
-					url: "${ path }/member/emailCheck",
+					url: "${ path }/member/emailCheck1",
 					dataType: "json",
 					data: {
 						userEmail // "userEmail": userEmail
@@ -180,7 +180,13 @@
 						console.log(obj);
 						
 						if(obj.duplicate === true) {
-							alert("이미 사용중인 이메일 입니다.");
+							if(obj.dupLoginM === true){
+								// 로그인멤버랑 같으면 사용가능 이메일
+								$('#checkDuplicateE').attr('value','검사완료');	
+							}else {	
+								// 로그인멤버랑 다르면 이미 사용중인 이메일
+								alert("이미 사용중인 이메일 입니다.");
+							}							
 						} else {
 							$('#checkDuplicateE').attr('value','검사완료');
 							
@@ -203,7 +209,7 @@
 				
 				$.ajax({
 					type: "POST",
-					url: "${ path }/member/phoneCheck",
+					url: "${ path }/member/phoneCheck1",
 					dataType: "json",
 					data: {
 						userPhone
@@ -212,7 +218,13 @@
 						console.log(obj);
 						
 						if(obj.duplicate === true) {
-							alert("이미 사용중인 전화번호 입니다.");
+							if(obj.dupLoginMP){
+								// 로그인 멤버랑 같으면 사용가능 폰번호
+								$('#checkDuplicateP').attr('value','검사완료');
+							}else{
+								// 로그인 멤버랑 다르면 이미 사용중인 폰번호							
+								alert("이미 사용중인 전화번호 입니다.");
+							}
 						} else {
 							$('#checkDuplicateP').attr('value','검사완료');
 							
@@ -256,27 +268,23 @@
 			});
 		});
 	</script>
-<!-- 	<script>
+ 	<script>
 		$(document).ready(function(){
 			//회원가입 버튼(회원가입 기능 작동)
 			$(".join_button").click(function(){
-				if($("#checkDuplicateId").val() == "검사완료"){
 					if($("#checkDuplicateE").val() == "검사완료"){
 						if($("#checkDuplicateP").val() == "검사완료"){
 						//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
-							$("#join_form").attr("action", "${ path }/member/enroll");
-							$("#join_form").submit();
+							$("#updateForm").attr("action", "${ path }/member/update");
+							$("#updateForm").submit();
 						}else{
 							alert("핸드폰 번호 중복검사를 해주세요.")
 						}					
 					}else{
 						alert("이메일 중복검사를 해주세요.")
 					}
-				}else{
-					alert("아이디 중복검사를 해주세요.")
-				}
 			});
 		});
-	</script> -->
+	</script>
 </body>
 </html>

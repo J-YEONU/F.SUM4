@@ -24,5 +24,9 @@ public interface MemberService {
 
 	int delete(int no);
 
+	Boolean isDuplicateM(String userEmail, Member loginMember);
+
+	Boolean isDuplicateMP(String userPhone, Member loginMember);
+
 	
 }

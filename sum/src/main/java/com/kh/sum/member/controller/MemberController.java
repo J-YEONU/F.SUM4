@@ -305,13 +305,34 @@ public class MemberController {
 
 	@PostMapping("/member/emailCheck")
 //	@ResponseBody을 사용하지 않고 ResponseEntity를 사용하는 방법 ( jackson 추가하고 사용하기)
-	public ResponseEntity<Map<String, Boolean>> emailCheck(@RequestParam String userEmail,
-			@SessionAttribute(required = false, name = "loginMember") Member loginMember) {
+	public ResponseEntity<Map<String, Boolean>> emailCheck(@RequestParam String userEmail) {
 		log.info("{}", userEmail);
 			
 		Map<String, Boolean> map = new HashMap<>();
 		
 		map.put("duplicate", service.isDuplicateEmail(userEmail));
+		
+		/*
+		 * ResponseEntity
+		 * 	- 사용자의 요청에 대한 응답(상태 코드, 헤더, 바디)을 한 번에 설정하는 객체이다.
+		 */
+//		return ResponseEntity.ok()
+//							 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+//							 .body(map);
+		return new ResponseEntity<Map<String,Boolean>>(map, HttpStatus.OK);		
+	}
+	
+	@PostMapping("/member/emailCheck1")
+//	@ResponseBody을 사용하지 않고 ResponseEntity를 사용하는 방법 ( jackson 추가하고 사용하기)
+	public ResponseEntity<Map<String, Boolean>> emailCheck1(@RequestParam String userEmail,
+			@SessionAttribute(required = false, name = "loginMember") Member loginMember) {
+		log.info("{}", userEmail);
+		
+		Map<String, Boolean> map = new HashMap<>();
+		
+		map.put("duplicate", service.isDuplicateEmail(userEmail));
+		map.put("dupLoginM", service.isDuplicateM(userEmail,loginMember));
+		
 		
 		/*
 		 * ResponseEntity
@@ -331,6 +352,26 @@ public class MemberController {
 		Map<String, Boolean> map = new HashMap<>();
 		
 		map.put("duplicate", service.isDuplicatePhone(userPhone));
+		
+		/*
+		 * ResponseEntity
+		 * 	- 사용자의 요청에 대한 응답(상태 코드, 헤더, 바디)을 한 번에 설정하는 객체이다.
+		 */
+//		return ResponseEntity.ok()
+//							 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+//							 .body(map);
+		return new ResponseEntity<Map<String,Boolean>>(map, HttpStatus.OK);		
+	}
+	@PostMapping("/member/phoneCheck1")
+//	@ResponseBody을 사용하지 않고 ResponseEntity를 사용하는 방법 ( jackson 추가하고 사용하기)
+	public ResponseEntity<Map<String, Boolean>> phoneCheck1(@RequestParam String userPhone,
+			@SessionAttribute(required = false, name = "loginMember") Member loginMember) {
+		log.info("{}", userPhone);
+		
+		Map<String, Boolean> map = new HashMap<>();
+		
+		map.put("duplicate", service.isDuplicatePhone(userPhone));
+		map.put("dupLoginMP", service.isDuplicateMP(userPhone,loginMember));
 		
 		/*
 		 * ResponseEntity

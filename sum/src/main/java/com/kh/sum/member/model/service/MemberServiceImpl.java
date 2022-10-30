@@ -126,4 +126,16 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@Override
+	public Boolean isDuplicateM(String userEmail, Member loginMember) {
+
+		return loginMember.getEmail().equals(userEmail);
+	}
+
+	@Override
+	public Boolean isDuplicateMP(String userPhone, Member loginMember) {
+
+		return loginMember.getPhone().equals(userPhone);
+	}
+
 }
