@@ -1,12 +1,19 @@
 package com.kh.sum.admin.model.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.util.List;
+import java.util.UUID;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.ibatis.session.RowBounds;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.sum.admin.model.mapper.AdminMapper;
 import com.kh.sum.admin.model.vo.Notice;
@@ -195,6 +202,31 @@ public class AdminServiceImpl implements AdminService {
 	public int updateReadCount(int no) {
 	
 		return mapper.updateReadCount(no);
+	}
+
+	@Override
+	public JSONObject SummerNoteImageFile(MultipartFile file) {
+		JSONObject jsonObject = new JSONObject();
+		String fileRoot = "C:\\summernoteImg\\";
+		String originalFileName = file.getOriginalFilename();
+		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
+		
+		String saveFileName = UUID.randomUUID()+extension;
+			
+		File targetFile = new File(fileRoot+saveFileName);
+		
+		/*
+		 * try { InputStream fileStream = file.getInputStream();
+		 * FileUtils.copyInputStreamToFile(fileStream, targetFile);
+		 * jsonObject.addProperty("url", "/summernoteImg/"+saveFileName);
+		 * jsonObject.addProperty("responseCode", "succcess"); } catch(IOException e) {
+		 * FileUtils.deleteQuietly(targetFile); jsonObject.addProperty("responseCode",
+		 * "error"); e.printStackTrace(); }
+		 */
+		return jsonObject;
+
+
+
 	}
 
 

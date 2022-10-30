@@ -133,10 +133,10 @@
                                 </div>
                             <hr>
                             <div id="bottom-container">
-                                <div id="summernote" class="summernote">
-                                <input type="text" name="content" id="content"
-							value="${ qna.content }" style="width: 708px; height: 256px;">
-                                </div>
+
+                            <div>
+                            	<textarea id="summernote" class="summernote" name="content">${ qna.content }</textarea>
+                            </div>
                             </div>
                         </div>
                         <br>

@@ -121,10 +121,11 @@
                                 </div>
                                 <br>
                                 <div id="bottom-container">
-                                <div id="summernote" class="summernote" style="border: 2px solid black; border-radius: 3px">
-                                <input type="text" name="content" id="content"
-									value="${ notice.content }" style="width: 708px; height: 256px; border: 0px;">
-                                </div>
+                                
+                                <div>
+                            		<textarea id="summernote" class="summernote" name="content">${ notice.content }</textarea>
+                            	</div>
+                            	
                             </div>
                             </div>
                             

@@ -146,7 +146,7 @@
 					                         	<td>진행중</td>
 				                         	</c:when>
 				                         	<c:when test="${ qna.answerStatus == 'Y'.charAt(0) }">
-					                         	<td class="td4">답변완료</td>
+					                         	<td class="td4" style="color: red;">답변완료</td>
 				                         	</c:when>
 			                         	</c:choose>
 				                    </tr>

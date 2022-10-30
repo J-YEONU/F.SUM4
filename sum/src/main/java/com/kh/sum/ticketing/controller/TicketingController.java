@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -73,7 +74,7 @@ public class TicketingController {
 
 
 	// seat
-	@GetMapping("/seat")
+	@PostMapping("/seat")
 	public ModelAndView seat(ModelAndView model, @ModelAttribute Ticketing ticketing) {
 			
     model.addObject("ticketing", ticketing);
@@ -84,7 +85,7 @@ public class TicketingController {
 	
 	
 	// payment
-	@GetMapping("/payment")
+	@PostMapping("/payment")
 	public ModelAndView payment(ModelAndView model, @ModelAttribute Ticketing ticketing) {
 		
 	    model.addObject("ticketing", ticketing);
@@ -96,7 +97,7 @@ public class TicketingController {
 
 	
 	// approve
-	@GetMapping("/approve")
+	@PostMapping("/approve")
 	public ModelAndView approve(ModelAndView model, 
 			@ModelAttribute Ticketing ticketing) {
 		

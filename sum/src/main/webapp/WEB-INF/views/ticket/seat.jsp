@@ -58,14 +58,15 @@
 	</div>
 
 	<div id="choice">
-		<p>선택하신 좌석 :&nbsp; <div id="result"> </div>
+		<p>선택하신 좌석 :&nbsp; <span id="result"> </span>
 	</div>
-<form action="${ path }/ticket/payment" method="get">
+<form action="${ path }/ticket/payment" method="post">
 	<input type="hidden" name="movieTitle" value="${ticketing.movieTitle }">
+	<input type="hidden" name="memberNo" value="${ticketing.memberNo }">
 	<input type="hidden" name="cinemaName" value="${ticketing.cinemaName }">
-	<input type="hidden" name="ticketDate" value="${ticketing.ticketDate }">
+	<input type="hidden" name="showDate" value="${ticketing.showDate }">
 	<input type="hidden" name="showNo" value="${ticketing.showNo }">
-	<input type="hidden" name="seatNo" value="M-5">
+	<input type="hidden" name="seatNo" value="M-4">
 
 	<div id="btn">
 		<button type="submit" id="btn1" class="btn" onclick="location.href='${ path }/ticket/ticketing'">

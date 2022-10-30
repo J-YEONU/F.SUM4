@@ -134,11 +134,46 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script>
-            $('#summernote').summernote({
-            placeholder: '공지사항 내용을 작성해 주세요.',
-            tabsize: 2,
-            height: 200
-            });
+
+				$('#summernote').summernote({
+		            tabsize: 2,
+					height: 200,                 // 에디터 높이
+					minHeight: null,             // 최소 높이
+					maxHeight: null,             // 최대 높이
+					focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+					lang: "ko-KR",					// 한글 설정
+					placeholder: '공지사항 내용을 작성해 주세요.',	//placeholder 설정
+					callbacks: {	//이미지 첨부하는 부분
+			               onImageUpload : function(files) {
+			                    uploadSummernoteImageFile(files[0],this);
+			                }
+			            }
+		});
+        			        
+        			        
+
+			/**
+			* 이미지 파일 업로드
+			*/
+			function uploadSummernoteImageFile(file, editor) {
+	            data = new FormData();
+	            data.append("file", file);
+	            $.ajax({
+	                data : data,
+	                type : "POST",
+	                url : "/uploadSummernoteImageFile",
+	                contentType : false,
+	                processData : false,
+	                success : function(data) {
+	                    //항상 업로드된 파일의 url이 있어야 한다.
+	                    $(editor).summernote('insertImage', data.url);
+	                }
+	            });
+	        }
+			
+
+
+
         </script>
     </body>
 </html>
