@@ -94,12 +94,14 @@
 	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h4><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h4>
+	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
+	                            <!--  
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            -->
 	                            
 	                        </div>
 	                        
@@ -119,21 +121,23 @@
 	                        <div class="infor">
 	                        
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h3><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h3><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h3><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h3><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h3>
+	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
+	                            <!--  
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            -->
 	                            
 	                        </div>
 	                        
@@ -180,12 +184,12 @@
             <h4><img id="tag" src="${ path }/resources/image/tag.png" alt="세모아이콘"> <strong>커뮤니티</strong></h4>
         </div>
         <div class="row">
-        <div class="comunity">
+        <div class="comunity" style="width: 1100px">
                 <div class="cell notice">
                     <img src="${ path }/resources/image/main/notice_ico.png" alt="notice아이콘">
                     <div>
-                        2022-08-23<br>
-                        'Support Ur Movie'에서<br>
+                        2022-10-31<br>
+                        SUM에서<br>
                         소식을 만나보세요.
                         <br>
                         <a href="#">
@@ -209,9 +213,10 @@
                     <img src="${ path }/resources/image/main/inquiry_ico.png" alt="inquiry아이콘">
                     <div>
                         1:1 상담<br>
-                        문의사항이나 불편사항을<br>
+                        문의사항이나 <br> 
+                        불편사항을<br>
                         이곳에 남겨주세요.
-                        <br>
+                        
                         <a href="#">
                             1:1 문의 >
                         </a>

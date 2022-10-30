@@ -38,5 +38,11 @@ public class MovieListServiceImpl implements MovieListService {
 		return mapper.getMoviebyGenre(genre);
 	}
 
+	@Override
+	public List<MovieList> select4f() {
+		// TODO Auto-generated method stub
+		return mapper.select4f();
+	}
+
 
 }

@@ -19,11 +19,13 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView model) {
 		List<MovieList> list = null;
+		List<MovieList> list1 = null;
 		list = service.select4();
+		list1 = service.select4f();
 		
 		model.addObject("list", list);
+		model.addObject("list1", list1);
 		model.setViewName("home");
-		System.out.println(list);
 		return model;
 	}
 	

@@ -32,3 +32,9 @@ body {
     right: -5px;
     top: 0;
 }
+
+#findId_button {
+	position: absolute;
+    right: 600px;
+
+}

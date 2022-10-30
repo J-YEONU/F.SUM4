@@ -305,7 +305,8 @@ public class MemberController {
 
 	@PostMapping("/member/emailCheck")
 //	@ResponseBody을 사용하지 않고 ResponseEntity를 사용하는 방법 ( jackson 추가하고 사용하기)
-	public ResponseEntity<Map<String, Boolean>> emailCheck(@RequestParam String userEmail) {
+	public ResponseEntity<Map<String, Boolean>> emailCheck(@RequestParam String userEmail,
+			@SessionAttribute(required = false, name = "loginMember") Member loginMember) {
 		log.info("{}", userEmail);
 			
 		Map<String, Boolean> map = new HashMap<>();

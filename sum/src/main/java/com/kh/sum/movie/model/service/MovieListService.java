@@ -13,6 +13,8 @@ public interface MovieListService {
 	List<MovieList> getMoviebyGenre(String genre);
 	
 	List<MovieList> select4();
+
+	List<MovieList> select4f();
 	
 
 }

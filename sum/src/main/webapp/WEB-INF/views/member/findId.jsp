@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="${ path }/resources/css/member/enroll.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -63,7 +64,7 @@
 			</table>
 			<div>
 				<input type="submit" class="findId_button" id="findId_button"
-					value="아이디 찾기"> <input type="reset" value="취소">
+					value="아이디 찾기">
 			</div>
 		</form>
 	</div>

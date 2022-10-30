@@ -206,7 +206,7 @@
 					url: "${ path }/member/phoneCheck",
 					dataType: "json",
 					data: {
-						userPhone // "userId": userId
+						userPhone
 					},
 					success: (obj) => {
 						console.log(obj);

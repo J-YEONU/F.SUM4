@@ -145,7 +145,7 @@ li {
 
 
 /* 이벤트 */
-#event {padding: 100px 0;}
+#event {padding-bottom: 100px; padding-top: 50px;}
 #event {display: inline-block;}
 #event h2 {font-size: 30px; font-weight: 500; margin-bottom: 20px;}
 #event .event_left {overflow: hidden; float: left; width: 700px; margin-right: 2%;}

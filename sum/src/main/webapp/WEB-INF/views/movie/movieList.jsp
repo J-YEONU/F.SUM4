@@ -95,10 +95,12 @@
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
 	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
+	                            <!--  
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            -->
 	                            
 	                        </div>
 	                        
@@ -129,10 +131,12 @@
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
 	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
+	                            <!--  
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            -->
 	                            
 	                        </div>
 	                        
@@ -172,10 +176,12 @@
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
 	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
 	                            </c:if>
+	                            <!--  
 	                            <div class="movie_info">
 	                               <span>예매율  %</span>
 	                               <span>관람평점 </span>
 	                            </div>
+	                            -->
 	                            
 	                        </div>
 	                    </li>

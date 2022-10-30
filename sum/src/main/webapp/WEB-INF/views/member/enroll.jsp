@@ -205,29 +205,32 @@
 		$(document).ready(() => {
 			$("#checkDuplicateE").on("click", () => {
 				let userEmail = $("#email").val().trim();			
-				
-				$.ajax({
-					type: "POST",
-					url: "${ path }/member/emailCheck",
-					dataType: "json",
-					data: {
-						userEmail // "userEmail": userEmail
-					},
-					success: (obj) => {
-						console.log(obj);
-						
-						if(obj.duplicate === true) {
-							alert("이미 사용중인 이메일 입니다.");
-						} else {
-							$('#checkDuplicateE').attr('value','검사완료');
+				if(userEmail){
+					$.ajax({
+						type: "POST",
+						url: "${ path }/member/emailCheck",
+						dataType: "json",
+						data: {
+							userEmail // "userEmail": userEmail
+						},
+						success: (obj) => {
+							console.log(obj);
 							
-							alert("사용 가능한 이메일 입니다.");
+							if(obj.duplicate === true) {
+								alert("이미 사용중인 이메일 입니다.");
+							} else {
+								$('#checkDuplicateE').attr('value','검사완료');
+								
+								alert("사용 가능한 이메일 입니다.");
+							}
+						}, 
+						error: (error) => {
+							console.log(error);
 						}
-					}, 
-					error: (error) => {
-						console.log(error);
-					}
-				});
+					});
+				} else {
+					alert("email 입력해주세요.");
+				}
 			});
 		});
 	</script>
@@ -237,29 +240,32 @@
 		$(document).ready(() => {
 			$("#checkDuplicateP").on("click", () => {
 				let userPhone = $("#phone").val().trim();			
-				
-				$.ajax({
-					type: "POST",
-					url: "${ path }/member/phoneCheck",
-					dataType: "json",
-					data: {
-						userPhone // "userId": userId
-					},
-					success: (obj) => {
-						console.log(obj);
-						
-						if(obj.duplicate === true) {
-							alert("이미 사용중인 전화번호 입니다.");
-						} else {
-							$('#checkDuplicateP').attr('value','검사완료');
+				if(userPhone){
+					$.ajax({
+						type: "POST",
+						url: "${ path }/member/phoneCheck",
+						dataType: "json",
+						data: {
+							userPhone // "userId": userId
+						},
+						success: (obj) => {
+							console.log(obj);
 							
-							alert("사용 가능한 전화번호 입니다.");
+							if(obj.duplicate === true) {
+								alert("이미 사용중인 전화번호 입니다.");
+							} else {
+								$('#checkDuplicateP').attr('value','검사완료');
+								
+								alert("사용 가능한 전화번호 입니다.");
+							}
+						}, 
+						error: (error) => {
+							console.log(error);
 						}
-					}, 
-					error: (error) => {
-						console.log(error);
-					}
-				});
+					});
+				} else {
+					alert("Phone 입력해주세요.");
+				}
 			});
 		});
 	</script>
