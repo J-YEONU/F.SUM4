@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
+        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css?after">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         
         <!-- 썸머노트 -->
@@ -119,23 +119,51 @@
                         <div id="pageMain" class="pageMain">
 
                             <div>
+                            <table class="pageTable" style=" margin-left: auto; margin-right: auto; margin-bottom: 25px;">
                                 <div>
-                                    영화이름 : <input type="text" name="movieTitle">
+                                <tr>
+                                    <th>영화이름 :</th> 
+                                    <td>
+                                    	<input type="text" name="movieTitle">
+                                	</td>
+                                </tr>
                                 </div>
                                 <div>
-                                    장르 : <input type="text" name="movieGenre">
+                                <tr>
+                                	<th>장르 :</th>
+                                    <td>
+                                    	<input type="text" name="movieGenre">
+                                	</td>
+                                </tr>
                                 </div>
                                 <div class="date_input">
-                                    개봉일 : <input type="date" id="date" name="movieRelease" >
+                                <tr>
+                                </tr>
+                                    <th>개봉일 : </th>
+                                    <td>
+                                    	<input type="date" id="date" name="movieRelease" >
+                                	</td>
                                 </div> 
                                  <div>
-                                    감독 : <input type="text" name="movieDirector">
+                                 <tr>
+                                    <th>감독 : </th>
+                                    <td>
+                                    	<input type="text" name="movieDirector">
+                                 	</td>
+                                 </tr>
                                 </div>
                                 <div>
-                                    출연진 : <input type="text" name="movieCast">
+                                <tr>
+                                	<th>출연진 : </th>
+                                    <td>
+	                                    <input type="text" name="movieCast">
+                                    </td>
+                                </tr>
                                 </div>
                                 <div class="">
-                                    등급 : 
+                                <tr>
+                                    <th>등급 :</th> 
+                                    <td>
                                     <select name=movieRating id="area" >
                                         <option selected name="movieRating">연령제한</option>
                                         <option value="전체">전체 이용가</option>
@@ -143,39 +171,70 @@
                                         <option value="15">15</option>
                                         <option value="청불">19</option>
                                     </select>
+                                    </td>
+                                </tr>
                                 </div>
                             <div>
-                                동영상 URL : <input type="text" name="movieTrailer">
+                            <tr>
+                                <th>동영상 URL :</th>
+                                <td> 
+                                	<input type="text" name="movieTrailer">
+                            	</td>
+                            </tr>
                             </div>
                             <div>
-                                영화 포스터 사진 : <label for=""></label> <input type="file" name="poster">
+                            <tr>
+                                <th>영화 포스터 사진 :</th> 
+                                <td><label for=""></label> <input type="file" name="poster">
+                            	</td>
+                            </tr>
                             </div>
                             <div class="col">
                                 <div class="fileboxBtn">
                                     <div>
+                                    <tr>
+                                    <th><td>
                                         <label for="uploadImages1"><i class="bi bi-image"></i> 사진 등록 1</label>
                                         <input name="upfile1" type="file" id="uploadImages1"> 
                                         <label for="uploadImages2"><i class="bi bi-image-fill"></i> 사진 등록 2</label>
                                         <input name="upfile2" type="file" id="uploadImages2"> 
+                                    </td>
+                                    </th>
+                                    </tr>
                                     </div>
                                     <div style="margin-top: 10px;">
+                                    <tr>
+                                    <th><td>
                                         <label for="uploadImages3"><i class="bi bi-image-fill"></i> 사진 등록 3</label>
                                         <input name="upfile3" type="file" id="uploadImages3"> 
                                         <label for="uploadImages4"><i class="bi bi-image"></i> 사진 등록 4</label>
                                         <input name="upfile4" type="file" id="uploadImages4"> 
+                                    </td>
+                                    </th>
+                                    </tr>
                                     </div>
-                                    <p class="subText">* 최대 4장 4MB 이하</p>
+                                    <tr><th><td>
+                                    <p style="text-align: center; color: red;" class="subText">* 최대 4장 4MB 이하</p>
+                                	</td></th></tr>
                                 </div>
                             </div>
                             <div>
-                                무비로드 대표사진 : <label for=""></label> <input type="file">
+                            <tr>
+                                <th>무비로드 대표사진 : </th>
+                                <td>
+                                	<label for=""></label> <input type="file">
+                            	</td>
+                            </tr>
                             </div>
                             <div>
-                                줄거리 상세 :
+                            <tr>
+                                <th>줄거리 상세 :</th>
+                            </div>
+                            </tr>
+                            </table>
                                 <div>
                                     <textarea id="summernote" class="summernote" name="movieComment"></textarea>
                                 </div>
-                            </div>
                             <br>
                             <div class="btnzone">
                                 <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
