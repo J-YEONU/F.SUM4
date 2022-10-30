@@ -1,30 +1,20 @@
 package com.kh.sum.admin.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.FileUtils;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.JsonObject;
 import com.kh.sum.admin.model.service.AdminService;
 import com.kh.sum.admin.model.vo.Notice;
 import com.kh.sum.cinema.model.vo.Cinema;
@@ -398,26 +388,49 @@ public class adminController {
 	}
 	
 	@PostMapping("/noticeWrite")
-	public ModelAndView noticeWrite(ModelAndView model, @ModelAttribute Notice notice 
+	public ModelAndView noticeWrite(ModelAndView model, @ModelAttribute Notice notice,
+			@RequestParam("upfile") MultipartFile upfile
 			  ) {
 		int result = 0;
-
-//		notice.setNoticeNo(loginMember.getNo());
-		result = service.save(notice);
+        
+        // 파일을 업로드 했는지 확인 후 파일을 저장
+        if(notice != null && !upfile.isEmpty()) {
+            // 파일을 저장하는 로직 작성
+            String location = null;
+            String renamedImg = null;
+            
+            try {
+                // 포스터 업로드 시 저장할 경로 지정
+                 location = resourceLoader.getResource("resources/image/notice").getFile().getPath();
+                 renamedImg = MultipartFileUtil.save(upfile, location);
+                 
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+            if(renamedImg != null) {
+            	notice.setNoticeImg(upfile.getOriginalFilename());
+            	notice.setRenamedImg(renamedImg);
+            }
+        }
+        
+        result = service.save(notice);
 		
 		if(result > 0) {
 			model.addObject("msg", "게시글이 정상적으로 등록되었습니다.");
-			model.addObject("location", "/admin/adminDetail?no=" + notice.getNoticeNo());
+			model.addObject("location", "/admin/noticeList");
 		} else {
 			model.addObject("msg", "게시글이 등록을 실패하였습니다.");
-			model.addObject("location", "/admin/adminWrite");
+			model.addObject("location", "/admin/noticeList");
 		}
 		
 		
-		model.setViewName("/admin/noticeWrite");
+		model.setViewName("common/msg");
 		
 		return model;
 	}
+	
+	
+	
 	
 	
 	@GetMapping("/noticeUpdate")
@@ -457,7 +470,7 @@ public class adminController {
         return model;
     }
     
-	
+
 	
 	
 

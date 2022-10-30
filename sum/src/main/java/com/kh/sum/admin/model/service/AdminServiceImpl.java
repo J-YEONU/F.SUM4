@@ -204,30 +204,8 @@ public class AdminServiceImpl implements AdminService {
 		return mapper.updateReadCount(no);
 	}
 
-	@Override
-	public JSONObject SummerNoteImageFile(MultipartFile file) {
-		JSONObject jsonObject = new JSONObject();
-		String fileRoot = "C:\\summernoteImg\\";
-		String originalFileName = file.getOriginalFilename();
-		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
-		
-		String saveFileName = UUID.randomUUID()+extension;
-			
-		File targetFile = new File(fileRoot+saveFileName);
-		
-		/*
-		 * try { InputStream fileStream = file.getInputStream();
-		 * FileUtils.copyInputStreamToFile(fileStream, targetFile);
-		 * jsonObject.addProperty("url", "/summernoteImg/"+saveFileName);
-		 * jsonObject.addProperty("responseCode", "succcess"); } catch(IOException e) {
-		 * FileUtils.deleteQuietly(targetFile); jsonObject.addProperty("responseCode",
-		 * "error"); e.printStackTrace(); }
-		 */
-		return jsonObject;
 
 
-
-	}
 
 
 

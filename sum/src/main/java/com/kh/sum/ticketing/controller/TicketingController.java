@@ -97,6 +97,7 @@ public class TicketingController {
 
 	
 	// approve
+	@GetMapping("/approve")
 	@PostMapping("/approve")
 	public ModelAndView approve(ModelAndView model, 
 			@ModelAttribute Ticketing ticketing) {

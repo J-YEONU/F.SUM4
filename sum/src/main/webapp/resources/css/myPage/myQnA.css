@@ -163,3 +163,17 @@ table {
     margin-left: 450px;
     
 }
+
+
+textarea:focus{
+    outline: none;
+}
+
+#writingName:focus{
+    outline: none;
+}
+
+#content{
+	border: none; 
+	resize: none;
+}

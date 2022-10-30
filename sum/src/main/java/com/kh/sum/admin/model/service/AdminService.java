@@ -62,11 +62,6 @@ public interface AdminService {
 	
     int save(Cinema cinema);
 
-	JSONObject SummerNoteImageFile(MultipartFile file);
-
-
-
-	
 
 	
 

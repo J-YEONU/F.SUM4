@@ -145,7 +145,7 @@
 									                    	<td>
 									                    		<input type="checkbox" name="chk" value="${ notice.noticeNo}">
 									                    	</td>
-									                        <td>${ notice.noticeNo }</td>
+									                        <td>${ notice.rowNum }</td>
 									                        <td><a style="text-decoration: none; color: black; " href="${ path }/admin/noticeDetail?no=${ notice.noticeNo }">${ notice.title }</a> </td>
 									                        <td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>
 									                        <td>

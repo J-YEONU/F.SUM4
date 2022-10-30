@@ -30,7 +30,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="4">${ notice.content }</td>
+                        <td colspan="4">
+		                    <c:if test="${not empty notice.renamedImg }">
+		                    <div id="cimg">
+		                    <img alt="??" src="${path }/resources//image/notice/${notice.renamedImg}" style="width: 300px">
+		                    </div>
+		                    </c:if>
+                    	${ notice.content }</td>
                     </tr>
 
                 </tbody>

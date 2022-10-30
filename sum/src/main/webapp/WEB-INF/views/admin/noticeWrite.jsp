@@ -24,6 +24,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+        
+        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
+        <link rel="stylesheet" href="${ path }/resources/css/myPage/myQnA.css?var=1">
     </head>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -113,67 +116,56 @@
                         <h1 class="mt-4">공지사항 등록</h1>
                             * 관리자로 등록된 회원만 등록 할 수 있습니다.
                         <hr>
-                        <form action="${ path }/admin/noticeWrite" method="POST">
-                        <div id="member-main-container" class="">
-                            <div class="container">
-                                <div>
-                                    <strong>제목&nbsp;&nbsp;:&nbsp;&nbsp; </strong><input style="border: 1px solid black; border-radius: 3px; width: 550px; height: 50px" type="text" name="title" id="noticeTitle">
-                                </div>
-                                <br>
-                                <div>
-                                	<textarea id="summernote" class="summernote" name="content"></textarea>
-                                </div>
-                            </div>
+                        <form action="${ path }/admin/noticeWrite" method="POST" enctype="multipart/form-data">
                             
-                            <br>
+			                <table class="board_list" style="margin-bottom: 70px; margin-top: 70px; ">
+				                <thead>
+				                    <tr class="tr1">
+				                        <td >제목</td>
+				                        <td class="whiteTd" colspan="3"><input type="text" placeholder="제목을 입력하세요" name="title" id="writingName" style="width: 400px; border: none;">
+				                        <input type="file" id="writingFile" name="upfile" accept=".gif, .jpg, .png" onchange="readURL(this);"></td>
+				                        
+				                    </tr>
+				                </thead>
+				                <tbody>
+				                    <tr>
+				                        <td colspan="4">
+						                    <div id="cimg">
+						                   	 	<img id="preview">
+						                    </div>
+				                        	<textarea id="content" name="content" cols="100" rows="10"></textarea>
+						                </td>
+				                    </tr>
+				
+				                </tbody>
+			                </table>
+			                
                             <div class="btnzone">
                                 <button type="submit" class="btn btn-warning btnsize" value="등록"> 등록하기 </button>
                                 <button type="reset" class="btn btn-light btnsize" value="취소"> 취소 </button>
                             </div> 
+                            
                         </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script>
-
-				$('#summernote').summernote({
-		            tabsize: 2,
-					height: 200,                 // 에디터 높이
-					minHeight: null,             // 최소 높이
-					maxHeight: null,             // 최대 높이
-					focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-					lang: "ko-KR",					// 한글 설정
-					placeholder: '공지사항 내용을 작성해 주세요.',	//placeholder 설정
-					callbacks: {	//이미지 첨부하는 부분
-			               onImageUpload : function(files) {
-			                    uploadSummernoteImageFile(files[0],this);
-			                }
-			            }
-		});
-        			        
-        			        
-
-			/**
-			* 이미지 파일 업로드
-			*/
-			function uploadSummernoteImageFile(file, editor) {
-	            data = new FormData();
-	            data.append("file", file);
-	            $.ajax({
-	                data : data,
-	                type : "POST",
-	                url : "/uploadSummernoteImageFile",
-	                contentType : false,
-	                processData : false,
-	                success : function(data) {
-	                    //항상 업로드된 파일의 url이 있어야 한다.
-	                    $(editor).summernote('insertImage', data.url);
-	                }
-	            });
-	        }
-			
-
-
-
-        </script>
+        <script type="text/javascript">
+    	
+    	function readURL(input) {
+    		  if (input.files && input.files[0]) {
+    		    var reader = new FileReader();
+    		    
+    		    reader.onload = function(e) {
+    		    	let img = document.getElementById('preview');
+    		      	img.src = e.target.result;
+    		      	img.style.width = "300px";
+    		      	img.style.height = "auto";
+    		    };
+    		    reader.readAsDataURL(input.files[0]);
+    		  } else {
+    		    document.getElementById('preview').src = "";
+    		  }
+    		}
+    
+    </script>   
     </body>
 </html>
