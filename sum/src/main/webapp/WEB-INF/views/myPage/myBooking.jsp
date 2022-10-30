@@ -55,8 +55,8 @@
 		                        <td>${ ticketing.rowNum }</td>
 		                        <td> <a href="${ path }/ticket/approve"> ${ ticketing.no }</a> </td>
 		                        <td>${ ticketing.movieTitle } / ${ ticketing.cinemaName }</td>
-		                        <td><fmt:formatDate type="date" value="${ ticketing.showDate }"/></td>
-		                        <td><fmt:formatDate type="date" value="${ ticketing.ticketDate }"/></td>
+		                        <td>${ ticketing.showDate }</td>
+		                        <td>${ ticketing.ticketDate }</td>
 		                        <td>
 		                            <a class="td_a" href="#">예매취소</a>
 		                        </td>

@@ -20,7 +20,7 @@
 #bottom {margin-bottom: 90px; line-height: 10px}
 
 /* choice */
-#choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
+#choice, #choiceCinema {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
         border-radius: 4px;}
 #choice > p {margin-left: 20px;}
 

@@ -25,11 +25,11 @@
 				<div class="area1">
 					<div name="tk_no">예매번호 :<span id="no">${ticketing.no }</span></div>	
 					<div name="tk_show">상영일 : <span>${ticketing.showDate }</span></div>	
-					<div name="tkt_time">상영시간 : <span>${ticketing.showNo }</span></div>	
+					<div name="tkt_time">상영시간 : <span>11:00</span></div>	
 					<div name="tk_cinema">상영관 : <span> ${ticketing.cinemaName }</span></div>	
 					<div name="tk_price">가격 : &#8361;<span> ${ ticketing.amount }</span></div>	
 					<div name="tk_pay">결제수단 : 	<span>KAKAOPAY</span></div>
-					<div name="tk_date">결제일 : <span>${ticketing.ticketDate }</span></div>
+					<div name="tk_date">결제일 : <span>2022-10-31</span></div>
 				</div>
 				<div class="area2">
 					<div name="tk_title" id="tk_title">영화명 : <span id="title">${ticketing.movieTitle }</span></div>

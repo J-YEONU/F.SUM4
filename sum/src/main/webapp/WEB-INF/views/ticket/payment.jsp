@@ -68,9 +68,9 @@
 	<hr id="hr">
 
 	<div id="paymenttag">    
-		<div>티켓 수량 : <span id="ticket"> 11 </span></div>
-		<div>할인 가격 : <span> </span></div>
-		<div>최종 결제 금액 : <span id="payment"> &#8361; 500,000</span></div>
+		<div>티켓 수량 : <span id="ticket"> 1 </span></div>
+		<div>할인 가격 : <span id="ticket"> 0원 </span></div>
+		<div>최종 결제 금액 : <span id="payment"> &#8361; 12,000</span></div>
 	</div>
 
 	<div id="btn">
@@ -78,13 +78,15 @@
 		<button type="submit" class="btn2">취소</button>
 	</div>
 	
-	<form action="${ path }/ticket/approve" method="get" id="paymentForm">
+	<form action="${ path }/ticket/approve" method="post" id="paymentForm">
 		<input type="hidden" name="movieTitle" value="${ticketing.movieTitle }">
 		<input type="hidden" name="cinemaName" value="${ticketing.cinemaName }">
-		<input type="hidden" name="ticketDate" value="${ticketing.ticketDate }">
+		<input type="hidden" name="showDate" value="${ticketing.showDate }">
 		<input type="hidden" name="showNo" value="${ticketing.showNo }">
 		<input type="hidden" name="seatNo" value="${ticketing.seatNo }">
-		<input type="hidden" name="amount" value="10000">
+		<input type="hidden" name="memberNo" value="${ticketing.memberNo }">
+		<input type="hidden" name="ticketDate" value="2022-10-31">
+		<input type="hidden" name="amount" value="12000">
 	</form>
 </section>
 
@@ -115,7 +117,7 @@
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : '주문명:결제테스트',
-	    amount : 10000, //판매 가격
+	    amount : 12000, //판매 가격
 	    buyer_email : '4sum@sum.com',
 	    buyer_name : '구매자이름',
 	    buyer_tel : '010-1234-5678',
@@ -123,10 +125,6 @@
 }, function(rsp) {
     if ( rsp.success ) {
         var msg = '결제가 완료되었습니다.';
-        msg += '고유ID : ' + rsp.imp_uid;
-        msg += '상점 거래ID : ' + rsp.merchant_uid;
-        msg += '결제 금액 : ' + rsp.paid_amount;
-        msg += '카드 승인번호 : ' + rsp.apply_num;
         
 
         $('#paymentForm').submit();
