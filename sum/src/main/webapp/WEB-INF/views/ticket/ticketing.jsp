@@ -9,15 +9,15 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ path }/resources/css/ticketing/ticketing.css">
-<!-- slick -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- swiper cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-<section id="tSection">
 <form action="${ path }/ticket/seat" method="post">
+<section id="tSection1">
 		<div id="title">영화예매</div>
 	        <span id="infospan">영화 예매를 순서대로 진행해주세요.</span>
 	            <div id="info"><img src="${ path }/resources/image/ticketing/tagbox.png" id="tagbox">
@@ -32,21 +32,27 @@
 	                    </div>
 	            
 		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
-		
-		<!-- 영화 목록 css 수정 예정 -->
-		<div class="movieSection">
-			<div class="movie" >
-				<c:forEach var="movieList" items="${ mlist }">
-			      <div id="selectMovie" class="movieInfo">
-			         <span>
-			         	<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
-		         	</span>   
-			        	 <strong class="mInfo">${ movieList.movieTitle }</strong>
-			      </div>
-				</c:forEach>
-			</div>
+</section>
+
+			<!-- 영화 목록 css 수정 예정 -->
+		<div class="movieSection ">
+		<div class="swiper mySwiper">
+			<ul class="swiper-wrapper">
+					<c:forEach var="movieList" items="${ mlist }">
+				<li class="swiper-slide">
+							<div id="wrap" class="movie">
+					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
+					        	 	<strong>${ movieList.movieTitle }</strong>
+							</div>
+				</li>
+					</c:forEach>
+			</ul>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
 		</div>
-	            
+		</div>
+		
+<section id="tSection2"> 
 		<div id="choice"><span id="Cmovie" style="margin-left: 20px;">선택하신 영화 :  </span> </div>
 		<input type="hidden" name="movieTitle" value="공조2">
 	            
@@ -98,14 +104,12 @@
 				<em id="p2">chosee a seat</em>
 			</button>
 		</div>
-		
+
+</section>
 		</form>
-		
-<script src="${ path }/resources/js/jquery.min_1.12.4.js"></script>
 <script src="${ path }/resources/js/modernizr-custom.js"></script>
 <script src="${ path }/resources/js/ie-checker.js"></script>
-<script src="${ path }/resources/js/swiper.min.js"></script>
-</section>
+
 
 	<!-- 달력에 현재 일자 스크립트 -->
 	<script>
@@ -117,6 +121,19 @@
 	function Cmovie() {
 	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
 	} */
+	
+    //영화차트 이미지 슬라이드
+	 var swiper = new Swiper(".mySwiper", {
+		 slidesPerView : 6,
+	        navigation: {
+	          nextEl: ".swiper-button-next",
+	          prevEl: ".swiper-button-prev",
+	        },
+	        scrollbar: {
+	            el: ".swiper-scrollbar",
+	            hide: true,
+	          },
+	      });
 	
 	
 	$(document).ready(function(){
@@ -164,7 +181,6 @@
 		
 	      $( document ).ready( function() {
 	          var jbText = $( 'div' ).text();
-	          alert( jbText );
 	        } );
 	      
 </script>

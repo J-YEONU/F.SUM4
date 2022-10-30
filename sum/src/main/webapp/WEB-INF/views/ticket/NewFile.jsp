@@ -42,7 +42,7 @@
 				<li class="swiper-slide">
 							<div id="wrap" class="movie">
 					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
-					        	 	<strong>${ movieList.movieTitle }</strong>
+					        	 	<p>${ movieList.movieTitle }</p>
 							</div>
 				</li>
 					</c:forEach>

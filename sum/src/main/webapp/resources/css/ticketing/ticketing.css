@@ -1,7 +1,8 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
-#tSection {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#tSection1 {width: 1200px; margin: auto; margin-top: 50px;}
+#tSection2 {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
 #title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
 #infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
 #info {font-size: 16px; text-align: right; font-weight: bold;}
@@ -20,14 +21,36 @@
 #bottom {margin-bottom: 90px; line-height: 10px}
 
 /* choice */
-#choice, #choiceCinema {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
+#choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
         border-radius: 4px;}
 #choice > p {margin-left: 20px;}
 
+
+/* 영화 목록 */
+
 .movieSection {
-	width: 100%;
+	width: 100%; height: 48%;
+	border: 1px;
 }
 
+
+.movie {
+  width: 285px;  margin-bottom: 20px;
+  background-color: #f3f3f3;
+  float: left;
+}
+
+.movie img {
+	width: 245px; height: 351px;
+	vertical-align: middle;
+}
+
+#wrap {width:275px; padding-top: 10px; line-height: 50px;
+    text-align: center;}
+
+
+
+/* 영화관 */
 .container {
     width: 100%;
     min-width: 1100px;
@@ -41,8 +64,6 @@
     margin: 0;
     padding: 40px 0 0 0;
 }
-
-/* 영화관 */
 
 .movie_title {margin-bottom: 60px;}
 .movie_title ul {overflow: hidden; width: 1050px; margin: 0 auto;}
@@ -67,10 +88,7 @@ ol {
     padding-inline-start: 40px;
 }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
+
 
 .movie-list ol {
     margin-left: -60px;
@@ -95,46 +113,8 @@ li {
 .movie-list > div > ol > li > .infor {background: #fff; text-align: center; border: 1px solid #d9d9d9;}
 .movie-list > div > ol > li > .infor {color: #333; font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-top: 5px; padding-bottom: 5px;}
 
-/* 영화 목록 */
-.movieInfo {
-  margin-top: 15px;
-  width: 220px;
-  cursor: pointer;
-}
-
-      .slider {
-        width: 1800px;
-        margin: 0px auto;
-      }
-      .slider .slick-slide {
-        margin: 10px;
-      }
 
 
-
-
-.movie {
-  display: table;
-  width: 245px; height: 351px; margin-bottom: 20px;
-  background-color: #f3f3f3;
-  overflow: hidden;
-}
-
-.movie .movieInfo + .movieInfo {
-  border-left: 1px solid #ccc;
-  width: 245px;
-  height: 351px;
-  background-size: cover;
-}
-
-.movie .movieInfo {
-  display: table-cell;
-  vertical-align: middle; 
-  text-align: center;
-  padding: 20px;
-}
-
-.movie .movieInfo img {width: 245px; height: 351px;}
 
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
 
