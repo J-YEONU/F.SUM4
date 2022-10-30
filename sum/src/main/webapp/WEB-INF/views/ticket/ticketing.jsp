@@ -34,7 +34,7 @@
 		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 </section>
 
-			<!-- 영화 목록 css 수정 예정 -->
+	<!-- 영화 목록 -->
 		<div class="movieSection ">
 		<div class="swiper mySwiper">
 			<ul class="swiper-wrapper">
@@ -42,7 +42,7 @@
 				<li class="swiper-slide">
 							<div id="wrap" class="movie">
 					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
-					        	 	<strong>${ movieList.movieTitle }</strong>
+					        	 	<p>${ movieList.movieTitle }</p>
 							</div>
 				</li>
 					</c:forEach>
@@ -107,8 +107,6 @@
 
 </section>
 		</form>
-<script src="${ path }/resources/js/modernizr-custom.js"></script>
-<script src="${ path }/resources/js/ie-checker.js"></script>
 
 
 	<!-- 달력에 현재 일자 스크립트 -->
@@ -122,18 +120,7 @@
 	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
 	} */
 	
-    //영화차트 이미지 슬라이드
-	 var swiper = new Swiper(".mySwiper", {
-		 slidesPerView : 6,
-	        navigation: {
-	          nextEl: ".swiper-button-next",
-	          prevEl: ".swiper-button-prev",
-	        },
-	        scrollbar: {
-	            el: ".swiper-scrollbar",
-	            hide: true,
-	          },
-	      });
+
 	
 	
 	$(document).ready(function(){
@@ -183,6 +170,21 @@
 	          var jbText = $( 'div' ).text();
 	        } );
 	      
+</script>
+
+<script>
+//영화차트 이미지 슬라이드
+var swiper = new Swiper(".mySwiper", {
+	 slidesPerView : 6,
+       navigation: {
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev",
+       },
+       scrollbar: {
+           el: ".swiper-scrollbar",
+           hide: true,
+         },
+     });
 </script>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

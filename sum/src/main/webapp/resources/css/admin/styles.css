@@ -2195,7 +2195,6 @@ progress {
   color: #212529;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -11737,7 +11736,7 @@ table.table01 td {padding:10px;vertical-align:middle;text-align:center;border-ri
 
 /* 메인 div */
 .pageMain {
-  border: 1px solid;
+  border: none;
   margin: 2px;
 }
 
