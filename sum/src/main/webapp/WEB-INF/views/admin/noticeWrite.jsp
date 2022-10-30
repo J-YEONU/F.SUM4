@@ -133,7 +133,7 @@
 						                    <div id="cimg">
 						                   	 	<img id="preview">
 						                    </div>
-				                        	<textarea id="content" name="content" cols="100" rows="10" placeholder="공지사항 글을 적어주세요."></textarea>
+				                        	<textarea id="content" name="content" cols="100" rows="10"></textarea>
 						                </td>
 				                    </tr>
 				
