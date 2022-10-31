@@ -43,6 +43,15 @@
 			<!-- 인터셉터 등록 -->
 			<beans:bean id="loginCheckInterceptor" class="com.kh.sum.common.interceptor.LoginCheckInterceptor"/>
 		</interceptor>
+		
+		<interceptor>
+			<!-- 인터셉터를 적용시킬 요청	-->
+			<mapping path="/admin/**"/>
+	
+			
+			<!-- 인터셉터 등록 -->
+			<beans:bean id="adminCheckInterceptor" class="com.kh.sum.common.interceptor.AdminCheckInterceptor"/>
+		</interceptor>
 	</interceptors>
 	
 	
