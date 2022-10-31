@@ -43,8 +43,7 @@ public class TicketingController {
 	
 	// ticketing (영화,영화관 목록)
 	@GetMapping("/ticketing")
-	public ModelAndView ticketing(ModelAndView model,
-	        @SessionAttribute(required = false, name = "loginMember") Member loginMember) {
+	public ModelAndView ticketing(ModelAndView model) {
 		
 		List<MovieList> mlist = null;
 		List<Cinema> cinemaS = null;
@@ -68,6 +67,7 @@ public class TicketingController {
         model.addObject("cinemaGW", cinemaGW);
         model.addObject("cinemaD", cinemaD);
 		model.setViewName("/ticket/ticketing");
+		
 		
 		return model;
 	}
