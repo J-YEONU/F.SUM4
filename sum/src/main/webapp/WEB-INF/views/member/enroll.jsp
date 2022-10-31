@@ -298,27 +298,33 @@
 			});
 		});
 	</script>
+	
 	<script>
 		$(document).ready(function(){
 			//회원가입 버튼(회원가입 기능 작동)
 			$(".join_button").click(function(){
-				if($("#checkDuplicateId").val() == "검사완료"){
-					if($("#checkDuplicateE").val() == "검사완료"){
-						if($("#checkDuplicateP").val() == "검사완료"){
-						//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
-							$("#join_form").attr("action", "${ path }/member/enroll");
-							$("#join_form").submit();
+				if($("#pass1").val() == $("#pass2").val()) {
+					if($("#checkDuplicateId").val() == "검사완료"){
+						if($("#checkDuplicateE").val() == "검사완료"){
+							if($("#checkDuplicateP").val() == "검사완료"){
+							//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
+								$("#join_form").attr("action", "${ path }/member/enroll");
+								$("#join_form").submit();
+							}else{
+								alert("핸드폰 번호 중복검사를 해주세요.")
+							}					
 						}else{
-							alert("핸드폰 번호 중복검사를 해주세요.")
-						}					
+							alert("이메일 중복검사를 해주세요.")
+						}
 					}else{
-						alert("이메일 중복검사를 해주세요.")
+						alert("아이디 중복검사를 해주세요.")
 					}
 				}else{
-					alert("아이디 중복검사를 해주세요.")
-				}
+					alert("비밀번호가 일치하지 않습니다.")
+				}	
 			});
 		});
 	</script>
+	
 </body>
 </html>
