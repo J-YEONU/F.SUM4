@@ -171,39 +171,70 @@
                                         <option value="15">15</option>
                                         <option value="청불">19</option>
                                     </select>
+                                    </td>
+                                </tr>
                                 </div>
                             <div>
-                                동영상 URL : <input type="text" name="movieTrailer">
+                            <tr>
+                                <th>동영상 URL :</th>
+                                <td> 
+                                	<input type="text" name="movieTrailer">
+                            	</td>
+                            </tr>
                             </div>
                             <div>
-                                영화 포스터 사진 : <label for=""></label> <input type="file" name="poster">
+                            <tr>
+                                <th>영화 포스터 사진 :</th> 
+                                <td><label for=""></label> <input type="file" name="poster">
+                            	</td>
+                            </tr>
                             </div>
                             <div class="col">
                                 <div class="fileboxBtn">
                                     <div>
+                                    <tr>
+                                    <th><td>
                                         <label for="uploadImages1"><i class="bi bi-image"></i> 사진 등록 1</label>
                                         <input name="upfile1" type="file" id="uploadImages1"> 
                                         <label for="uploadImages2"><i class="bi bi-image-fill"></i> 사진 등록 2</label>
                                         <input name="upfile2" type="file" id="uploadImages2"> 
+                                    </td>
+                                    </th>
+                                    </tr>
                                     </div>
                                     <div style="margin-top: 10px;">
+                                    <tr>
+                                    <th><td>
                                         <label for="uploadImages3"><i class="bi bi-image-fill"></i> 사진 등록 3</label>
                                         <input name="upfile3" type="file" id="uploadImages3"> 
                                         <label for="uploadImages4"><i class="bi bi-image"></i> 사진 등록 4</label>
                                         <input name="upfile4" type="file" id="uploadImages4"> 
+                                    </td>
+                                    </th>
+                                    </tr>
                                     </div>
-                                    <p class="subText">* 최대 4장 4MB 이하</p>
+                                    <tr><th><td>
+                                    <p style="text-align: center; color: red;" class="subText">* 최대 4장 4MB 이하</p>
+                                	</td></th></tr>
                                 </div>
                             </div>
                             <div>
-                                무비로드 대표사진 : <label for=""></label> <input type="file">
+                            <tr>
+                                <th>무비로드 대표사진 : </th>
+                                <td>
+                                	<label for=""></label> <input type="file">
+                            	</td>
+                            </tr>
                             </div>
                             <div>
-                                줄거리 상세 :
+                            <tr>
+                                <th>줄거리 상세 :</th>
+                            </div>
+                            </tr>
+                            </table>
                                 <div>
                                     <textarea id="summernote" class="summernote" name="movieComment"></textarea>
                                 </div>
-                            </div>
                             <br>
                             <div class="btnzone">
                                 <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
