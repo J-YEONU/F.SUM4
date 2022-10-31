@@ -47,9 +47,9 @@
 
     <div class="poto">
         <h3><img id="tag" src="${ path }/resources/image/tag.png">포토 & 예고편</h3>
-        <p align="center" id="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/M-OsBtkztpQ" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        <p align="center" id="url">
+        ${movieDetail.movieTrailer}
+        </p>
         <div class="filmstrip">  	
 			<c:choose>
 				<c:when test="${ stillCutList.get(0) == null }">
