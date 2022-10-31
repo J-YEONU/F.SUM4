@@ -41,7 +41,7 @@
 					<c:forEach var="movieList" items="${ mlist }">
 				<li class="swiper-slide">
 							<div id="wrap" class="movie">
-					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
+					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }" id="${ movieList.movieTitle }">
 					        	 	<p>${ movieList.movieTitle }</p>
 							</div>
 				</li>
@@ -54,7 +54,7 @@
 		
 <section id="tSection2"> 
 		<div id="choice"><span id="Cmovie" style="margin-left: 20px;">선택하신 영화 :  </span> </div>
-		<input type="hidden" name="movieTitle" value="공조2">
+		<input type="hidden" name="movieTitle" value="선데이리그">
 	            
 		<!-- cinema choice -->
 			<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
@@ -75,8 +75,7 @@
                 <ol class="list" id="movieList">
                 	<c:forEach var="cinema" items="${ cinemaS }">
                     <li>
-                        <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                        <div class="movie-list-info" id="${ cinema.cinemaName }">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -91,7 +90,6 @@
                 	<c:forEach var="cinema" items="${ cinemaGG }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -106,7 +104,6 @@
                 	<c:forEach var="cinema" items="${ cinemaIC }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -121,7 +118,6 @@
                 	<c:forEach var="cinema" items="${ cinemaGW }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -136,7 +132,6 @@
                 	<c:forEach var="cinema" items="${ cinemaD }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -168,7 +163,6 @@
 	    
 	            
 		<div id="choice"><p>선택하신 시간 : 
-				<input type="date" name="showDate">
 				<input type="checkbox" style="margin-left: 20px;"> 11:00
 				<input type="checkbox" style="margin-left: 20px;"> 12:00
 			</p> <div id="result"> </div></div>
@@ -215,21 +209,12 @@
 	
 	
 	$(document).ready(function(){
-        $("#selectMovie").click(function(){
-        	$("#choice").append("<span>"+"공조2"+"</span>")
+        $("#선데이리그").click(function(){
+        	$("#choice").append("<span>"+"선데이리그"+"</span>")
         });
         
-        $("#seoul").click(function(){
-        	$("#cinemaChoice").append(		
-        			"<div class='movie_title'>"+
-        	        "<ul>"+
-                    "<li class='active'>"+"<a href='#'>"+"강남" + "</a>"+"</li>"+
-                    "<li>"+"<a href='#'>" + "홍대" + "</a>"+"</li>"+
-               		 "</ul>"+ "</div>")
-        });
-        
-        $("#seoul").click(function(){
-        	$("#choiceCinema").append("<span>"+"강남"+"</span>")
+        $("#강남점").click(function(){
+        	$("#choiceCinema").append("<span>"+"강남점"+"</span>")
         });
 
     
