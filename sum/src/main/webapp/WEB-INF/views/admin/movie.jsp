@@ -233,7 +233,7 @@
                             </tr>
                             </table>
                                 <div>
-                                    <textarea id="summernote" class="summernote" name="movieComment"></textarea>
+                                    <textarea id="summernote" class="summernote" name="movieSummary"></textarea>
                                 </div>
                             <br>
                             <div class="btnzone">
