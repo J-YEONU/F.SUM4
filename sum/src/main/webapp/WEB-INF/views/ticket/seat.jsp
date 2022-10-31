@@ -80,7 +80,7 @@
 			<em id="p2">chosee a payment</em>
 		</button>
 	</div>
-</forcm>
+</form>
 </section>
 
 <script>
