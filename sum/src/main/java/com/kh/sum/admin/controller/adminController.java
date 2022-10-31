@@ -470,7 +470,24 @@ public class adminController {
         return model;
     }
     
-
+    @GetMapping("/noticeDelete")
+	   public ModelAndView noticeDelete(ModelAndView model, @RequestParam int no) {
+		   int result = 0;
+		   
+		   result = service.NoticeDelete(no);
+		   
+		   if(result > 0) {
+			   model.addObject("msg", "게시글이 정상적으로 삭제되었습니다.");
+			   model.addObject("location", "/admin/noticeList");
+		   } else {
+			   model.addObject("msg", "게시글 삭제를 실패하였습니다.");
+			   model.addObject("location", "/admin/noticeDetail?no=" + no);
+		   }
+		   
+		   model.setViewName("common/msg");
+		   
+		   return model;
+	   }
 	
 	
 

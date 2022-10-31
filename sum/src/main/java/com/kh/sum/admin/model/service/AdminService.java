@@ -54,13 +54,14 @@ public interface AdminService {
 
 	int delete(int no);
 
-	int NoticeDelect(int no);
+	int NoticeDelete(int no);
 
 	int updateReadCount(int no);
 	
 	// 영화관 
 	
     int save(Cinema cinema);
+
 
 
 	
