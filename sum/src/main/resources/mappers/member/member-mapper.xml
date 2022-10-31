@@ -97,8 +97,18 @@
 			MEMBER_DATE = #{birth},
 			MEMBER_EMAIL = #{email},
 			MEMBER_PHONE = #{phone},
-			MEMBER_GENRE = #{genre},
+			MEMBER_GENRE = #{genre},          
 			MEMBER_PWD = #{password}
+		WHERE MEMBER_NO = #{no}
+	</update>
+	
+	<update id="updateaNotPwdMember" parameterType="Member">
+		UPDATE MEMBER SET 
+		MEMBER_NAME = #{name},
+		MEMBER_DATE = #{birth},
+		MEMBER_EMAIL = #{email},
+		MEMBER_PHONE = #{phone},
+		MEMBER_GENRE = #{genre}
 		WHERE MEMBER_NO = #{no}
 	</update>
 	

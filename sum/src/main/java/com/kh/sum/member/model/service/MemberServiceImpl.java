@@ -65,10 +65,15 @@ public class MemberServiceImpl implements MemberService {
 		int result = 0;
 		
 		if(member.getNo() != 0) {
-			// update
-			member.setPassword(passwordEncoder.encode(member.getPassword()));
 			
-			result = mapper.updateMember(member);
+			if(member.getPassword() == "" || member.getPassword() == null) {
+				result = mapper.updateaNotPwdMember(member);
+			} else {
+				// update
+				member.setPassword(passwordEncoder.encode(member.getPassword()));
+				
+				result = mapper.updateMember(member);				
+			}
 			
 		} else {
 			// insert

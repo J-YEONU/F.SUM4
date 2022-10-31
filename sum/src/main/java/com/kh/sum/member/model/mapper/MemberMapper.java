@@ -20,4 +20,6 @@ public interface MemberMapper {
 	int updatePwdMember(Member member);
 
 	int deleteMember(int no);
+
+	int updateaNotPwdMember(Member member);
 }

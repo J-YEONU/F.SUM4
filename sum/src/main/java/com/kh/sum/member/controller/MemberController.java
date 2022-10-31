@@ -401,6 +401,7 @@ public class MemberController {
 		
 		member.setNo(loginMember.getNo());
 		
+		
 		result = service.save(member);
 		
 		if(result > 0) {
