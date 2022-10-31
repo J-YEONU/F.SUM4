@@ -22,10 +22,12 @@
 
 /* choice */
 #choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
-        border-radius: 4px; margin-bottom: 100px;}
+        border-radius: 4px; margin-top: 15px; margin-bottom: 100px;}
 #choice > p {margin-left: 20px;}
-#text, #text > p {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
-        border-radius: 4px; margin-bottom: 100px;}
+#Tchoice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px;}
+#text {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px; border:none; cursor: default;}
 
 
 
@@ -122,7 +124,7 @@ li {
 }
 
 #movieList .movie-list-info img {
-    width: 220px; height: 220px;
+    width: 220px; height: 220px; cursor: pointer;
 }
 
 .movie-list > div > ol > li > .infor {background: #fff; text-align: center; border: 1px solid #d9d9d9;}

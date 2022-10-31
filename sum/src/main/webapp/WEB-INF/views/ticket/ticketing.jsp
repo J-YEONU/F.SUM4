@@ -34,7 +34,7 @@
 		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 </section>
 
-			<!-- 영화 목록 css 수정 예정 -->
+			<!-- 영화 목록 -->
 		<div class="movieSection ">
 		<div class="swiper mySwiper">
 			<ul class="swiper-wrapper">
@@ -161,8 +161,8 @@
 			<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
 		
     
-	           선택하신 시간 :  <input type="text" id="text" />
-		<div id="choice"> 선택하신 시간 : 
+        <div id="Tchoice">&nbsp&nbsp 선택하신 날짜 :  <input type="text" id="text" readonly /> </div>
+		<div id="choice">&nbsp&nbsp 선택하신 시간 : 
 				<input type="checkbox" style="margin-left: 20px;"> 11:00
 				<input type="checkbox" style="margin-left: 20px;"> 12:00
 			
@@ -191,17 +191,18 @@
         var text_input = document.getElementById("text");
         text_input.value = date_input.value;
       };
+      
+      
+    </script>
+    
+    <script>
+    var value = $('#mt').val();
     </script>
 	
 	<script>
 		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
 	
 
-	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
-/* 	document.getElementById("mclick").addEventListener('click', Cmovie);
-	function Cmovie() {
-	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
-	} */
 	
     //영화차트 이미지 슬라이드
 	 var swiper = new Swiper(".mySwiper", {
@@ -218,8 +219,8 @@
 	
 	
 	$(document).ready(function(){
-        $("#선데이리그").click(function(){
-        	$("#choice").append("<span>"+"선데이리그"+"</span>")
+        $("#자백").click(function(){
+        	$("#choice").append("<span>"+"자백"+"</span>")
         });
         
         $("#강남점").click(function(){
