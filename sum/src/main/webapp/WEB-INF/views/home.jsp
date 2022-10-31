@@ -83,18 +83,58 @@
 	                        </div>
 	                        
 	                        <div class="infor">
-	                        
+	                                                
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> 
+			                            <strong>
+				                           <c:choose>
+										        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+										        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+										        </c:when>
+										        <c:otherwise>
+										        <c:out value="${movieList.movieTitle}">
+										        </c:out></c:otherwise>
+											</c:choose>
+			                            </strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_12">${ movieList.movieRating }</span>
+		                   	             <strong>
+				                           <c:choose>
+										        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+										        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+										        </c:when>
+										        <c:otherwise>
+										        <c:out value="${movieList.movieTitle}">
+										        </c:out></c:otherwise>
+											</c:choose>
+			                            </strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
-	                            </c:if>
+		                            <h5><span class="icon gr_15">${ movieList.movieRating }</span>
+	                   	             <strong>
+			                           <c:choose>
+									        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+									        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+									        </c:when>
+									        <c:otherwise>
+									        <c:out value="${movieList.movieTitle}">
+									        </c:out></c:otherwise>
+										</c:choose>
+		                            </strong></h5>
+		                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_18">${ movieList.movieRating }</span>
+	                   	             <strong>
+			                           <c:choose>
+									        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+									        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+									        </c:when>
+									        <c:otherwise>
+									        <c:out value="${movieList.movieTitle}">
+									        </c:out></c:otherwise>
+										</c:choose>
+		                            </strong></h5>
 	                            </c:if>
 	                            <!--  
 	                            <div class="movie_info">
@@ -121,16 +161,56 @@
 	                        <div class="infor">
 	                        
 	                            <c:if test="${movieList.movieRating == '전체'}"> 
-	                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_all">${ movieList.movieRating }</span> 
+			                            <strong>
+				                           <c:choose>
+										        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+										        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+										        </c:when>
+										        <c:otherwise>
+										        <c:out value="${movieList.movieTitle}">
+										        </c:out></c:otherwise>
+											</c:choose>
+			                            </strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '12'}"> 
-	                            <h5><span class="icon gr_12">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_12">${ movieList.movieRating }</span>
+		                   	             <strong>
+				                           <c:choose>
+										        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+										        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+										        </c:when>
+										        <c:otherwise>
+										        <c:out value="${movieList.movieTitle}">
+										        </c:out></c:otherwise>
+											</c:choose>
+			                            </strong></h5>
 	                            </c:if>
 	                            <c:if test="${movieList.movieRating == '15'}"> 
-	                            <h5><span class="icon gr_15">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
-	                            </c:if>
+		                            <h5><span class="icon gr_15">${ movieList.movieRating }</span>
+	                   	             <strong>
+			                           <c:choose>
+									        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+									        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+									        </c:when>
+									        <c:otherwise>
+									        <c:out value="${movieList.movieTitle}">
+									        </c:out></c:otherwise>
+										</c:choose>
+		                            </strong></h5>
+		                            </c:if>
 	                            <c:if test="${movieList.movieRating == '청불'}"> 
-	                            <h5><span class="icon gr_18">${ movieList.movieRating }</span> <strong>${ movieList.movieTitle }</strong></h5>
+		                            <h5><span class="icon gr_18">${ movieList.movieRating }</span>
+	                   	             <strong>
+			                           <c:choose>
+									        <c:when test="${fn:length(movieList.movieTitle) > 7}">
+									        <c:out value="${fn:substring(movieList.movieTitle, 0, 6)}"/>...
+									        </c:when>
+									        <c:otherwise>
+									        <c:out value="${movieList.movieTitle}">
+									        </c:out></c:otherwise>
+										</c:choose>
+		                            </strong></h5>
 	                            </c:if>
 	                            <!--  
 	                            <div class="movie_info">
