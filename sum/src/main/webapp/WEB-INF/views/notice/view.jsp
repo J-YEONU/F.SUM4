@@ -33,7 +33,7 @@
                         <td colspan="4">
 		                    <c:if test="${not empty notice.renamedImg }">
 		                    <div id="cimg">
-		                    <img alt="??" src="${path }/resources//image/notice/${notice.renamedImg}" style="width: 300px">
+		                    <img alt="??" src="${path }/resources//image/notice/${notice.renamedImg}" style="width: 300px; margin-bottom: 50px;">
 		                    </div>
 		                    </c:if>
                     	${ notice.content }</td>
