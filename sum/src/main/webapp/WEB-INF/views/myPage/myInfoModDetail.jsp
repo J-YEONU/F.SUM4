@@ -264,6 +264,7 @@
 		$(document).ready(function(){
 			//회원가입 버튼(회원가입 기능 작동)
 			$(".join_button").click(function(){
+				if($("#pass1").val() == $("#pass2").val()) {
 					if($("#checkDuplicateE").val() == "검사완료"){
 						if($("#checkDuplicateP").val() == "검사완료"){
 						//마지막에 이 아래를 작동시키면 회원가입 내용이 전송된다. 
@@ -275,6 +276,9 @@
 					}else{
 						alert("이메일 중복검사를 해주세요.")
 					}
+				}else{
+					alert("비밀번호가 일치하지 않습니다.")
+				}	
 			});
 		});
 	</script>
