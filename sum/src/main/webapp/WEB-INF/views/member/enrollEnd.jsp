@@ -15,6 +15,11 @@
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+	<div class="ci">
+	<a href="${ path }/">
+		<img width="200px" src="${ path }/resources/image/member/the-sum-of11.png">
+	</a>
+	</div>
     <h1>회원가입완료</h1>
     <h2>SUM에 오신걸 환영합니다.</h2>
     <hr>
