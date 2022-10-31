@@ -68,7 +68,6 @@
 	<input type="hidden" name="showNo" value="${ticketing.showNo }">
 	<input type="hidden" name="seatNo" value="M-4">
 
-</form>
 	<div id="btn">
 		<button type="button" id="btn1" class="btn" onclick="location.href='${ path }/ticket/ticketing'">
 			<p id="p1">PREV STEP</p>
@@ -81,6 +80,7 @@
 			<em id="p2">chosee a payment</em>
 		</button>
 	</div>
+</forcm>
 </section>
 
 <script>
