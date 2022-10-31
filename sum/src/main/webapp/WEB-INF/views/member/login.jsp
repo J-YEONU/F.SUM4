@@ -16,11 +16,12 @@
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<div class="ci">
-		<img width="85px"
-			src="${ path }/resources/image/member/the-sum-of11.png">
-	</div>
 
+	<div class="ci">
+		<a href="${ path }/"> <img width="85px"
+			src="${ path }/resources/image/member/the-sum-of11.png">
+		</a>
+	</div>
 	<div>
 		<h2>당신의 영화를 기억해 드립니다.</h2>
 		<br>
