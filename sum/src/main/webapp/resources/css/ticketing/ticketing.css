@@ -24,6 +24,9 @@
 #choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
         border-radius: 4px; margin-bottom: 100px;}
 #choice > p {margin-left: 20px;}
+#text, #text > p {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px; margin-bottom: 100px;}
+
 
 
 /* 영화 목록 */
@@ -137,6 +140,8 @@ li {
 #calendar {width: 30px;}
 #date {font-weight:bold; font-size:18px; margin-top: 15px;}
 #currentDate {color: rgb(94, 94, 94);}
+
+
 
 #btn {width: 100%; text-align: center; margin-top: 20px;}
 .btn {
