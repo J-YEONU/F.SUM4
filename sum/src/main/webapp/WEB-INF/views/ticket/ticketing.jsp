@@ -8,7 +8,7 @@
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="${ path }/resources/css/ticketing/ticketing.css">
+<link rel="stylesheet" href="${ path }/resources/css/ticketing/ticketing.css?after">
 <!-- swiper cdn -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -40,10 +40,10 @@
 			<ul class="swiper-wrapper">
 					<c:forEach var="movieList" items="${ mlist }">
 				<li class="swiper-slide">
-							<div id="wrap" class="movie">
-					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
-					        	 	<strong>${ movieList.movieTitle }</strong>
-							</div>
+					<div id="wrap" class="movie">
+			         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
+			        	 	<p>${ movieList.movieTitle }</p>
+					</div>
 				</li>
 					</c:forEach>
 			</ul>
@@ -60,7 +60,7 @@
 			<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
 			<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 선택하신 영화가 상영되는 영화관만 표시됩니다.</span></div>
 	    
-			<div id="cinemaChoice">
+			<div id="ontents">
 				<div class="movie_title">
 	                <ul>
 	                    <li class="active" id="seoul"><a href="#">서울</a></li>
@@ -70,7 +70,84 @@
 	                    <li><a href="#">대전/충청</a></li>
 	                </ul>
 	            </div>
-	            
+	            <!-- cinema-list -->
+        <div class="movie-list">
+            <div class="chart_cont1">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaS }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont2">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaGG }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont3">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaIC }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont4">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaGW }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+            <div class="chart_cont5">
+                <ol class="list" id="movieList">
+                	<c:forEach var="cinema" items="${ cinemaD }">
+                    <li>
+                        <div class="movie-list-info">
+                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                            <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
+                        </div>
+                        <div class="infor">
+                            <strong>${ cinema.cinemaName }</strong>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ol>
+            </div>
+        </div>
             </div>
 
 	<div id="choiceCinema"><span id="Cmovie" style="margin-left: 20px;">선택하신 영화관 :  </span> </div>

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
 #tSection1 {width: 1200px; margin: auto; margin-top: 50px;}
-#tSection2 {width: 1200px; margin: auto; margin-top: 50px; margin-bottom: 50px;}
+#tSection2 {width: 1200px; margin: auto; margin-top: 10px; margin-bottom: 50px;}
 #title {font-weight:bold; font-size:32px; margin-bottom: 15px;}
 #infospan {color: rgb(158, 158, 158); font-size: 16px; font-weight: bold; margin-bottom: 20px;}
 #info {font-size: 16px; text-align: right; font-weight: bold;}
@@ -17,11 +17,11 @@
 #tagdiv2, #tagdiv3 { display: inline-block; width: 396px; height: 5px; background-color: rgb(224, 224, 224);}
 
 
-#subtitle {font-weight: bold; font-size: 24px; margin-top: 70px; margin-bottom: 15px;}
+#subtitle {font-weight: bold; font-size: 24px; margin-top: 30px; margin-bottom: 15px;}
 #bottom {margin-bottom: 90px; line-height: 10px}
 
 /* choice */
-#choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 2.5em;
+#choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
         border-radius: 4px;}
 #choice > p {margin-left: 20px;}
 
@@ -33,20 +33,28 @@
 	border: 1px;
 }
 
-
 .movie {
-  width: 285px;  margin-bottom: 20px;
+  width: 285px;  margin-bottom: 50px;
   background-color: #f3f3f3;
   float: left;
 }
+
+.movie p {font-weight: bold;}
 
 .movie img {
 	width: 245px; height: 351px;
 	vertical-align: middle;
 }
 
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+	color: rgb(244, 217, 91); width: 3rem; height: 3rem;
+    border-radius: 1.5rem;
+    background-color: rgb(63, 55, 59); opacity: 1;}
+
+
 #wrap {width:275px; padding-top: 10px; line-height: 50px;
-    text-align: center;}
+    text-align: center; cursor: pointer;}
 
 
 
@@ -67,7 +75,7 @@
 
 .movie_title {margin-bottom: 60px;}
 .movie_title ul {overflow: hidden; width: 1050px; margin: 0 auto;}
-.movie_title li {float: left; width: 210px; text-align: center; border: 1px solid #c4c4c4; margin-right: -1px;}
+.movie_title li {float: left; width: 210px; text-align: center; border: 1px solid #c4c4c4; margin-right: -1px; border-radius: 4px;}
 .movie_title li a {display: block; padding: 15px 0; font-size: 18px; color: #666; font-weight: 700;}
 .movie_title li.active a {background: #333; color: #fff;}
 
@@ -88,11 +96,8 @@ ol {
     padding-inline-start: 40px;
 }
 
-
-
 .movie-list ol {
-    margin-left: -60px;
-}
+    margin-left: -60px;}
 
 .movie-list ol li {
     overflow: hidden;
@@ -113,7 +118,7 @@ ol {
 .movie-list > div > ol > li > .infor {background: #fff; text-align: center; border: 1px solid #d9d9d9;}
 .movie-list > div > ol > li > .infor {color: #333; font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-top: 5px; padding-bottom: 5px;}
 
-
+#choiceCinema {margin-top: 20em; margin: auto;}
 
 
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
