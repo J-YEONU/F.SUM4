@@ -19,12 +19,11 @@
     <h2>SUM에 오신걸 환영합니다.</h2>
     <hr>
     <div class="thanks">
-        포인트 1000점이 적립되었습니다.
-        <br>
+        포인트 1000점이 적립되었습니다.<br><br>
         감사합니다.
     </div>
     <div>
-        <button>로그인</button> <button>홈으로가기</button>
+        <button onclick="location.href='${ path }/member/login'">로그인</button> <button onclick="location.href='${ path }/'">홈으로가기</button>
     </div>
 </body>
 </html>
