@@ -114,7 +114,11 @@
 }
 
 #sc{
-    height: 150px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    object-fit: fill;
+    margin-top: 10px;
 }
 
 .review{
