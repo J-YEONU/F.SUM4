@@ -17,13 +17,18 @@
 #tagdiv2, #tagdiv3 { display: inline-block; width: 396px; height: 5px; background-color: rgb(224, 224, 224);}
 
 
-#subtitle {font-weight: bold; font-size: 24px; margin-top: 30px; margin-bottom: 15px;}
-#bottom {margin-bottom: 90px; line-height: 10px}
+#subtitle {font-weight: bold; font-size: 24px; margin-top: 100px; margin-bottom: 15px; }
+#bottom {margin-bottom: 90px; line-height: 10px; }
 
 /* choice */
 #choice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
-        border-radius: 4px;}
+        border-radius: 4px; margin-top: 15px; margin-bottom: 100px;}
 #choice > p {margin-left: 20px;}
+#Tchoice {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px;}
+#text {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px; border:none; cursor: default;}
+
 
 
 /* 영화 목록 */
@@ -119,13 +124,16 @@ li {
 }
 
 #movieList .movie-list-info img {
-    width: 220px; height: 220px;
+    width: 220px; height: 220px; cursor: pointer;
 }
 
 .movie-list > div > ol > li > .infor {background: #fff; text-align: center; border: 1px solid #d9d9d9;}
 .movie-list > div > ol > li > .infor {color: #333; font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-top: 5px; padding-bottom: 5px;}
 
-#choiceCinema {margin-top: 20em; margin: auto;}
+#choiceCinema {margin-top: 350px; margin-bottom: 100px;}
+#choiceCinema {background-color: rgb(63, 55, 59); font-size: 16px; color: white; line-height: 3em;
+        border-radius: 4px;}
+#choiceCinema > span {margin-left: 20px;}
 
 
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
@@ -134,6 +142,8 @@ li {
 #calendar {width: 30px;}
 #date {font-weight:bold; font-size:18px; margin-top: 15px;}
 #currentDate {color: rgb(94, 94, 94);}
+
+
 
 #btn {width: 100%; text-align: center; margin-top: 20px;}
 .btn {

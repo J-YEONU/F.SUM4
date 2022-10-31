@@ -60,7 +60,7 @@
 
 				</tr>
 			</table>
-			<div>
+			<div class="buttons">
 				<input type="submit" class="findId_button" id="findId_button"
 					value="아이디 찾기">
 			</div>

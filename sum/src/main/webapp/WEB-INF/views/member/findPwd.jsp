@@ -69,7 +69,7 @@
 
 				</tr>
 			</table>
-			<div>
+			<div class="buttons">
 				<input type="submit" class="findId_button" id="findId_button" value="비밀번호 찾기"> 
 			</div>
 		</form>

@@ -34,14 +34,14 @@
 		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화선택</div>
 </section>
 
-			<!-- 영화 목록 css 수정 예정 -->
+			<!-- 영화 목록 -->
 		<div class="movieSection ">
 		<div class="swiper mySwiper">
 			<ul class="swiper-wrapper">
 					<c:forEach var="movieList" items="${ mlist }">
 				<li class="swiper-slide">
 							<div id="wrap" class="movie">
-					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }">
+					         		<img src="${ path }/resources/post/9_10/${ movieList.renamedPoster }" alt="${ movieList.movieTitle }" id="${ movieList.movieTitle }">
 					        	 	<p>${ movieList.movieTitle }</p>
 							</div>
 				</li>
@@ -54,7 +54,7 @@
 		
 <section id="tSection2"> 
 		<div id="choice"><span id="Cmovie" style="margin-left: 20px;">선택하신 영화 :  </span> </div>
-		<input type="hidden" name="movieTitle" value="공조2">
+		<input type="hidden" name="movieTitle" value="선데이리그">
 	            
 		<!-- cinema choice -->
 			<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
@@ -75,8 +75,7 @@
                 <ol class="list" id="movieList">
                 	<c:forEach var="cinema" items="${ cinemaS }">
                     <li>
-                        <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
+                        <div class="movie-list-info" id="${ cinema.cinemaName }">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -91,7 +90,6 @@
                 	<c:forEach var="cinema" items="${ cinemaGG }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -106,7 +104,6 @@
                 	<c:forEach var="cinema" items="${ cinemaIC }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -121,7 +118,6 @@
                 	<c:forEach var="cinema" items="${ cinemaGW }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -136,7 +132,6 @@
                 	<c:forEach var="cinema" items="${ cinemaD }">
                     <li>
                         <div class="movie-list-info">
-                        	 <a href="${path}/cinema/cinemaDetail?no=${ cinema.cinemaNo }" name="no">
                             <img src="${ path }/resources/image/cinema/${ cinema.cinemaImg }" alt="영화관"></a>
                         </div>
                         <div class="infor">
@@ -158,20 +153,20 @@
 			<span id="infospan"><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 영화는 일주일 간격으로 예매가 가능합니다.</span>
 				<div id="date"><img src="${ path }/resources/image/ticketing/calendar_icon.png" id="calendar"> DATE
 						
-						<input type='date' id='currentDate' name="showDate">
+						<input type='date' id='currentDate' name="showDate" onchange="dateChange();" />
 	
 				</div>
 		
 		<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 시간 선택</div>
 			<div id="infospan"><span><img src="${ path }/resources/image/ticketing/mark.png" id="mark"> 시간이 안 나올시 상영날짜를 다시 한번 설정하세요.</span></div>
 		
-	    
-	            
-		<div id="choice"><p>선택하신 시간 : 
-				<input type="date" name="showDate">
+    
+        <div id="Tchoice">&nbsp&nbsp 선택하신 날짜 :  <input type="text" id="text" readonly /> </div>
+		<div id="choice">&nbsp&nbsp 선택하신 시간 : 
 				<input type="checkbox" style="margin-left: 20px;"> 11:00
 				<input type="checkbox" style="margin-left: 20px;"> 12:00
-			</p> <div id="result"> </div></div>
+			
+		</div>
 
 		<input type="hidden" name="memberNo" value="2">
 
@@ -191,14 +186,23 @@
 
 	<!-- 달력에 현재 일자 스크립트 -->
 	<script>
+      var dateChange = () => {
+        var date_input = document.getElementById("currentDate");
+        var text_input = document.getElementById("text");
+        text_input.value = date_input.value;
+      };
+      
+      
+    </script>
+    
+    <script>
+    var value = $('#mt').val();
+    </script>
+	
+	<script>
 		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
 	
 
-	<!-- 영화 선택 시, 선택된 값 출력 스크립트 내용 수정할것. 미구현. -->
-/* 	document.getElementById("mclick").addEventListener('click', Cmovie);
-	function Cmovie() {
-	  document.getElementById("mclick").innerHTML = "${ movieList.movieTitle }";
-	} */
 	
     //영화차트 이미지 슬라이드
 	 var swiper = new Swiper(".mySwiper", {
@@ -215,21 +219,12 @@
 	
 	
 	$(document).ready(function(){
-        $("#selectMovie").click(function(){
-        	$("#choice").append("<span>"+"공조2"+"</span>")
+        $("#자백").click(function(){
+        	$("#choice").append("<span>"+"자백"+"</span>")
         });
         
-        $("#seoul").click(function(){
-        	$("#cinemaChoice").append(		
-        			"<div class='movie_title'>"+
-        	        "<ul>"+
-                    "<li class='active'>"+"<a href='#'>"+"강남" + "</a>"+"</li>"+
-                    "<li>"+"<a href='#'>" + "홍대" + "</a>"+"</li>"+
-               		 "</ul>"+ "</div>")
-        });
-        
-        $("#seoul").click(function(){
-        	$("#choiceCinema").append("<span>"+"강남"+"</span>")
+        $("#강남점").click(function(){
+        	$("#choiceCinema").append("<span>"+"강남점"+"</span>")
         });
 
     

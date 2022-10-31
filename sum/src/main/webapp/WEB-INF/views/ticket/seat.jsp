@@ -39,7 +39,7 @@
 				<% for(int i = 1; i <= 6; i++) { %>
 					<%=i %>
 					<% for(char c = 'A'; c <= 'T' ; c++) { %>
-						<input type="checkbox" name="seat" value="<%=c %>-<%=i %>" onclick='getCheckboxValue()'>
+						<input type="checkbox" name="seat" class="check" value="<%=c %> - <%=i %>" onclick='getCheckboxValue()'>
 					<% } %>
 					<br>
 					
