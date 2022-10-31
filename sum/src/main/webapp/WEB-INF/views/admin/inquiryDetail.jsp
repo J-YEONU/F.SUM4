@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">로그인한 사람의 아이디가 보여지는 곳</div>
+                        <div class="small">${ loginMember.name }님, 관리자 페이지에 접속중입니다.</div>
                     </div>
                 </nav>
             </div>
