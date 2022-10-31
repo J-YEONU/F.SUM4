@@ -246,14 +246,6 @@
 	});
 	
 	</script>
-	
-	<script>
-		$(document).ready(function(){
-			$('#newId').keyup(function(){
-				$('#checkDuplicateId').attr('value','중복확인');
-			});
-		});
-	</script>
 	<script>
 		$(document).ready(function(){
 			$('#email').keyup(function(){
