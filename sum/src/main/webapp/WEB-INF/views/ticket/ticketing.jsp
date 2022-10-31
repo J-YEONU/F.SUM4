@@ -54,7 +54,7 @@
 		
 <section id="tSection2"> 
 		<div id="choice"><span id="Cmovie" style="margin-left: 20px;">선택하신 영화 :  </span> </div>
-		<input type="hidden" name="movieTitle" value="선데이리그">
+		<input type="hidden" name="movieTitle" value="자백">
 	            
 		<!-- cinema choice -->
 			<div id="subtitle"><img src="${ path }/resources/image/ticketing/tag.png" id="tag"> 영화관 선택</div>
