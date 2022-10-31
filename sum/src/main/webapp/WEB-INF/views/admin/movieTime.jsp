@@ -111,26 +111,68 @@
                         <div id="pageMain" class="">
 
                             <div>
+                            <table style=" margin-left: auto; margin-right: auto; margin-bottom: 25px;">
                                 <div>
-                                    상영 영화관: <select name="address" id="cinema">
+                                <tr>
+                                    <th>상영 영화관 :</th>
+                                    <td> <select name="address" id="cinema">
                                                     <option selected>상영 영화관</option>
+                                                    <option value="인제점">인제점</option>
+			                                        <option value="평택점">평택점</option>
+			                                        <option value="강릉점">강릉점</option>
+			                                        <option value="홍대점">홍대점</option>
+			                                        <option value="범계점">범계점</option>
+			                                        <option value="인천점">인천점</option>
+			                                        <option value="계양점">계양점</option>
+			                                        <option value="대전점">대전점</option>
+			                                        <option value="천안점">천안점</option>
                                                 </select>
+                                    </td>            
                                 </div>
                                 <div>
-                                    상영 영화 :
-                                    <select name="address" id="playMovie">
+                                <tr>
+                                    <th>상영 영화 :</th>
+                                    <td>
+                                    <select name="address" id="playMovie" >
                                         <option selected>상영 영화</option>
+                                    	<option value="낮과달">낮과달</option>
+                                        <option value="캐릭터">캐릭터</option>
+                                        <option value="공조2">공조 2</option>
+                                        <option value="귀못">귀못</option>
+                                        <option value="리멤버">리멤버</option>
+                                        <option value="자백">자백</option>
+                                        <option value="스마일">스마일</option>
+                                        <option value="블랙아담">블랙아담</option>
+                                        <option value="블랙 팬서 - 와칸다 포에버">블랙 팬서 - 와칸다 포에버</option>
+                                        <option value="옆집사람">옆집사람</option>
+                                        <option value="분노의 추격자">분노의 추격자</option>
+                                        <option value="극장판 짱구는 못말려">극장판 짱구는 못말려</option>
+                                        <option value="에브리씽 에브리웨어 올 앳 원스">에브리씽 에브리웨어 올 앳 원스</option>
                                     </select>
+                                    </td>
+                                </tr>
                                 </div>
                                 <div class="date_input">
-                                    상영 날짜 : <input type="date" id="date" name="openDate" value>
+                                <tr>
+                                    <th>상영 날짜 :</th>
+                                    <td>
+                                     	<input type="date" id="date" name="openDate" value>
+	                                </td>     
+                                </tr>
                                 </div> 
                                 <div class="date_input">
-                                    종영 날짜 : <input type="date" id="date" name="closeDate" value>
+                                <tr>
+                                    <th>종영 날짜 :</th>
+                                    <td>
+                                     <input type="date" id="date" name="closeDate" value>
+                                    </td>
+                                </tr>
                                 </div> 
                                 <div>
-                                    상영 시간 : 
-                                    <select name="address" id="movieTime">
+                                <tr>
+                                <th>상영 시간 :</th>
+                                <td> 
+                                    <select name="movieTime" id="movieTime">
                                         <option selected>상영 시간</option>
                                         <option value="09">09:00</option>
                                         <option value="10">10:00</option>
@@ -149,9 +191,13 @@
                                         <option value="23">23:00</option>
                                         <option value="24">24:00</option>
                                     </select>
+                                    <input id="result">
+								</td>
+                                </tr>
                                 </div>
                                 
                             
+                            </table>
                             <br>
                             <div class="btnzone">
                                 <button type="submit" class="btn btn-warning btnsize"> 저장 </button>
@@ -165,6 +211,24 @@
                 
             </div>
         </div>
+        <script >
+        function getCheckboxValue()  {
+		  // 선택된 목록 가져오기
+		  const query = 'input[name="movieTime"]:checked';
+		  const selectedEls = 
+		      document.querySelectorAll(query);
+		  
+		  // 선택된 목록에서 value 찾기
+		  let result = '';
+		  selectedEls.forEach((el) => {
+		    result += el.value + ' ';
+		  });
+		  
+		  // 출력
+		  document.getElementById('result').innerText
+		    = result;
+		}
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="${ path }/js/jquery-3.6.0.min.js"></script>
     </body>

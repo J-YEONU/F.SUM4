@@ -211,7 +211,8 @@
             $('#summernote').summernote({
             placeholder: '게시글을 작성해 주세요.',
             tabsize: 2,
-            height: 300
+            height: 300,
+            width: 826
             });
         </script>
     </body>
