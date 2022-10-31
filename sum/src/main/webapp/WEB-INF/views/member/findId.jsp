@@ -44,8 +44,7 @@
 				<tr>
 					<th>이메일</th>
 					<td><input type="email" placeholder="abc@abc.com" name="email"
-						id="email" required> <input type="button"
-						id="checkDuplicateE" value="중복확인"></td>
+						id="email" required></td>
 				</tr>
 				<tr>
 					<td colspan="2">&nbsp;</td>
@@ -53,8 +52,7 @@
 				<tr>
 					<th>핸드폰 번호</th>
 					<td><input type="tel" placeholder="(-없이)01012345678"
-						name="phone" id="phone" maxlength="11" required> <input
-						type="button" id="checkDuplicateP" value="중복확인"></td>
+						name="phone" id="phone" maxlength="11" required></td>
 				</tr>
 				<tr>
 					<td></td>

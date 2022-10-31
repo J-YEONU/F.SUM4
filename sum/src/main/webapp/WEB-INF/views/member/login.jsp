@@ -33,7 +33,7 @@
 			<br> <input type="submit" value="로그인"
 				style="width: 116px; height: 36px;"><br>
 			<br> <a href="${path}/member/findIdPage" style="font-size: 15px;">아이디 찾기</a> 
-				 <a href="${path}/member/findPwdPage" style="font-size: 15px;">비밀번호 찾기</a>
+				 <a href="${path}/member/findPwdPage" style="font-size: 15px;">비밀번호 초기화</a>
 		</form>
 	</div>
 </body>
