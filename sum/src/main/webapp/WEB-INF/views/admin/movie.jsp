@@ -16,7 +16,7 @@
         <title>4SUM</title>
         <!-- 부트스트랩 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css">
+        <link rel="stylesheet" href="${ path }/resources/css/admin/styles.css?after">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         
         <!-- 썸머노트 -->
