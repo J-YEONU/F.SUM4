@@ -157,13 +157,13 @@
     </div>
     <div class="event_left">
         <div class="event_slider">
-            <img src="${ path }/resources/image/main/event01.jpg" srcset="./img/event01@2.jpg 2x" alt="시티 패키지">
+            <img src="${ path }/resources/image/main/event01.jpg" srcset="./img/event01@2.jpg 2x" alt="시티 패키지" style="width: 700px;">
         </div>
         <div class="event_box1">
-            <img src="${ path }/resources/image/main/event02.jpg" srcset="./img/event02@2.jpg 2x" alt="남포항점 2019 시즌할인권">
+            <img src="${ path }/resources/image/main/event02.jpg" srcset="./img/event02@2.jpg 2x" alt="남포항점 2019 시즌할인권" style="height: 350px;">
         </div>
         <div class="event_box2">
-            <img src="${ path }/resources/image/main/event03.jpg" srcset="./img/event03@2.jpg 2x" alt="설 선물 이수점 전용 관람권 런칭">
+            <img src="${ path }/resources/image/main/event03.jpg" srcset="./img/event03@2.jpg 2x" alt="설 선물 이수점 전용 관람권 런칭" style="height: 350px;">
         </div>
     </div>
         <div class="event_right">
@@ -191,7 +191,7 @@
                         2022-10-31<br>
                         SUM에서<br>
                         소식을 만나보세요.
-                        <br>
+                        <br><br>
                         <a href="#">
                             공지사항 >
                         </a>
@@ -203,7 +203,7 @@
                         새로운 이벤트<br>
                         특별한 혜택과 함께<br>
                         영화를 즐겨보세요
-                        <br>
+                        <br><br>
                         <a href="#">
                             이벤트 >
                         </a>
@@ -215,7 +215,7 @@
                         1:1 상담<br>
                         문의사항이나 <br> 
                         불편사항을<br>
-                        이곳에 남겨주세요.
+                        이곳에 남겨주세요.<br>
                         
                         <a href="#">
                             1:1 문의 >

@@ -175,10 +175,10 @@ public class AdminServiceImpl implements AdminService {
     
     @Override
     @Transactional
-    public int NoticeDelect(int no) {
+    public int NoticeDelete(int no) {
     	int result = 0;
     	
-    	result = mapper.noticeDelectStatus(no, "N");
+    	result = mapper.noticeDeleteStatus(no, "N");
     	
     	return result;
     }

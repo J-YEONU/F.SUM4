@@ -362,7 +362,7 @@
 	</update>
 	
 	<!-- 공지사항 삭제 테스트 -->
-	<update id="noticeDeleteStatus" parameterType="Notice">
+	<update id="noticeDeleteStatus" parameterType="map">
 		UPDATE NOTICE SET STATUS = #{status} WHERE NO = #{no}
 	</update>
 	

@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-     <div class="container">
+    
+    	<div class="M-title" style="width: 1100px; margin:0 auto">
 	    <h3 class="title"><strong>무비차트</strong></h3>
 	    <p>생생함이 담긴 영화소식, 다양한 영화를 만나보세요.</p>
+    	</div>
 	
         <div id="demo" class="carousel slide" data-ride="carousel">
 	        <div class="carousel-inner">
@@ -21,12 +23,12 @@
 	        <div class="carousel-item active">
 	            <!--가로-->
 	            <img class="d-block w-100" 
-	            src="${ path }/resources/image/main/banner캐릭터.jpg"
+	            src="${ path }/resources/image/main/banner블랙팬서.jpg"
 	                alt="First slide">
 	        </div>
 	        <div class="carousel-item">
 	            <img class="d-block w-100"
-	            src="${ path }/resources/image/main/banner자백.jpg"
+	            src="${ path }/resources/image/main/banner킹덤2.jpg"
 	            alt="Second slide">
 	        </div>
 	        <!-- 
@@ -61,6 +63,7 @@
 	        <!-- 인디케이터 끝 -->
 	    </div>
     </div>
+     <div class="container">
     <div id="contents">
         <div class="inner-wrap">
             <div class="movie_title" id="myTabs">

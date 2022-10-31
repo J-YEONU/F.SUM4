@@ -106,43 +106,90 @@
                     </div>
                 </nav>
             </div>
+            <form action="${ path }/admin/cinema" method="POST" enctype="multipart/form-data">
             <div id="layoutSidenav_content">
                 <main>
-                        <form action="${ path }/admin/cinema" method="POST" enctype="multipart/form-data">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">영화관 등록</h1>
                             * 관리자로 등록된 회원만 글을 저장 할 수 있습니다.
                         <hr>
                         <div>
 							<div id="cinemaInfo">
+							<table style=" margin-left: auto; margin-right: auto; margin-bottom: 25px;">
 	                            <div>
-	                                영화관 이름 : <input type="text" name="cinemaName">
+	                            <tr>
+	                                <th>영화관 이름 :</th> 
+	                                <td>
+	                                	<input type="text" name="cinemaName">
+		                            </td>  
+	                            </tr>
 	                            </div>
 	                            <div>
-	                                전화 번호 : <input type="text" name="cinemaPhone">
+	                            <tr>
+	                                <th>전화 번호 :</th>
+	                                <td>
+	                                	<input type="text" name="cinemaPhone">
+	                                </td>
+	                            </tr>
 	                            </div>
 	                            <div>
-	                                영화관 사진 : <input type="file" name="upfile">
+	                            <tr>
+	                                <th>영화관 사진 :</th>
+	                                <td>
+	                                	<input type="file" name="upfile">
+	                                </td>
+	                            </tr>
 	                            </div>
 	                            <div>
-	                                좌석 수 : <input type="text" name="cinemaSeatCount">
+	                            <tr>
+	                                <th>좌석 수 :</th>
+	                                <td>
+		                                <input type="text" name="cinemaSeatCount">
+	                                </td>
+	                            </tr>
 	                            </div>
-                            <div class="st_select_area">
-                                지역 선택 :
-                                <select name="cinemaLocal" id="area">
-                                    <option selected>---</option>
-                                    <option value="seoul">서울</option>
-                                    <option value="gyeonggi">경기</option>
-                                    <option value="incheon">인천</option>
-                                    <option value="gangwon">강원</option>
-                                    <option value="daejeon">대전/충청</option>
-                                </select>
-                            </div>
-                                <div>영화관 주소 : <input type="text" name="cinemaAddress"></div>
-                                <div>영화관 X좌표 : <input type="text" name="mapX"></div>
-                                <div>영화관 Y좌표 : <input type="text" name="mapY"></div>
+	                            <div>
+	                            <tr>
+	                                <th>지역 선택 :</th>
+	                                <td>
+	                                <select name="cinemaLocal" id="area">
+	                                    <option selected>--------</option>
+	                                    <option value="seoul">서울</option>
+	                                    <option value="gyeonggi">경기</option>
+	                                    <option value="incheon">인천</option>
+	                                    <option value="gangwon">강원</option>
+	                                    <option value="daejeon">대전/충청</option>
+	                                </select>
+	                                </td>
+	                            </tr>
+	                            </div>
+                                <div>
+                                <tr>
+                                	<th>영화관 주소 :</th>
+                                 	<td>
+	                                 	<input type="text" name="cinemaAddress">
+                                 	</td>
+                                </tr>
+                                </div>
+                                <div>
+                                <tr>
+                                	<th>영화관 X좌표 :</th> 
+                                	<td>
+	                                	<input type="text" name="mapX">
+                                	</td>
+                                </tr>
+                                </div>
+                                <div>
+                                <tr>
+	                                <th>영화관 Y좌표 :</th>
+	                                <td>
+		                                <input type="text" name="mapY">
+	                                </td>
+                                </tr>
+                                </div>
                             </div>
 
+							</table>
                             <div>
                             	<textarea id="summernote" class="summernote" name="cinemaContent"></textarea>
                             </div>
@@ -164,7 +211,7 @@
             $('#summernote').summernote({
             placeholder: '게시글을 작성해 주세요.',
             tabsize: 2,
-            height: 100
+            height: 300
             });
         </script>
     </body>

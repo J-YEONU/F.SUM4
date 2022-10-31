@@ -59,7 +59,7 @@ public interface AdminMapper {
     
     int save(Notice notice);
 
-	int noticeDelectStatus(@Param("no")int no, @Param("status")String string);
+	int noticeDeleteStatus(@Param("no")int no, @Param("status")String string);
 
 	int updateReadCount(int no);
 	
