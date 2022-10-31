@@ -133,7 +133,7 @@
 						                    <div id="cimg">
 						                   	 	<img id="preview">
 						                    </div>
-				                        	<textarea id="content" name="content" cols="100" rows="10"></textarea>
+				                        	<textarea id="content" name="content" cols="60" rows="10" style="margin-top: 50px;"></textarea>
 						                </td>
 				                    </tr>
 				

@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.sum.admin.model.service.AdminService;
+import com.kh.sum.admin.model.vo.MovieTime;
 import com.kh.sum.admin.model.vo.Notice;
 import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.MultipartFileUtil;
@@ -339,11 +340,26 @@ public class adminController {
 	}
 	
 	@PostMapping("/movieTime")
-	public ModelAndView movieTime(ModelAndView model) {
+	public ModelAndView movieTime(ModelAndView model, @ModelAttribute MovieTime movieTime   ) {
 		
+		 int result = 0;
+	        
+	        result = service.save(movieTime);
+	        
+	        if(result > 0) {
+	            model.addObject("msg", "상영시간이 정상적으로 등록되었습니다.");
+	            // 시간저장 
+	            model.addObject("location", "/admin/memberList");
+	        } else {
+	            model.addObject("msg", "상영시간 등록을 실패하였습니다.");
+	            model.addObject("location", "/admin/movieTime");
+	        }
+	        
+	        model.addObject("result", result);
+	        model.setViewName("common/msg");
+	        
+	        return model;
 		
-		
-		return model;
 	}
 
 	/* 공지사항 (등록하기, 목록보기) */
