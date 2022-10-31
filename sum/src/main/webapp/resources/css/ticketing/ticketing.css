@@ -131,7 +131,7 @@ li {
 /* #choicetz {background-color: rgb(249, 249, 249); width: 1200px; height: 50px;} */
 
 /* calendar / btn */
-#calendar {width: 20px;}
+#calendar {width: 30px;}
 #date {font-weight:bold; font-size:18px; margin-top: 15px;}
 #currentDate {color: rgb(94, 94, 94);}
 

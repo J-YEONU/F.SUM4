@@ -168,6 +168,7 @@
 	    
 	            
 		<div id="choice"><p>선택하신 시간 : 
+				<input type="date" name="showDate">
 				<input type="checkbox" style="margin-left: 20px;"> 11:00
 				<input type="checkbox" style="margin-left: 20px;"> 12:00
 			</p> <div id="result"> </div></div>
