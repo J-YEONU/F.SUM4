@@ -119,23 +119,51 @@
                         <div id="pageMain" class="pageMain">
 
                             <div>
+                            <table class="pageTable" style=" margin-left: auto; margin-right: auto; margin-bottom: 25px;">
                                 <div>
-                                    영화이름 : <input type="text" name="movieTitle">
+                                <tr>
+                                    <th>영화이름 :</th> 
+                                    <td>
+                                    	<input type="text" name="movieTitle">
+                                	</td>
+                                </tr>
                                 </div>
                                 <div>
-                                    장르 : <input type="text" name="movieGenre">
+                                <tr>
+                                	<th>장르 :</th>
+                                    <td>
+                                    	<input type="text" name="movieGenre">
+                                	</td>
+                                </tr>
                                 </div>
                                 <div class="date_input">
-                                    개봉일 : <input type="date" id="date" name="movieRelease" >
+                                <tr>
+                                </tr>
+                                    <th>개봉일 : </th>
+                                    <td>
+                                    	<input type="date" id="date" name="movieRelease" >
+                                	</td>
                                 </div> 
                                  <div>
-                                    감독 : <input type="text" name="movieDirector">
+                                 <tr>
+                                    <th>감독 : </th>
+                                    <td>
+                                    	<input type="text" name="movieDirector">
+                                 	</td>
+                                 </tr>
                                 </div>
                                 <div>
-                                    출연진 : <input type="text" name="movieCast">
+                                <tr>
+                                	<th>출연진 : </th>
+                                    <td>
+	                                    <input type="text" name="movieCast">
+                                    </td>
+                                </tr>
                                 </div>
                                 <div class="">
-                                    등급 : 
+                                <tr>
+                                    <th>등급 :</th> 
+                                    <td>
                                     <select name=movieRating id="area" >
                                         <option selected name="movieRating">연령제한</option>
                                         <option value="전체">전체 이용가</option>
