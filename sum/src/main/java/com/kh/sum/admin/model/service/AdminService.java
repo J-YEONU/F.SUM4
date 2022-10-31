@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.sum.admin.model.vo.MovieTime;
 import com.kh.sum.admin.model.vo.Notice;
 import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.PageInfo;
@@ -61,6 +62,8 @@ public interface AdminService {
 	// 영화관 
 	
     int save(Cinema cinema);
+
+	int save(MovieTime movieTime);
 
 
 

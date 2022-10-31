@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.sum.admin.model.mapper.AdminMapper;
+import com.kh.sum.admin.model.vo.MovieTime;
 import com.kh.sum.admin.model.vo.Notice;
 import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.common.util.PageInfo;
@@ -202,6 +203,20 @@ public class AdminServiceImpl implements AdminService {
 	public int updateReadCount(int no) {
 	
 		return mapper.updateReadCount(no);
+	}
+
+	@Override
+	@Transactional
+	public int save(MovieTime movieTime) {
+		int result = 0;
+		
+		if(movieTime.getShowNo() != 0) {
+			
+		} else {
+			// insert
+			result = mapper.insertMovieTime(movieTime);
+		}
+		return result;
 	}
 
 

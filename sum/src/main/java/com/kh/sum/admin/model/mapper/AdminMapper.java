@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
+import com.kh.sum.admin.model.vo.MovieTime;
 import com.kh.sum.admin.model.vo.Notice;
 import com.kh.sum.cinema.model.vo.Cinema;
 import com.kh.sum.member.model.vo.Member;
@@ -68,6 +69,8 @@ public interface AdminMapper {
     int insertCinema(Cinema cinema);
     
     int save(Cinema cinema);
+
+	int insertMovieTime(MovieTime movieTime);
 
 
 

@@ -374,4 +374,39 @@
 	<update id="updateReadCount" parameterType="_int">
 		update notice set READCOUNT = READCOUNT + 1 where NOTICE_NO = #{no}
 	</update>
+	
+	<!-- 무비타임 인설트 -->
+	<resultMap type="MovieTime" id="adminMovieTimeResultMap">
+		<id property="showNo" column="SHOW_NO"/>
+		<result property="cinemaNo" column="CINEMA_NO"/>
+		<result property="time" column="SHOW_TIME"/>
+		<result property="startDate" column="SHOW_START"/>
+		<result property="endDate" column="SHOW_END"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="movieNo" column="MOVIE_NO"/>
+	</resultMap>
+		   
+	   	<!-- 영화관 등록 -->
+	   <insert id="insertMovieTime" parameterType="MovieTime"
+	      useGeneratedKeys="true" keyProperty="showNo" keyColumn="SHOW_NO">
+	      INSERT INTO SHOW_TIME (
+	         SHOW_NO,
+	         CINEMA_NO,
+	         SHOW_TIME,
+	         SHOW_START,
+	         SHOW_END,
+	         MEMBER_NO,
+	         MOVIE_NO
+	      )
+	      VALUES(
+	         SEQ_CINEMA_NO.NEXTVAL,
+	         52,
+	         '10:00',
+	         SYSDATE,
+	         SYSDATE,
+	         1,
+	         1
+	      )
+	   </insert>
+	
 </mapper>

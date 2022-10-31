@@ -123,7 +123,10 @@
                             <div id="top-container">
                                 <div class="inquiryBoard">
                                     <div class="inquiryTitle card"> 문의 내용 </div>
+                                    	<p></p>
+                                    	<p></p>
                                     	<div class="inquiryContents"> ${ qna.content } 
+                                    	<p></p>
                                     		<p>-----------------------------------------------------</p>
                                     		<p>[관리자 답변내용]</p>
                                     		<p>안녕하세요. SUM 관리자입니다.</p>
