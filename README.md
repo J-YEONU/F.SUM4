@@ -1,6 +1,27 @@
-# 4조 영화보조 - SUM : SUPPORT Ur MOVIE
-* 아이콘 이미지 무료 다운로드 사이트 https://www.flaticon.com/
-## ※ 파이널 프로젝트 일정
+# :movie_camera: SUM (SUPPORT Ur MOVIE)
+> 영화 예매 웹사이트  
+> 팀명 : 영화보조
+
+<br/>
+
+## 1. 제작기간 & 참여인원
+- 2022년 08월 16일 ~ 11월 1일
+- 참여인원 : 6명
+
+<br/>
+
+## 2. 사용 기술
+Back-end
+- Java
+- Spring
+
+Front-end
+-
+-
+
+<br/>
+
+
 1. 주제 선정 (08/16 ~ 08/21)
   - 간단하게 주제만 조장 단톡방에 공유해 주세요.
 
