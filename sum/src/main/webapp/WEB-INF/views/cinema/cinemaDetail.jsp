@@ -28,7 +28,7 @@
         <hr>
 
         <div class="button_area">
-            <button onclick="location.href='${ path }/cinema/cinema'">목록</button>
+            <button onclick="location.href='${ path }/cinema/cinema'" style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">목록</button>
         </div>
     </div>
     

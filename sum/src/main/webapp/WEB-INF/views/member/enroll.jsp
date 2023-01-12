@@ -34,7 +34,8 @@
 					</th>
 					<td>
 						<input type="text" name="id" id="newId" placeholder="아이디(4글자이상)" required>
-						<input type="button" id="checkDuplicateId" value="중복확인" >
+						<input type="button" id="checkDuplicateId" value="중복확인" 
+						style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">
 					</td> 			
                 </tr>
                 <tr>
@@ -92,7 +93,8 @@
                     <th>이메일</th>
                     <td>
                         <input type="email" placeholder="abc@abc.com" name="email" id="email" required>
-                        <input type="button" id="checkDuplicateE" value="중복확인" >											
+                        <input type="button" id="checkDuplicateE" value="중복확인" 
+                        style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">											
                     </td> 			
                 </tr>
                 <tr>
@@ -107,7 +109,8 @@
 					<th>핸드폰 번호</th>
 					<td>
 						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required>
-						<input type="button" id="checkDuplicateP" value="중복확인" >								
+						<input type="button" id="checkDuplicateP" value="중복확인" 
+						style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">								
 					</td> 			
                 </tr>
                 <tr>
@@ -157,8 +160,10 @@
                 </tr>
             </table>
             <div class="join">
-			<input type="button" class="join_button" id="enrollSubmit" value="회원가입">	
-            <input type="reset" value="취소">	
+			<input type="button" class="join_button" id="enrollSubmit" value="회원가입"
+			style="width: 116px; height: 36px; background-color: #F1DB61; border-radius: 5px; outline: none; border: 0;">	
+            <input type="reset" value="취소"
+            style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">	
 			</div>
 		</form>
     </div>

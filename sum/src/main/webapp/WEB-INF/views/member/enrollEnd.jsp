@@ -28,7 +28,8 @@
         감사합니다.
     </div>
     <div>
-        <button onclick="location.href='${ path }/member/login'">로그인</button> <button onclick="location.href='${ path }/'">홈으로가기</button>
+        <button onclick="location.href='${ path }/member/login'" style="width: 116px; height: 36px; background-color: #F1DB61; border-radius: 5px; outline: none; border: 0;">로그인</button>
+        <button onclick="location.href='${ path }/'" style="width: 116px; height: 36px; background-color: rgb(233, 233, 233); border-radius: 5px; outline: none; border: 0;">홈으로가기</button>
     </div>
 </body>
 </html>

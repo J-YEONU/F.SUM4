@@ -151,11 +151,12 @@
             </div>
             <div class="chart_cont2">
                 <ol class="list" id="movieList">
-               		<c:forEach var="movieList" items="${ list1 }">
+               		<c:forEach var="movieList" items="${ list1 }" varStatus="ml">
 	                    <li class="no-img">
 	                        <div class="movie-list-info">
-	                     		   <a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
+	                     		<a href="${path}/movie/movieDetail?no=${ movieList.movieNo }" name="no">
 	                            <img src="${ path }/resources/post/9_10/${ movieList.renamedPoster  }" alt="포스터" class="poster lozad" onerror="noImg(this)"></a>
+	                            <div class="rank">${ ml.index +1 }</div>
 	                        </div>
 	                        
 	                        <div class="infor">

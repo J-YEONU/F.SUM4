@@ -27,15 +27,6 @@
 
 }
 
-button {
-    background-color: darkgray;
-    border: 0;
-    border-radius: 10px;
-    width: 90px;
-    height: 40px;
-    font-size: 15px;
-
-}
 
 .button_area {
     text-align: center;

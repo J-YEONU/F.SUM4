@@ -61,8 +61,8 @@
 				</tr>
 			</table>
 			<div class="buttons">
-				<input type="submit" class="findId_button" id="findId_button"
-					value="아이디 찾기">
+				<input type="submit" class="findId_button" id="findId_button" value="아이디 찾기"
+				style="width: 116px; height: 36px; background-color: #F1DB61; border-radius: 5px; outline: none; border: 0;">
 			</div>
 		</form>
 	</div>
